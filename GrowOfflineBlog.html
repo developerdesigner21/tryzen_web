@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Growing Offline Business</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .active {
+            color: #2563eb;
+            font-weight: bold;
+        }
+        .right-section {
+            height: 230vh;
+            position: sticky;
+            top: 0;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 p-10">
+    <nav class="p-3 flex bg-white justify-between items-center fixed top-0 left-0 right-0 z-20 shadow-md">
+        <a href="index.html" id="brand" class="hidden lg:flex gap-2 items-center flex-1">
+            <img class="object-cover" src="./assets/mainLogo.webp" alt="Logo" style="height: 2rem;">
+        </a>
+        <a href="index.html" id="brand" class="lg:hidden gap-2 items-center flex-1">
+            <img class="object-cover" src="./assets/smallLogo.webp" alt="Logo" style="height: 2rem;">
+        </a>
+        <div id="nav-menu" class="hidden md:flex gap-5 lg:gap-12">
+            <a href="index.html#features" class="font-medium hover:text-primary">Features</a>
+            <a href="index.html#why" class="font-medium hover:text-primary">Why Tryzen?</a>
+            <a href="index.html#blogs" class="font-medium hover:text-primary">Blogs</a>
+            <a href="index.html#reviews" class="font-medium hover:text-primary">Reviews</a>
+            <a href="index.html#pricing" class="font-medium hover:text-primary">Pricing</a>
+
+        </div>
+        <div class="flex flex-1 justify-end">
+            <button
+                class="flex gap-2 items-center border border-gray-400 px-1 md:px-4 py-1 md:py-2 rounded-lg hover:border-gray-600">
+                <i class="fa-solid fas fa-calendar-alt"></i>
+                <a target="_blank" href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ2FER0ii8AlZSUfg1KNcGONZ6ZPp-O9Vfl1EZ9nYvqPl0RP60QSDSMJtPCbs5zPUMiFT5zelOzk"
+                    class="text-sm font-display md:font-medium">
+                    SCHEDULE MEETING
+                </a>
+            </button>
+        </div>
+
+        <button class="p-2 lg:hidden" onclick="handleMenu()">
+            <i class="fa-solid fa-bars text-gray-600"></i>
+        </button>
+
+        <div id="nav-dialog" class="hidden fixed z-10 md:hidden bg-white inset-0 p-3">
+            <div id="nav-bar" class="flex justify-between">
+                <a href="#" id="brand" class="flex gap-2 items-center">
+                    <img class="object-cover max-w-12 max-h-12" src="./assets/asset 0.webp" alt="Logo">
+                    <span class="text-lg font-medium font-display">ToDesktop</span>
+                </a>
+                <button class="p-2 md:hidden" onclick="handleMenu()">
+                    <i class="fa-solid fa-xmark text-gray-600"></i>
+                </button>
+            </div>
+            <div class="mt-6">
+                <a href="index.html#features" class="font-medium m-3 p-3 hover:bg-gray-50 block rounded-lg">Features</a>
+                <a href="index.html#why" class="font-medium m-3 p-3 hover:bg-gray-50 block rounded-lg">Why Tryzen?</a>
+                <a href="index.html#blogs" class="font-medium m-3 p-3 hover:bg-gray-50 block rounded-lg">Blogs</a>
+                <a href="index.html#reviews" class="font-medium m-3 p-3 hover:bg-gray-50 block rounded-lg">Reviews</a>
+                <a href="index.html#pricing" class="font-medium m-3 p-3 hover:bg-gray-50 block rounded-lg">Pricing</a>
+            </div>
+            <div class="h-[1px] bg-gray-300"></div>
+            <button class="mt-6 w-full flex gap-2 items-center  px-6 py-4 rounded-lg hover:bg-gray-50">
+                <img src="./assets/asset 1.svg" alt="">
+                <span>Electron Developers</span>
+            </button>
+        </div>
+    </nav>
+    <div class="flex flex-col-reverse md:flex-row gap-5 pt-12 lg:pt-10">
+        <div class="w-full max-w-4xl bg-white mx-auto p-8 shadow-lg rounded-lg">
+            <h1 class="text-2xl md:text-3xl font-bold text-center text-gray-900 mb-4">
+                How to Start Growing Offline Business to Online with My Restaurant’s First Online Ordering Platform
+            </h1>
+
+            <div id="section1" class="mb-12 mt-16">
+                <h2 class="text-xl md:text-2xl font-semibold text-gray-900 mb-4">1. Why Your Restaurant Needs an Online Ordering Platform: <br> Key Benefits and Opportunities</h2>
+                <p class="text-lg text-gray-700 mb-4">
+                    Discuss why it’s essential for restaurants to have an online presence. Highlight benefits such as increased reach, better customer convenience, streamlined operations, and additional revenue streams.
+                </p>
+                <h3 class="text-lg font-bold text-gray-800 mb-2">Key Points:</h3>
+                <ul class="list-disc list-inside text-lg text-gray-700 space-y-2">
+                    <li>Convenience and speed for customers.</li>
+                    <li>Reduced dependency on third-party platforms.</li>
+                    <li>Improved brand loyalty through direct engagement.</li>
+                    <li>Access to valuable customer data for better decision-making.</li>
+                </ul>
+            </div>
+    
+            <div id="section2" class="mb-12">
+                <h2 class="text-xl md:text-2xl font-semibold text-gray-900 mb-4">2. Step-by-Step Guide to Setting Up Your Restaurant’s First Online Ordering Platform</h2>
+                <p class="text-lg text-gray-700 mb-4">
+                    Provide a comprehensive guide for restaurant owners to set up their own online ordering system. Focus on everything from choosing the right platform to launching the service.
+                </p>
+                <h3 class="text-lg font-bold text-gray-800 mb-2">Key Points:</h3>
+                <ul class="list-disc list-inside text-lg text-gray-700 space-y-2">
+                    <li>Deciding between building an in-house platform or using third-party solutions.</li>
+                    <li>Designing a user-friendly online menu.</li>
+                    <li>Integrating payment gateways and ensuring secure transactions.</li>
+                    <li>Setting up logistics for delivery and pickup options.</li>
+                </ul>
+            </div>
+    
+            <div id="section3" class="mb-12">
+                <h2 class="text-xl md:text-2xl font-semibold text-gray-900 mb-4">3. Top 10 Features Your Restaurant’s Online Ordering Platform Must Have</h2>
+                <p class="text-lg text-gray-700 mb-4">
+                    Highlight the must-have features for an effective online ordering platform that ensures smooth user experiences and increases sales.
+                </p>
+                <h3 class="text-lg font-bold text-gray-800 mb-2">Key Points:</h3>
+                <ul class="list-disc list-inside text-lg text-gray-700 space-y-2">
+                    <li>Mobile responsiveness and user-friendly design.</li>
+                    <li>Real-time menu updates.</li>
+                    <li>Customization options for customers.</li>
+                    <li>Integrated loyalty programs and referral systems.</li>
+                    <li>Automated order confirmation and delivery tracking.</li>
+                </ul>
+            </div>
+    
+            <div id="section4" class="mb-12">
+                <h2 class="text-xl md:text-2xl font-semibold text-gray-900 mb-4">4. Strategies to Convert Your Offline Customers into Online Buyers</h2>
+                <p class="text-lg text-gray-700 mb-4">
+                    Share strategies for converting your existing offline customers to use your online platform.
+                </p>
+                <h3 class="text-lg font-bold text-gray-800 mb-2">Key Points:</h3>
+                <ul class="list-disc list-inside text-lg text-gray-700 space-y-2">
+                    <li>Promote your online ordering system in-store with flyers, posters, and QR codes.</li>
+                    <li>Offer exclusive online-only deals.</li>
+                    <li>Use customer data to send personalized SMS or email campaigns.</li>
+                    <li>Train staff to promote the online platform during in-person interactions.</li>
+                </ul>
+            </div>
+
+            <div id="section5" class="mb-12">
+                <h2 class="text-xl md:text-2xl font-semibold text-gray-900 mb-4">5. Integrating Your Online Ordering Platform with POS Systems for Seamless Operations</h2>
+                <p class="text-lg text-gray-700 mb-4">
+                    Guide on integrating online ordering with existing POS systems for streamlined order management, inventory tracking, and customer service.
+                </p>
+                <h3 class="text-lg font-bold text-gray-800 mb-2">Key Points:</h3>
+                <ul class="list-disc list-inside text-lg text-gray-700 space-y-2">
+                    <li>Benefits of integration (real-time updates, better data management).</li>
+                    <li>How to choose a compatible POS system.</li>
+                    <li>Steps for successful integration.</li>
+                </ul>
+            </div>
+
+            <div id="section6" class="mb-12">
+                <h2 class="text-xl md:text-2xl font-semibold text-gray-900 mb-4">6. How to Use Customer Feedback to Improve Your Online Ordering Platform</h2>
+                <p class="text-lg text-gray-700 mb-4">
+                    Focus on the importance of listening to customers and using their feedback to refine the online ordering experience.
+                </p>
+                <h3 class="text-lg font-bold text-gray-800 mb-2">Key Points:</h3>
+                <ul class="list-disc list-inside text-lg text-gray-700 space-y-2">
+                    <li>Set up a feedback loop through surveys and reviews.</li>
+                    <li>Analyze feedback to identify pain points.</li>
+                    <li>Implement changes and communicate updates to customers.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="md:w-1/2 lg:w-1/2 xl:w-1/3 md:right-section">
+            <div class="bg-white rounded-2xl p-3 xl:p-6 shadow-md">
+                <div class="flex items-center mb-4">
+                    <img src="assets/dp.webp" alt="Author" class="w-16 h-16 rounded-full mr-4">
+                    <div>
+                        <h3 class="font-bold text-lg">Amit Lakahani</h3>
+                        <p class="text-gray-500">CEO & Founder of <br> Tryzen Solution</p>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-bold text-gray-700 mb-2">In This Article</h4>
+                    <ul class="text-gray-600 space-y-2">
+                        <li><a href="#section1" class="hover:text-blue-600 nav-link">Why Your Restaurant Needs an Online Ordering Platform</a></li>
+                        <li><a href="#section2" class="hover:text-blue-600 nav-link">Step-by-Step Guide to Setting Up Your Restaurant’s First Online Ordering Platform</a></li>
+                        <li><a href="#section3" class="hover:text-blue-600 nav-link">Top 10 Features Your Restaurant’s Online Ordering Platform Must Have</a></li>
+                        <li><a href="#section4" class="hover:text-blue-600 nav-link">Strategies to Convert Your Offline Customers into Online Buyers</a></li>
+                        <li><a href="#section5" class="hover:text-blue-600 nav-link">Integrating Your Online Ordering Platform with POS Systems for Seamless Operations</a></li>
+                        <li><a href="#section6" class="hover:text-blue-600 nav-link">How to Use Customer Feedback to Improve Your Online Ordering Platform</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-2xl p-3 xl:p-6 shadow-md mt-6 md:mt-8">
+                <div class="text-center">
+                    <div class="flex flex-row items-center justify-between">
+                        <div>
+                            <img src="assets/smallLogo.webp" alt="Tryzen Solution Logo"
+                                class="w-12 h-12 rounded-full mx-auto mb-4">
+                        </div>
+                        <div> 
+                            <div class="flex justify-around items-center gap-2 xl:gap-4 text-sm mb-4">
+                                <div>
+                                    <span class="font-bold text-lg">24</span>
+                                    <p>posts</p>
+                                </div>
+                                <div>
+                                    <span class="font-bold text-lg">55</span>
+                                    <p>followers</p>
+                                </div>
+                                <div>
+                                    <span class="font-bold text-lg">1</span>
+                                    <p>following</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-2">
+                    <h3 class="font-bold text-xl">TryzenSolution</h3>
+                    <p class="mt-2 font-semibold">We help to create <span class="text-pink-500">🎁</span> E-commerce &
+                        restaurant owners to create website and application to <span class="text-green-500">🚀</span>
+                        grow business <span class="text-blue-500">💻</span>.</p>
+                </div>
+                <div class="grid grid-cols-3 gap-2 mt-4">
+                    <img src="assets/s1.webp" alt="Portfolio Image" class="w-full h-full rounded-md shadow-sm">
+                    <img src="assets/s2.webp" alt="Portfolio Image" class="w-full h-full rounded-md shadow-sm">
+                    <img src="assets/s3.webp" alt="Portfolio Image" class="w-full h-full rounded-md shadow-sm">
+                    <img src="assets/s4.webp" alt="Portfolio Image" class="w-full h-full rounded-md shadow-sm">
+                    <img src="assets/s5.webp" alt="Portfolio Image" class="w-full h-full rounded-md shadow-sm">
+                    <img src="assets/s6.webp" alt="Portfolio Image" class="w-full h-full rounded-md shadow-sm">
+                    <img src="assets/s7.webp" alt="Portfolio Image" class="w-full h-full rounded-md shadow-sm">
+                    <img src="assets/s8.webp" alt="Portfolio Image" class="w-full h-full rounded-md shadow-sm">
+                    <img src="assets/s9.webp" alt="Portfolio Image" class="w-full h-full rounded-md shadow-sm">
+                </div>
+            </div>
+
+            <div class="bg-white rounded-2xl p-3 xl:p-6 shadow-md mt-6 md:mt-8">
+                <h3 class="font-bold text-lg mb-4">Other Important Blogs</h3>
+                <ul class="space-y-4">
+                    <li class="flex">
+                        <a href="EnhanceOrderBlog.html" class="flex flex-row hover:text-blue-600">
+                            <img src="assets/buisness3.webp" alt="Blog Image" class="w-12 h-12 rounded-md mr-4">
+                            <div>
+                                <h4 class="font-bold text-sm">5 Proven Ways to Enhance Online Order Profitability and Drive More Revenue for Your Restaurant</h4>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="flex">
+                        <a href="OnlineOrderingBlog.html" class="flex flex-row hover:text-blue-600">
+                            <img src="assets/two.webp" alt="Blog Image" class="w-12 h-12 rounded-md mr-4">
+                            <div>
+                                <h4 class="font-bold text-sm">Step-by-Step Guide How to Prepare Your Restaurant for Seamless Online Ordering Integration</h4>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="flex">
+                        <a href="EnsureConsistencyBlog.html" class="flex flex-row hover:text-blue-600">
+                            <img src="assets/three.webp" alt="Blog Image" class="w-12 h-12 rounded-md mr-4">
+                            <div>
+                                <h4 class="font-bold text-sm">How to Ensure Consistency in Online Orders Across Multiple
+                                    Restaurant Locations</h4>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="flex">
+                        <a href="BrandExperienceBlog.html" class="flex flex-row hover:text-blue-600">
+                            <img src="assets/four.webp" alt="Blog Image" class="w-12 h-12 rounded-md mr-4">
+                            <div>
+                                <h4 class="font-bold text-sm">Creating a Unified Brand Experience: Connecting Your
+                                    Restaurant’s Online and Offline Presence</h4>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="flex">
+                        <a href="ShapingFutureBlog.html" class="flex flex-row hover:text-blue-600">
+                            <img src="assets/five.webp" alt="Blog Image" class="w-12 h-12 rounded-md mr-4">
+                            <div>
+                                <h4 class="font-bold text-sm">How Technology is Shaping the Future of the and how Trends
+                                    Redefining Restaurant Industry</h4>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="flex">
+                        <a href="OnlineReputationBlog.html" class="flex flex-row hover:text-blue-600">
+                            <img src="assets/six.webp" alt="Blog Image" class="w-12 h-12 rounded-md mr-4">
+                            <div>
+                                <h4 class="font-bold text-sm">Boost Your Restaurant’s Online Reputation: How to Ask for
+                                    Reviews Without Sounding Pushy</h4>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <script>
+            const sections = document.querySelectorAll('div[id^="section"]');
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        const id = entry.target.getAttribute('id');
+                        const navLink = document.querySelector(`.nav-link[href="#${id}"]`);
+
+                        if (entry.isIntersecting) {
+                            navLinks.forEach((link) => link.classList.remove('active'));
+                            navLink.classList.add('active');
+                        }
+                    });
+                },
+                { threshold: 0.6 }
+            );
+            sections.forEach((section) => observer.observe(section));
+        </script>
+</body>
+</html>

@@ -1,0 +1,1373 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Passion+One:wght@700&display=swap" rel="stylesheet">
+    <title>Tryzen Solution</title>
+    <link rel="stylesheet" href="dist/styles.css">
+    <style>
+        .passion-one {
+            font-family: 'Passion One', cursive;
+        }
+        .hidden-content {
+            display: none;
+        }
+
+        .second {
+            transform: translateY(-10%)
+        }
+
+        .screen {
+            display: block;
+            width: 100%;
+            height: 350px;
+            overflow: hidden;
+            position: relative;
+            border-radius: 8px;
+            margin: 0 auto;
+        }
+
+        .screen img {
+            width: 100%;
+            height: auto;
+            bottom: -100%;
+            position: absolute;
+            top: 0;
+            z-index: 0;
+            margin: 0;
+            padding: 0;
+            transition: transform 5s ease;
+        }
+
+        .screen:hover img {
+            transform: translateY(-50%);
+        }
+
+        /* #scroll-container {
+            overflow: hidden;
+        }
+
+        .scrolling-wrapper {
+            display: flex;
+            flex-wrap: nowrap;
+            animation: scroll-left 20s linear infinite;
+        }
+
+        .reverse {
+            animation: scroll-right 20s linear infinite;
+        } */
+
+        .item {
+            flex: 0 0 auto;
+            margin-right: 0;
+            width: 100%;
+            max-width: 300px;
+            
+        }
+
+        @media (max-width: 576px) {
+            .item {
+                width: 100%;
+                max-width: 150px;
+            }
+        }
+
+        @keyframes scroll-left {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        @keyframes scroll-right {
+            0% {
+                transform: translateX(-100%);
+            }
+
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        .selected {
+            background-color: #3D51FF;
+            color: white;
+        }
+
+        button {
+            transition: background-color 0.3s ease;
+        }
+
+        .shadow-effect {
+            box-shadow: 0 0 20px rgba(61, 81, 255, 0.8),
+                0 0 40px rgba(61, 81, 255, 0.5),
+                0 0 80px rgba(61, 81, 255, 0.3);
+            border-radius: 20px;
+        }
+
+        .text-stroke {
+            color: #499771;
+            -webkit-text-stroke: 2px #005b40;
+        }
+        .custom-text {
+            font-size: 1.125rem;
+            font-weight: bold;
+            font-family: 'Passion One', cursive;
+            color: #3E87FF;
+        }
+
+        @media (min-width: 768px) {
+            .custom-text {
+                font-size: 4rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    
+    <main>
+        <div class="bg-gradient-to-b from-purple-50 via-orange-50 to-transparent">
+            <div class="bg-transparent p-3 flex justify-between items-center top-0 left-0 right-0 z-50 border border-b">
+                <a href="#" id="brand" class="hidden md:flex gap-2 items-center flex-1">
+                    <img class="object-cover" src="./assets/mainLogo.webp" alt="Logo" style="height: 2rem;">
+                </a>
+                <a href="#" id="brand" class="md:hidden gap-2 items-center flex-1">
+                    <img class="object-cover" src="./assets/smallLogo.webp" alt="Logo" style="height: 2rem;">
+                </a>
+                <div id="nav-menu" class="hidden lg:flex gap-12">
+                    <!-- <a href="#solution" class="font-medium hover:text-primary">Solution</a> -->
+                    <a href="#features" class="font-semibold hover:text-primary text-lg">USP</a>
+                    <a href="#why" class="font-semibold hover:text-primary text-lg">Why TryzenSolution?</a>
+                    <a href="#blogs" class="font-semibold hover:text-primary text-lg">Blogs</a>
+                    <a href="#reviews" class="font-semibold hover:text-primary text-lg">Clients</a>
+                    <!-- <a href="#benefits" class="font-medium hover:text-primary">Benefits</a> -->
+                    <a href="#pricing" class="font-medium hover:text-primary text-lg">Calculate Loss</a>
+        
+                </div>
+                <div class="flex flex-1 justify-end">
+                    <button
+                        style="background-color: #3E87FF;"
+                        class="flex gap-2 items-center border border-2 border-black px-1 md:px-6 py-1 md:py-2 rounded-lg hover:border-gray-600">
+                        <a target="_blank"
+                            href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ2FER0ii8AlZSUfg1KNcGONZ6ZPp-O9Vfl1EZ9nYvqPl0RP60QSDSMJtPCbs5zPUMiFT5zelOzk"
+                            class="text-sm text-white font-bold">
+                            BOOK MEETING
+                        </a>
+                    </button>
+                </div>
+        
+        
+                <button class="p-2 lg:hidden" onclick="handleMenu()">
+                    <i class="fa-solid fa-bars text-gray-600"></i>
+                </button>
+        
+                <div id="nav-dialog" class="hidden fixed z-10 md:hidden bg-white inset-0 p-3">
+                    <div id="nav-bar" class="flex justify-between">
+                        <a href="#" id="brand" class="flex gap-2 items-center">
+                            <img class="object-cover max-w-12 max-h-12" src="./assets/asset 0.webp" alt="Logo">
+                            <span class="text-lg font-medium font-display">ToDesktop</span>
+                        </a>
+                        <button class="p-2 md:hidden" onclick="handleMenu()">
+                            <i class="fa-solid fa-xmark text-gray-600"></i>
+                        </button>
+                    </div>
+                    <div class="mt-6">
+                        <!-- <a href="#solution" class="font-medium m-3 p-3 hover:bg-gray-50 block rounded-lg">Solution</a> -->
+                        <a href="#features" class="font-medium m-3 p-3 hover:bg-gray-50 block rounded-lg">USP</a>
+                        <a href="#why" class="font-medium m-3 p-3 hover:bg-gray-50 block rounded-lg">Why TryzenSolution?</a>
+                        <a href="#blogs" class="font-medium m-3 p-3 hover:bg-gray-50 block rounded-lg">Blogs</a>
+                        <a href="#reviews" class="font-medium m-3 p-3 hover:bg-gray-50 block rounded-lg">Clients</a>
+                        <!-- <a href="#benefits" class="font-medium m-3 p-3 hover:bg-gray-50 block rounded-lg">Benefits</a> -->
+                        <a href="#pricing" class="font-medium m-3 p-3 hover:bg-gray-50 block rounded-lg">Calculate Loss</a>
+                    </div>
+                    <div class="h-[1px] bg-gray-300"></div>
+                    <button class="mt-6 w-full flex gap-2 items-center  px-6 py-4 rounded-lg hover:bg-gray-50">
+                        <img src="./assets/asset 1.svg" alt="">
+                        <span>Electron Developers</span>
+                    </button>
+                </div>
+            </div>
+            <div id="hero-container"
+                class="max-w-4xl mx-auto px-6 pt-6 pb-10 flex flex-col md:items-center md:text-center md:pt-12 md:max-w-4xl">
+                <h1 class="text-xl mt-2 md:mt-4 md:text-4xl font-semibold">ACHIEVE 30% GROW FOR YOUR</h1>
+                <p class="custom-text">RESTAURANT OR STORES</p>
+                <div id="buttons-container" class="mt-2 md:mt-2 flex justify-center mb-4 gap-5">
+                    <button
+                        style="border-color: #3E87FF;"
+                        class="flex bg-white gap-2 items-center border border-2 px-1 md:px-6 py-1 md:py-2 rounded-lg hover:border-blue-900">
+                        <a target="_blank"
+                            href="https://restaurant.tryzensolution.com/"
+                            class="text-sm font-bold">
+                            RESTAURANT DEMO
+                        </a>
+                    </button>
+                    <button
+                        style="border-color: #3E87FF;"
+                        class="flex bg-white gap-2 items-center border border-2 px-1 md:px-6 py-1 md:py-2 rounded-lg hover:border-blue-900">
+                        <a target="_blank"
+                            href="https://knockknock.mx/"
+                            class="text-sm font-bold">
+                            E-STORE DEOM
+                        </a>
+                    </button>
+                </div>
+            </div>
+            <!-- <div id="companies-container" class="flex flex-col gap-10">
+                <div id="scroll-container">
+                    <div id="line1" class="scrolling-wrapper gap-4">
+                        <div class="item"><img src="./assets/medical-store.png" alt=""></div>
+                        <div class="item"><img src="./assets/baby-toy-stores.png" alt=""></div>
+                        <div class="item"><img src="./assets/PET-FOOD-STORE.png" alt=""></div>
+                        <div class="item"><img src="./assets/women-fashion-store.png" alt=""></div>
+                        <div class="item"><img src="./assets/GROCERY-STORE.png" alt=""></div>
+                        <div class="item"><img src="./assets/skin-care-store.png" alt=""></div>
+                        <div class="item"><img src="./assets/gym-fintness-store.png" alt=""></div>
+                        <div class="item"><img src="./assets/asset 11.png" alt=""></div>
+                    </div>
+                    <div id="line2" class="scrolling-wrapper reverse gap-4 mt-8 w-screen">
+                        <div class="item"><img src="./assets/e-bike-store.png" alt=""></div>
+                        <div class="item"><img src="./assets/vape-store.png" alt=""></div>
+                        <div class="item"><img src="./assets/jewellery-store.png" alt=""></div>
+                        <div class="item"><img src="./assets/restaurent-solution.png" alt=""></div>
+                        <div class="item"><img src="./assets/mens-store.png" alt=""></div>
+                        <div class="item"><img src="./assets/food-order-solution.png" alt=""></div>
+                        <div class="item"><img src="./assets/ecommerce-store.png" alt=""></div>
+                    </div>
+                </div>
+            </div> -->
+
+            <div id="companies-container" class="flex flex-col gap-10 overflow-hidden">
+                <div id="lines-group" class="flex flex-col gap-6">
+                    <div id="line1" class="flex gap-4 w-screen  transition-transform ease-linear">
+                        <div
+                            class="item flex flex-col justify-center gap-2 items-center min-w-24 min-h-24 bg-whitemd:min-h-36 md:min-w-36">
+                            <img src="./assets/medical-store.webp" class="w-120 h-120 md:w-200 md:h-200 rounded-lg"
+                                alt="">
+                        </div>
+                        <div
+                            class="item flex flex-col justify-center gap-2 items-center min-w-24 min-h-24 bg-whitemd:min-h-36 md:min-w-36">
+                            <img src="./assets/baby-toy-stores.webp" class="w-120 h-120 md:w-200 md:h-200 rounded-lg"
+                                alt="">
+                        </div>
+                        <div
+                            class="item flex flex-col justify-center gap-2 items-center min-w-24 min-h-24 bg-whitemd:min-h-36 md:min-w-36">
+                            <img src="./assets/PET-FOOD-STORE.webp" class="w-120 h-120 md:w-200 md:h-200 rounded-lg"
+                                alt="">
+                        </div>
+                        <div
+                            class="item flex flex-col justify-center gap-2 items-center min-w-24 min-h-24 bg-whitemd:min-h-36 md:min-w-36">
+                            <img src="./assets/women-fashion-store.webp" class="w-120 h-120 md:w-200 md:h-200 rounded-lg"
+                                alt="">
+                        </div>
+                        <div
+                            class="item flex flex-col justify-center gap-2 items-center min-w-24 min-h-24 bg-whitemd:min-h-36 md:min-w-36">
+                            <img src="./assets/GROCERY-STORE.webp" class="w-120 h-120 md:w-200 md:h-200 rounded-lg"
+                                alt="">
+                        </div>
+                        <div
+                            class="item flex flex-col justify-center gap-2 items-center min-w-24 min-h-24 bg-whitemd:min-h-36 md:min-w-36">
+                            <img src="./assets/skin-care-store.webp" class="w-120 h-120 md:w-200 md:h-200 rounded-lg"
+                                alt="">
+                        </div>
+                        <div
+                            class="item flex flex-col justify-center gap-2 items-center min-w-24 min-h-24 bg-whitemd:min-h-32 md:min-w-32">
+                            <img src="./assets/gym-fintness-store.webp" class="w-120 h-120 md:w-250 md:h-250 rounded-lg"
+                                alt="">
+                        </div>
+                        <div
+                            class="item flex flex-col justify-center gap-2 items-center min-w-24 min-h-24 bg-whitemd:min-h-36 md:min-w-36">
+                            <img src="./assets/asset 10.webp" class="w-120 h-120 md:w-200 md:h-200 rounded-lg" alt="">
+                        </div>
+                    </div>
+                    <div id="line2" class="flex gap-4 w-screen transition-transform ease-linear">
+                        <div
+                            class="item flex flex-col justify-center gap-2 items-center min-w-24 min-h-24 bg-whitemd:min-h-36 md:min-w-36">
+                            <img src="./assets/e-bike-store.webp" class="w-120 h-120 md:w-200 md:h-200 rounded-lg"
+                                alt="">
+                        </div>
+                        <div
+                            class="item flex flex-col justify-center gap-2 items-center min-w-24 min-h-24 bg-whitemd:min-h-36 md:min-w-36">
+                            <img src="./assets/vape-store.webp" class="w-120 h-120 md:w-200 md:h-200 rounded-lg" alt="">
+                        </div>
+                        <div
+                            class="item flex flex-col justify-center gap-2 items-center min-w-24 min-h-24 bg-whitemd:min-h-36 md:min-w-36">
+                            <img src="./assets/jewellery-store.webp" class="w-120 h-120 md:w-200 md:h-200rounded-lg"
+                                alt="">
+                        </div>
+                        <div
+                            class="item flex flex-col justify-center gap-2 items-center min-w-24 min-h-24 bg-whitemd:min-h-36 md:min-w-36">
+                            <img src="./assets/restaurent-solution.webp" class="w-120 h-120 md:w-200 md:h-200 rounded-lg"
+                                alt="">
+                        </div>
+                        <div
+                            class="item flex flex-col justify-center gap-2 items-center min-w-24 min-h-24 bg-whitemd:min-h-36 md:min-w-36">
+                            <img src="./assets/mens-store.webp" class="w-120 h-120 md:w-200 md:h-200 rounded-lg" alt="">
+                        </div>
+                        <div
+                            class="item flex flex-col justify-center gap-2 items-center min-w-24 min-h-24 bg-whitemd:min-h-36 md:min-w-36">
+                            <img src="./assets/food-order-solution.webp" class="w-120 h-120 md:w-200 md:h-200 rounded-lg"
+                                alt="">
+                        </div>
+                        <div
+                            class="item flex flex-col justify-center gap-2 items-center min-w-24 min-h-24 bg-whitemd:min-h-36 md:min-w-36">
+                            <img src="./assets/ecommerce-store.webp" class="w-120 h-120 md:w-200 md:h-200 rounded-lg"
+                                alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- <div id="companies-container" class="flex flex-col gap-10">
+                <div id="companies-title" class="flex justify-center gap-2">
+                    <img class="translate-y-2" src="./assets/asset 2.svg" alt="">
+                    <span class="font-semibold">SOLUTION WE WORKED ON</span>
+                    <img class="-scale-x-100 translate-y-2" src="./assets/asset 2.svg" alt="">
+                </div>
+                <div id="lines-group" class="flex flex-col gap-6">
+                    <div id="line1" class="flex gap-4 w-screen -translate-x-48 transition-transform ease-linear">
+                        <div
+                            class="flex flex-col justify-center gap-2 items-center min-w-24 min-h-24 bg-whitemd:min-h-32 md:min-w-32">
+                            <img src="./assets/medical-store.webp" class="w-120 h-120 md:w-160 md:h-160 rounded-lg"
+                                alt="">
+                        </div>
+                        <div
+                            class="flex flex-col justify-center gap-2 items-center min-w-24 min-h-24 bg-whitemd:min-h-32 md:min-w-32">
+                            <img src="./assets/baby-toy-stores.webp" class="w-120 h-120 md:w-160 md:h-160 rounded-lg"
+                                alt="">
+                        </div>
+                        <div
+                            class="flex flex-col justify-center gap-2 items-center min-w-24 min-h-24 bg-whitemd:min-h-32 md:min-w-32">
+                            <img src="./assets/PET-FOOD-STORE.webp" class="w-120 h-120 md:w-160 md:h-160 rounded-lg"
+                                alt="">
+                        </div>
+                        <div
+                            class="flex flex-col justify-center gap-2 items-center min-w-24 min-h-24 bg-whitemd:min-h-32 md:min-w-32">
+                            <img src="./assets/women-fashion-store.webp" class="w-120 h-120 md:w-160 md:h-160 rounded-lg"
+                                alt="">
+                        </div>
+                        <div
+                            class="flex flex-col justify-center gap-2 items-center min-w-24 min-h-24 bg-whitemd:min-h-32 md:min-w-32">
+                            <img src="./assets/GROCERY-STORE.webp" class="w-120 h-120 md:w-160 md:h-160 rounded-lg"
+                                alt="">
+                        </div>
+                        <div
+                            class="flex flex-col justify-center gap-2 items-center min-w-24 min-h-24 bg-whitemd:min-h-32 md:min-w-32">
+                            <img src="./assets/skin-care-store.webp" class="w-120 h-120 md:w-160 md:h-160 rounded-lg"
+                                alt="">
+                        </div>
+                        <div
+                            class="flex flex-col justify-center gap-2 items-center min-w-24 min-h-24 bg-whitemd:min-h-32 md:min-w-32">
+                            <img src="./assets/gym-fintness-store.webp" class="w-120 h-120 md:w-160 md:h-160 rounded-lg"
+                                alt="">
+                        </div>
+                        <div
+                            class="flex flex-col justify-center gap-2 items-center min-w-24 min-h-24 bg-whitemd:min-h-32 md:min-w-32">
+                            <img src="./assets/asset 10.webp" class="w-120 h-120 md:w-160 md:h-160 rounded-lg" alt="">
+                        </div>
+                    </div>
+                    <div id="line2" class="flex gap-4 w-screen -translate-x-36 transition-transform ease-linear">
+                        <div
+                            class="flex flex-col justify-center gap-2 items-center min-w-24 min-h-24 bg-whitemd:min-h-32 md:min-w-32">
+                            <img src="./assets/e-bike-store.webp" class="w-120 h-120 md:w-160 md:h-160 rounded-lg"
+                                alt="">
+                        </div>
+                        <div
+                            class="flex flex-col justify-center gap-2 items-center min-w-24 min-h-24 bg-whitemd:min-h-32 md:min-w-32">
+                            <img src="./assets/vape-store.webp" class="w-120 h-120 md:w-160 md:h-160 rounded-lg" alt="">
+                        </div>
+                        <div
+                            class="flex flex-col justify-center gap-2 items-center min-w-24 min-h-24 bg-whitemd:min-h-32 md:min-w-32">
+                            <img src="./assets/jewellery-store.webp" class="w-120 h-120 md:w-160 md:h-160 rounded-lg"
+                                alt="">
+                        </div>
+                        <div
+                            class="flex flex-col justify-center gap-2 items-center min-w-24 min-h-24 bg-whitemd:min-h-32 md:min-w-32">
+                            <img src="./assets/restaurent-solution.webp" class="w-120 h-120 md:w-160 md:h-160 rounded-lg"
+                                alt="">
+                        </div>
+                        <div
+                            class="flex flex-col justify-center gap-2 items-center min-w-24 min-h-24 bg-whitemd:min-h-32 md:min-w-32">
+                            <img src="./assets/mens-store.webp" class="w-120 h-120 md:w-160 md:h-160 rounded-lg" alt="">
+                        </div>
+                        <div
+                            class="flex flex-col justify-center gap-2 items-center min-w-24 min-h-24 bg-whitemd:min-h-32 md:min-w-32">
+                            <img src="./assets/food-order-solution.webp" class="w-120 h-120 md:w-160 md:h-160 rounded-lg"
+                                alt="">
+                        </div>
+                        <div
+                            class="flex flex-col justify-center gap-2 items-center min-w-24 min-h-24 bg-whitemd:min-h-32 md:min-w-32">
+                            <img src="./assets/ecommerce-store.webp" class="w-120 h-120 md:w-160 md:h-160 rounded-lg"
+                                alt="">
+                        </div>
+                        <div
+                            class="flex flex-col justify-center gap-2 items-center min-w-24 min-h-24 bg-whitemd:min-h-32 md:min-w-32">
+                            <img src="./assets/asset 22.webp" class="w-120 h-120 md:w-160 md:h-160 rounded-lg" alt="">
+                        </div>
+                        <div
+                            class="flex flex-col justify-center gap-2 items-center min-w-24 min-h-24 bg-whitemd:min-h-32 md:min-w-32">
+                            <img src="./assets/asset 23.webp" class="w-120 h-120 md:w-160 md:h-160 rounded-lg" alt="">
+                        </div>
+                        <div
+                            class="flex flex-col justify-center gap-2 items-center min-w-24 min-h-24 bg-whitemd:min-h-32 md:min-w-32">
+                            <img src="./assets/asset 24.webp" class="w-120 h-120 md:w-160 md:h-160 rounded-lg" alt="">
+                        </div>
+                        <div
+                            class="flex flex-col justify-center gap-2 items-center min-w-24 min-h-24 bg-whitemd:min-h-32 md:min-w-32">
+                            <img src="./assets/asset 25.webp" class="w-120 h-120 md:w-160 md:h-160 rounded-lg" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+
+        <section id="features" class="px-2 md:px-6 lg:px-12 pt-8 md:pt-16">
+            <div class="bg-green-100 rounded-xl py-5 md:pt-16 md:pb-16">
+                <div class="text-center">
+                    <p class="text-black font-semibold text-center text-xl lg:text-4xl md:text-4xl mb-4">
+                        Grow multi Branch Resturent with
+                    </p>
+                    <h1 class="text-2xl md:text-5xl lg:text-6xl font-bold text-stroke mb-5 md:mb-10">
+                        30% PROFIT GROWTH
+                    </h1>
+                </div>
+
+                <div class="grid grid-cols-[repeat(auto-fill,minmax(260px,1fr))] gap-6 lg:gap-8 px-6">
+
+                    <div class="p-2 md:p-6 rounded-lg border-2 border-[#D4D4D4] text-center" style="background-color:#E0F8F2;">
+                        <img src="assets/p1.webp" alt="Coupon" class="mx-auto mb-4 h-40" />
+                        <h3 class="text-md md:text-xl font-bold mb-2">Grow Online Presence with <br> website & application</h3>
+                        <p class="text-gray-700 text-sm font-semibold mt-3 md:mt-6">It offer interactive features such as easy
+                            order, and personalised recommendations, enhancing customer engagement.</p>
+                    </div>
+
+                    <div class="p-2 md:p-6 rounded-lg border-2 border-[#D4D4D4] text-center" style="background-color:#FFEECB;">
+                        <img src="assets/p2.webp" alt="Flash Sale" class="mx-auto mb-4 h-40" />
+                        <h3 class="text-md md:text-xl font-bold mb-2">Multi Store with <br> RealTime Dashboard</h3>
+                        <p class="text-gray-700 text-sm font-semibold mt-3 md:mt-6">It help to Manage multiple stores with
+                            real-time data, centralized control, and seamless customer experience</p>
+                    </div>
+
+                    <div class="p-2 md:p-6 rounded-lg border-2 border-[#D4D4D4] text-center"
+                        style="background-color: #F1F1F1;">
+                        <img src="assets/p3.webp" alt="Dashboard" class="mx-auto mb-4 h-40" />
+                        <h3 class="text-md md:text-xl font-bold mb-2">Faster Speed with <br> best tech stack</h3>
+                        <p class="text-gray-700 text-sm font-semibold mt-3 md:mt-6">It ensures faster speed, optimised
+                            performance, This tech used by Uber, Instagram, DoorDash and other big company</p>
+                    </div>
+
+                    <div class="p-2 md:p-6 rounded-lg border-2 border-[#D4D4D4] text-center"
+                        style="background-color: #D9F2F7;">
+                        <img src="assets/p4.webp" alt="Dashboard" class="mx-auto mt-4 h-40" />
+                        <h3 class="text-md md:text-xl font-bold mb-2">Quick Delivery with <br> Uber Direct | Doordash</h3>
+                        <p class="text-gray-700 text-sm font-semibold mt-3 md:mt-6">This Feature Enable quick deliveries using
+                            Uber Direct & DoorDash for seamless logistics and faster service.</p>
+                    </div>
+
+                    <div class="p-2 md:p-6 rounded-lg border-2 border-[#D4D4D4] text-center"
+                        style="background-color: #DAFFF6;">
+                        <img src="assets/p5.webp" alt="WhatsApp Marketing" class="mx-auto mb-4 h-40" />
+                        <h3 class="text-md md:text-xl font-bold mb-2">WhatsApp Marketing with <br> Review Offer campaign</h3>
+                        <p class="text-gray-700 text-sm font-semibold mt-3 md:mt-6">Unlike CPCs, postage rates don’t change
+                            based on competition or who
+                            you’re targeting.</p>
+                    </div>
+
+                    <div class="p-2 md:p-6 rounded-lg border-2 border-[#D4D4D4] text-center"
+                        style="background-color: #EEECFF;">
+                        <img src="assets/p6.webp" alt="Google Growth" class="mx-auto mb-4 h-40" />
+                        <h3 class="text-md md:text-xl font-bold mb-2">Google Ranking & Social <br> media marketing</h3>
+                        <p class="text-gray-700 text-sm font-semibold mt-3 md:mt-6">We help Combining Google ranking with social
+                            media marketing creates a powerful strategy to drive visitors into customers.</p>
+                    </div>
+
+                    <div class="p-2 md:p-6 rounded-lg border-2 border-[#D4D4D4] text-center"
+                        style="background-color: #FDF3EA;">
+                        <img src="assets/p7.webp" alt="Service" class="mx-auto mb-4 h-40" />
+                        <h3 class="text-md md:text-xl font-bold mb-2">Create Offer Page & <br> Coupon Code</h3>
+                        <p class="text-gray-700 text-sm font-semibold mt-3 md:mt-6">Boost sales by offering deals and coupons,
+                            attract new customers, and increase repeat orders.</p>
+                    </div>
+
+                    <div class="p-2 md:p-4 rounded-lg border-2 border-[#D4D4D4] text-center"
+                        style="background-color: #FFEFBA;">
+                        <img src="assets/p8.webp" alt="Delivery" class="mx-auto my-2 h-40" />
+                        <h3 class="text-md md:text-xl font-bold mb-2">It help Decision making, <br> Analysis, Data Collection</h3>
+                        <p class="text-gray-700 text-sm font-semibold mt-3 md:mt-6">POS aids decision-making with real-time
+                            data, sales analysis, inventory tracking, and insights.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="why" class="px-2 md:px-6 lg:px-12 pt-8 md:pt-16">
+            <div class="rounded-xl py-5 md:pt-12 md:pb-12" style="background-color: #F9F9F9;">
+                <div class="px-2 md:px-6 lg:px-12 relative">
+                    <div class="text-center mb-10">
+                        <p class="text-xl md:text-3xl text-black font-semibold mb-4">Why to choose</p>
+                        <p class="text-black font-bold text-center text-2xl md:text-4xl px-8 mt-10">TRYZEN SOLUTION</p>
+                    </div>
+
+                    <div class="flex flex-col lg:flex-row gap-8">
+                        <div class="flex flex-col gap-4 w-full lg:w-1/2">
+                            <div class="relative bg-white rounded-2xl p-4 flex flex-col border border-gray-200">
+                                <h3 class="text-sm md:text-lg font-bold text-gray-800 mb-2">Manage Multiple outlets with online
+                                    Ordering</h3>
+                                <p class="text-sm md:text-md text-gray-600 font-semibold">
+                                    We provide a centralized control system that allows restaurant owners to manage
+                                    real-time inventory, unified customer data, track sales, and enhance customer
+                                    experience.
+                                </p>
+                                <div class="pt-6">
+                                    <img src="assets/salesInfo.webp" alt="Sales Info" class="mx-auto rounded-xl" />
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <div
+                                    class="bg-white rounded-2xl p-2 flex flex-col items-center border border-gray-300 w-1/2">
+                                    <img src="assets/pos.webp" alt="POS System" class="rounded-xl mb-2">
+                                    <p class="text-sm md:text-md text-gray-600 font-semibold text-center">
+                                        POS tracks orders & customer info, improves accuracy, personalizes service, and
+                                        boosts sales.
+                                    </p>
+                                </div>
+                                <div
+                                    class="bg-white rounded-2xl p-2 flex flex-col items-center border border-gray-300 w-1/2">
+                                    <img src="assets/webApp.webp" alt="Website & Application" class="rounded-xl mb-2">
+                                    <p class="text-sm md:text-md text-gray-600 font-semibold text-center">
+                                        NO commissions, brand control, direct customer engagement, data insights, better
+                                        management.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col gap-8 w-full lg:w-1/2">
+                            <div class="relative bg-white rounded-2xl p-6 flex flex-col border border-gray-200">
+                                <h3 class="text-sm md:text-lg font-bold text-gray-800 mb-2">Customer Data Driven Marketing
+                                    Strategies</h3>
+                                <p class="text-sm md:text-md text-gray-600 font-semibold mb-5">
+                                    Our pricing is month to month. We don’t believe in locking you into long-term
+                                    contracts. We believe in earning your business every month.
+                                </p>
+                                <div class="pt-6">
+                                    <img src="assets/customers.webp" alt="Strategy" class="mx-auto rounded-xl">
+                                </div>
+                            </div>
+
+                            <div class="relative bg-white rounded-2xl p-6 flex flex-col border border-gray-200">
+                                <h3 class="text-sm md:text-lg font-bold text-gray-800 mb-2">Full Control Over Brand Experience</h3>
+                                <p class="text-sm md:text-md text-gray-600 font-semibold text-gray-600 font-semibold mb-5">
+                                    Save 25-30% Commission and also ensures better control, profitability, and the
+                                    ability to deliver a truly personalised customer experience.
+                                </p>
+                                <div class="pt-6">
+                                    <img src="assets/brand.webp" alt="Brand Control" class="mx-auto rounded-xl">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="blogs" class="md:px-6 lg:px-12 pt-8 md:pt-16">
+            <div class="rounded-xl py-5 md:pt-12 md:pb-10 px-6 lg:px-10" style="background-color: #F9F9F9;">
+                <div class="text-center mb-5">
+                    <p class="text-black text-xl md:text-4xl md:text-3xl font-semibold mb-2">Here's how you can start</p>
+                    <h1 class="text-black font-bold text-2xl md:text-5xl">
+                        To Grow Business Online
+                    </h1>
+                </div>
+
+                <div class="flex flex-col mx-2">
+                    <div class="flex flex-col mt-4 md:p-2 p-1">
+                        <div class="flex flex-col flex-wrap gap-4 mb-6 md:flex-row justify-center">
+                            <button id="btn1"
+                                class="border-solid border-2 border-gray-300 bg-white text-blue-800 py-3 px-2 md:px-5 rounded-lg flex items-center shadow-sm transition-all duration-300 hover:bg-blue-600 hover:text-white">
+                                <img src="assets/increase.webp" alt="Increase Sales" class="mr-3" style="height:16px;">
+                                <p class="text-sm md:text-md font-bold">How to increases Profitability in online order
+                                </p>
+                            </button>
+                            <button id="btn2"
+                                class="border-solid border-2 border-gray-300 bg-white text-blue-800 py-3 px-2 md:px-5 rounded-lg flex items-center shadow-sm transition-all duration-300 hover:bg-blue-600 hover:text-white">
+                                <img src="assets/menu.webp" alt="Restaurant Software" class="mr-3" style="height:20px;">
+                                <p class="text-sm md:text-md font-bold">How I can Start My online Order Journey</p>
+                            </button>
+                            <button id="btn3"
+                                class="border-solid border-2 border-gray-300 bg-white text-blue-800 py-3 px-2 md:px-5 rounded-lg flex items-center shadow-sm transition-all duration-300 hover:bg-blue-600 hover:text-white">
+                                <img src="assets/strategy.webp" alt="Marketing Strategy" class="mr-3"
+                                    style="height:20px;">
+                                <p class="text-sm md:text-md font-bold">How To Manage Multi-Location Restaurants</p>
+                            </button>
+                            <button id="btn4"
+                                class="border-solid border-2 border-gray-300 bg-white text-blue-800 py-3 px-2 md:px-5 rounded-lg flex items-center shadow-sm transition-all duration-300 hover:bg-blue-600 hover:text-white">
+                                <img src="assets/block.webp" alt="Increase Sales" class="mr-3" style="height:16px;">
+                                <p class="text-sm md:text-md font-bold">Unique Brand Identity for My Restaurant</p>
+                            </button>
+                            <button id="btn5"
+                                class="border-solid border-2 border-gray-300 bg-white text-blue-800 py-3 px-2 md:px-5 rounded-lg flex items-center shadow-sm transition-all duration-300 hover:bg-blue-600 hover:text-white">
+                                <img src="assets/trends.webp" alt="Industry Trends" class="mr-3" style="height:20px;">
+                                <p class="text-sm md:text-md font-bold">What are Upcoming Industry Trends</p>
+                            </button>
+                            <button id="btn6"
+                                class="border-solid border-2 border-gray-300 bg-white text-blue-800 py-3 px-2 md:px-5 rounded-lg flex items-center shadow-sm transition-all duration-300 hover:bg-blue-600 hover:text-white">
+                                <img src="assets/star.webp" alt="Industry Trends" class="mr-3" style="height:20px;">
+                                <p class="text-sm md:text-md font-bold">How i can Get ranking in Google</p>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div id="content1" class="content w-full flex flex-col lg:flex-row items-center rounded-lg">
+                        <div class="lg:w-1/2 p-6 rounded-lg">
+                            <h2 class="text-xl md:text-4xl font-bold text-gray-800 mb-4">How to increases Profitability
+                                in online orders</h2>
+                            <p class="text-gray-600 text-md mb-6">
+                                Boost profitability by optimizing menu, upselling, cutting delivery costs, using data
+                                analytics, and offering targeted promotions to increase order value while streamlining
+                                operations
+                            </p>
+                            <button
+                                class="bg-white text-black font-semibold border border-gray-400 py-2 px-4 rounded-lg">
+                                Marketing Strategy
+                            </button>
+                        </div>
+                        <div class="lg:w-1/2 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-4">
+                            <a href="orderBlog.html"
+                                class="relative bg-white shadow-lg rounded-2xl overflow-hidden px-2 py-2">
+                                <img src="assets/13.webp" alt="Business Strategy"
+                                    class="w-full h-32 rounded-2xl object-cover mb-4">
+                                <div class="p-2">
+                                    <h3 class="text-lg font-bold mb-2">
+                                        How i can Increase sals and traffic that maximise my Profits in Restaurant’s
+                                        business
+                                    </h3>
+                                </div>
+                            </a>
+                            <a href="IncreaseSalesBlog.html"
+                                class="relative bg-white shadow-lg rounded-2xl overflow-hidden px-2 py-2">
+                                <img src="assets/12.webp" alt="Business Strategy"
+                                    class="w-full h-32 rounded-2xl object-cover mb-4">
+                                <div class="p-2">
+                                    <h3 class="text-lg font-bold mb-2">
+                                        5 Proven Ways to Enhance Online Order Profitability and Drive More Revenue for
+                                        Your Restaurant
+                                    </h3>
+                                </div>
+                            </a>
+                            <a href="EnhanceOrderBlog.html"
+                                class="bg-white shadow-lg rounded-2xl overflow-hidden px-2 py-2">
+                                <img src="assets/11.webp" alt="Business Strategy"
+                                    class="w-full h-32 rounded-2xl object-cover mb-4">
+                                <div class="p-2">
+                                    <h3 class="text-lg font-bold mb-2">
+                                        how to avoid 3rd party delivery charge and i can my Save 25% Delivery Costs for
+                                        my Restaurant.
+                                    </h3>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div id="content2"
+                        class="content hidden-content w-full flex flex-col lg:flex-row items-center rounded-lg">
+                        <div class="lg:w-1/2 p-6 rounded-lg">
+                            <h2 class="text-xl md:text-4xl font-bold text-gray-800 mb-4">How I can Start My online
+                                Order Journey</h2>
+                            <p class="text-gray-600 text-md mb-6">
+                                WEBSITE AND APPLICATION REALLY boost visibility, streamline operations, and enhance
+                                customer engagement, loyalty AND DIRECT Communication.
+                            </p>
+                            <button
+                                class="bg-white text-black font-semibold border border-gray-400 py-2 px-4 rounded-lg">
+                                Marketing Strategy
+                            </button>
+                        </div>
+                        <div class="lg:w-1/2 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-4">
+                            <a href="GrowOfflineBlog.html"
+                                class="relative bg-white shadow-lg rounded-2xl overflow-hidden px-2 py-2">
+                                <img src="assets/22.webp" alt="Business Strategy"
+                                    class="w-full h-32 rounded-2xl object-cover mb-4">
+                                <div class="p-2">
+                                    <h3 class="text-lg font-bold mb-2">Step-by-Step Guide How to Prepare Your Restaurant
+                                        for Seamless Online Ordering Integration
+                                    </h3>
+                                </div>
+                            </a>
+                            <a href="OnlineOrderingBlog.html"
+                                class="relative bg-white shadow-lg rounded-2xl overflow-hidden px-2 py-2">
+                                <img src="assets/23.webp" alt="Business Strategy"
+                                    class="w-full h-32 rounded-2xl object-cover mb-4">
+                                <div class="p-2">
+                                    <h3 class="text-lg font-bold mb-2">How to i start growing Offline business to Online
+                                        my Restaurant’s First Online Ordering Platform
+                                    </h3>
+                                </div>
+                            </a>
+                            <a href="PlateformBlog.html"
+                                class="relative bg-white shadow-lg rounded-2xl overflow-hidden px-2 py-2">
+                                <img src="assets/21.webp" alt="Business Strategy"
+                                    class="w-full h-32 rounded-2xl object-cover mb-4">
+                                <div class="p-2">
+                                    <h3 class="text-lg font-bold mb-2">How to Choose the Right Online Ordering Platform
+                                        like Wordpress, Shopify or customs solution
+                                    </h3>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div id="content3" class="content hidden-content flex flex-col lg:flex-row items-center rounded-lg">
+                        <div class="lg:w-1/2 p-6 rounded-lg">
+                            <h2 class="text-xl md:text-4xl font-bold text-gray-800 mb-4">How To Manage Multi-Location
+                                Restaurants</h2>
+                            <p class="text-gray-600 text-md mb-6">
+                                Managing multi-location restaurants with online orders requires a centralised system,
+                                streamlined operations, and consistent quality. Use data and technology to optimize
+                                performance and boost profits.
+                            </p>
+                            <button
+                                class="bg-white text-black font-semibold border border-gray-400 py-2 px-4 rounded-lg">
+                                Marketing Strategy
+                            </button>
+                        </div>
+                        <div class="lg:w-1/2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
+                            <a href="OptimizeOprationBlog.html"
+                                class="relative bg-white shadow-lg rounded-2xl overflow-hidden px-2 py-2">
+                                <img src="assets/32.webp" alt="Business Strategy"
+                                    class="w-full h-32 rounded-2xl object-cover mb-4">
+                                <div class="p-2">
+                                    <h3 class="text-lg font-bold mb-2">How to Optimise Operations for Multi-Location
+                                        Restaurants with Online Ordering
+                                    </h3>
+                                </div>
+                            </a>
+                            <a href="EnsureConsistencyBlog.html"
+                                class="relative bg-white shadow-lg rounded-2xl overflow-hidden px-2 py-2">
+                                <img src="assets/31.webp" alt="Business Strategy"
+                                    class="w-full h-32 rounded-2xl object-cover mb-4">
+                                <div class="p-2">
+                                    <h3 class="text-lg font-bold mb-2">How to Ensure Consistency in Online Orders Across
+                                        Multiple Restaurant Locations
+                                    </h3>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div id="content4" class="content hidden-content flex flex-col lg:flex-row items-center rounded-lg">
+                        <div class="lg:w-1/2 p-6 rounded-lg">
+                            <h2 class="text-xl md:text-4xl font-bold text-gray-800 mb-4">Unique Brand Identity for My
+                                Restaurant
+                            </h2>
+                            <p class="text-gray-600 text-md mb-6">
+                                unified brand identity that aligns your restaurant’s online and offline presence.
+                                Consistent visuals, messaging, and customer experience can strengthen your brand and
+                                drive growth across all channels.
+                            </p>
+                            <button
+                                class="bg-white text-black font-semibold border border-gray-400 py-2 px-4 rounded-lg">
+                                Marketing Strategy
+                            </button>
+                        </div>
+                        <div class="lg:w-1/2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
+                            <a href="BrandExperienceBlog.html"
+                                class="relative bg-white shadow-lg rounded-2xl overflow-hidden px-2 py-2">
+                                <img src="assets/41.webp" alt="Business Strategy"
+                                    class="w-full h-32 rounded-2xl object-cover mb-4">
+                                <div class="p-2">
+                                    <h3 class="text-lg font-bold mb-2">Creating a Unified Brand Experience: Connecting
+                                        Your Restaurant’s Online and Offline Presence
+                                    </h3>
+                                </div>
+                            </a>
+                            <a href="BrandJourneyBlog.html"
+                                class="relative bg-white shadow-lg rounded-2xl overflow-hidden px-2 py-2">
+                                <img src="assets/42.webp" alt="Business Strategy"
+                                    class="w-full h-32 rounded-2xl object-cover mb-4">
+                                <div class="p-2">
+                                    <h3 class="text-lg font-bold mb-2">Creating a Seamless Brand Journey for Customers:
+                                        Online Ordering to In-Store Dining
+                                    </h3>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div id="content5" class="content hidden-content flex flex-col lg:flex-row items-center rounded-lg">
+                        <div class="lg:w-1/2 p-6 rounded-lg">
+                            <h2 class="text-xl md:text-4xl font-bold text-gray-800 mb-4">What are Upcoming Industry
+                                Trends</h2>
+                            <p class="text-gray-600 text-md mb-6">
+                                Upcoming restaurant trends include tech adoption, sustainable sourcing, health-focused
+                                menus, and personalised dining experiences, transforming your business in future
+                            </p>
+                            <button
+                                class="bg-white text-black font-semibold border border-gray-400 py-2 px-4 rounded-lg">
+                                Marketing Strategy
+                            </button>
+                        </div>
+                        <div class="lg:w-1/2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
+                            <a href="ShapingFutureBlog.html"
+                                class="relative bg-white shadow-lg rounded-2xl overflow-hidden px-2 py-2">
+                                <img src="assets/51.webp" alt="Business Strategy"
+                                    class="w-full h-32 rounded-2xl object-cover mb-4">
+                                <div class="p-2">
+                                    <h3 class="text-lg font-bold mb-2">How Technology is Shaping the Future of the and
+                                        how Trends Redefining Restaurant Industry
+                                    </h3>
+                                </div>
+                            </a>
+                            <a href="OnlineShiftBlog.html"
+                                class="relative bg-white shadow-lg rounded-2xl overflow-hidden px-2 py-2">
+                                <img src="assets/52.webp" alt="Business Strategy"
+                                    class="w-full h-32 rounded-2xl object-cover mb-4">
+                                <div class="p-2">
+                                    <h3 class="text-lg font-bold mb-2">How Restaurants Can Compete with online Shifting
+                                        of Consumer and there Preferences
+                                    </h3>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div id="content6" class="content hidden-content flex flex-col lg:flex-row items-center rounded-lg">
+                        <div class="lg:w-1/2 p-6 rounded-lg">
+                            <h2 class="text-xl md:text-4xl font-bold text-gray-800 mb-4">How i can Get ranking in
+                                Google</h2>
+                            <p class="text-gray-600 text-md mb-6">
+                                SEO boosts restaurant visibility, attracts local customers, improves website traffic,
+                                and enhances mobile and voice search ranking. It drives more reservations, increases
+                                foot traffic, and grows online orders.
+                            </p>
+                            <button
+                                class="bg-white text-black font-semibold border border-gray-400 py-2 px-4 rounded-lg">
+                                Marketing Strategy
+                            </button>
+                        </div>
+                        <div class="lg:w-1/2 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-4">
+                            <a href="OnlineReputationBlog.html"
+                                class="relative bg-white shadow-lg rounded-2xl overflow-hidden px-2 py-2">
+                                <img src="assets/61.webp" alt="Business Strategy"
+                                    class="w-full h-32 rounded-2xl object-cover mb-4">
+                                <div class="p-2">
+                                    <h3 class="text-lg font-bold mb-2">Boost Your Restaurant’s Online Reputation: How to
+                                        Ask for Reviews Without Sounding Pushy
+                                    </h3>
+                                </div>
+                            </a>
+                            <a href="RestaurantRankBlog.html"
+                                class="relative bg-white shadow-lg rounded-2xl overflow-hidden px-2 py-2">
+                                <img src="assets/62.webp" alt="Business Strategy"
+                                    class="w-full h-32 rounded-2xl object-cover mb-4">
+                                <div class="p-2">
+                                    <h3 class="text-lg font-bold mb-2">The Ultimate Guide How to Rank my Restaurant on
+                                        google. for SEO and also, User-Generated Content that help to Improve SEO
+                                    </h3>
+                                </div>
+                            </a>
+                            <a href="SeoMistakesBlog.html"
+                                class="relative bg-white shadow-lg rounded-2xl overflow-hidden px-2 py-2">
+                                <img src="assets/63.webp" alt="Business Strategy"
+                                    class="w-full h-32 rounded-2xl object-cover mb-4">
+                                <div class="p-2">
+                                    <h3 class="text-lg font-bold mb-2">Top 10 SEO Mistakes Restaurant Owners make to
+                                        Boost there Restaurant’s Online.
+                                    </h3>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="reviews" class="pt-10 md:pt-16 px-2 md:px-5 lg:px-12">
+            <div class="w-full rounded-xl md:pt-10 md:pb-16" style="background-color: #F9F9F9;">
+                <div class="text-center pt-8">
+                    <h1 class="text-black font-bold text-center text-2xl md:text-5xl mb-4">Client Portfolio & Reviews
+                    </h1>
+                    <div class="flex flex-row gap-4 items-center justify-center mb-4">
+                        <div class="flex justify-center">
+                            <img src="assets/5star.webp" alt="Five Stars" style="height: 2rem;">
+                        </div>
+                        <div>
+                            <p class="text-md font-semibold text-gray-600">(4.8 ratting)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pt-10 px-8">
+                    <div class="bg-white rounded-lg shadow-lg border overflow-hidden">
+                        <div class="bg-white p-2 rounded-lg shadow-lg">
+                            <div class="flex items-start">
+                                <div>
+                                    <img class="w-12 h-12 rounded-full mr-3" src="assets/pf1.webp"
+                                        alt="Reviewer Profile">
+                                </div>
+                                <div class="flex flex-col">
+                                    <div class="flex flex-row items-center gap-2">
+                                        <p style="color: #28705F;" class="text-lg font-bold">Markus R</p>
+                                        <p class="text-sm text-gray-600">(Website & App)</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-gray-600 font-bold">grocery store owner in USA</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="px-2" style="background-color:#F6F6F6 ;">
+                            <div class="flex items-center justify-start mb-4 flex-col">
+                                <p class="font-semibold my-2">EXCELLENT (5.0)</p>
+                                <img class="mr-2" src="assets/5star.webp" alt="Star Icon" style="height: 1.3rem;">
+                            </div>
+
+                            <div class="mb-4 text-sm px-2 font-semibold">
+                                <p>Amit has done an excellent job developing websites. I've had two different websites
+                                    created for my business, and he never disappoints. His skills are impressive, and
+                                    it's truly a pleasure to work with your brother.</p>
+                            </div>
+
+                            <div class="screen">
+                                <img class="w-full rounded-md" src="assets/screen1.webp" alt="Client Work Screenshot">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-lg border overflow-hidden">
+                        <div class="bg-white p-2 rounded-lg shadow-lg">
+                            <div class="flex items-start">
+                                <div>
+                                    <img class="w-12 h-12 rounded-full mr-3" src="assets/pf6.webp"
+                                        alt="Reviewer Profile">
+                                </div>
+                                <div class="flex flex-col">
+                                    <div class="flex flex-row items-center gap-2">
+                                        <p style="color: #28705F;" class="text-lg font-bold">Ashu agarwal</p>
+                                        <p class="text-sm text-gray-600">(Website)</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-md text-gray-600 font-bold">Tanibestro (Co-Founder)</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="px-2" style="background-color:#F6F6F6 ;">
+                            <div class="flex items-center justify-start mb-4 flex-col">
+                                <p class="font-semibold my-2">EXCELLENT (5.0)</p>
+                                <img class="mr-2" src="assets/5star.webp" alt="Star Icon" style="height: 1.3rem;">
+                            </div>
+
+                            <div class="mb-4 text-sm px-2 font-semibold">
+                                <p>Amit has done an excellent job developing websites. I’ve had two different websites
+                                    created for my business, and he never disappoints. His skills are impressive, and
+                                    It’s truly a pleasure to work with you brother.</p>
+                            </div>
+
+                            <div class="screen">
+                                <img class="w-full rounded-sm" src="assets/screen2.webp" alt="Client Work Screenshot">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-lg border overflow-hidden">
+                        <div class="bg-white p-2 rounded-lg shadow-lg">
+                            <div class="flex items-start">
+                                <div>
+                                    <img class="w-12 h-12 rounded-full mr-3" src="assets/pf2.webp"
+                                        alt="Reviewer Profile">
+                                </div>
+                                <div class="flex flex-col">
+                                    <div class="flex flex-row items-center gap-2">
+                                        <p style="color: #28705F;" class="text-lg font-bold">Darshan Cheeta</p>
+                                        <p class="text-sm text-gray-600">(Website)</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-gray-600 font-bold">DMDENT Enterprice (CEO And Founder)</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="px-2" style="background-color:#F6F6F6 ;">
+                            <div class="flex items-center justify-start mb-4 flex-col">
+                                <p class="font-semibold my-2">EXCELLENT (5.0)</p>
+                                <img class="mr-2" src="assets/5star.webp" alt="Star Icon" style="height: 1.3rem;">
+                            </div>
+
+                            <div class="mb-4 text-sm px-2 font-semibold">
+                                <p>I meet him on Fiverr, They always do fantastic work all time never disappoint me,
+                                    highly recommend to work with this team, know what's the best and understand how to
+                                    achieve in e-commerce websites!</p>
+                            </div>
+
+                            <div class="screen">
+                                <img class="w-full rounded-md" src="assets/screen3.webp" alt="Client Work Screenshot">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-lg border overflow-hidden">
+                        <div class="bg-white p-2 rounded-lg shadow-lg">
+                            <div class="flex items-start">
+                                <div>
+                                    <img class="w-12 h-12 rounded-full mr-3" src="assets/pf3.webp"
+                                        alt="Reviewer Profile">
+                                </div>
+                                <div class="flex flex-col">
+                                    <div class="flex flex-row items-center gap-2">
+                                        <p style="color: #28705F;" class="text-lg font-bold">Martínez Daniel</p>
+                                        <p class="text-sm text-gray-600">(Website)</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-gray-600 font-bold">Powerland owner & CEO (Mexico)</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="px-2" style="background-color:#F6F6F6 ;">
+                            <div class="flex items-center justify-start mb-4 flex-col">
+                                <p class="font-semibold my-2">GRREAT (4.0)</p>
+                                <img class="mr-2" src="assets/4star.webp" alt="Star Icon" style="height: 1.3rem;">
+                            </div>
+
+                            <div class="mb-4 text-sm px-2 font-semibold">
+                                <p>Tryzen team done an excellent job developing websites. but there is little bit miss
+                                    communication in language overall very good experience to working with you my
+                                    friend.</p>
+                            </div>
+
+                            <div class="screen">
+                                <img class="w-full rounded-md" src="assets/screen4.webp" alt="Client Work Screenshot">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-lg border overflow-hidden">
+                        <div class="bg-white p-2 rounded-lg shadow-lg">
+                            <div class="flex items-start">
+                                <div>
+                                    <img class="w-12 h-12 rounded-full mr-3" src="assets/pf4.webp"
+                                        alt="Reviewer Profile">
+                                </div>
+                                <div class="flex flex-col">
+                                    <div class="flex flex-row items-center gap-2">
+                                        <p style="color: #28705F;" class="text-lg font-bold">Ramin Aslan</p>
+                                        <p class="text-sm text-gray-600">(Website)</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-gray-600 font-bold">The Perfect Playtime (CEO And Founder)</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="px-2" style="background-color:#F6F6F6 ;">
+                            <div class="flex items-center justify-start mb-4 flex-col">
+                                <p class="font-semibold my-2">EXCELLENT (5.0)</p>
+                                <img class="mr-2" src="assets/5star.webp" alt="Star Icon" style="height: 1.3rem;">
+                            </div>
+
+                            <div class="mb-4 text-sm px-2 font-semibold">
+                                <p>Our website redesign project with TryzenSolution was a huge success. The team took
+                                    the time to understand our needs and delivered a beautiful result. Thank you guys...
+                                </p>
+                            </div>
+
+                            <div class="screen">
+                                <img class="w-full rounded-md" src="assets/screen5.webp" alt="Client Work Screenshot">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-lg border overflow-hidden">
+                        <div class="bg-white p-2 rounded-lg shadow-lg">
+                            <div class="flex items-start">
+                                <div>
+                                    <img class="w-12 h-12 rounded-full mr-3" src="assets/pf5.webp"
+                                        alt="Reviewer Profile">
+                                </div>
+                                <div class="flex flex-col">
+                                    <div class="flex flex-row items-center gap-2">
+                                        <p style="color: #28705F;" class="text-lg font-bold">
+                                            Santiago Lozzano
+                                        </p>
+                                        <p class="text-sm text-gray-600">(Website)</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-gray-600 font-bold">KnockKnock (Founder,Mexico)</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="px-2" style="background-color:#F6F6F6 ;">
+                            <div class="flex items-center justify-start mb-4 flex-col">
+                                <p class="font-semibold my-2">EXCELLENT (5.0)</p>
+                                <img class="mr-2" src="assets/5star.webp" alt="Star Icon" style="height: 1.3rem;">
+                            </div>
+
+                            <div class="mb-4 text-sm px-2 font-semibold">
+                                <p>We had a great experience working with TryzenSolution! They were attentive and
+                                    professional, provided amazing service and created an app</p>
+                            </div>
+
+                            <div class="screen">
+                                <img class="w-full rounded-md" src="assets/screen6.webp" alt="Client Work Screenshot">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="benefits" class="px-2 md:px-6 lg:px-12 pt-8 md:pt-16">
+            <div class="rounded-xl py-5 md:pt-12 md:pb-12" style="background-color: #F9F9F9;">
+                <div class="px-2 md:px-6 lg:px-12 relative"> 
+                    <div class="text-center mb-5">
+                        <p class="text-black text-2xl lg:text-4xl md:text-3xl font-semibold mb-2">Grow 30% Profit by</p>
+                        <h1 class="text-black font-bold text-2xl md:text-5xl">
+                            Create Own Online order & Delivery System
+                        </h1>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8" style="margin-top: 2rem; margin-bottom: 2rem;">
+                        <div class="relative p-6 flex flex-col">
+                            <img src="assets/closePanel.webp" alt="Grow" class="h-48" />
+                        </div>
+                        <div class="relative p-6 flex flex-col">
+                            <img src="assets/checkPanel.webp" alt="Grow" class="h-48" />
+                        </div>
+                    </div>
+                </div>
+        </section>
+
+        <section id="pricing" class="md:px-6 lg:px-12 pt-8 md:pt-16 pb-10">
+            <div class="rounded-xl md:pt-10 md:pb-12" style="background-color: #F9F9F9;">
+                <div class="text-center py-5">
+                    <h1 class="text-black font-bold text-xl md:text-3xl lg:text-5xl ">
+                        STOP USING 3RD PARTY APPS
+                    </h1>
+                    <p class="text-center font-bold text-lg md:text-4xl lg:text-5xl mt-3" style="color: #FF6B6B;">
+                        LIKE UBER, DOOR DASH AND GRUBHUB
+                    </p>
+                </div>
+                <div class="flex flex-col md:flex-row justify-center gap-10 pt-4 md:pt-10 lg:px-8 xl:px-10 p-6">
+                    <div class="bg-white rounded-lg md:w-1/2 flex flex-col items-start p-6 py-16">
+                        <div class="flex items-center pb-8">
+                            <img src="assets/calculator.webp" alt="Calculator Icon" style="height: 3rem; width: 3rem;">
+                            <div style="color:#3D51FF;" class="leading-tight text-sm font-semibold">
+                                Calculate <br> Charge*
+                            </div>
+                        </div>
+
+                        <h2 class="text-xl md:text-3xl font-bold mb-4">
+                            Check How Third Is Expansive <br>
+                            <span style="color:#0E9E7D;">For Your RESTAURANT</span>
+                        </h2>
+
+                        <div class="mb-6 w-full">
+                            <label class="block text-md md:text-lg font-medium mb-2" for="orders">
+                                How many orders do you get from them every month?
+                            </label>
+                            <input id="orders" type="number" placeholder="500"
+                                class="w-full border border-gray-400 rounded-lg p-3 text-md md:text-lg font-bold focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+
+                        <div class="mb-6 w-full">
+                            <label class="block text-md md:text-lg font-medium mb-2" for="order-size">
+                                What’s your average order size?
+                            </label>
+                            <input id="order-size" type="text" placeholder="$5"
+                                class="w-full border border-gray-400 rounded-lg p-3 text-md md:text-lg font-bold focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+
+                        <p id="total-cost" style="color: #FF6B6B;" class="text-2xl md:text-4xl font-semibold mb-4">$
+                            15000</p>
+                        <p class="text-gray-600 text-body mb-2 leading-relaxed font-semibold">
+                            With a typical 25% commission: you're
+                            <br>
+                            paying the apps this much every month.</span>
+                        <p style="color:#0E9E7D;" class="text-md font-semibold">
+                            We'll help you SAVE on those fees by getting more
+                            <br>
+                            customers to order from you directly.
+                        </p>
+                    </div>
+
+
+                    <div class="md:w-1/2">
+                        <div style="background-color: #EBFFFF;"
+                            class="text-black p-10 py-16 flex items-start justify-center h-full rounded-lg">
+                            <div class="w-full p-6 rounded-lg">
+                                <h2 class="text-md md:text-xl font-bold mb-6 text-left">Stop Relying on 3rd Party apps
+                                    Like Uber and DoorDash</h2>
+                                <p class="text-md mb-8 text-left">Due to high commissions, No control over customer
+                                    experience and there oder data also limited access and customer valuable review and
+                                    response. To build your own system help increase profits, gain full control,
+                                    maintain brand identity, and boost customer loyalty.</p>
+
+                                <div class="grid grid-cols-1 md:grid-cols-2 md:gap-4 mb-8">
+                                    <div>
+                                        <p class="flex items-center mb-2">
+                                            <img src="assets/closeIcon.webp" style="height: 1.7rem;" />
+                                            <span class="ml-2 md:text-sm font-semibold">High Commission Fees</span>
+                                        </p>
+                                        <p class="flex items-center mb-2">
+                                            <img src="assets/closeIcon.webp" style="height: 1.7rem;" />
+                                            <span class="ml-2 md:text-sm font-semibold">NO Customer Ownership</span>
+                                        </p>
+                                        <p class="flex items-center mb-2">
+                                            <img src="assets/closeIcon.webp" style="height: 1.7rem;" />
+                                            <span class="ml-2 md:text-sm font-semibold">Reduced Brand Control</span>
+                                        </p>
+                                        <p class="flex items-center mb-2">
+                                            <img src="assets/closeIcon.webp" style="height: 1.7rem;" />
+                                            <span class="ml-2 md:text-sm font-semibold">Limited Customer Data</span>
+                                        </p>
+                                        <p class="flex items-center mb-2">
+                                            <img src="assets/closeIcon.webp" style="height: 1.7rem;" />
+                                            <span class="ml-2 md:text-sm font-semibold">Increased Competition</span>
+                                        </p>
+                                        <p class="flex items-center mb-2">
+                                            <img src="assets/closeIcon.webp" style="height: 1.7rem;" />
+                                            <span class="ml-2 md:text-sm font-semibold">Dependence on Policies
+                                        </p>
+                                        <p class="flex items-center mb-2">
+                                            <img src="assets/closeIcon.webp" style="height: 1.7rem;" />
+                                            <span class="ml-2 md:text-sm font-semibold">Poor Order Prioritisation</span>
+                                        </p>
+                                    </div>
+
+                                    <div>
+                                        <p class="flex items-center mb-2">
+                                            <img src="assets/check.webp" style="height: 1.7rem;" />
+                                            <span class="ml-2 md:text-sm font-semibold">NO Commission Fees</span>
+                                        </p>
+                                        <p class="flex items-center mb-2">
+                                            <img src="assets/check.webp" style="height: 1.7rem;" />
+                                            <span class="ml-2 md:text-sm font-semibold">Direct Customer
+                                                Relationship</span>
+                                        </p>
+                                        <p class="flex items-center mb-2">
+                                            <img src="assets/check.webp" style="height: 1.7rem;" />
+                                            <span class="ml-2 md:text-sm font-semibold">Full Control Over
+                                                Branding</span>
+                                        </p>
+                                        <p class="flex items-center mb-2">
+                                            <img src="assets/check.webp" style="height: 1.7rem;" />
+                                            <span class="ml-2 md:text-sm font-semibold">Enhanced Customer
+                                                Experience</span>
+                                        </p>
+                                        <p class="flex items-center mb-2">
+                                            <img src="assets/check.webp" style="height: 1.7rem;" />
+                                            <span class="ml-2 md:text-sm font-semibold">Increased Brand Loyalty</span>
+                                        </p>
+                                        <p class="flex items-center mb-2">
+                                            <img src="assets/check.webp" style="height: 1.7rem;" />
+                                            <span class="ml-2 md:text-sm font-semibold">No Restriction on Policy</span>
+                                        </p>
+                                        <p class="flex items-center mb-2">
+                                            <img src="assets/check.webp" style="height: 1.7rem;" />
+                                            <span class="ml-2 md:text-sm font-semibold">Seamless Operational
+                                                Orders</span>
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="text-center">
+                                    <button
+                                        class="w-full bg-white text-black border border-gray-400 border-2 md:text-md lg:text-lg font-bold py-3 px-2 md:px-6 rounded-lg">
+                                        SCHEDULE 30 MINUTE MEETING
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="py-4" style="background-color: #F3F4F6;">
+            <div class="flex flex-col gap-2 md:gap-0 md:flex-row items-center justify-between px-5">
+                <div class="flex justify-center items-center text-sm">
+                    <div class="flex flex-row items-center gap-2">
+                        <p class="text-lg font-bold">Contact us:</p>
+                        <a href="" class="text-md font-semibold cursor-pointer">tryzenSolutions@gmail.com</a>
+                    </div>
+                </div>  
+                <div class="flex justify-center items-center text-sm">
+                    <div class="text-xl font-bold items-center">
+                        <p class="flex items-center gap-2"><span class="text-3sxl">©</span> TryzenSolution</p>
+                    </div>
+                </div>
+                <div class="flex justify-center items-center text-sm">
+                    <div class="text-lg font-bold">
+                        <button
+                        style="background-color: #3E87FF;"
+                        class="flex gap-2 items-center border border-2 border-black px-1 md:px-6 py-1 md:py-2 rounded-lg hover:border-gray-600">
+                        <a target="_blank"
+                            href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ2FER0ii8AlZSUfg1KNcGONZ6ZPp-O9Vfl1EZ9nYvqPl0RP60QSDSMJtPCbs5zPUMiFT5zelOzk"
+                            class="text-sm text-white font-bold">
+                            BOOK MEETING
+                        </a>
+                    </button>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </main>
+    <script>
+        const buttons = document.querySelectorAll("button[id^='btn']");
+        const contents = document.querySelectorAll(".content");
+
+        buttons[0].classList.add("selected");
+        contents.forEach((content, index) => {
+            if (index !== 0) {
+                content.classList.add("hidden-content");
+            }
+        });
+
+        buttons.forEach(button => {
+            button.addEventListener("click", () => {
+                const targetId = button.id.replace('btn', 'content');
+                contents.forEach(content => {
+                    content.classList.add("hidden-content");
+                });
+                document.getElementById(targetId).classList.remove("hidden-content");
+
+                buttons.forEach(btn => btn.classList.remove("selected"));
+                button.classList.add("selected");
+            });
+        });
+
+        const ordersInput = document.getElementById('orders');
+        const orderSizeInput = document.getElementById('order-size');
+        const totalCostElement = document.getElementById('total-cost');
+
+        function calculateTotalCost() {
+            const orders = parseFloat(ordersInput.value) || 0;
+            const orderSize = parseFloat(orderSizeInput.value) || 0;
+            const commission = 0.25;
+            const totalCost = orders * orderSize * commission;
+            totalCostElement.textContent = `$ ${totalCost.toFixed(2)}`;
+        }
+        calculateTotalCost();
+        ordersInput.addEventListener('input', calculateTotalCost);
+        orderSizeInput.addEventListener('input', calculateTotalCost);
+    </script>
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.4.1/flowbite.min.js"></script>
+</body>
+
+</html>
