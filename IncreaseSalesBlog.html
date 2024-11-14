@@ -12,7 +12,7 @@
             font-weight: bold;
         }
         .right-section {
-            height: 200vh;
+            max-height: 205vh;
             position: sticky;
             top: 0;
             overflow: hidden;
@@ -20,7 +20,7 @@
     </style>
 </head>
 
-<body class="bg-gray-100 p-10">
+<body class="bg-gray-100 p-4 md:p-10 xl:p-16">
     <nav class="p-3 flex bg-white justify-between items-center fixed top-0 left-0 right-0 z-20 shadow-md">
         <a href="index.html" id="brand" class="hidden lg:flex gap-2 items-center flex-1">
             <img class="object-cover" src="./assets/mainLogo.webp" alt="Logo" style="height: 2rem;">
@@ -68,22 +68,17 @@
                 <a href="index.html#reviews" class="font-medium m-3 p-3 hover:bg-gray-50 block rounded-lg">Reviews</a>
                 <a href="index.html#pricing" class="font-medium m-3 p-3 hover:bg-gray-50 block rounded-lg">Pricing</a>
             </div>
-            <div class="h-[1px] bg-gray-300"></div>
-            <button class="mt-6 w-full flex gap-2 items-center  px-6 py-4 rounded-lg hover:bg-gray-50">
-                <img src="./assets/asset 1.svg" alt="">
-                <span>Electron Developers</span>
-            </button>
         </div>
     </nav>
-    <div class="flex flex-col-reverse md:flex-row gap-5 pt-12 lg:pt-10">
-        <div class="w-full max-w-4xl bg-white mx-auto p-8 shadow-lg rounded-lg">
-            <h1 class="text-2xl md:text-3xl font-bold text-center text-gray-900 mb-4">
+    <div class="flex flex-col md:flex-row gap-5 pt-12 lg:pt-10">
+        <div class="w-full max-w-4xl bg-white mx-auto p-4 md:p-8 shadow-lg rounded-lg">
+            <h1 class="text-xl md:text-3xl font-bold text-center text-gray-900 mb-4">
                 How to Increase Sales and Traffic to Maximize Profits in Your Restaurant Business
             </h1>
 
             <div>
                 <div id="section1" class="border-b border-black">
-                    <h2 class="text-3xl font-bold mt-12 mb-6">
+                    <h2 class="text-xl md:text-3xl font-bold mt-6 mb-4 md:mt-12 md:mb-6">
                         Introduction
                     </h2>
                     <p class="text-lg leading-relaxed text-gray-700 mb-10">
@@ -94,10 +89,10 @@
                         in the competitive hospitality industry.
                     </p>
                     <p class="text-lg font-semibold mb-5">Key Strategies for Creating an Effective Online Presence:</p>
-                    <ul class="pl-6 text-gray-700 space-y-6 text-lg mb-10">
+                    <ul class="md:pl-6 text-gray-700 space-y-6 text-lg mb-10">
                         <li>
                             <span class="font-bold">1. Create a professional website and mobile app:</span>
-                            <ul class="pl-4 space-y-2 mt-2">
+                            <ul class="md:pl-4 space-y-2 mt-2">
                                 <li>- A website acts as the digital face of your restaurant. Include your menu,
                                     restaurant story, location details, and an easy-to-use online ordering system.</li>
                                 <li>- A mobile app is even better for user engagement. It allows for push notifications,
@@ -107,7 +102,7 @@
 
                         <li>
                             <span class="font-bold">2. Invest in social media marketing:</span>
-                            <ul class="pl-4 space-y-2 mt-2">
+                            <ul class="md:pl-4 space-y-2 mt-2">
                                 <li>- Platforms like Instagram, Facebook, and TikTok are essential for showcasing your
                                     dishes, sharing customer stories, and promoting new items.</li>
                                 <li>- Create engaging content such as behind-the-scenes videos, customer testimonials,
@@ -117,7 +112,7 @@
 
                         <li>
                             <span class="font-bold">3. Optimize for SEO (Search Engine Optimization):</span>
-                            <ul class="pl-4 space-y-2 mt-2">
+                            <ul class="md:pl-4 space-y-2 mt-2">
                                 <li>- Use relevant keywords like “best [cuisine] restaurant in [location]” on your
                                     website, menu descriptions, and blog posts to rank higher on search engines.</li>
                                 <li>- Create blog content like “Top 10 dishes to try at [restaurant name]” or “How to
@@ -127,7 +122,7 @@
 
                         <li>
                             <span class="font-bold">4 Leverage local SEO:</span>
-                            <ul class="pl-4 space-y-2 mt-2">
+                            <ul class="md:pl-4 space-y-2 mt-2">
                                 <li>- Local SEO helps ensure your restaurant appears in “near me” searches and on Google
                                     maps.</li>
                                 <li>- Optimize your Google My Business listing with up-to-date information, photos, and
@@ -139,7 +134,7 @@
 
                         <li>
                             <span class="font-bold">5. Run paid ad campaigns:</span>
-                            <ul class="pl-4 space-y-2 mt-2">
+                            <ul class="md:pl-4 space-y-2 mt-2">
                                 <li>- Use targeted Google ads and Facebook ads to reach specific customer segments in
                                     your local area.</li>
                                 <li>- Highlight special offers, new menu items, or exclusive deals for online orders.
@@ -149,7 +144,7 @@
 
                         <li>
                             <span class="font-bold">6. Direct communication:</span>
-                            <ul class="pl-4 space-y-2 mt-2">
+                            <ul class="md:pl-4 space-y-2 mt-2">
                                 <li>- An online presence allows for direct communication with customers, helping you
                                     promote offers, respond to reviews, and build relationships.</li>
                             </ul>
@@ -158,7 +153,7 @@
                 </div>
 
                 <div id="section2">
-                    <h2 class="text-3xl font-bold mt-10 mb-4">Why Online Presence is Critical for Restaurants:</h2>
+                    <h2 class="text-xl md:text-3xl font-bold mt-6 md:mt-10 mb-4">Why Online Presence is Critical for Restaurants:</h2>
                     <p class="text-lg leading-relaxed text-gray-700 mb-6">
                         Restaurants now compete on how easy they are to find online. Customers often search, read
                         reviews, and order before visiting. Having a good online presence turns these visitors into
@@ -168,7 +163,7 @@
                     <div class="space-y-6 text-lg">
                         <div>
                             <h3 class="text-lg font-bold mb-2">Create a Professional Website:</h3>
-                            <ul class="pl-4 text-gray-700 space-y-2">
+                            <ul class="md:pl-4 text-gray-700 space-y-2">
                                 <li>- Choose a reliable platform like WordPress or a custom-built site with a
                                     user-friendly interface.</li>
                                 <li>- Include your full menu, high-quality images of your dishes, a blog section, and an
@@ -180,7 +175,7 @@
 
                         <div>
                             <h3 class="text-lg font-bold text-gray-800 mb-2">2. Develop a Branded Mobile App:</h3>
-                            <ul class="pl-4 text-gray-700 space-y-2">
+                            <ul class="md:pl-4 text-gray-700 space-y-2">
                                 <li>- Offer a loyalty rewards program, push notifications for special discounts, and an
                                     intuitive order tracking system.</li>
                                 <li>- Integrate features like social media login and secure payments for a seamless
@@ -191,7 +186,7 @@
                         <div>
                             <h3 class="text-lg font-bold text-gray-800 mb-2">3. Build a Strong Social Media Presence:
                             </h3>
-                            <ul class="pl-4 text-gray-700 space-y-2">
+                            <ul class="md:pl-4 text-gray-700 space-y-2">
                                 <li>- Post daily or weekly updates showcasing your menu, events, and customer
                                     experiences.</li>
                                 <li>- Run giveaways, contests, and special promotions to increase engagement. </li>
@@ -202,7 +197,7 @@
 
                         <div>
                             <h3 class="text-lg font-bold text-gray-800 mb-2">4. Optimise for SEO:</h3>
-                            <ul class="pl-4 text-gray-700 space-y-2">
+                            <ul class="md:pl-4 text-gray-700 space-y-2">
                                 <li>- Use keyword research tools like Google Keyword Planner or Ahrefs to find what your
                                     potential customers are searching for.</li>
                                 <li>- Optimise your website’s meta descriptions, titles, and content with these
@@ -214,7 +209,7 @@
 
                         <div>
                             <h3 class="text-lg font-bold text-gray-800 mb-2">5. Focus on Local SEO:</h3>
-                            <ul class="pl-4 text-gray-700 space-y-2">
+                            <ul class="md:pl-4 text-gray-700 space-y-2">
                                 <li>- Claim and optimize your Google My Business profile.</li>
                                 <li>- Use local keywords like “best Italian restaurant in [City Name].”</li>
                                 <li>- Join local directories and ensure your restaurant is listed correctly with updated
@@ -224,7 +219,7 @@
 
                         <div>
                             <h3 class="text-lg font-bold text-gray-800 mb-2">6. Launch Paid Ad Campaigns:</h3>
-                            <ul class="pl-4 text-gray-700 space-y-2">
+                            <ul class="md:pl-4 text-gray-700 space-y-2">
                                 <li>- Set a budget and target local audiences based on interests, location, and
                                     behavior.</li>
                                 <li>- Promote online ordering, special events, or happy hours to drive immediate

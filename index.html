@@ -8,7 +8,78 @@
     <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Passion+One:wght@700&display=swap" rel="stylesheet">
     <title>Tryzen Solution</title>
     <link rel="stylesheet" href="dist/styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <style>
+        body {
+            overflow-x: hidden;
+        }
+
+        .swiper-container {
+            width: 100%;
+        }
+
+        .swiper-wrapper {
+            width: auto;
+            overflow-x: scroll;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .swiper-slide {
+            max-width: 100%;
+        }
+
+        @media (max-width: 640px) {
+            .swiper-slide {
+                height: auto;
+                width: 60%;
+                display: flex;
+                flex-direction: row;
+                justify-content: start;
+                flex-shrink: 0;
+                flex-grow: 1;
+            }
+
+            .swiper-slide img {
+                width: 100%;
+                height: auto;
+                max-height: 200px;
+                object-fit: cover;
+                margin-bottom: 8px;
+            }
+
+            .swiper-slide h3 {
+                font-size: 1rem;
+                line-height: 1.2;
+                margin-bottom: 8px;
+            }
+
+            .swiper-container {
+                overflow-x: hidden;
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+            }
+        }
+        .button-swiper-container {
+            width: 100%;
+            overflow: hidden;
+            display: flex;
+            grid-template-rows: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .button-swiper-slide {
+            flex-shrink: 0;
+            width: auto;
+            text-align: center;
+            margin-right: 8px;
+        }
+        
         .passion-one {
             font-family: 'Passion One', cursive;
         }
@@ -46,26 +117,11 @@
             transform: translateY(-50%);
         }
 
-        /* #scroll-container {
-            overflow: hidden;
-        }
-
-        .scrolling-wrapper {
-            display: flex;
-            flex-wrap: nowrap;
-            animation: scroll-left 20s linear infinite;
-        }
-
-        .reverse {
-            animation: scroll-right 20s linear infinite;
-        } */
-
         .item {
             flex: 0 0 auto;
             margin-right: 0;
             width: 100%;
             max-width: 300px;
-            
         }
 
         @media (max-width: 576px) {
@@ -113,18 +169,36 @@
 
         .text-stroke {
             color: #499771;
-            -webkit-text-stroke: 2px #005b40;
+            -webkit-text-stroke: 1.5px #005b40;
         }
         .custom-text {
-            font-size: 1.125rem;
+            font-size: 2rem;
             font-weight: bold;
             font-family: 'Passion One', cursive;
             color: #3E87FF;
         }
-
         @media (min-width: 768px) {
             .custom-text {
                 font-size: 4rem;
+            }
+        }
+
+        .flex-wrap {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            overflow-x: auto;
+        }
+        @media (max-width: 768px) {
+            .flex-wrap {
+                flex-wrap: nowrap;
+                justify-content: flex-start;
+                max-width: 100%;
+                overflow-x: scroll;
+            }
+
+            .flex-wrap > button {
+                flex: 0 0 calc(50% - 10px);
             }
         }
     </style>
@@ -135,12 +209,15 @@
     <main>
         <div class="bg-gradient-to-b from-purple-50 via-orange-50 to-transparent">
             <div class="bg-transparent p-3 flex justify-between items-center top-0 left-0 right-0 z-50 border border-b">
-                <a href="#" id="brand" class="hidden md:flex gap-2 items-center flex-1">
+                <button class="p-2 lg:hidden" onclick="handleMenu()">
+                    <i class="fa-solid fa-bars text-gray-600"></i>
+                </button>
+                <a href="#" id="brand" class="gap-2 items-center flex-1">
                     <img class="object-cover" src="./assets/mainLogo.webp" alt="Logo" style="height: 2rem;">
                 </a>
-                <a href="#" id="brand" class="md:hidden gap-2 items-center flex-1">
+                <!-- <a href="#" id="brand" class="md:hidden gap-2 items-center flex-1">
                     <img class="object-cover" src="./assets/smallLogo.webp" alt="Logo" style="height: 2rem;">
-                </a>
+                </a> -->
                 <div id="nav-menu" class="hidden lg:flex gap-12">
                     <!-- <a href="#solution" class="font-medium hover:text-primary">Solution</a> -->
                     <a href="#features" class="font-semibold hover:text-primary text-lg">USP</a>
@@ -163,16 +240,10 @@
                     </button>
                 </div>
         
-        
-                <button class="p-2 lg:hidden" onclick="handleMenu()">
-                    <i class="fa-solid fa-bars text-gray-600"></i>
-                </button>
-        
                 <div id="nav-dialog" class="hidden fixed z-10 md:hidden bg-white inset-0 p-3">
                     <div id="nav-bar" class="flex justify-between">
-                        <a href="#" id="brand" class="flex gap-2 items-center">
-                            <img class="object-cover max-w-12 max-h-12" src="./assets/asset 0.webp" alt="Logo">
-                            <span class="text-lg font-medium font-display">ToDesktop</span>
+                        <a href="#" id="brand" class="gap-2 items-center flex-1">
+                            <img class="object-cover" src="./assets/mainLogo.webp" alt="Logo" style="height: 2rem;">
                         </a>
                         <button class="p-2 md:hidden" onclick="handleMenu()">
                             <i class="fa-solid fa-xmark text-gray-600"></i>
@@ -186,22 +257,25 @@
                         <a href="#reviews" class="font-medium m-3 p-3 hover:bg-gray-50 block rounded-lg">Clients</a>
                         <!-- <a href="#benefits" class="font-medium m-3 p-3 hover:bg-gray-50 block rounded-lg">Benefits</a> -->
                         <a href="#pricing" class="font-medium m-3 p-3 hover:bg-gray-50 block rounded-lg">Calculate Loss</a>
-                    </div>
-                    <div class="h-[1px] bg-gray-300"></div>
-                    <button class="mt-6 w-full flex gap-2 items-center  px-6 py-4 rounded-lg hover:bg-gray-50">
-                        <img src="./assets/asset 1.svg" alt="">
-                        <span>Electron Developers</span>
+                    </div>  
+                    <button 
+                        href="https://wa.me/919998220731?text=Hello%20TryzenSolution,%20can%20we%20arrange%20meeting%20to%20see%20demo!"
+                        class="flex items-center text-white font-semibold border border-gray-400 py-2 px-4 rounded-full" 
+                        style="background-color: #29A71A;"
+                    >    
+                        <img src="assets/whatsapp.webp" alt="Industry Trends" class="mr-2" style="height:20px;">
+                        <span>CHAT WITH US</span>
                     </button>
                 </div>
             </div>
             <div id="hero-container"
-                class="max-w-4xl mx-auto px-6 pt-6 pb-10 flex flex-col md:items-center md:text-center md:pt-12 md:max-w-4xl">
+                class="max-w-4xl mx-auto px-6 pt-6 pb-10 flex flex-col items-center text-center md:pt-12 md:max-w-4xl">
                 <h1 class="text-xl mt-2 md:mt-4 md:text-4xl font-semibold">ACHIEVE 30% GROW FOR YOUR</h1>
                 <p class="custom-text">RESTAURANT OR STORES</p>
                 <div id="buttons-container" class="mt-2 md:mt-2 flex justify-center mb-4 gap-5">
                     <button
                         style="border-color: #3E87FF;"
-                        class="flex bg-white gap-2 items-center border border-2 px-1 md:px-6 py-1 md:py-2 rounded-lg hover:border-blue-900">
+                        class="flex bg-white gap-2 items-center border border-2 px-2 md:px-6 py-2 md:py-2 rounded-lg hover:border-blue-900">
                         <a target="_blank"
                             href="https://restaurant.tryzensolution.com/"
                             class="text-sm font-bold">
@@ -210,7 +284,7 @@
                     </button>
                     <button
                         style="border-color: #3E87FF;"
-                        class="flex bg-white gap-2 items-center border border-2 px-1 md:px-6 py-1 md:py-2 rounded-lg hover:border-blue-900">
+                        class="flex bg-white gap-2 items-center border border-2 px-2 md:px-6 py-2 md:py-2 rounded-lg hover:border-blue-900">
                         <a target="_blank"
                             href="https://knockknock.mx/"
                             class="text-sm font-bold">
@@ -430,10 +504,10 @@
         <section id="features" class="px-2 md:px-6 lg:px-12 pt-8 md:pt-16">
             <div class="bg-green-100 rounded-xl py-5 md:pt-16 md:pb-16">
                 <div class="text-center">
-                    <p class="text-black font-semibold text-center text-xl lg:text-4xl md:text-4xl mb-4">
+                    <p class="text-black font-semibold text-center text-lg lg:text-4xl md:text-4xl mb-4">
                         Grow multi Branch Resturent with
                     </p>
-                    <h1 class="text-2xl md:text-5xl lg:text-6xl font-bold text-stroke mb-5 md:mb-10">
+                    <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold text-stroke mb-5 md:mb-10">
                         30% PROFIT GROWTH
                     </h1>
                 </div>
@@ -507,9 +581,9 @@
         </section>
 
         <section id="why" class="px-2 md:px-6 lg:px-12 pt-8 md:pt-16">
-            <div class="rounded-xl py-5 md:pt-12 md:pb-12" style="background-color: #F9F9F9;">
+            <div class="rounded-xl pt-5 md:pt-12 md:pb-12" style="background-color: #F9F9F9;">
                 <div class="px-2 md:px-6 lg:px-12 relative">
-                    <div class="text-center mb-10">
+                    <div class="text-center mb-5 md:mb-10">
                         <p class="text-xl md:text-3xl text-black font-semibold mb-4">Why to choose</p>
                         <p class="text-black font-bold text-center text-2xl md:text-4xl px-8 mt-10">TRYZEN SOLUTION</p>
                     </div>
@@ -556,7 +630,7 @@
                                     Our pricing is month to month. We don’t believe in locking you into long-term
                                     contracts. We believe in earning your business every month.
                                 </p>
-                                <div class="pt-6">
+                                <div class="md:pt-6">
                                     <img src="assets/customers.webp" alt="Strategy" class="mx-auto rounded-xl">
                                 </div>
                             </div>
@@ -567,7 +641,7 @@
                                     Save 25-30% Commission and also ensures better control, profitability, and the
                                     ability to deliver a truly personalised customer experience.
                                 </p>
-                                <div class="pt-6">
+                                <div class="md:pt-6">
                                     <img src="assets/brand.webp" alt="Brand Control" class="mx-auto rounded-xl">
                                 </div>
                             </div>
@@ -587,8 +661,8 @@
                 </div>
 
                 <div class="flex flex-col mx-2">
-                    <div class="flex flex-col mt-4 md:p-2 p-1">
-                        <div class="flex flex-col flex-wrap gap-4 mb-6 md:flex-row justify-center">
+                    <div class="hidden md:flex flex-col mt-4 md:p-2 p-1">
+                        <div class="flex flex-wrap gap-4 mb-6 flex-row justify-center">
                             <button id="btn1"
                                 class="border-solid border-2 border-gray-300 bg-white text-blue-800 py-3 px-2 md:px-5 rounded-lg flex items-center shadow-sm transition-all duration-300 hover:bg-blue-600 hover:text-white">
                                 <img src="assets/increase.webp" alt="Increase Sales" class="mr-3" style="height:16px;">
@@ -624,8 +698,52 @@
                         </div>
                     </div>
 
+                    <div class="flex mt-4 md:hidden">
+                        <div class="swiper button-swiper-container mb-6">
+                            <div class="swiper-wrapper">
+                                <div class="button-swiper-slide">
+                                    <button id="btn1" class="border-solid border-2 border-gray-300 bg-white text-blue-800 py-3 px-2 md:px-5 rounded-lg flex items-center shadow-sm transition-all duration-300 hover:bg-blue-600 hover:text-white">
+                                        <img src="assets/increase.webp" alt="Increase Sales" class="mr-3" style="height:16px;">
+                                        <p class="text-sm md:text-md font-bold">How to increase Profitability in online order</p>
+                                    </button>
+                                </div>
+                                <div class="button-swiper-slide">
+                                    <button id="btn2" class="border-solid border-2 border-gray-300 bg-white text-blue-800 py-3 px-2 md:px-5 rounded-lg flex items-center shadow-sm transition-all duration-300 hover:bg-blue-600 hover:text-white">
+                                        <img src="assets/menu.webp" alt="Restaurant Software" class="mr-3" style="height:20px;">
+                                        <p class="text-sm md:text-md font-bold">How I can Start My online Order Journey</p>
+                                    </button>
+                                </div>
+                                <div class="button-swiper-slide">
+                                    <button id="btn3" class="border-solid border-2 border-gray-300 bg-white text-blue-800 py-3 px-2 md:px-5 rounded-lg flex items-center shadow-sm transition-all duration-300 hover:bg-blue-600 hover:text-white">
+                                        <img src="assets/strategy.webp" alt="Marketing Strategy" class="mr-3" style="height:20px;">
+                                        <p class="text-sm md:text-md font-bold">How To Manage Multi-Location Restaurants</p>
+                                    </button>
+                                </div>
+                                <div class="button-swiper-slide">
+                                    <button id="btn4" class="border-solid border-2 border-gray-300 bg-white text-blue-800 py-3 px-2 md:px-5 rounded-lg flex items-center shadow-sm transition-all duration-300 hover:bg-blue-600 hover:text-white">
+                                        <img src="assets/block.webp" alt="Increase Sales" class="mr-3" style="height:16px;">
+                                        <p class="text-sm md:text-md font-bold">Unique Brand Identity for My Restaurant</p>
+                                    </button>
+                                </div>
+                                <div class="button-swiper-slide">
+                                    <button id="btn5" class="border-solid border-2 border-gray-300 bg-white text-blue-800 py-3 px-2 md:px-5 rounded-lg flex items-center shadow-sm transition-all duration-300 hover:bg-blue-600 hover:text-white">
+                                        <img src="assets/trends.webp" alt="Industry Trends" class="mr-3" style="height:20px;">
+                                        <p class="text-sm md:text-md font-bold">What are Upcoming Industry Trends</p>
+                                    </button>
+                                </div>
+                                <div class="button-swiper-slide">
+                                    <button id="btn6" class="border-solid border-2 border-gray-300 bg-white text-blue-800 py-3 px-2 md:px-5 rounded-lg flex items-center shadow-sm transition-all duration-300 hover:bg-blue-600 hover:text-white">
+                                        <img src="assets/star.webp" alt="Industry Trends" class="mr-3" style="height:20px;">
+                                        <p class="text-sm md:text-md font-bold">How i can Get ranking in Google</p>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                    </div>
+
                     <div id="content1" class="content w-full flex flex-col lg:flex-row items-center rounded-lg">
-                        <div class="lg:w-1/2 p-6 rounded-lg">
+                        <div class="lg:w-1/2 md:p-6 rounded-lg">
                             <h2 class="text-xl md:text-4xl font-bold text-gray-800 mb-4">How to increases Profitability
                                 in online orders</h2>
                             <p class="text-gray-600 text-md mb-6">
@@ -635,14 +753,14 @@
                             </p>
                             <button 
                                 href="https://wa.me/919998220731?text=Hello%20TryzenSolution,%20can%20we%20arrange%20meeting%20to%20see%20demo!"
-                                class="flex items-center text-white font-semibold border border-gray-400 py-2 px-4 rounded-full" 
+                                class="hidden md:flex items-center text-white font-semibold border border-gray-400 py-2 px-4 rounded-full mb-4 md:mb-0" 
                                 style="background-color: #29A71A;"
                             >    
                                 <img src="assets/whatsapp.webp" alt="Industry Trends" class="mr-2" style="height:20px;">
                                 <span>CHAT WITH US</span>
                             </button>
                         </div>
-                        <div class="lg:w-1/2 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-4">
+                        <div class="hidden md:flex lg:w-1/2 grid grid-cols-3 gap-4">
                             <a href="orderBlog.html"
                                 class="relative bg-white shadow-lg rounded-2xl overflow-hidden px-2 py-2">
                                 <img src="assets/13.webp" alt="Business Strategy"
@@ -677,11 +795,56 @@
                                 </div>
                             </a>
                         </div>
+                        <div class="swiper-container md:hidden">
+                            <div class="swiper-wrapper grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-4">
+                                <div class="swiper-slide">
+                                    <a href="orderBlog.html" class="relative bg-white shadow-lg rounded-2xl overflow-hidden px-2 py-2">
+                                        <img src="assets/13.webp" alt="Business Strategy" class="w-full h-32 rounded-2xl object-cover mb-4">
+                                        <div class="p-2">
+                                            <h3 class="text-md font-semibold mb-2">How i can Increase sales and traffic that maximise my Profits in Restaurant’s
+                                                business
+                                            </h3>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="swiper-slide">
+                                    <a href="IncreaseSalesBlog.html" class="relative bg-white shadow-lg rounded-2xl overflow-hidden px-2 py-2">
+                                        <img src="assets/12.webp" alt="Business Strategy" class="w-full h-32 rounded-2xl object-cover mb-4">
+                                        <div class="p-2">
+                                            <h3 class="text-md font-semibold mb-2">5 Proven Ways to Enhance Online Order Profitability and Drive More Revenue for
+                                                Your Restaurant
+                                            </h3>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="swiper-slide">
+                                    <a href="EnhanceOrderBlog.html" class="relative bg-white shadow-lg rounded-2xl overflow-hidden px-2 py-2">
+                                        <img src="assets/11.webp" alt="Business Strategy" class="w-full h-32 rounded-2xl object-cover mb-4">
+                                        <div class="p-2">
+                                            <h3 class="text-md font-semibold mb-2">How to avoid 3rd party delivery charge and i can my Save 25% Delivery Costs for
+                                                my Restaurant.</h3>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                            <div class="flex pt-6">
+                                <button 
+                                    href="https://wa.me/919998220731?text=Hello%20TryzenSolution,%20can%20we%20arrange%20meeting%20to%20see%20demo!"
+                                    class="flex md:hidden items-center text-white font-semibold border border-gray-400 py-2 px-4 rounded-full mb-4 md:mb-0" 
+                                    style="background-color: #29A71A;"
+                                >    
+                                    <img src="assets/whatsapp.webp" alt="Industry Trends" class="mr-2" style="height:20px;">
+                                    <span>CHAT WITH US</span>
+                                </button>
+                            </div>
+                        </div>
+                        
                     </div>
 
                     <div id="content2"
                         class="content hidden-content w-full flex flex-col lg:flex-row items-center rounded-lg">
-                        <div class="lg:w-1/2 p-6 rounded-lg">
+                        <div class="lg:w-1/2 md:p-6 rounded-lg">
                             <h2 class="text-xl md:text-4xl font-bold text-gray-800 mb-4">How I can Start My online
                                 Order Journey</h2>
                             <p class="text-gray-600 text-md mb-6">
@@ -690,14 +853,14 @@
                             </p>
                             <button 
                                 href="https://wa.me/919998220731?text=Hello%20TryzenSolution,%20can%20we%20arrange%20meeting%20to%20see%20demo!"
-                                class="flex items-center text-white font-semibold border border-gray-400 py-2 px-4 rounded-full" 
+                                class="hidden md:flex items-center text-white font-semibold border border-gray-400 py-2 px-4 rounded-full mb-4 md:mb-0" 
                                 style="background-color: #29A71A;"
                             >    
                                 <img src="assets/whatsapp.webp" alt="Industry Trends" class="mr-2" style="height:20px;">
                                 <span>CHAT WITH US</span>
                             </button>
                         </div>
-                        <div class="lg:w-1/2 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-4">
+                        <div class="hidden md:flex lg:w-1/2 grid grid-cols-3 gap-4">
                             <a href="GrowOfflineBlog.html"
                                 class="relative bg-white shadow-lg rounded-2xl overflow-hidden px-2 py-2">
                                 <img src="assets/22.webp" alt="Business Strategy"
@@ -729,10 +892,54 @@
                                 </div>
                             </a>
                         </div>
+                        <div class="swiper-container md:hidden">
+                            <div class="swiper-wrapper grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-4">
+                                <div class="swiper-slide">
+                                    <a href="GrowOfflineBlog.html" class="relative bg-white shadow-lg rounded-2xl overflow-hidden px-2 py-2">
+                                        <img src="assets/22.webp" alt="Business Strategy" class="w-full h-32 rounded-2xl object-cover mb-4">
+                                        <div class="p-2">
+                                            <h3 class="text-md font-semibold mb-2">Step-by-Step Guide How to Prepare Your Restaurant
+                                                for Seamless Online Ordering Integration
+                                            </h3>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="swiper-slide">
+                                    <a href="OnlineOrderingBlog.html" class="relative bg-white shadow-lg rounded-2xl overflow-hidden px-2 py-2">
+                                        <img src="assets/23.webp" alt="Business Strategy" class="w-full h-32 rounded-2xl object-cover mb-4">
+                                        <div class="p-2">
+                                            <h3 class="text-md font-semibold mb-2">How to i start growing Offline business to Online
+                                                my Restaurant’s First Online Ordering Platform
+                                            </h3>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="swiper-slide">
+                                    <a href="PlateformBlog.html" class="relative bg-white shadow-lg rounded-2xl overflow-hidden px-2 py-2">
+                                        <img src="assets/21.webp" alt="Business Strategy" class="w-full h-32 rounded-2xl object-cover mb-4">
+                                        <div class="p-2">
+                                            <h3 class="text-md font-semibold mb-2">How to Choose the Right Online Ordering Platform
+                                                like Wordpress, Shopify or customs solution</h3>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                            <div class="flex pt-6">
+                                <button 
+                                    href="https://wa.me/919998220731?text=Hello%20TryzenSolution,%20can%20we%20arrange%20meeting%20to%20see%20demo!"
+                                    class="flex md:hidden items-center text-white font-semibold border border-gray-400 py-2 px-4 rounded-full mb-4 md:mb-0" 
+                                    style="background-color: #29A71A;"
+                                >    
+                                    <img src="assets/whatsapp.webp" alt="Industry Trends" class="mr-2" style="height:20px;">
+                                    <span>CHAT WITH US</span>
+                                </button>
+                            </div>
+                        </div>
                     </div>
 
                     <div id="content3" class="content hidden-content flex flex-col lg:flex-row items-center rounded-lg">
-                        <div class="lg:w-1/2 p-6 rounded-lg">
+                        <div class="lg:w-1/2 md:p-6 rounded-lg">
                             <h2 class="text-xl md:text-4xl font-bold text-gray-800 mb-4">How To Manage Multi-Location
                                 Restaurants</h2>
                             <p class="text-gray-600 text-md mb-6">
@@ -742,14 +949,14 @@
                             </p>
                             <button 
                                 href="https://wa.me/919998220731?text=Hello%20TryzenSolution,%20can%20we%20arrange%20meeting%20to%20see%20demo!"
-                                class="flex items-center text-white font-semibold border border-gray-400 py-2 px-4 rounded-full" 
+                                class="hidden md:flex items-center text-white font-semibold border border-gray-400 py-2 px-4 rounded-full mb-4 md:mb-0" 
                                 style="background-color: #29A71A;"
                             >    
                                 <img src="assets/whatsapp.webp" alt="Industry Trends" class="mr-2" style="height:20px;">
                                 <span>CHAT WITH US</span>
                             </button>
                         </div>
-                        <div class="lg:w-1/2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
+                        <div class="hidden md:flex lg:w-1/2 grid grid-cols-3 gap-4">
                             <a href="OptimizeOprationBlog.html"
                                 class="relative bg-white shadow-lg rounded-2xl overflow-hidden px-2 py-2">
                                 <img src="assets/32.webp" alt="Business Strategy"
@@ -771,10 +978,45 @@
                                 </div>
                             </a>
                         </div>
+                        <div class="swiper-container md:hidden">
+                            <div class="swiper-wrapper grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-4">
+                                <div class="swiper-slide">
+                                    <a href="OptimizeOprationBlog.html" class="relative bg-white shadow-lg rounded-2xl overflow-hidden px-2 py-2">
+                                        <img src="assets/32.webp" alt="Business Strategy" class="w-full h-32 rounded-2xl object-cover mb-4">
+                                        <div class="p-2">
+                                            <h3 class="text-md font-semibold mb-2">How to Optimise Operations for Multi-Location
+                                                Restaurants with Online Ordering
+                                            </h3>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="swiper-slide">
+                                    <a href="EnsureConsistencyBlog.html" class="relative bg-white shadow-lg rounded-2xl overflow-hidden px-2 py-2">
+                                        <img src="assets/31.webp" alt="Business Strategy" class="w-full h-32 rounded-2xl object-cover mb-4">
+                                        <div class="p-2">
+                                            <h3 class="text-md font-semibold mb-2">How to Ensure Consistency in Online Orders Across
+                                                Multiple Restaurant Locations
+                                            </h3>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                            <div class="flex pt-6">
+                                <button 
+                                    href="https://wa.me/919998220731?text=Hello%20TryzenSolution,%20can%20we%20arrange%20meeting%20to%20see%20demo!"
+                                    class="flex md:hidden items-center text-white font-semibold border border-gray-400 py-2 px-4 rounded-full mb-4 md:mb-0" 
+                                    style="background-color: #29A71A;"
+                                >    
+                                    <img src="assets/whatsapp.webp" alt="Industry Trends" class="mr-2" style="height:20px;">
+                                    <span>CHAT WITH US</span>
+                                </button>
+                            </div>
+                        </div>
                     </div>
 
                     <div id="content4" class="content hidden-content flex flex-col lg:flex-row items-center rounded-lg">
-                        <div class="lg:w-1/2 p-6 rounded-lg">
+                        <div class="lg:w-1/2 md:p-6 rounded-lg">
                             <h2 class="text-xl md:text-4xl font-bold text-gray-800 mb-4">Unique Brand Identity for My
                                 Restaurant
                             </h2>
@@ -785,14 +1027,14 @@
                             </p>
                             <button 
                                 href="https://wa.me/919998220731?text=Hello%20TryzenSolution,%20can%20we%20arrange%20meeting%20to%20see%20demo!"
-                                class="flex items-center text-white font-semibold border border-gray-400 py-2 px-4 rounded-full" 
+                                class="hidden md:flex items-center text-white font-semibold border border-gray-400 py-2 px-4 rounded-full mb-4 md:mb-0" 
                                 style="background-color: #29A71A;"
                             >    
                                 <img src="assets/whatsapp.webp" alt="Industry Trends" class="mr-2" style="height:20px;">
                                 <span>CHAT WITH US</span>
                             </button>
                         </div>
-                        <div class="lg:w-1/2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
+                        <div class="hidden md:flex lg:w-1/2 grid grid-cols-3 gap-4">
                             <a href="BrandExperienceBlog.html"
                                 class="relative bg-white shadow-lg rounded-2xl overflow-hidden px-2 py-2">
                                 <img src="assets/41.webp" alt="Business Strategy"
@@ -814,10 +1056,45 @@
                                 </div>
                             </a>
                         </div>
+                        <div class="swiper-container md:hidden">
+                            <div class="swiper-wrapper grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-4">
+                                <div class="swiper-slide">
+                                    <a href="BrandExperienceBlog.html" class="relative bg-white shadow-lg rounded-2xl overflow-hidden px-2 py-2">
+                                        <img src="assets/41.webp" alt="Business Strategy" class="w-full h-32 rounded-2xl object-cover mb-4">
+                                        <div class="p-2">
+                                            <h3 class="text-md font-semibold mb-2">Creating a Unified Brand Experience: Connecting
+                                                Your Restaurant’s Online and Offline Presence
+                                            </h3>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="swiper-slide">
+                                    <a href="BrandJourneyBlog.html" class="relative bg-white shadow-lg rounded-2xl overflow-hidden px-2 py-2">
+                                        <img src="assets/42.webp" alt="Business Strategy" class="w-full h-32 rounded-2xl object-cover mb-4">
+                                        <div class="p-2">
+                                            <h3 class="text-md font-semibold mb-2">Creating a Seamless Brand Journey for Customers:
+                                                Online Ordering to In-Store Dining
+                                            </h3>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                            <div class="flex pt-6">
+                                <button 
+                                    href="https://wa.me/919998220731?text=Hello%20TryzenSolution,%20can%20we%20arrange%20meeting%20to%20see%20demo!"
+                                    class="flex md:hidden items-center text-white font-semibold border border-gray-400 py-2 px-4 rounded-full mb-4 md:mb-0" 
+                                    style="background-color: #29A71A;"
+                                >    
+                                    <img src="assets/whatsapp.webp" alt="Industry Trends" class="mr-2" style="height:20px;">
+                                    <span>CHAT WITH US</span>
+                                </button>
+                            </div>
+                        </div>
                     </div>
 
                     <div id="content5" class="content hidden-content flex flex-col lg:flex-row items-center rounded-lg">
-                        <div class="lg:w-1/2 p-6 rounded-lg">
+                        <div class="lg:w-1/2 md:p-6 rounded-lg">
                             <h2 class="text-xl md:text-4xl font-bold text-gray-800 mb-4">What are Upcoming Industry
                                 Trends</h2>
                             <p class="text-gray-600 text-md mb-6">
@@ -826,14 +1103,14 @@
                             </p>
                             <button 
                                 href="https://wa.me/919998220731?text=Hello%20TryzenSolution,%20can%20we%20arrange%20meeting%20to%20see%20demo!"
-                                class="flex items-center text-white font-semibold border border-gray-400 py-2 px-4 rounded-full" 
+                                class="hidden md:flex items-center text-white font-semibold border border-gray-400 py-2 px-4 rounded-full mb-4 md:mb-0" 
                                 style="background-color: #29A71A;"
                             >    
                                 <img src="assets/whatsapp.webp" alt="Industry Trends" class="mr-2" style="height:20px;">
                                 <span>CHAT WITH US</span>
                             </button>
                         </div>
-                        <div class="lg:w-1/2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
+                        <div class="hidden md:flex lg:w-1/2 grid grid-cols-3 gap-4">
                             <a href="ShapingFutureBlog.html"
                                 class="relative bg-white shadow-lg rounded-2xl overflow-hidden px-2 py-2">
                                 <img src="assets/51.webp" alt="Business Strategy"
@@ -855,10 +1132,45 @@
                                 </div>
                             </a>
                         </div>
+                        <div class="swiper-container md:hidden">
+                            <div class="swiper-wrapper grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-4">
+                                <div class="swiper-slide">
+                                    <a href="ShapingFutureBlog.html" class="relative bg-white shadow-lg rounded-2xl overflow-hidden px-2 py-2">
+                                        <img src="assets/51.webp" alt="Business Strategy" class="w-full h-32 rounded-2xl object-cover mb-4">
+                                        <div class="p-2">
+                                            <h3 class="text-md font-semibold mb-2">How Restaurants Can Compete with online Shifting
+                                                of Consumer and there Preferences
+                                            </h3>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="swiper-slide">
+                                    <a href="OnlineShiftBlog.html" class="relative bg-white shadow-lg rounded-2xl overflow-hidden px-2 py-2">
+                                        <img src="assets/52.webp" alt="Business Strategy" class="w-full h-32 rounded-2xl object-cover mb-4">
+                                        <div class="p-2">
+                                            <h3 class="text-md font-semibold mb-2">How Restaurants Can Compete with online Shifting
+                                                of Consumer and there Preferences
+                                            </h3>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                            <div class="flex pt-6">
+                                <button 
+                                    href="https://wa.me/919998220731?text=Hello%20TryzenSolution,%20can%20we%20arrange%20meeting%20to%20see%20demo!"
+                                    class="flex md:hidden items-center text-white font-semibold border border-gray-400 py-2 px-4 rounded-full mb-4 md:mb-0" 
+                                    style="background-color: #29A71A;"
+                                >    
+                                    <img src="assets/whatsapp.webp" alt="Industry Trends" class="mr-2" style="height:20px;">
+                                    <span>CHAT WITH US</span>
+                                </button>
+                            </div>
+                        </div>
                     </div>
 
                     <div id="content6" class="content hidden-content flex flex-col lg:flex-row items-center rounded-lg">
-                        <div class="lg:w-1/2 p-6 rounded-lg">
+                        <div class="lg:w-1/2 md:p-6 rounded-lg">
                             <h2 class="text-xl md:text-4xl font-bold text-gray-800 mb-4">How i can Get ranking in
                                 Google</h2>
                             <p class="text-gray-600 text-md mb-6">
@@ -868,14 +1180,14 @@
                             </p>
                             <button 
                                 href="https://wa.me/919998220731?text=Hello%20TryzenSolution,%20can%20we%20arrange%20meeting%20to%20see%20demo!"
-                                class="flex items-center text-white font-semibold border border-gray-400 py-2 px-4 rounded-full" 
+                                class="hidden md:flex items-center text-white font-semibold border border-gray-400 py-2 px-4 rounded-full mb-4 md:mb-0" 
                                 style="background-color: #29A71A;"
                             >    
                                 <img src="assets/whatsapp.webp" alt="Industry Trends" class="mr-2" style="height:20px;">
                                 <span>CHAT WITH US</span>
                             </button>
                         </div>
-                        <div class="lg:w-1/2 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-4">
+                        <div class="hidden md:flex lg:w-1/2 grid grid-cols-3 gap-4">
                             <a href="OnlineReputationBlog.html"
                                 class="relative bg-white shadow-lg rounded-2xl overflow-hidden px-2 py-2">
                                 <img src="assets/61.webp" alt="Business Strategy"
@@ -907,6 +1219,51 @@
                                 </div>
                             </a>
                         </div>
+                        <div class="swiper-container md:hidden">
+                            <div class="swiper-wrapper grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-4">
+                                <div class="swiper-slide">
+                                    <a href="OnlineReputationBlog.html" class="relative bg-white shadow-lg rounded-2xl overflow-hidden px-2 py-2">
+                                        <img src="assets/61.webp" alt="Business Strategy" class="w-full h-32 rounded-2xl object-cover mb-4">
+                                        <div class="p-2">
+                                            <h3 class="text-md font-semibold mb-2">Boost Your Restaurant’s Online Reputation: How to
+                                                Ask for Reviews Without Sounding Pushy
+                                            </h3>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="swiper-slide">
+                                    <a href="RestaurantRankBlog.html" class="relative bg-white shadow-lg rounded-2xl overflow-hidden px-2 py-2">
+                                        <img src="assets/62.webp" alt="Business Strategy" class="w-full h-32 rounded-2xl object-cover mb-4">
+                                        <div class="p-2">
+                                            <h3 class="text-md font-semibold mb-2">The Ultimate Guide How to Rank my Restaurant on
+                                                google. for SEO and also, User-Generated Content that help to Improve SEO
+                                            </h3>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="swiper-slide">
+                                    <a href="SeoMistakesBlog.html" class="relative bg-white shadow-lg rounded-2xl overflow-hidden px-2 py-2">
+                                        <img src="assets/63.webp" alt="Business Strategy" class="w-full h-32 rounded-2xl object-cover mb-4">
+                                        <div class="p-2">
+                                            <h3 class="text-md font-semibold mb-2">Top 10 SEO Mistakes Restaurant Owners make to
+                                                Boost there Restaurant’s Online.
+                                            </h3>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                            <div class="flex pt-6">
+                                <button 
+                                    href="https://wa.me/919998220731?text=Hello%20TryzenSolution,%20can%20we%20arrange%20meeting%20to%20see%20demo!"
+                                    class="flex md:hidden items-center text-white font-semibold border border-gray-400 py-2 px-4 rounded-full mb-4 md:mb-0" 
+                                    style="background-color: #29A71A;"
+                                >    
+                                    <img src="assets/whatsapp.webp" alt="Industry Trends" class="mr-2" style="height:20px;">
+                                    <span>CHAT WITH US</span>
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -927,7 +1284,7 @@
                     </div>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pt-10 px-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pt-10 px-2 md:px-8">
                     <div class="bg-white rounded-lg shadow-lg border overflow-hidden">
                         <div class="bg-white p-2 rounded-lg shadow-lg">
                             <div class="flex items-start">
@@ -953,7 +1310,7 @@
                                 <img class="mr-2" src="assets/5star.webp" alt="Star Icon" style="height: 1.3rem;">
                             </div>
 
-                            <div class="mb-4 text-sm px-2 font-semibold">
+                            <div class="mb-4 text-sm md:px-2 font-semibold">
                                 <p>Amit has done an excellent job developing websites. I've had two different websites
                                     created for my business, and he never disappoints. His skills are impressive, and
                                     it's truly a pleasure to work with your brother.</p>
@@ -990,7 +1347,7 @@
                                 <img class="mr-2" src="assets/5star.webp" alt="Star Icon" style="height: 1.3rem;">
                             </div>
 
-                            <div class="mb-4 text-sm px-2 font-semibold">
+                            <div class="mb-4 text-sm md:px-2 font-semibold">
                                 <p>Amit has done an excellent job developing websites. I’ve had two different websites
                                     created for my business, and he never disappoints. His skills are impressive, and
                                     It’s truly a pleasure to work with you brother.</p>
@@ -1027,7 +1384,7 @@
                                 <img class="mr-2" src="assets/5star.webp" alt="Star Icon" style="height: 1.3rem;">
                             </div>
 
-                            <div class="mb-4 text-sm px-2 font-semibold">
+                            <div class="mb-4 text-sm md:px-2 font-semibold">
                                 <p>I meet him on Fiverr, They always do fantastic work all time never disappoint me,
                                     highly recommend to work with this team, know what's the best and understand how to
                                     achieve in e-commerce websites!</p>
@@ -1064,7 +1421,7 @@
                                 <img class="mr-2" src="assets/4star.webp" alt="Star Icon" style="height: 1.3rem;">
                             </div>
 
-                            <div class="mb-4 text-sm px-2 font-semibold">
+                            <div class="mb-4 text-sm md:px-2 font-semibold">
                                 <p>Tryzen team done an excellent job developing websites. but there is little bit miss
                                     communication in language overall very good experience to working with you my
                                     friend.</p>
@@ -1101,7 +1458,7 @@
                                 <img class="mr-2" src="assets/5star.webp" alt="Star Icon" style="height: 1.3rem;">
                             </div>
 
-                            <div class="mb-4 text-sm px-2 font-semibold">
+                            <div class="mb-4 text-sm md:px-2 font-semibold">
                                 <p>Our website redesign project with TryzenSolution was a huge success. The team took
                                     the time to understand our needs and delivered a beautiful result. Thank you guys...
                                 </p>
@@ -1140,7 +1497,7 @@
                                 <img class="mr-2" src="assets/5star.webp" alt="Star Icon" style="height: 1.3rem;">
                             </div>
 
-                            <div class="mb-4 text-sm px-2 font-semibold">
+                            <div class="mb-4 text-sm md:px-2 font-semibold">
                                 <p>We had a great experience working with TryzenSolution! They were attentive and
                                     professional, provided amazing service and created an app</p>
                             </div>
@@ -1154,9 +1511,8 @@
             </div>
         </section>
 
-
-        <section id="benefits" class="px-2 md:px-6 lg:px-12 pt-8 md:pt-16">
-            <div class="rounded-xl py-5 md:pt-12 md:pb-12" style="background-color: #F9F9F9;">
+        <section id="benefits" class="px-2 md:px-6 lg:px-12 pt-16 md:pt-16">
+            <div class="rounded-xl pt-5 md:pt-12 md:pb-12" style="background-color: #F9F9F9;">
                 <div class="px-2 md:px-6 lg:px-12 relative"> 
                     <div class="text-center mb-5">
                         <p class="text-black text-2xl lg:text-4xl md:text-3xl font-semibold mb-2">Grow 30% Profit by</p>
@@ -1175,13 +1531,13 @@
                 </div>
         </section>
 
-        <section id="pricing" class="md:px-6 lg:px-12 pt-8 md:pt-16 pb-10">
+        <section id="pricing" class="md:px-6 lg:px-12 pt-2 md:pt-16 pb-10">
             <div class="rounded-xl md:pt-10 md:pb-12" style="background-color: #F9F9F9;">
-                <div class="text-center py-5">
-                    <h1 class="text-black font-bold text-xl md:text-3xl lg:text-5xl ">
+                <div class="text-center md:py-5">
+                    <h1 class="text-black font-bold text-lg md:text-3xl lg:text-5xl ">
                         STOP USING 3RD PARTY APPS
                     </h1>
-                    <p class="text-center font-bold text-lg md:text-4xl lg:text-5xl mt-3" style="color: #FF6B6B;">
+                    <p class="text-center font-bold text-xl md:text-4xl lg:text-5xl mt-3" style="color: #FF6B6B;">
                         LIKE UBER, DOOR DASH AND GRUBHUB
                     </p>
                 </div>
@@ -1393,8 +1749,56 @@
         calculateTotalCost();
         ordersInput.addEventListener('input', calculateTotalCost);
         orderSizeInput.addEventListener('input', calculateTotalCost);
+        
+        let swiperInstance;
+        function initializeSwiper() {
+            if (window.innerWidth <= 640 && !swiperInstance) {
+                swiperInstance = new Swiper('.swiper-container', {
+                    slidesPerView: 2,
+                    spaceBetween: 10,
+                    pagination: {
+                        el: '.swiper-pagination',
+                        clickable: true,
+                    },
+                    freeMode: true,
+                });
+            } else if (window.innerWidth > 640 && swiperInstance) {
+                swiperInstance.destroy(true, true);
+                swiperInstance = null;
+            }
+        }
+
+        let buttonSwiper;
+        function initializeButtonSwiper() {
+            if (window.innerWidth <= 640 && !buttonSwiper) {
+                buttonSwiper = new Swiper('.button-swiper-container', {
+                    slidesPerView: 2,
+                    spaceBetween: 10,
+                    grid: {
+                        rows: 2,
+                        fill: 'row'
+                    },
+                    pagination: {
+                        el: '.swiper-pagination',
+                        clickable: true,
+                    },
+                    freeMode: true,
+                });
+            } else if (window.innerWidth > 640 && buttonSwiper) {
+                buttonSwiper.destroy(true, true);
+                buttonSwiper = null;
+            }
+        }
+
+        initializeSwiper();
+        window.addEventListener('resize', initializeSwiper);
+
+        initializeButtonSwiper();
+        window.addEventListener('resize', initializeButtonSwiper);
+
     </script>
     <script src="script.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.4.1/flowbite.min.js"></script>
 </body>
 
