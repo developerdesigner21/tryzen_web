@@ -1,0 +1,63 @@
+@font-face {
+    font-family: "websiteDesign";
+    src: url("/src/assets/fonts/DupincelSmallTest-SemiBoldItalic.otf") format("opentype");
+}
+
+.our-food {
+    color: #FF6802;
+}
+
+.website-design {
+    font-family: "websiteDesign";
+}
+
+.carousel-wrapper {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.carousel-line {
+    display: flex;
+    animation: scroll-left 10s linear infinite;
+}
+
+.carousel-line img {
+    width: 300px;
+    height: auto;
+    flex-shrink: 0;
+}
+
+@media (max-width: 576px) {
+    .item {
+        width: 100%;
+        max-width: 150px;
+    }
+}
+
+.carousel-line.reverse {
+    animation: scroll-right 10s linear infinite;
+}
+
+@keyframes scroll-left {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes scroll-right {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}

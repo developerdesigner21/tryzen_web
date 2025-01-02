@@ -1,0 +1,106 @@
+@font-face {
+    font-family: "Achieve";
+    src: url("/src/assets/fonts/LarkenDEMO-Black.otf") format("opentype");
+}
+
+@font-face {
+    font-family: "Profit";
+    src: url("/src/assets/fonts/DupincelSmallTest-SemiBoldItalic.otf") format("opentype");
+}
+
+.intro-container {
+    text-align: center;
+}
+
+.achieve-title {
+    font-family: "Achieve";
+    text-transform: uppercase;
+    margin: 0;
+    color: #000;
+}
+
+.profit-title {
+    font-family: "Profit";
+    margin: 0;
+    color: #089668;
+}
+
+.description-text {
+    font-family: "customWebApp";
+}
+
+.ecom-Restaurant {
+    font-family: "EcomRestaurant";
+}
+
+.info-sections {
+    justify-content: center;
+}
+
+.relative-container {
+    position: relative;
+    display: inline-block;
+}
+
+.arrow-container {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 100%;
+    margin-top: 5px;
+}
+
+.arrow-image {
+    width: 20px;
+    height: auto;
+}
+
+.info-box {
+    text-align: center;
+    border-radius: 10px;
+    max-width: 1400px;
+    position: relative;
+    display: inline-block;
+}
+
+.info-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.info-content {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.info-image {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.info-button-container {
+    position: absolute;
+    width: 100%;
+    max-width: 500px;
+}
+
+.info-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    /* transition: transform 0.3s ease, background-color 0.3s ease; */
+}
+
+.info-box:nth-child(2) .info-button {
+    background-color: #ff6600;
+}
+
+.info-button:hover {
+    transform: scale(1.1);
+}

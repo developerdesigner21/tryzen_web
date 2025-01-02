@@ -1,0 +1,71 @@
+.hidden-content {
+    display: none;
+}
+
+.active {
+    color: #2563eb;
+    font-weight: bold;
+}
+
+.screen {
+    display: block;
+    width: 100%;
+    height: 350px;
+    overflow: hidden;
+    position: relative;
+    border-radius: 8px;
+    margin: 0 auto;
+}
+
+.main-image {
+    width: 100%;
+    height: auto;
+    bottom: -100%;
+    position: absolute;
+    top: 0;
+    z-index: 0;
+    margin: 0;
+    padding: 0;
+    transition: transform 5s ease;
+}
+
+.screen:hover img {
+    transform: translateY(-50%);
+}
+
+.gif-overlay {
+    position: absolute;
+    z-index: 1;
+    cursor: pointer;
+}
+
+
+@font-face {
+    font-family: "Header";
+    src: url("/src/assets/fonts/DupincelMediumTest-BoldItalic.otf") format("opentype");
+}
+
+@font-face {
+    font-family: "SubTitle";
+    src: url("/src/assets/fonts/LarkenDEMO-Black.otf") format("opentype");
+}
+
+@font-face {
+    font-family: "customWebApp";
+    src: url("/src/assets/fonts/CraftRounded-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "EcomRestaurant";
+    src: url("/src/assets/fonts/CraftRounded-Bold.ttf") format("truetype");
+}
+
+.header-title {
+    font-family: "Header";
+}
+
+.sub-title {
+    font-family: 'SubTitle', sans-serif;
+    color: #FF6802;
+}
+

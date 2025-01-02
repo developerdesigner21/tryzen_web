@@ -1,0 +1,19 @@
+@font-face {
+    font-family: "CustomWebDesign";
+    src: url("/src/assets/fonts/LarkenDEMO-Black.otf") format("opentype");
+}
+
+@font-face {
+    font-family: "RestEcom";
+    src: url("/src/assets/fonts/LarkenDEMO-Bold.otf") format("opentype");
+}
+
+.custom-web-design {
+    font-family: "CustomWebDesign";
+    color: #FF6802;
+}
+
+.rest-ecom {
+    font-family: "businessNeed";
+    color: white;
+}

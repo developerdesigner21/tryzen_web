@@ -1,0 +1,12 @@
+.home-redesign-container {
+    justify-content: space-between;
+    align-items: center;
+    background: url('../../../assets/redesignBg.png') no-repeat center center/cover;
+}
+
+.start-success-button {
+    background-color: black;
+    color: #F9ED32;
+    border: none;
+    box-shadow: 0px 5px 15px rgba(72, 28, 169, 0.8);
+}

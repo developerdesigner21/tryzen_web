@@ -1,0 +1,89 @@
+@font-face {
+    font-family: "convertTitle";
+    src: url("/src/assets/fonts/LarkenDEMO-Black.otf") format("opentype");
+}
+
+@font-face {
+    font-family: "ecom-rest";
+    src: url("/src/assets/fonts/DupincelSmallTest-BoldItalic.otf") format("opentype");
+}
+
+.intro-container {
+    text-align: center;
+}
+
+.convert-title {
+    font-family: "convertTitle";
+    text-transform: uppercase;
+    margin: 0;
+    color: #000;
+}
+
+.ecom-title {
+    font-family: "ecom-rest";
+    margin: 0;
+    color: #337AE4;
+}
+
+.rest-title {
+    font-family: "ecom-rest";
+    margin: 0;
+    color: #FF6802;
+}
+
+.design-process-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.design-step {
+    align-items: center;
+    width: 100%;
+    position: relative;
+}
+
+.design-image {
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    border-radius: 120px;
+}
+
+.design-step.up {
+    align-self: flex-start;
+}
+
+.design-step.down {
+    align-self: flex-end;
+}
+
+@media (max-width: 540px) {
+    .design-process-container {
+        flex-direction: column;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .design-step {
+        width: 100%;
+        align-self: center;
+    }
+
+    .design-image {
+        width: 100%;
+        max-width: 250px;
+        height: auto;
+        border-radius: 10px;
+    }
+
+    /* .design-step:nth-child(3) {
+        order: 4;
+    }
+
+    .design-step:nth-child(4) {
+        order: 3;
+    } */
+}

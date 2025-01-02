@@ -1,0 +1,140 @@
+.ecomgrid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+}
+
+.ecombento-item {
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ecombento-item img {
+    width: 100%;
+    height: 100%;
+}
+
+@media (min-width: 550px) {
+    .ecomgrid-container {
+        grid-template-columns: repeat(6, 1fr);
+    }
+
+    .ecomitem-1 {
+        grid-column: span 2;
+        grid-row: span 2;
+        aspect-ratio: 2 / 2;
+        padding: 0.5vw;
+    }
+
+    .ecomitem-2 {
+        grid-column: span 2;
+        grid-row: span 1;
+        aspect-ratio: 2 / 1;
+        padding: 0.5vw;
+    }
+
+    .ecomitem-3 {
+        grid-column: span 2;
+        grid-row: span 2;
+        aspect-ratio: 2 / 2;
+        padding: 0.5vw;
+    }
+
+    .ecomitem-4 {
+        grid-column: span 1;
+        grid-row: span 2;
+        aspect-ratio: 1 / 2;
+        padding: 0.5vw;
+    }
+
+    .ecomitem-5 {
+        grid-column: span 1;
+        grid-row: span 1;
+        aspect-ratio: 1 / 1;
+        padding: 0.5vw;
+    }
+
+    .ecomitem-6 {
+        grid-column: span 2;
+        grid-row: span 1;
+        aspect-ratio: 2 / 1;
+        padding: 0.5vw;
+    }
+
+    .ecomitem-7 {
+        grid-column: span 2;
+        grid-row: span 1;
+        aspect-ratio: 2 / 1;
+        padding: 0.5vw;
+    }
+
+    .ecomitem-8 {
+        grid-column: span 1;
+        grid-row: span 1;
+        aspect-ratio: 1 / 1;
+        padding: 0.5vw;
+    }
+}
+
+@media (max-width: 540px) {
+    .ecomgrid-container {
+        grid-template-areas:
+            "item-7 item-7"
+            "item-1 item-1"
+            "item-2 item-2"
+            "item-4 item-5"
+            "item-4 item-8"
+            "item-3 item-3"
+            "item-6 item-6"
+    }
+
+    .ecomitem-1 {
+        grid-area: item-1;
+        aspect-ratio: 2 / 2;
+        padding: 1.5vw;
+    }
+
+    .ecomitem-2 {
+        grid-area: item-2;
+        aspect-ratio: 2 / 1;
+        padding: 1.5vw;
+    }
+
+    .ecomitem-3 {
+        grid-area: item-3;
+        aspect-ratio: 2 / 2;
+        padding: 1.5vw;
+    }
+
+    .ecomitem-4 {
+        grid-area: item-4;
+        aspect-ratio: 1 / 2;
+        padding: 1.5vw;
+    }
+
+    .ecomitem-5 {
+        grid-area: item-5;
+        aspect-ratio: 1 / 1;
+        padding: 1.5vw;
+    }
+
+    .ecomitem-6 {
+        grid-area: item-6;
+        aspect-ratio: 2 / 1;
+        padding: 1.5vw;
+    }
+
+    .ecomitem-7 {
+        grid-area: item-7;
+        aspect-ratio: 2 / 1;
+        padding: 1.5vw;
+    }
+
+    .ecomitem-8 {
+        grid-area: item-8;
+        aspect-ratio: 1 / 1;
+        padding: 1.5vw;
+    }
+}

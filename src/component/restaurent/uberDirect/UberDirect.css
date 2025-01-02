@@ -1,0 +1,88 @@
+@font-face {
+    font-family: "Countries";
+    src: url("/src/assets/fonts/DupincelSmallTest-SemiBoldItalic.otf") format("opentype");
+}
+
+@font-face {
+    font-family: "Uber";
+    src: url("/src/assets/fonts/LarkenDEMO-Black.otf") format("opentype");
+}
+
+.country-names {
+    font-family: "Countries";
+}
+
+.uber {
+    font-family: "Uber";
+}
+
+.section {
+    background-color: #1c1c1c;
+    color: white;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.section-left {
+    display: flex;
+    flex-direction: column;
+}
+
+.section-left h3 {
+    color: #ff6600;
+    margin-bottom: 10px;
+}
+
+.countries {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.countries li {
+    display: flex;
+    align-items: center;
+}
+
+.countries img {
+    border-radius: 50%;
+}
+
+.section-right {
+    display: flex;
+    flex-direction: column;
+}
+
+.demo-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.demo-buttons a {
+    text-decoration: none;
+    color: white;
+    background-color: #038851;
+    transition: background-color 0.3s;
+}
+
+.demo-buttons a:hover {
+    background-color: #008d42;
+}
+
+@media (max-width: 768px) {
+    .section {
+        flex-direction: column;
+        text-align: center;
+    }
+    .section-left {
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        order:2
+    }    
+}

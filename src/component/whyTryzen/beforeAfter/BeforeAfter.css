@@ -1,0 +1,64 @@
+.before-after-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.content {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f9f9f9;
+}
+
+.scroll-section {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    justify-items: center;
+}
+
+.image-container {
+    position: relative;
+    perspective: 1000px;
+}
+
+.image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 1s ease;
+    transform-style: preserve-3d;
+}
+
+.image-wrapper.flipped {
+    transform: rotateY(180deg);
+}
+
+.images {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    backface-visibility: hidden;
+    transition: transform 1s ease;
+}
+
+.flipped-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: rotateY(180deg);
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.flipped-img.visible {
+    opacity: 1;
+}
+
+@media (max-width: 540px) {
+    .scroll-section {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

@@ -1,0 +1,82 @@
+@font-face {
+    font-family: "Larken";
+    src: url("/src/assets/fonts/LarkenDEMO-Black.otf") format("opentype");
+}
+
+@font-face {
+    font-family: "GoBeyond";
+    src: url("/src/assets/fonts/DupincelSmallTest-SemiBoldItalic.otf") format("opentype");
+}
+
+@font-face {
+    font-family: "customWebApp";
+    src: url("/src/assets/fonts/CraftRounded-Regular.ttf") format("truetype");
+}
+
+.intro-container {
+    text-align: center;
+}
+
+.title {
+    font-family: "Larken",
+}
+
+.main-sub-title {
+    font-family: "GoBeyond";
+    margin: 0;
+    color: black;
+}
+
+.description-text {
+    font-family: "customWebApp";
+}
+
+.logos {
+    margin-bottom: 5px;
+  }
+  
+.logos img {
+    margin: 0 5px;
+}
+
+.ecommerce-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.order-steps {
+    align-items: center;
+    width: 100%;
+    position: relative;
+}
+
+.step-images {
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    border-radius: 10px;
+}
+
+.order-steps.up {
+    align-self: flex-start;
+}
+
+.order-steps.down {
+    align-self: flex-end;
+}
+
+@media (max-width: 540px) {
+    .ecommerce-container {
+        flex-direction: column;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .order-steps {
+        width: 100%;
+        align-self: center;
+    }
+}

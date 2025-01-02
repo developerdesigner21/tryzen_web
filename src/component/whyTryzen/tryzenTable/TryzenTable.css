@@ -1,0 +1,169 @@
+@font-face {
+    font-family: "title-font";
+    src: url("/src/assets/fonts/LarkenDEMO-ExtraBoldItalic.otf") format("opentype");
+}
+
+@font-face {
+    font-family: "subtitle-font";
+    src: url("/src/assets/fonts/LarkenDEMO-Bold.otf") format("opentype");
+}
+
+.tryzen-title {
+    font-family: "title-font";
+    color: #337AE4;
+    text-align: center;
+}
+
+.subtitle {
+    font-family: "subtitle-font";
+    color: #FFFFFF;
+    text-align: center;
+}
+
+.comparison-table-container {
+    margin: 20px auto;
+    max-width: 100%;
+    text-align: center;
+    overflow: hidden;
+}
+
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+@media screen and (max-width: 540px) {
+    .comparison-table {
+        display: block;
+        max-width: 500px;
+    }
+
+    .highlight-header {
+        min-width: 70px;
+    }
+
+    .icon {
+        display: block;
+        margin: 0 auto; 
+        width: 30px; 
+        height: 20px;
+    }
+
+    .platform-header{
+        font-size: 12px !important;
+    }
+
+    .comparison-table td.feature {
+        font-size: 12px !important;
+    }
+}
+
+.comparison-table th,
+.comparison-table td {
+    padding: 15px;
+    text-align: center;
+    border: 1px solid #ddd;
+    vertical-align: top;
+    border-left: none;
+    border-right: none;
+}
+
+.comparison-table th {
+    font-weight: bold;
+    color: #FFFFFF;
+    border: none;
+    white-space: pre-wrap;
+}
+
+.comparison-table td.feature {
+    font-weight: bold;
+    text-align: left;
+    color: white;
+    border-left: none;
+    border-right: none;
+}
+
+.comparison-table tr:last-child td {
+    border-bottom: none;
+}
+
+.comparison-table tr:last-child .highlight-column {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.comparison-table .highlight-column {
+    background-color: #19202E;
+    color: white;
+    border-bottom: 2px solid transparent;
+}
+
+.comparison-table .highlight-header {
+    background-color: #19202E;
+    color: white;
+    border-bottom: 2px solid transparent;
+}
+
+.highlight-header {
+    background-color: #19202E;
+    color: white;
+    font-weight: bold;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom: 2px solid transparent;
+}
+
+.highlight-column {
+    background-color: #19202E;
+    color: white;
+    border-left: none;
+    border-right: none;
+}
+
+.platform-header {
+    text-align: center;
+    color: #FFFFFF;
+    display: block;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: "subtitle-font";
+}
+
+.platform-header p {
+    font-size: 14px;
+    margin-top: 5px;
+    color: #FFFFFF;
+}
+
+.logo {
+    width: 150px;
+    height: 50px;
+    margin: 0 auto;
+}
+
+.icon {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+}
+
+.apply-button-container {
+    text-align: center;
+}
+
+.apply-button {
+    background-color: white;
+    color: black;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.comparison-table td p {
+    margin-top: 5px;
+    font-size: 14px;
+    color: white;
+}

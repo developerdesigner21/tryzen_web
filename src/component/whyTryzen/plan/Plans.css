@@ -1,0 +1,55 @@
+@font-face {
+    font-family: "plan";
+    src: url("/src/assets/fonts/LarkenDEMO-Black.otf") format("opentype");
+}
+
+@font-face {
+    font-family: "businessNeed";
+    src: url("/src/assets/fonts/LarkenDEMO-Regular.otf") format("opentype");
+}
+
+.plan {
+    font-family: "plan";
+    color: #FF6802;
+}
+
+.business-need {
+    font-family: "businessNeed";
+}
+
+.plans-section {
+    text-align: center;
+    padding: 50px 0;
+}
+
+.plan-card {
+    background-color: #F9F9F9;
+    border-radius: 12px;
+}
+
+.plan-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.plan-header img {
+    width: 25px;
+    margin-right: 10px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+li img {
+    width: 20px;
+    margin-right: 8px;
+}
