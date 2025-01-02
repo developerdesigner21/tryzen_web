@@ -17,14 +17,14 @@ export default function CmsWeb() {
                 <h1 className="main-sub-title text-3xl md:text-4xl lg:text-5xl xl:text-7xl pt-5 md:pt-7 lg:pt-9">Website</h1>
             </div>
             <div className='mt-2'>
-                <p className="description-text text-md md:text-xl lg:text-4xl mb-2 md:mb-4 lg:mb-8">
-                    choose custom coded solution that
+                <p className="text-md md:text-xl lg:text-4xl mb-2 md:mb-4 lg:mb-6">
+                    <span className='description-text'>choose custom coded solution that</span>
                     <br />{" "}
-                    <span className="font-extrabold text-[#0051F2]">skyrocket Your sales, Profit and ROI</span>
+                    <span className="bold-title">SKYROCKET YOUR SALES, PROFIT AND ROI</span>
                 </p>
             </div>
             <div>
-                <button className="bg-black text-white rounded-full px-5 py-2.5 text-sm md:text-md lg:text-xl font-semibold">BOOK DEMO</button>
+                <button className="bold-title bg-[#0051F2] text-white rounded-full px-6 py-2.5 text-sm md:text-md lg:text-xl font-semibold">WITH EASY TO CHECKOUT</button>
             </div>
             <div className="ecommerce-container mt-4 lg:mt-6 gap-4 md:gap-3 lg:gap-6 xl:gap-10">
                 <div className="order-steps down mt-16">

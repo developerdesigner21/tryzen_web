@@ -21,31 +21,31 @@ export default function Features() {
                 </h1>
             </div>
 
-            <div class="grid grid-cols-[repeat(auto-fill,minmax(260px,1fr))] gap-6 lg:gap-8">
+            <div class="grid grid-cols-[repeat(auto-fill,minmax(260px,1fr))] xl:grid-cols-4 gap-6 lg:gap-8">
                 <div class="p-4 md:p-6 rounded-lg text-center" style={{ backgroundColor: "#E0F8F2" }}>
                     <img src={GrowOnline} alt="Grow Online" class="mx-auto mb-4 h-40" />
-                    <h3 class="text-md md:text-xl font-semibold mb-2">Grow Online Presence with <br /> website and application</h3>
+                    <h3 class="text-md md:text-xl font-semibold mb-2">Grow Online Presence with website and application</h3>
                     <p class="text-gray-700 text-sm font-semibold mt-3 md:mt-6">It offer interactive features such as easy
                         order, and personalised recommendations, enhancing customer engagement.</p>
                 </div>
 
                 <div class="p-4 md:p-6 rounded-lg text-center" style={{ backgroundColor: "#FFEECB" }}>
                     <img src={MultiStore} alt="Multi Store" class="mx-auto mb-4 h-40" />
-                    <h3 class="text-md md:text-xl font-semibold mb-2">Multi Store with <br /> RealTime Dashboard</h3>
+                    <h3 class="text-md md:text-xl font-semibold mb-2">Multi Store with RealTime Dashboard</h3>
                     <p class="text-gray-700 text-sm font-semibold mt-3 md:mt-6">It help to Manage multiple stores with
                         real-time data, centralized control, and seamless customer experience</p>
                 </div>
 
                 <div class="p-4 md:p-6 rounded-lg text-center" style={{ backgroundColor: "#F1F1F1" }}>
                     <img src={FasterTack} alt="Faster Tack" class="mx-auto mb-4 h-40" />
-                    <h3 class="text-md md:text-xl font-semibold mb-2">Faster Speed with best <br /> tech stack</h3>
+                    <h3 class="text-md md:text-xl font-semibold mb-2">Faster Speed with best tech stack</h3>
                     <p class="text-gray-700 text-sm font-semibold mt-3 md:mt-6">It ensures faster speed, optimised
                         performance, This tech used by Uber, Instagram, DoorDash and other big company</p>
                 </div>
 
                 <div class="p-4 md:p-6 rounded-lg text-center" style={{ backgroundColor: "#D9F2F7" }}>
                     <img src={FastDelivery} alt="Fast Delivery" class="mx-auto mt-4 h-40" />
-                    <h3 class="text-md md:text-xl font-semibold mb-2">Quick Delivery with <br /> Uber Direct | Doordash</h3>
+                    <h3 class="text-md md:text-xl font-semibold mb-2">Quick Delivery with Uber Direct | Doordash</h3>
                     <p class="text-gray-700 text-sm font-semibold mt-3 md:mt-6">This Feature Enable quick deliveries using
                         Uber Direct & DoorDash for seamless logistics and faster service.</p>
                 </div>
@@ -59,21 +59,21 @@ export default function Features() {
 
                 <div class="p-4 md:p-6 rounded-lg text-center" style={{ backgroundColor: "#DAFFF6" }}>
                     <img src={WhatsAppMarketing} alt="WhatsApp Marketing" class="mx-auto mb-4 h-40" />
-                    <h3 class="text-md md:text-xl font-semibold mb-2">WhatsApp Marketing with <br /> Review Offer campaign</h3>
+                    <h3 class="text-md md:text-xl font-semibold mb-2">WhatsApp Marketing with Review Offer campaign</h3>
                     <p class="text-gray-700 text-sm font-semibold mt-3 md:mt-6">Engage customers instantly through personalised messages and updates et more attention,
                         leading to quick decisions.</p>
                 </div>
 
                 <div class="p-4 md:p-6 rounded-lg text-center" style={{ backgroundColor: "#FDF3EA" }}>
                     <img src={Coupon} alt="Coupon" class="mx-auto mb-4 h-40" />
-                    <h3 class="text-md md:text-xl font-semibold mb-2">Create Offer Page & <br /> Coupon Code</h3>
+                    <h3 class="text-md md:text-xl font-semibold mb-2">Create Offer Page & Coupon Code</h3>
                     <p class="text-gray-700 text-sm font-semibold mt-3 md:mt-6">Boost sales by offering deals and coupons,
                         attract new customers, and increase repeat orders.</p>
                 </div>
 
                 <div class="p-4 md:p-6 rounded-lg text-center" style={{ backgroundColor: "#FFEFBA" }}>
                     <img src={POS} alt="POS" class="mx-auto my-2 h-40" />
-                    <h3 class="text-md md:text-xl font-semibold mb-2">It help Decision making, <br /> Analysis, Data Collection</h3>
+                    <h3 class="text-md md:text-xl font-semibold mb-2">It help Decision making, Analysis, Data Collection</h3>
                     <p class="text-gray-700 text-sm font-semibold mt-3 md:mt-6">POS aids decision-making with real-time
                         data, sales analysis, inventory tracking, and insights.</p>
                 </div>

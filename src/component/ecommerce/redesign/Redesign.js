@@ -1,5 +1,6 @@
 import React from 'react';
 import './Redesign.css';
+import { Link } from 'react-router-dom';
 
 export default function Redesign() {
     return (
@@ -41,8 +42,10 @@ export default function Redesign() {
                     </li>
                 </ul>
 
-                <button className="start-success-button px-5 py-2.5 font-semibold rounded-full text-md lg:text-lg cursor-pointer flex items-center">
-                    START YOUR SUCCESS WITH US <span className="ml-2.5"><img src={require('../../../assets/redesignButton.png')} className="w-8" /></span>
+                <button className="start-success-button px-5 py-2.5 font-semibold rounded-full text-md lg:text-lg cursor-pointer">
+                    <Link to="/whyTryzen" className='flex items-center'>
+                        START YOUR SUCCESS WITH US <span className="ml-2.5"><img src={require('../../../assets/redesignButton.png')} className="w-8" /></span>
+                    </Link>                
                 </button>
             </div>
 

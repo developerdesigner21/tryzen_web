@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default function Pricing() {
     return (
@@ -57,7 +58,9 @@ export default function Pricing() {
                     </div>
                     <div className="mt-6 text-center">
                         <button className="w-full bg-[#0F54FF] hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-bold text-sm md:text-lg">
-                            EXPLORE ECOMMERCE INFO
+                            <Link to="/e-commerce">
+                                EXPLORE ECOMMERCE INFO
+                            </Link>
                         </button>
                     </div>
                 </div>
@@ -107,7 +110,9 @@ export default function Pricing() {
                     </div>
                     <div className="mt-6 text-center">
                         <button className="w-full bg-[#FF6802] hover:bg-orange-600 text-white px-6 py-3 font-bold rounded-lg text-sm md:text-lg">
-                            EXPLORE RESTAURANT INFO
+                            <Link to="/restaurent">
+                                EXPLORE RESTAURANT INFO
+                            </Link>
                         </button>
                     </div>
                 </div>

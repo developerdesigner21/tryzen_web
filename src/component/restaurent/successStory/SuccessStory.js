@@ -16,8 +16,8 @@ export default function SuccessStory() {
             image: require('../../../assets/story2.webp'),
         },
         {
-            title: "Burger King",
-            description: "With Uber Direct, our orders go out quickly. The delivery time is really good due to Uber’s third-party logistics. As a result, customer satisfaction is high.",
+            title: "Burger King (Germany)",
+            description: "With Uber Direct, our orders go out quickly. The delivery time is really good due to Uber’s third-party logistics. As a result, customer satisfaction is high and it also help us to save 25+ percentages profit batter services.",
             author: "Melina Rönpagel",
             image: require('../../../assets/story3.webp'),
         },
@@ -29,7 +29,7 @@ export default function SuccessStory() {
         },
         {
             title: "EB Games",
-            description: "Around 25% of our online customers are happy to pay for the immediate gratification – for the guarantee that they can receive their order today within two hours.",
+            description: "Around 25% of our online customers are happy to pay for the immediate gratification – for the guarantee that they can receive their order today within two hours UberDirect is really helpful game changer for us.",
             author: "Adrian McKenzie",
             image: require('../../../assets/story5.webp'),
         },
@@ -48,14 +48,14 @@ export default function SuccessStory() {
     };
 
     return (
-        <div className="story-container gap-5 rounded-xl">
-            <div className="left-section p-3 md:p-">
+        <div id="uberDirect" className="story-container gap-5 rounded-xl">
+            <div className="left-section p-3 xl:p-16">
                 <h2 className='uber-service text-lg md:text-xl'>UBER DIRECT SERVICE</h2>
                 <h3 className='success-story text-lg md:text-xl md:mb-5'>SUCCESS STORY</h3>
                 {sections.map((section, index) => (
                     <div key={index} className="dropdown">
                         <div
-                            className={`dropdown-header ${currentSection.title === section.title ? "active mb-2" : "text-[#038851]"
+                            className={`dropdown-header xl:text-lg ${currentSection.title === section.title ? "active mb-2" : "text-[#038851]"
                                 }`}
                             onClick={() => toggleSection(section)}
                         >
@@ -64,7 +64,7 @@ export default function SuccessStory() {
                         </div>
                         {currentSection.title === section.title && (
                             <div className="dropdown-content pb-2">
-                                <p>{section.description}</p>
+                                <p className='xl:text-lg'>{section.description}</p>
                                 <p className="author font-bold">{section.author}</p>
                                 <div className="dropdown-image">
                                     <img src={section.image} alt={section.title} className="section-image" />
@@ -79,7 +79,7 @@ export default function SuccessStory() {
                     <img
                         src={currentSection.image}
                         alt={currentSection.title}
-                        className="section-image md:max-w-[350px] lg:max-w-[400px] xl:max-w-[500px]"
+                        className="section-image"
                     />
                 ) : (
                     <img

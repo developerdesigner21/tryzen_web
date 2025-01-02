@@ -8,6 +8,11 @@
     src: url("/src/assets/fonts/LarkenDEMO-Bold.otf") format("opentype");
 }
 
+@font-face {
+    font-family: "NoteTitle";
+    src: url("/src/assets/fonts/LarkenDEMO-Black.otf") format("opentype");
+}
+
 .custom-web-design {
     font-family: "CustomWebDesign";
     color: #FF6802;
@@ -17,3 +22,44 @@
     font-family: "businessNeed";
     color: white;
 }
+
+.note-title {
+    font-family: "Note";
+}
+
+.appearance-none {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: #1C2433;
+    border: 2px solid #1C2433;
+    appearance: none;
+}
+
+.appearance-none::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    background-color: #1C2433;
+}
+
+.appearance-none::after {
+    content: "";
+    display: block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: transparent;
+    transition: all 0.2s ease;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.appearance-none:checked::after {
+    background-color: white;
+}
+  

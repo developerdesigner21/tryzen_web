@@ -13,6 +13,11 @@
     src: url("/src/assets/fonts/CraftRounded-Regular.ttf") format("truetype");
 }
 
+@font-face {
+    font-family: "Bold-title";
+    src: url("/src/assets/fonts/CraftRounded-Bold.ttf") format("truetype");
+}
+
 .intro-container {
     text-align: center;
 }
@@ -29,6 +34,10 @@
 
 .description-text {
     font-family: "customWebApp";
+}
+
+.bold-title {
+    font-family: "Bold-title";
 }
 
 .logos {

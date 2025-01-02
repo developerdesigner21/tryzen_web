@@ -1,10 +1,11 @@
 import React from 'react';
 import './Redesign.css';
+import { Link } from 'react-router-dom';
 
 export default function Redesign() {
     return (
-        <div className="flex flex-col md:flex-row home-redesign-container px-4 py-8 md:px-4 md:py-6 md:p-6 lg:px-10 lg:py-10 rounded-lg">
-            <div className="md:w-1/2 mb-5">
+        <div className="flex flex-col md:flex-row home-redesign-container px-4 py-8 md:px-4 md:py-6 md:p-6 lg:px-6 lg:py-6 xl:px-10 xl:py-10 rounded-lg xl:gap-20">
+            <div className="md:w-1/2 mb-5 xl:pl-10">
                 <div className="flex items-center mb-6">
                     <img
                         src={require('../../../assets/redesignClients.png')}
@@ -41,14 +42,25 @@ export default function Redesign() {
                     </li>
                 </ul>
 
-                <button className="start-success-button px-5 py-2.5 font-semibold rounded-full text-md lg:text-lg cursor-pointer flex items-center">
-                    START YOUR SUCCESS WITH US <span className="ml-2.5"><img src={require('../../../assets/redesignButton.png')} className="w-8" /></span>
+                <button className="start-success-button px-5 xl:px-8 xl:px-12 py-3.5 font-semibold rounded-lg text-md lg:text-lg xl:text-3xl cursor-pointer">
+                    <Link to="/whyTryzen" className='flex items-center'>
+                        START YOUR SUCCESS WITH US <span className="ml-2.5"><img src={require('../../../assets/redesignButton.png')} className="w-8" /></span>
+                    </Link>
                 </button>
+
+                <ul className="list-none p-0 mt-5 flex gap-4">
+                    <li className="text-[#F9ED32] flex items-center text-lg mb-3">
+                        <span className="mr-2.5">•</span> [Hire Us]
+                    </li>
+                    <li className="flex text-[#F9ED32] items-center text-lg mb-3">
+                        <span className="mr-2.5">•</span> [Build Your Self]
+                    </li>
+                </ul>
             </div>
 
             <div className="md:w-1/2 max-w-[500px] md:max-w-[700px]">
                 <img
-                    src={require('../../../assets//redesignImage.png')}
+                    src={require('../../../assets/redesignImage.png')}
                     alt="Web Design"
                 />
             </div>

@@ -18,7 +18,11 @@ export default function FoodDelivery() {
                 </p>
             </div>
             <div>
-                <button className="bg-[#A35FFA] text-white rounded-full px-5 py-2.5 text-xs lg:text-xl font-bold">USING UBER DIRECT</button>
+                <button className="bg-[#A35FFA] text-white rounded-full px-5 py-2.5 text-xs lg:text-xl font-bold">
+                    <a href="#uberDirect">
+                        USING UBER DIRECT
+                    </a>
+                </button>
             </div>
             <div className="order-process-container mt-4 lg:mt-6 gap-4 md:gap-3 lg:gap-6 xl:gap-10">
                 <div className="order-step down mt-10 md:mt-16">

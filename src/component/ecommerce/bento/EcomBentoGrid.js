@@ -4,6 +4,14 @@ import './EcomBento.css';
 export default function BentoGrid() {
     return (
         <>
+            <div className="text-center mb-8 md:mb-10">
+                <p className="our-food font-bold text-center text-lg md:text-2xl xl:text-3xl mb-1 md:mb-3">
+                    OUR SERVICES
+                </p>
+                <h1 className="website-design text-2xl md:text-4xl lg:text-6xl">
+                    Your Benifits
+                </h1>
+            </div>
             <div class="ecomgrid-container">
                 <div class="ecombento-item ecomitem-1"><img src={require('../../../assets/ecomBento1.webp')} alt="Food Ordering App" /></div>
                 <div class="ecombento-item ecomitem-2"><img src={require('../../../assets/ecomBento2.webp')} alt="Flexible Delivery Time" /></div>

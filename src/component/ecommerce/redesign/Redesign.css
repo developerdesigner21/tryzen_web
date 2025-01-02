@@ -8,5 +8,8 @@
     background-color: black;
     color: #F9ED32;
     border: none;
-    box-shadow: 0px 5px 15px rgba(72, 28, 169, 0.8);
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.8),
+                0 1px 0 rgba(255, 255, 255, 0.8),
+                -1px 0 0 rgba(255, 255, 255, 0.8),
+                0 -1px 0 rgba(255, 255, 255, 0.8);
 }

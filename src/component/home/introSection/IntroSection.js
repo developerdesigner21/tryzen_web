@@ -57,7 +57,7 @@ export default function IntroSection() {
                         />
                         <div className="info-button-container bottom-[3%]">
                             <button className="info-button px-5 py-2.5 text-sm md:text-xs lg:text-xl font-semibold">
-                                <Link to="/ecommerce">
+                                <Link to="/e-commerce">
                                     EXPLORE ECOMMERCE INFO
                                 </Link>
                             </button>
@@ -74,7 +74,11 @@ export default function IntroSection() {
                                 className="info-image"
                             />
                             <div className="info-button-container bottom-[3%]">
-                                <button className="info-button px-5 py-2.5 text-sm md:text-xs lg:text-xl font-semibold">EXPLORE RESTAURANT INFO</button>
+                                <button className="info-button px-5 py-2.5 text-sm md:text-xs lg:text-xl font-semibold">
+                                    <Link to="/restaurent">
+                                        EXPLORE RESTAURANT
+                                    </Link>
+                                </button>
                             </div>
                         </div>
                     </a>
