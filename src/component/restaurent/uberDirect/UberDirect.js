@@ -5,7 +5,7 @@ export default function UberDirect() {
     return (
         <div className='flex items-center'>
             <div className="section p-4 lg:p-8 gap-5">
-                <div className="section-left w-2/3">
+                <div className="section-left md:w-2/3">
                     <h3 className='uber lg:text-xl xl:text-2xl'>UBER DIRECT</h3>
                     <p className='country-names mb-4 lg:text-xl'>Is Available in Your Country?</p>
                     <ul className="countries grid grid-cols-2 gap-2 lg:gap-4">

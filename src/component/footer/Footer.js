@@ -1,5 +1,6 @@
 import React from 'react';
 import './Footer.css';
+import { Link } from 'react-router-dom';
 
 export default function Footer() {
     return (
@@ -13,8 +14,8 @@ export default function Footer() {
                     />
                 </div>
                 <div className="footer-text">
-                    <p>Zero-Commission Delivery</p>
-                    <p>Restaurant Website Development</p>
+                    <p style={{marginBottom:'4px'}}><Link to="/restaurent" className='hover:text-blue-400'>Restaurant Zero % Commission</Link></p>
+                    <p><Link to="/e-commerce"  className='hover:text-blue-400'>Ecommerce Website Development</Link></p>
                 </div>
             </div>
             <div className="footer-middle">
@@ -33,10 +34,14 @@ export default function Footer() {
             </div>
             <div className='md:flex md:flex-col lg:flex-row footer-right lg:gap-5'>
                 <div className="footer-left mb-2">
-                    <button className="footer-button blue">Book Demo<br />Meeting Now</button>
+                    <button className="footer-button blue">
+                        <a target='_blank' href='https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ2FER0ii8AlZSUfg1KNcGONZ6ZPp-O9Vfl1EZ9nYvqPl0RP60QSDSMJtPCbs5zPUMiFT5zelOzk'>
+                            Book Demo<br />Meeting Now
+                        </a>
+                    </button>
                 </div>
                 <div className="footer-text">
-                <button className="footer-button orange">Free Restaurant<br /> Website Design</button>
+                    <button className="footer-button orange">Free Restaurant<br /> Website Design</button>
                 </div>
             </div>
         </div>

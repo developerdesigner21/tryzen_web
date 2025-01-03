@@ -46,7 +46,7 @@ export default function DesignMySite() {
                 <div className="design-step up">
                     <img
                         className="design-image"
-                        src={require('../../../assets/whyFinal1.webp')}
+                        src={require('../../../assets/why1.webp')}
                         alt="Step 1"
                     />
                 </div>
@@ -54,7 +54,7 @@ export default function DesignMySite() {
                 <div className="design-step down mt-10 md:mt-20">
                     <img
                         className="design-image"
-                        src={require('../../../assets/whyFinal2.webp')}
+                        src={require('../../../assets/why2.webp')}
                         alt="Step 2"
                     />
                 </div>
@@ -62,7 +62,7 @@ export default function DesignMySite() {
                 <div className="design-step down mt-10 md:mt-20">
                     <img
                         className="design-image"
-                        src={require('../../../assets/whyFinal3.webp')}
+                        src={require('../../../assets/why3.webp')}
                         alt="Step 3"
                     />
                 </div>
@@ -70,7 +70,7 @@ export default function DesignMySite() {
                 <div className="design-step up">
                     <img
                         className="design-image"
-                        src={require('../../../assets/whyFinal4.webp')}
+                        src={require('../../../assets/why4.webp')}
                         alt="Step 4"
                     />
                 </div>

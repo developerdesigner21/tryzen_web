@@ -1,13 +1,11 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import mainLogo from '../../assets/mainlogo.png';
+import React from 'react';
 import './Ecommerce.css';
 import CmsWeb from './CmsWeb/CmsWeb';
 import ImageScroller from './ImageScroll/ImageScroller';
-import Redesign from './redesign/Redesign';
 import EcomBentoGrid from './bento/EcomBentoGrid';
 import Header from '../header/Header';
-import Footer from "../footer/Footer";
+import Redesign from '../redesign/Redesign';
+import Footer from '../footer/Footer';
 
 export default function Ecommerce() {
     return (

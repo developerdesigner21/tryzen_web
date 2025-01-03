@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import './FreeDesignPopup.css';
 import axios from 'axios';
-import timezonesData from '../../TimeZone.json';
+import timezonesData from '../../Json/TimeZone.json';
+import langaugeData from '../../Json/Langauges.json';
 import Select from 'react-select';
 
 export default function FreeDesignForm({ onClose }) {
@@ -15,19 +16,33 @@ export default function FreeDesignForm({ onClose }) {
         hasWebsite: '',
         likesWebsite: '',
         preferdLanguage: '',
+        website: '',
         websiteWish: '',
     });
 
     const timezones = timezonesData.timezones;
-    const [isOpen, setIsOpen] = useState(false);
+    const langauges = langaugeData.langauges;
     const [errors, setErrors] = useState({});
 
-    const handleChange = (selectedOption) => {
-        setFormData({
-            ...formData,
-            timezone: selectedOption ? selectedOption.value : '',
-        });
-        setErrors({ ...errors, timezone: '' });
+    const handleChange = (e) => {
+        if (e && e.target) {
+            const { name, value } = e.target;
+            setFormData({
+                ...formData,
+                [name]: value,
+            });
+            setErrors({ ...errors, [name]: '' });
+        }
+    };
+
+    const handleChangeSelect = (e, name) => {
+        if (e && e.value) {
+            setFormData({
+                ...formData,
+                [name]: e.value,
+            });
+            setErrors({ ...errors, [name]: '' });
+        }
     };
 
     const validate = () => {
@@ -37,43 +52,46 @@ export default function FreeDesignForm({ onClose }) {
         if (!formData.email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
             newErrors.email = 'Invalid email address';
             valid = false;
-            console.log("1")
         }
 
         if (!formData.phone || !/^\+?\d{10,15}$/.test(formData.phone)) {
             newErrors.phone = 'Invalid phone number';
             valid = false;
-            console.log("2")
         }
 
         if (!formData.timezone) {
             newErrors.timezone = 'Required';
             valid = false;
-            console.log("3")
         }
 
         if (!formData.date) {
             newErrors.date = 'Required';
             valid = false;
-            console.log("4")
         }
 
         if (!formData.time) {
             newErrors.time = 'Required';
             valid = false;
-            console.log("5")
         }
 
         if (!formData.businessName) {
             newErrors.businessName = 'Required';
             valid = false;
-            console.log("6")
+        }
+
+        if (!formData.website) {
+            newErrors.website = 'Required';
+            valid = false;
+        }
+
+        if (!formData.websiteWish) {
+            newErrors.websiteWish = 'Required';
+            valid = false;
         }
 
         if (!formData.preferdLanguage) {
             newErrors.preferdLanguage = 'Required';
             valid = false;
-            console.log("7")
         }
 
         setErrors(newErrors);
@@ -109,7 +127,6 @@ export default function FreeDesignForm({ onClose }) {
                         },
                     }
                 );
-                console.log("response:::", response)
                 if (response.status === 200) {
                     console.log('API Response:', response.data);
                     alert('Form submitted successfully!');
@@ -157,6 +174,7 @@ export default function FreeDesignForm({ onClose }) {
                                 onChange={handleChange}
                                 className={`mt-1 p-2 border border-[#343947] rounded-md w-full bg-[#1C2433] ${errors.email ? 'border-red-500' : ''}`}
                                 placeholder="yourname@gmail.com"
+                                autocomplete="off"
                             />
                         </div>
                         <div className="mt-4">
@@ -170,14 +188,16 @@ export default function FreeDesignForm({ onClose }) {
                                 onChange={handleChange}
                                 className={`mt-1 p-2 border border-[#343947] rounded-md w-full bg-[#1C2433] ${errors.phone ? 'border-red-500' : ''}`}
                                 placeholder="+91 9998220731"
+                                autocomplete="off"
                             />
                         </div>
                         <div className="mt-4">
                             <label className="block text-left text-sm mb-1">Select Your Time Zone</label>
                             <Select
                                 value={timezones.find(t => t.value === formData.timezone)}
-                                onChange={handleChange}
+                                onChange={(e) => handleChangeSelect(e, "timezone")}
                                 options={timezones}
+                                name="timezone"
                                 classNamePrefix="react-select"
                                 isClearable={true}
                                 styles={{
@@ -188,6 +208,7 @@ export default function FreeDesignForm({ onClose }) {
                                         borderRadius: '5px',
                                         color: '#fff',
                                         padding: '3px',
+                                        textAlign: 'left',
                                     }),
                                     menu: (provided) => ({
                                         ...provided,
@@ -206,13 +227,20 @@ export default function FreeDesignForm({ onClose }) {
                                         cursor: 'pointer',
                                         color: '#fff',
                                         fontSize: '14px',
+                                        textAlign: 'left',
+                                        transition: 'background-color 0.2s ease, color 0.2s ease',
+                                        '&:hover': {
+                                            backgroundColor: '#4a5b6e',
+                                            color: '#FF6802',
+                                        },
                                     }),
                                     singleValue: (provided) => ({
                                         ...provided,
                                         color: '#fff',
+                                        textAlign: 'left',
                                     }),
                                 }}
-                                menuPlacement="auto" 
+                                menuPlacement="auto"
                             />
                         </div>
                         <div className="mt-4">
@@ -224,6 +252,7 @@ export default function FreeDesignForm({ onClose }) {
                                 name="date"
                                 value={formData.date}
                                 onChange={handleChange}
+                                onClick={(e) => e.target.showPicker()}
                                 className={`mt-1 p-2 border border-[#343947] rounded-md w-full bg-[#1C2433] ${errors.date ? 'border-red-500' : ''}`}
                             />
                         </div>
@@ -236,7 +265,8 @@ export default function FreeDesignForm({ onClose }) {
                                 name="time"
                                 value={formData.time}
                                 onChange={handleChange}
-                                className={`mt-1 p-2 border border-[#343947] rounded-md w-full bg-[#1C2433] ${errors.time ? 'border-red-500' : ''}`}
+                                onClick={(e) => e.target.showPicker()}
+                                className={`mt-1 p-2 border border-[#343947] rounded-md w-full bg-[#1C2433] !text-white ${errors.time ? 'border-red-500' : ''}`}
                             />
                         </div>
                         <div className='mt-4'>
@@ -259,6 +289,7 @@ export default function FreeDesignForm({ onClose }) {
                                 onChange={handleChange}
                                 className={`mt-1 p-2 border border-[#343947] rounded-md w-full bg-[#1C2433] ${errors.businessName ? 'border-red-500' : ''}`}
                                 placeholder="Business Name"
+                                autocomplete="off"
                             />
                         </div>
                         <div className="mt-4">
@@ -290,12 +321,13 @@ export default function FreeDesignForm({ onClose }) {
                                 </div>
                                 <input
                                     type="text"
-                                    name=""
-                                    value={formData.websiteWish}
+                                    name="website"
+                                    value={formData.hasWebsite === 'Yes' ? formData.website : ''}
                                     onChange={handleChange}
-                                    // className={`mt-1 p-2 border rounded-md w-full bg-[#1C2433] ${errors.businessName ? 'border-red-500' : ''}`}
-                                    className='mt-1 p-2 border border-[#343947] rounded-md w-full bg-[#1C2433]'
-                                    placeholder=""
+                                    disabled={formData.hasWebsite !== 'Yes'}
+                                    className={`mt-1 p-2 border border-[#343947] rounded-md w-full bg-[#1C2433] ${errors.website && formData.hasWebsite === 'Yes' ? 'border-red-500' : ''} ${formData.hasWebsite !== 'Yes' ? 'bg-[#2a3542]' : ''}`} 
+                                    placeholder={formData.hasWebsite === 'Yes' ? "Enter Website" : ''} 
+                                    autocomplete="off"
                                 />
                             </div>
                         </div>
@@ -328,24 +360,67 @@ export default function FreeDesignForm({ onClose }) {
                                 </div>
                                 <input
                                     type="text"
-                                    name=""
-                                    // onChange={handleChange}
-                                    // className={`mt-1 p-2 border rounded-md w-full bg-[#1C2433] ${errors.businessName ? 'border-red-500' : ''}`}
-                                    className='mt-1 p-2 border border-[#343947] rounded-md w-full bg-[#1C2433]'
-                                    placeholder=""
+                                    name="websiteWish"
+                                    value={formData.likesWebsite === 'Yes' ? formData.websiteWish : ''}
+                                    onChange={handleChange}
+                                    disabled={formData.likesWebsite !== 'Yes'}
+                                    className={`mt-1 p-2 border border-[#343947] rounded-md w-full bg-[#1C2433] ${errors.websiteWish && formData.likesWebsite === 'Yes' ? 'border-red-500' : ''} ${formData.likesWebsite !== 'Yes' ? 'bg-[#2a3542]' : ''}`} 
+                                    placeholder={formData.likesWebsite === 'Yes' ? "Enter Website" : ''} 
+                                    autocomplete="off"
                                 />
                             </div>
                             <div className='mt-4'>
                                 <label className="text-left block text-sm mb-1">
                                     Select Your Preferred Language
                                 </label>
-                                <input
-                                    type="text"
-                                    name="preferedLangauge"
-                                    value={formData.preferdLanguage}
-                                    onChange={handleChange}
-                                    className={`mt-1 p-2 border border-[#343947] rounded-md w-full bg-[#1C2433]`}
-                                    placeholder=""
+                                <Select
+                                    value={langauges.find(t => t.value === formData.preferdLanguage)}
+                                    name="preferdLanguage"
+                                    onChange={(e) => handleChangeSelect(e, "preferdLanguage")}
+                                    options={langauges}
+                                    classNamePrefix="react-select"
+                                    isClearable={true}
+                                    styles={{
+                                        control: (provided) => ({
+                                            ...provided,
+                                            backgroundColor: '#1C2433',
+                                            borderColor: errors.preferdLanguage ? 'red' : '#343947',
+                                            borderRadius: '5px',
+                                            color: '#fff',
+                                            padding: '3px',
+                                            textAlign: 'left',
+                                        }),
+                                        menu: (provided) => ({
+                                            ...provided,
+                                            maxHeight: '350px',
+                                            overflowY: 'auto',
+                                            backgroundColor: '#2a3542',
+                                            borderRadius: '5px',
+                                            border: '1px solid #343947',
+                                            color: '#fff',
+                                            zIndex: 9999,
+                                        }),
+                                        option: (provided, state) => ({
+                                            ...provided,
+                                            backgroundColor: state.isSelected ? '#4a5b6e' : 'transparent',
+                                            padding: '10px',
+                                            cursor: 'pointer',
+                                            color: '#fff',
+                                            fontSize: '14px',
+                                            textAlign: 'left',
+                                            transition: 'background-color 0.2s ease, color 0.2s ease',
+                                            '&:hover': {
+                                                backgroundColor: '#4a5b6e',
+                                                color: '#FF6802',
+                                            },
+                                        }),
+                                        singleValue: (provided) => ({
+                                            ...provided,
+                                            color: '#fff',
+                                            textAlign: 'left',
+                                        }),
+                                    }}
+                                    menuPlacement="auto"
                                 />
                             </div>
                         </div>

@@ -1,16 +1,16 @@
 import React, { useEffect, useState, useRef } from 'react';
 import './BeforeAfter.css';
-import before1 from '../../../assets/before1.png';
-import before2 from '../../../assets/before2.png'
-import before3 from '../../../assets/before3.png'
-import before4 from '../../../assets/before4.png'
-import after1 from '../../../assets/after1.png'
-import after2 from '../../../assets/after2.png'
-import after3 from '../../../assets/after3.png'
-import after4 from '../../../assets/after4.png'
+import before1 from '../../../assets/before1.webp';
+import before2 from '../../../assets/before2.webp';
+import before3 from '../../../assets/before3.webp';
+import before4 from '../../../assets/before4.webp';
+import after1 from '../../../assets/after1.webp';
+import after2 from '../../../assets/after2.webp';
+import after3 from '../../../assets/after3.webp';
+import after4 from '../../../assets/after4.webp';
 
 
-export default function BeforeAfter() { 
+export default function BeforeAfter() {
     const [isFlipped, setIsFlipped] = useState(false);
     const sectionRef = useRef(null);
 
@@ -37,6 +37,14 @@ export default function BeforeAfter() {
 
     return (
         <div className="before-after-container">
+            <div className='mb-5 md:mb-10'>
+                <p class="growth-title font-bold text-center text-sm md:text-xl xl:text-2xl md:mb-1">
+                    ARE YOU LOOKING FOR GROWTH IN 
+                </p>
+                <h1 class="ecomm-rest text-2xl md:text-4xl lg:text-5xl">
+                    E-commerce & Restaurant 
+                </h1>
+            </div>
             <div className="scroll-section" ref={sectionRef}>
                 {beforeImages.map((beforeImage, index) => {
                     return (

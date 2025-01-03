@@ -4,10 +4,10 @@ import FoodDelivery from './foodDelivery/FoodDelivery';
 import BentoGrid from './bento/BentoGrid';
 import UberDirect from './uberDirect/UberDirect';
 import SuccessStory from './successStory/SuccessStory';
-import Redesign from './redesign/Redesign';
 import ImageScroller from './ImageScroll/ImageScroller';
 import Header from '../header/Header';
-import Footer from "../footer/Footer";
+import Redesign from '../redesign/Redesign';
+import Footer from '../footer/Footer';
 
 export default function Restaurent() {
   return (

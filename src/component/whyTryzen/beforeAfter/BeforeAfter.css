@@ -1,3 +1,22 @@
+@font-face {
+    font-family: "growth";
+    src: url("/src/assets/fonts/LarkenDEMO-Black.otf") format("opentype");
+}
+
+@font-face {
+    font-family: "ecomm-rest";
+    src: url("/src/assets/fonts/DupincelSmallTest-SemiBoldItalic.otf") format("opentype");
+}
+
+.growth-title {
+    color: #0051F2;
+    font-family: "growth";
+}
+
+.ecomm-rest {
+    font-family: "ecomm-rest";
+}
+
 .before-after-container {
     display: flex;
     flex-direction: column;
@@ -27,7 +46,7 @@
 .image-wrapper {
     position: relative;
     width: 100%;
-    height: 100%;
+    height: auto;
     transition: transform 1s ease;
     transform-style: preserve-3d;
 }

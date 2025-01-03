@@ -5,33 +5,33 @@ export default function SuccessStory() {
     const sections = [
         {
             title: "Joseph’s Dream Burger",
-            description: "Estamos locos por nuestros usuarios, y Uber nos ayuda a atenderlos mejor. Uber Eats nos ayuda a atraer a nuevos usuarios, mientras que Uber Direct nos ofrece una forma rentable de ayudar a entregar los pedidos que recibimos en nuestro sitio web o por teléfono.",
+            description: "We're crazy about our rivers and it's difficult to attract new riders were stuck! Uber Direct really help us a cost-effective way to help deliver orders very quickly! we receive on our website, apps and over the phone.",
             author: "Zack Yarmak",
-            image: require('../../../assets/story1.webp')
+            image: require('../../../assets/success1.webp')
         },
         {
             title: "White Castle delivers",
             description: "White-label delivery with Uber for orders received on our website or app reduces our costs compared to orders we get from third-party apps, yet it still maintains the same level of convenience that our loyal customers expect.",
             author: "Steve Foreman",
-            image: require('../../../assets/story2.webp'),
+            image: require('../../../assets/success2.webp'),
         },
         {
             title: "Burger King (Germany)",
             description: "With Uber Direct, our orders go out quickly. The delivery time is really good due to Uber’s third-party logistics. As a result, customer satisfaction is high and it also help us to save 25+ percentages profit batter services.",
             author: "Melina Rönpagel",
-            image: require('../../../assets/story3.webp'),
+            image: require('../../../assets/success3.webp'),
         },
         {
             title: "Salad House",
             description: "Uber Direct are a winning combo. Uber Direct helps bring Salad House to audiences that may have never known about us. Uber Direct makes it easier to deliver to our loyal customers who order directly from our website or app.",
             author: "Jarrod Bravo",
-            image: require('../../../assets/story4.webp'),
+            image: require('../../../assets/success4.webp'),
         },
         {
             title: "EB Games",
             description: "Around 25% of our online customers are happy to pay for the immediate gratification – for the guarantee that they can receive their order today within two hours UberDirect is really helpful game changer for us.",
             author: "Adrian McKenzie",
-            image: require('../../../assets/story5.webp'),
+            image: require('../../../assets/success5.webp'),
         },
     ];
 

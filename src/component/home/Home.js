@@ -4,8 +4,8 @@ import Features from "./features/Features";
 import IntroSection from "./introSection/IntroSection";
 import Benifits from "./benifit/Benifits";
 import Pricing from "./pricing/Pricing";
-import Redesign from "./redesign/Redesign";
 import Header from "../header/Header";
+import Redesign from "../redesign/Redesign";
 import Footer from "../footer/Footer";
 
 function Home() {

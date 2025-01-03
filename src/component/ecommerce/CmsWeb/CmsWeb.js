@@ -30,14 +30,14 @@ export default function CmsWeb() {
                 <div className="order-steps down mt-16">
                     <img
                         className="step-images"
-                        src={require('../../../assets/fashion.png')}
+                        src={require('../../../assets/ecomFashion.webp')}
                         alt="fashion"
                     />
                 </div>
                 <div className="order-steps up">
                     <img
                         className="step-images"
-                        src={require('../../../assets/appliance.png')}
+                        src={require('../../../assets/ecomAppliances.webp')}
                         alt="appliance"
                     />
                 </div>
@@ -45,7 +45,7 @@ export default function CmsWeb() {
                 <div className="order-steps down mt-16">
                     <img
                         className="step-images"
-                        src={require('../../../assets/homedecore.png')}
+                        src={require('../../../assets/ecomHomedecore.webp')}
                         alt="homedecore"
                     />
                 </div>
@@ -53,7 +53,7 @@ export default function CmsWeb() {
                 <div className="order-steps up">
                     <img
                         className="step-images"
-                        src={require('../../../assets/smartDevice.png')}
+                        src={require('../../../assets/ecomSmartDeice.webp')}
                         alt="smartDevice"
                     />
                 </div>

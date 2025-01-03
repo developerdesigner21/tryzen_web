@@ -62,4 +62,20 @@
 .appearance-none:checked::after {
     background-color: white;
 }
-  
+
+input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="time"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+}
+
+#calendar {
+    display: none;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+#calendar .selected-date {
+    background-color: orange;
+    color: white;
+}
