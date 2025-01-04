@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { Link, useLocation } from 'react-router-dom';
-import mainLogo from '../../assets/mainlogo.png';
-import FreeDesignPopup
-    from "../whyTryzen/freeDesignPopup/FreeDesignPopup";
+import mainLogo from '../../assets/mainTryzenLogo.png';
+import FreeDesignPopup from "../whyTryzen/freeDesignPopup/FreeDesignPopup";
+import './Header.css';
+
 export default function Header() {
     const [sidebarOpen, setSidebarOpen] = useState(false);
     const [isPopupOpen, setIsPopupOpen] = useState(false);
@@ -33,17 +34,14 @@ export default function Header() {
                         className="object-cover"
                         src={mainLogo}
                         alt="Logo"
-                        style={{ height: "2rem" }}
+                        style={{ height: "3rem" }}
                     />
                 </Link>
 
                 <div id="nav-menu" className="flex hidden lg:flex lg:gap-6 xl:gap-12">
-                    <Link to='/restaurent' className={`font-semibold hover:text-[#FF6802] xl:text-lg cursor-pointer ${isActive('/restaurent')}`}>Restaurant</Link>
-                    <Link to='/e-commerce' className={`font-semibold hover:text-[#FF6802] xl:text-lg cursor-pointer ${isActive('/e-commerce')}`}>E-Commerce</Link>
-                    <Link to='/whyTryzen' className={`font-semibold hover:text-[#FF6802] xl:text-lg cursor-pointer ${isActive('/whyTryzen')}`}>Why This Solution?</Link>
-                    {/* <a className="font-semibold hover:text-[#FF6802] xl:text-lg cursor-pointer">Blogs</a>
-                        <a className="font-semibold hover:text-[#FF6802] xl:text-lg cursor-pointer">Portfolio</a>
-                        <a className="font-medium hover:text-[#FF6802] xl:text-lg cursor-pointer">Calculate Loss</a> */}
+                    <Link to='/restaurent' className={`headers-title font-semibold hover:text-[#FF6802] xl:text-lg cursor-pointer ${isActive('/restaurent')}`}>Restaurant</Link>
+                    <Link to='/e-commerce' className={`headers-title font-semibold hover:text-[#FF6802] xl:text-lg cursor-pointer ${isActive('/e-commerce')}`}>E-Commerce</Link>
+                    <Link to='/whyTryzen' className={`headers-title font-semibold hover:text-[#FF6802] xl:text-lg cursor-pointer ${isActive('/whyTryzen')}`}>Why This Solution?</Link>
                 </div>
 
                 {/* <div className="flex flex-1 justify-end">
@@ -85,22 +83,22 @@ export default function Header() {
                             </button>
                         </div>
                         <nav className="flex flex-col gap-4 mt-5">
-                            <Link to="/restaurent" className={`font-semibold hover:text-[#FF6802] xl:text-lg cursor-pointer ${isActive('/restaurent')}`} onClick={toggleSidebar}>
+                            <Link to="/restaurent" className={`headers-title font-semibold hover:text-[#FF6802] xl:text-lg cursor-pointer ${isActive('/restaurent')}`} onClick={toggleSidebar}>
                                 Restaurant
                             </Link>
-                            <Link to="/e-commerce" className={`font-semibold hover:text-[#FF6802] xl:text-lg cursor-pointer ${isActive('/e-commerce')}`} onClick={toggleSidebar}>
+                            <Link to="/e-commerce" className={`headers-title font-semibold hover:text-[#FF6802] xl:text-lg cursor-pointer ${isActive('/e-commerce')}`} onClick={toggleSidebar}>
                                 E-Commerce
                             </Link>
-                            <Link to='/whyTryzen' className={`font-semibold hover:text-[#FF6802] xl:text-lg cursor-pointer ${isActive('/whyTryzen')}`} onClick={toggleSidebar}>
+                            <Link to='/whyTryzen' className={`headers-title font-semibold hover:text-[#FF6802] xl:text-lg cursor-pointer ${isActive('/whyTryzen')}`} onClick={toggleSidebar}>
                                 Why This Solution?
                             </Link>
-                            {/* <a className="font-semibold hover:text-[#FF6802]" onClick={toggleSidebar}>
+                            {/* <a className="headers-title font-semibold hover:text-[#FF6802]" onClick={toggleSidebar}>
                                     Blogs
                                 </a>
-                                <a className="font-semibold hover:text-[#FF6802]" onClick={toggleSidebar}>
+                                <a className="headers-title font-semibold hover:text-[#FF6802]" onClick={toggleSidebar}>
                                     Portfolio
                                 </a>
-                                <a className="font-medium hover:text-[#FF6802]" onClick={toggleSidebar}>
+                                <a className="headers-title font-medium hover:text-[#FF6802]" onClick={toggleSidebar}>
                                     Calculate Loss
                                 </a> */}
                         </nav>

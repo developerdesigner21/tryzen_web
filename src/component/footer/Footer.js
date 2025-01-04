@@ -6,15 +6,15 @@ export default function Footer() {
     return (
         <div style={{ backgroundColor: "#f8f9fa"}}>
             <div className="footer justify-between container mx-auto">
-                <div className='flex md:flex md:flex-col lg:flex-row'>
+                <div className='md:flex md:flex-col lg:flex-row items-center'>
                     <div className="footer-left mb-2">
                         <img
-                            src={require('../../assets/mainlogo.png')}
+                            src={require('../../assets/mainTryzenLogo.png')}
                             alt="Tryzen Solution"
                             className="footer-logo"
                         />
                     </div>
-                    <div className="footer-text">
+                    <div className="footer-text mb-4 sm:mb-0">
                         <p style={{ marginBottom: '4px' }}><Link to="/restaurent" className='hover:text-[#FF6802]'>Restaurant Zero % Commission</Link></p>
                         <p><Link to="/e-commerce" className='hover:text-[#FF6802]'>Ecommerce Website Development</Link></p>
                     </div>
@@ -35,7 +35,7 @@ export default function Footer() {
                     </div>
                 </div>
                 <div className='md:flex md:flex-col lg:flex-row footer-right lg:gap-5'>
-                    <div className="footer-left mb-2">
+                    <div className="footer-left">
                         <button className="hidden sm:block footer-button blue">
                             <a target='_blank' href='https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ2FER0ii8AlZSUfg1KNcGONZ6ZPp-O9Vfl1EZ9nYvqPl0RP60QSDSMJtPCbs5zPUMiFT5zelOzk'>
                                 Book Demo<br />Meeting Now

@@ -1,21 +1,17 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 import './ImageScroller.css';
-import babyStore from '../../../assets/BABY STORE.png';
-import cbdStore from '../../../assets/CBD STORE.png';
-import costmaticStore from '../../../assets/cosmetics STORE.png';
-import ebikeStore from '../../../assets/E-bike STORE.png';
-import fashionStore from '../../../assets/fashion store.png';
-import fitnessStore from '../../../assets/FITNESS STORE.png';
-import groceryStore from '../../../assets/GROCERY-STORE.png';
-import decoreStore from '../../../assets/HOMEDECORE STORE.png';
-import jewelleryStore from '../../../assets/jewellery  STORE.png';
-import medicalStore from '../../../assets/MEDICAL STORE.png';
-import mensStore from '../../../assets/MEN’S STORE.png';
-import petStore from '../../../assets/PET-FOOD-STORE.png';
-import restaurantOrder from '../../../assets/restaurant order.png';
-import restaurantStore from '../../../assets/restaurant STORE.png';
-import vapeStore from '../../../assets/vape-store.png';
-import womenStore from '../../../assets/WOMEN STORE.png';
+import babyStore from '../../../assets/EcomBABYSTORE.webp';
+import womenStore from '../../../assets/EcomWOMENSTORE.webp';
+import costmaticStore from '../../../assets/EcomcosmeticsSTORE.webp';
+import ebikeStore from '../../../assets/EcomEbikeStore.webp';
+import fashionStore from '../../../assets/EcomFashionStore.webp';
+import fitnessStore from '../../../assets/EcomFITNESSSTORE.webp';
+import fashion from '../../../assets/Ecomfashionstores.webp';
+import decoreStore from '../../../assets/EcomHOMEDECORESTORE.webp';
+import jewelleryStore from '../../../assets/EcomjewellerySTORE.webp';
+import beutyStore from '../../../assets/EcombeautyStore.webp';
+import petFoodStore from '../../../assets/EcomPETFOODSTORE.webp';
+import mensStore from '../../../assets/EcomMENΓÇÖSSTORE.webp';
 
 export default function ImageScroller() {
     useEffect(() => {
@@ -40,36 +36,33 @@ export default function ImageScroller() {
     return (
         <>
             <div class="text-center mb-8 md:mb-10">
-                <p class="ecom-our-food font-bold text-center text-lg md:text-2xl xl:text-3xl mb-1 md:mb-3">
+                <p class="ecom-our-food font-bold text-center text-xl md:text-2xl xl:text-3xl mb-1 md:mb-3">
                     OUR ECOMMERCE
                 </p>
-                <h1 class="website-design text-2xl md:text-4xl lg:text-6xl">
+                <h1 class="website-design text-3xl md:text-4xl lg:text-6xl">
                     Website Designs
                 </h1>
             </div>
             <div className="scroller" data-direction="left" data-speed="slow">
                 <div className="scroller__inner">
                     <img src={babyStore} alt="Baby Store" />
-                    <img src={cbdStore} alt="CBD Store" />
+                    <img src={womenStore} alt="CBD Store" />
                     <img src={costmaticStore} alt="Cosmetic Store" />
                     <img src={ebikeStore} alt="E-bike Store" />
                     <img src={fashionStore} alt="Fashion Store" />
                     <img src={fitnessStore} alt="Fitness Store" />
-                    <img src={groceryStore} alt="Grocery Store" />
-                    <img src={decoreStore} alt="Decore Store" />
                 </div>
             </div>
 
             <div className="scroller" data-direction="right" data-speed="slow">
                 <div className="scroller__inner">
                     <img src={jewelleryStore} alt="Jewellery Store" />
-                    <img src={medicalStore} alt="Medical Store" />
-                    <img src={mensStore} alt="Men's Store" />
-                    <img src={petStore} alt="Pet Food Store" />
-                    <img src={restaurantOrder} alt="Restaurant Order" />
-                    <img src={restaurantStore} alt="Restaurant Store" />
-                    <img src={vapeStore} alt="Vape Store" />
+                    <img src={beutyStore} alt="Medical Store" />
                     <img src={womenStore} alt="Women Store" />
+                    <img src={petFoodStore} alt="Restaurant Store" />
+                    <img src={mensStore} alt="Vape Store" />
+                    <img src={fashion} alt="Grocery Store" />
+                    <img src={decoreStore} alt="Decore Store" />
                 </div>
             </div>
         </>

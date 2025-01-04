@@ -3,7 +3,13 @@
     src: url("/src/assets/fonts/DupincelSmallTest-SemiBoldItalic.otf") format("opentype");
 }
 
+@font-face {
+    font-family: "our-web";
+    src: url("/src/assets/fonts/LarkenDEMO-Black.otf") format("opentype");
+}
+
 .ecom-our-food {
+    font-family: "our-web";
     color: #0F54FF;
 }
 

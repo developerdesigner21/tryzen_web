@@ -29,13 +29,13 @@ export default function Pricing() {
                             </div>
                             <div className="bg-gray-100 p-4 p-4 lg:p-2 xl:p-4">
                                 <ul className="space-y-2 text-sm md:text-md font-semibold">
-                                    <li className='flex gap-2 items-center'><img src={require("../../../assets/closeIcon.webp")} style={{ width:'20px', height:"20px" }} /> Limited Customisation</li>
-                                    <li className='flex gap-2 items-center'><img src={require("../../../assets/closeIcon.webp")} style={{ width:'20px', height:"20px" }} /> Slow Performance</li>
-                                    <li className='flex gap-2 items-center'><img src={require("../../../assets/closeIcon.webp")} style={{ width:'20px', height:"20px" }} /> Generic Templates Design</li>
-                                    <li className='flex gap-2 items-center'><img src={require("../../../assets/closeIcon.webp")} style={{ width:'20px', height:"20px" }} /> SEO Limitations on Site</li>
-                                    <li className='flex gap-2 items-center'><img src={require("../../../assets/closeIcon.webp")} style={{ width:'20px', height:"20px" }} />Plugin or APP Overload</li>
-                                    <li className='flex gap-2 items-center'><img src={require("../../../assets/closeIcon.webp")} style={{ width:'20px', height:"20px" }} /> NO Checkout customisation</li>
-                                    <li className='flex gap-2 items-center'><img src={require("../../../assets/closeIcon.webp")} style={{ width:'20px', height:"20px" }} /> Not Future-Proof</li>
+                                    <li className='flex gap-2 items-center'><img src={require("../../../assets/falseIcon.png")} style={{ width:'20px', height:"20px" }} /> Limited Customisation</li>
+                                    <li className='flex gap-2 items-center'><img src={require("../../../assets/falseIcon.png")} style={{ width:'20px', height:"20px" }} /> Slow Performance</li>
+                                    <li className='flex gap-2 items-center'><img src={require("../../../assets/falseIcon.png")} style={{ width:'20px', height:"20px" }} /> Generic Templates Design</li>
+                                    <li className='flex gap-2 items-center'><img src={require("../../../assets/falseIcon.png")} style={{ width:'20px', height:"20px" }} /> SEO Limitations on Site</li>
+                                    <li className='flex gap-2 items-center'><img src={require("../../../assets/falseIcon.png")} style={{ width:'20px', height:"20px" }} />Plugin or APP Overload</li>
+                                    <li className='flex gap-2 items-center'><img src={require("../../../assets/falseIcon.png")} style={{ width:'20px', height:"20px" }} /> NO Checkout customisation</li>
+                                    <li className='flex gap-2 items-center'><img src={require("../../../assets/falseIcon.png")} style={{ width:'20px', height:"20px" }} /> Not Future-Proof</li>
                                 </ul>
                             </div>
                         </div>
@@ -43,15 +43,15 @@ export default function Pricing() {
                             <div className="bg-[#0F54FF] text-white p-4">
                                 <h3 className="text-center text-md md:text-lg font-bold">OWN CUSTOM WEB</h3>
                             </div>
-                            <div className="bg-gray-100 p-6 md:p-4">
+                            <div className="bg-gray-100 p-4 p-4 lg:p-2 xl:p-4">
                                 <ul className="space-y-2 text-sm md:text-md font-semibold">
-                                    <li className='flex gap-2 items-center'><img src={require("../../../assets/check.png")} style={{ width:'20px', height:"20px" }} /> Complete Customisation</li>
-                                    <li className='flex gap-2 items-center'><img src={require("../../../assets/check.png")} style={{ width:'20px', height:"20px" }} />Faster Load Times</li>
-                                    <li className='flex gap-2 items-center'><img src={require("../../../assets/check.png")} style={{ width:'20px', height:"20px" }} /> Unique Branding Design</li>
-                                    <li className='flex gap-2 items-center'><img src={require("../../../assets/check.png")} style={{ width:'20px', height:"20px" }} /> Advanced SEO Features</li>
-                                    <li className='flex gap-2 items-center'><img src={require("../../../assets/check.png")} style={{ width:'20px', height:"20px" }} /> ⁠High Data Security</li>
-                                    <li className='flex gap-2 items-center'><img src={require("../../../assets/check.png")} style={{ width:'20px', height:"20px" }} /> Higher Conversion Rates</li>
-                                    <li className='flex gap-2 items-center'><img src={require("../../../assets/check.png")} style={{ width:'20px', height:"20px" }} /> Dedicated Support</li>
+                                    <li className='flex gap-2 items-center'><img src={require("../../../assets/trueIcon.png")} style={{ width:'20px', height:"20px" }} /> Complete Customisation</li>
+                                    <li className='flex gap-2 items-center'><img src={require("../../../assets/trueIcon.png")} style={{ width:'20px', height:"20px" }} />Faster Load Times</li>
+                                    <li className='flex gap-2 items-center'><img src={require("../../../assets/trueIcon.png")} style={{ width:'20px', height:"20px" }} /> Unique Branding Design</li>
+                                    <li className='flex gap-2 items-center'><img src={require("../../../assets/trueIcon.png")} style={{ width:'20px', height:"20px" }} /> Advanced SEO Features</li>
+                                    <li className='flex gap-2 items-center'><img src={require("../../../assets/trueIcon.png")} style={{ width:'20px', height:"20px" }} /> ⁠High Data Security</li>
+                                    <li className='flex gap-2 items-center'><img src={require("../../../assets/trueIcon.png")} style={{ width:'20px', height:"20px" }} /> Higher Conversion Rates</li>
+                                    <li className='flex gap-2 items-center'><img src={require("../../../assets/trueIcon.png")} style={{ width:'20px', height:"20px" }} /> Dedicated Support</li>
                                 </ul>
                             </div>
                         </div>
@@ -79,15 +79,15 @@ export default function Pricing() {
                             <div className="bg-[#F44336] text-white p-4">
                                 <h3 className="text-center text-md md:text-lg font-bold">3RD PARTY APPS</h3>
                             </div>
-                            <div className="bg-gray-100 p-4">
+                            <div className="bg-gray-100 p-4 p-4 lg:p-2 xl:p-4">
                                 <ul className="space-y-2 text-sm md:text-md font-semibold">
-                                    <li className='flex gap-2 items-center'><img src={require("../../../assets/closeIcon.webp")} style={{ width:'20px', height:"20px" }} /> +⁠30% Commissions</li>
-                                    <li className='flex gap-2 items-center'><img src={require("../../../assets/closeIcon.webp")} style={{ width:'20px', height:"20px" }} /> No Customer Loyalty</li>
-                                    <li className='flex gap-2 items-center'><img src={require("../../../assets/closeIcon.webp")} style={{ width:'20px', height:"20px" }} /> Reduced Brand Control</li>
-                                    <li className='flex gap-2 items-center'><img src={require("../../../assets/closeIcon.webp")} style={{ width:'20px', height:"20px" }} /> Customer Data Loss</li>
-                                    <li className='flex gap-2 items-center'><img src={require("../../../assets/closeIcon.webp")} style={{ width:'20px', height:"20px" }} /> Increased Competition</li>
-                                    <li className='flex gap-2 items-center'><img src={require("../../../assets/closeIcon.webp")} style={{ width:'20px', height:"20px" }} /> Dependence on Policies</li>
-                                    <li className='flex gap-2 items-center'><img src={require("../../../assets/closeIcon.webp")} style={{ width:'20px', height:"20px" }} /> Hidden Costs</li>
+                                    <li className='flex gap-2 items-center'><img src={require("../../../assets/falseIcon.png")} style={{ width:'20px', height:"20px" }} /> +⁠30% Commissions</li>
+                                    <li className='flex gap-2 items-center'><img src={require("../../../assets/falseIcon.png")} style={{ width:'20px', height:"20px" }} /> No Customer Loyalty</li>
+                                    <li className='flex gap-2 items-center'><img src={require("../../../assets/falseIcon.png")} style={{ width:'20px', height:"20px" }} /> Reduced Brand Control</li>
+                                    <li className='flex gap-2 items-center'><img src={require("../../../assets/falseIcon.png")} style={{ width:'20px', height:"20px" }} /> Customer Data Loss</li>
+                                    <li className='flex gap-2 items-center'><img src={require("../../../assets/falseIcon.png")} style={{ width:'20px', height:"20px" }} /> Increased Competition</li>
+                                    <li className='flex gap-2 items-center'><img src={require("../../../assets/falseIcon.png")} style={{ width:'20px', height:"20px" }} /> Dependence on Policies</li>
+                                    <li className='flex gap-2 items-center'><img src={require("../../../assets/falseIcon.png")} style={{ width:'20px', height:"20px" }} /> Hidden Costs</li>
                                 </ul>
                             </div>
                         </div>
@@ -95,15 +95,15 @@ export default function Pricing() {
                             <div className="bg-[#FF6802] text-white p-4">
                                 <h3 className="text-center text-md md:text-lg font-bold">OWN SOLUTION</h3>
                             </div>
-                            <div className="bg-gray-100 p-6 md:p-4">
+                            <div className="bg-gray-100 p-4 p-4 lg:p-2 xl:p-4">
                                 <ul className="space-y-2 text-sm md:text-md font-semibold">
-                                    <li className='flex gap-2 items-center'><img src={require("../../../assets/check.png")} style={{ width:'20px', height:"20px" }} />Zero Commissions</li>
-                                    <li className='flex gap-2 items-center'><img src={require("../../../assets/check.png")} style={{ width:'20px', height:"20px" }} />Direct Customer Relationship</li>
-                                    <li className='flex gap-2 items-center'><img src={require("../../../assets/check.png")} style={{ width:'20px', height:"20px" }} />Full Control Over Branding</li>
-                                    <li className='flex gap-2 items-center'><img src={require("../../../assets/check.png")} style={{ width:'20px', height:"20px" }} />⁠Batter Customer Experience</li>
-                                    <li className='flex gap-2 items-center'><img src={require("../../../assets/check.png")} style={{ width:'20px', height:"20px" }} />Increased Brand Loyalty</li>
-                                    <li className='flex gap-2 items-center'><img src={require("../../../assets/check.png")} style={{ width:'20px', height:"20px" }} />No Restriction on Policy</li>
-                                    <li className='flex gap-2 items-center'><img src={require("../../../assets/check.png")} style={{ width:'20px', height:"20px" }} />Streamline ⁠Order manage</li>
+                                    <li className='flex gap-2 items-center'><img src={require("../../../assets/trueIcon.png")} style={{ width:'20px', height:"20px" }} />Zero Commissions</li>
+                                    <li className='flex gap-2 items-center'><img src={require("../../../assets/trueIcon.png")} style={{ width:'20px', height:"20px" }} />Direct Customer Relationship</li>
+                                    <li className='flex gap-2 items-center'><img src={require("../../../assets/trueIcon.png")} style={{ width:'20px', height:"20px" }} />Full Control Over Branding</li>
+                                    <li className='flex gap-2 items-center'><img src={require("../../../assets/trueIcon.png")} style={{ width:'20px', height:"20px" }} />⁠Batter Customer Experience</li>
+                                    <li className='flex gap-2 items-center'><img src={require("../../../assets/trueIcon.png")} style={{ width:'20px', height:"20px" }} />Increased Brand Loyalty</li>
+                                    <li className='flex gap-2 items-center'><img src={require("../../../assets/trueIcon.png")} style={{ width:'20px', height:"20px" }} />No Restriction on Policy</li>
+                                    <li className='flex gap-2 items-center'><img src={require("../../../assets/trueIcon.png")} style={{ width:'20px', height:"20px" }} />Streamline ⁠Order manage</li>
                                 </ul>
                             </div>
                         </div>

@@ -1,3 +1,13 @@
+@font-face {
+    font-family: "our-web";
+    src: url("/src/assets/fonts/LarkenDEMO-Black.otf") format("opentype");
+}
+
+.restbento-title {
+    font-family: 'our-web';
+    color: #FF6802;
+}
+
 .grid-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);

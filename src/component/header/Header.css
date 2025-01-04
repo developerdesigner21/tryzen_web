@@ -1,0 +1,8 @@
+@font-face {
+    font-family: "headers";
+    src: url("/src/assets/fonts/CraftRounded-Regular.ttf") format("truetype");
+}
+
+.headers-title {
+    font-family: "headers";
+}

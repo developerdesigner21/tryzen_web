@@ -1,13 +1,13 @@
 import React from 'react';
 import '../Home.css';
-import GrowOnline from '../../../assets/p1.webp';
-import MultiStore from '../../../assets/p2.webp';
-import FasterTack from '../../../assets/p3.webp';
-import FastDelivery from '../../../assets/p4.webp';
-import WhatsAppMarketing from '../../../assets/p5.webp';
-import GoogleGrowth from '../../../assets/p6.webp';
-import Coupon from '../../../assets/p7.webp';
-import POS from '../../../assets/p8.webp';
+import GrowOnline from '../../../assets/Feature1.webp';
+import MultiStore from '../../../assets/Feature2.webp';
+import FasterTack from '../../../assets/Feature3.webp';
+import FastDelivery from '../../../assets/Feature4.webp';
+import WhatsAppMarketing from '../../../assets/Feature5.webp';
+import GoogleGrowth from '../../../assets/Feature6.webp';
+import Coupon from '../../../assets/Feature7.webp';
+import POS from '../../../assets/Feature8.webp';
 
 export default function Features() {
     return (

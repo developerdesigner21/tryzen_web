@@ -46,7 +46,7 @@ export default function Plans() {
         },
         {
             name: 'ZEN MODE',
-            description: 'Best platform with high speed and all important features to help grow your business',
+            description: 'The ultimate solution you Don’t need to worry for anything Marketing, design and seo we do it for you',
             vector: require('../../../assets/zen.png'),
             features: [
                 { name: 'Complete Advanced Automation', vector: require('../../../assets/zen1.webp') },
@@ -62,7 +62,7 @@ export default function Plans() {
     ];
     return (
         <div className="plans-section">
-            <h2 className='plan font-bold text-2xl lg:text-4xl md:text-3xl mb-5'>FIND THE PERFECT PLAN</h2>
+            <h2 className='plan font-bold text-xl lg:text-4xl md:text-3xl mb-2 md:mb-5'>FIND THE PERFECT PLAN</h2>
             <h3 className='business-need font-semibold text-2xl md:text-5xl'>FOR YOUR BUSINESS NEEDS</h3>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 xl:gap-12 mt-10">
