@@ -44,6 +44,12 @@ export default function FreeDesignPopup({ onClose }) {
                 [name]: e.value,
             });
             setErrors({ ...errors, [name]: '' });
+        } else {
+            setFormData({
+                ...formData,
+                [name]: "",
+            });
+            setErrors({ ...errors, [name]: '' });
         }
     };
 
@@ -251,13 +257,17 @@ export default function FreeDesignPopup({ onClose }) {
                                     }),
                                     menu: (provided) => ({
                                         ...provided,
-                                        maxHeight: '250px',
-                                        overflowY: 'auto',
                                         backgroundColor: '#2a3542',
                                         borderRadius: '5px',
                                         border: '1px solid #343947',
                                         color: '#fff',
                                         zIndex: 9999,
+                                    }),
+                                    menuList: (provided) => ({
+                                        ...provided,
+                                        maxHeight: '200px',
+                                        overflowY: 'auto',
+                                        paddingRight: '10px',
                                     }),
                                     option: (provided, state) => ({
                                         ...provided,
@@ -336,6 +346,68 @@ export default function FreeDesignPopup({ onClose }) {
                             />
                         </div>
                         <div className="mt-4">
+                            <label className="text-left block text-sm mb-1">
+                                Select Your Preferred Language
+                            </label>
+                            <Select
+                                value={langauges.find(
+                                (t) => t.value === formData.preferdLanguage
+                                )}
+                                name="preferdLanguage"
+                                onChange={(e) => handleChangeSelect(e, "preferdLanguage")}
+                                options={langauges}
+                                classNamePrefix="react-select"
+                                isClearable={true}
+                                styles={{
+                                control: (provided) => ({
+                                    ...provided,
+                                    backgroundColor: "#1C2433",
+                                    borderColor: errors.timezone ? "red" : "#343947",
+                                    borderRadius: "5px",
+                                    color: "#fff",
+                                    padding: "3px",
+                                    textAlign: "left",
+                                }),
+                                menu: (provided) => ({
+                                    ...provided,
+                                    backgroundColor: "#2a3542",
+                                    borderRadius: "5px",
+                                    border: "1px solid #343947",
+                                    color: "#fff",
+                                    zIndex: 9999,
+                                }),
+                                menuList: (provided) => ({
+                                    ...provided,
+                                    maxHeight: "200px",
+                                    overflowY: "auto",
+                                    paddingRight: "10px",
+                                }),
+                                option: (provided, state) => ({
+                                    ...provided,
+                                    backgroundColor: state.isSelected
+                                    ? "#4a5b6e"
+                                    : "transparent",
+                                    padding: "10px",
+                                    cursor: "pointer",
+                                    color: "#fff",
+                                    fontSize: "14px",
+                                    textAlign: "left",
+                                    transition: "background-color 0.2s ease, color 0.2s ease",
+                                    "&:hover": {
+                                    backgroundColor: "#4a5b6e",
+                                    color: "#FF6802",
+                                    },
+                                }),
+                                singleValue: (provided) => ({
+                                    ...provided,
+                                    color: "#fff",
+                                    textAlign: "left",
+                                }),
+                                }}
+                                menuPlacement="auto"
+                            />
+                        </div>
+                        <div className="mt-4">
                             <p className="text-sm text-left mb-2">Do You Have Website?</p>
                             <div className="flex flex-col">
                                 <div className='flex items-center space-x-4 mb-2'>
@@ -410,64 +482,6 @@ export default function FreeDesignPopup({ onClose }) {
                                     className={`mt-1 p-2 border border-[#343947] rounded-md w-full bg-[#1C2433] ${errors.websiteWish && formData.likesWebsite === 'Yes' ? 'border-red-500' : ''} ${formData.likesWebsite !== 'Yes' ? 'bg-[#2a3542]' : ''}`}
                                     placeholder={formData.likesWebsite === 'Yes' ? "Enter Website" : ''}
                                     autocomplete="off"
-                                />
-                            </div>
-                            <div className='mt-4'>
-                                <label className="text-left block text-sm mb-1">
-                                    Select Your Preferred Language
-                                </label>
-                                <Select
-                                    value={langauges.find(t => t.value === formData.preferdLanguage)}
-                                    name="preferdLanguage"
-                                    onChange={(e) => handleChangeSelect(e, "preferdLanguage")}
-                                    options={langauges}
-                                    classNamePrefix="react-select"
-                                    isClearable={true}
-                                    styles={{
-                                        control: (provided) => ({
-                                            ...provided,
-                                            backgroundColor: '#1C2433',
-                                            borderColor: errors.preferdLanguage ? 'red' : '#343947',
-                                            borderRadius: '5px',
-                                            color: '#FFFFFF',
-                                            padding: '3px',
-                                            textAlign: 'left',
-                                        }),
-                                        menu: (provided) => ({
-                                            ...provided,
-                                            maxHeight: '350px',
-                                            overflowY: 'auto',
-                                            backgroundColor: '#2a3542',
-                                            borderRadius: '5px',
-                                            border: '1px solid #343947',
-                                            color: '#FFFFF',
-                                            zIndex: 9999,
-                                        }),
-                                        option: (provided, state) => ({
-                                            ...provided,
-                                            backgroundColor: state.isSelected ? '#4a5b6e' : 'transparent',
-                                            padding: '10px',
-                                            cursor: 'pointer',
-                                            color: '#FFFFFF',
-                                            fontSize: '14px',
-                                            textAlign: 'left',
-                                            transition: 'background-color 0.2s ease, color 0.2s ease',
-                                            '&:hover': {
-                                                backgroundColor: '#4a5b6e',
-                                                color: '#FF6802',
-                                            },
-                                        }),
-                                        singleValue: (provided) => ({
-                                            ...provided,
-                                            color: '#fff',
-                                            textAlign: 'left',
-                                        }),
-                                        input: (provided) => ({
-                                            ...provided,
-                                            color: '#FFFFFF',
-                                        }),
-                                    }}
-                                    menuPlacement="auto"
                                 />
                             </div>
                         </div>

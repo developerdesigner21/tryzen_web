@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import "./SuccessStory.css";
 
 export default function SuccessStory() {
@@ -36,14 +36,37 @@ export default function SuccessStory() {
     ];
 
     const [currentSection, setCurrentSection] = useState(sections[0]);
-    const [lastActiveSection, setLastActiveSection] = useState(sections[0]);
+    const [isMobile, setIsMobile] = useState(false);
+    
+    const sectionRefs = useRef([]);
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth < 768);
+        };
+
+        handleResize();
+        window.addEventListener('resize', handleResize);
+
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
+    useEffect(()=>{
+        if (isMobile) {
+            const sectionElement = sectionRefs.current[currentSection.title];
+            if (sectionElement) {
+                window.scrollTo({
+                    top: sectionElement.offsetTop - 80, // Adjust scroll by 80px for fixed header
+                    behavior: 'smooth'
+                });
+            }
+        }
+    },[currentSection.title])
 
     const toggleSection = (section) => {
         if (currentSection.title === section.title) {
             setCurrentSection({});
         } else {
             setCurrentSection(section);
-            setLastActiveSection(section);
         }
     };
 
@@ -55,22 +78,21 @@ export default function SuccessStory() {
                 {sections.map((section, index) => (
                     <div key={index} className="dropdown">
                         <div
-                            className={`dropdown-header xl:text-lg ${currentSection.title === section.title ? "active mb-2" : "text-[#038851]"
-                                }`}
+                            ref={(el) => (sectionRefs.current[section.title] = el)} // Add ref to each section
+                            id={section.title}
+                            className={`dropdown-header xl:text-lg ${currentSection.title === section.title ? "active mb-2" : "text-[#038851]"} `}
                             onClick={() => toggleSection(section)}
                         >
                             {section.title}
                             <span className="arrow" style={{ transform: `rotate(${currentSection.title === section.title ? 0 : 180}deg)` }}></span>
                         </div>
-                        {currentSection.title === section.title && (
-                            <div className="dropdown-content pb-2">
-                                <p className='xl:text-lg'>{section.description}</p>
-                                <p className="author font-bold">{section.author}</p>
-                                <div className="dropdown-image">
-                                    <img src={section.image} alt={section.title} className="section-image" />
-                                </div>
+                        <div className="dropdown-content pb-2" style={{ display: currentSection.title === section.title ? "block" : "none" }}>
+                            <p className='xl:text-lg'>{section.description}</p>
+                            <p className="author font-bold">{section.author}</p>
+                            <div className="dropdown-image">
+                                <img src={section.image} alt={section.title} className="section-image" />
                             </div>
-                        )}
+                        </div>
                     </div>
                 ))}
             </div>
@@ -81,14 +103,8 @@ export default function SuccessStory() {
                         alt={currentSection.title}
                         className="section-image"
                     />
-                ) : (
-                    <img
-                        src={lastActiveSection.image}
-                        alt={lastActiveSection.title}
-                        className="section-image"
-                    />
-                )}
+                ) : null}
             </div>
         </div>
-    )
+    );
 }

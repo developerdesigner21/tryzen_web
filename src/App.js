@@ -1,5 +1,5 @@
-import React from "react";
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import React, { useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import BrandExperience from './component/blog/BrandExperience';
 import BrandJourney from './component/blog/BrandJourney';
 import EnhanceOrder from './component/blog/EnhanceOrder';
@@ -21,9 +21,22 @@ import Ecommerce from "./component/ecommerce/Ecommerce";
 import WhyTryzen from "./component/whyTryzen/WhyTryzen";
 import './App.css';
 
+// ScrollToTop Component to reset scroll position on route change
+function ScrollToTop() {
+  const location = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0); // Scroll to the top whenever the location changes
+  }, [location]);
+
+  return null;
+}
+
 function App() {
   return (
     <Router>
+      {/* ScrollToTop component will reset the scroll position on each route change */}
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/order-blog" element={<OrderBlog />} />

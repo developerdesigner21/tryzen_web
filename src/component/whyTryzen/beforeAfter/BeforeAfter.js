@@ -9,7 +9,6 @@ import after2 from '../../../assets/after2.webp';
 import after3 from '../../../assets/after3.webp';
 import after4 from '../../../assets/after4.webp';
 
-
 export default function BeforeAfter() {
     const [isFlipped, setIsFlipped] = useState(false);
     const sectionRef = useRef(null);
@@ -20,14 +19,20 @@ export default function BeforeAfter() {
     const handleScroll = () => {
         if (sectionRef.current) {
             const sectionTop = sectionRef.current.getBoundingClientRect().top;
-            if (sectionTop <= window.innerHeight && sectionTop >= 0) {
+            const sectionHeight = sectionRef.current.offsetHeight;
+            const sectionMiddle = sectionTop + sectionHeight / 2;
+            
+            const viewportCenter = window.innerHeight / 2;
+
+            if (sectionMiddle <= viewportCenter + 50 && sectionMiddle >= viewportCenter - 50) {
                 setIsFlipped(true);
-            } else {
+            }
+            else if (sectionTop > window.innerHeight || sectionTop + sectionHeight < 0) {
                 setIsFlipped(false);
             }
         }
     };
-
+    
     useEffect(() => {
         window.addEventListener('scroll', handleScroll);
         return () => {
@@ -38,10 +43,10 @@ export default function BeforeAfter() {
     return (
         <div className="before-after-container">
             <div className='mb-5 md:mb-10'>
-                <p class="growth-title font-bold text-center text-sm md:text-xl xl:text-2xl md:mb-1">
+                <p className="growth-title font-bold text-center text-sm md:text-xl xl:text-2xl md:mb-1">
                     ARE YOU LOOKING FOR GROWTH IN 
                 </p>
-                <h1 class="ecomm-rest text-2xl md:text-4xl lg:text-5xl">
+                <h1 className="ecomm-rest text-2xl md:text-4xl lg:text-5xl">
                     E-commerce & Restaurant 
                 </h1>
             </div>
