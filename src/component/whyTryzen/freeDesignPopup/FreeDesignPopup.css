@@ -105,44 +105,6 @@
     background-color: #4a5b6e !important;
 }
 
-/* For left-aligning the date and time picker */
-input[type="date"],
-input[type="time"] {
-    -webkit-appearance: none; /* Disable iOS/Safari input styling */
-    -moz-appearance: none;
-    appearance: none;
-    width: 100% !important; /* Ensure full width */
-    box-sizing: border-box; /* Prevent height increase due to padding/border */
-    text-align: left; /* Align text to the left */
-    padding-left: 0.5rem; /* Add padding if needed for better visual alignment */
-}
-
-
-/* Date and time input background and text colors */
-input[type="date"], input[type="time"] {
-    background-color: #1C2433;
-    color: white;
-}
-
-/* Red border for invalid inputs */
-input[type="date"]:invalid, input[type="time"]:invalid {
-    border-color: #ff0000; /* Red border for invalid state */
-}
-
-/* Red border for error state */
-input[type="date"].error, input[type="time"].error {
-    border-color: #ff0000; /* Red border for error */
-}
-
-/* Light color for the placeholder */
-input[type="date"]::placeholder,
-input[type="time"]::placeholder {
-    color: rgba(255, 255, 255, 0.6); /* Light color for the placeholder */
-}
-
-/* Ensure calendar and clock picker icon is visible in Safari */
-input[type="date"]::-webkit-calendar-picker-indicator,
-input[type="time"]::-webkit-calendar-picker-indicator {
-    filter: invert(1); /* Optional: Invert the color of the icon for better visibility */
-    cursor: pointer; /* Ensure the icon is clickable */
+.react-datepicker-wrapper{
+    width: 100%;
 }

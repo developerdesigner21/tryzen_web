@@ -6,6 +6,9 @@ import langaugeData from '../../Json/Langauges.json';
 import Select from 'react-select';
 import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+
 
 export default function FreeDesignPopup({ onClose ,isPopupOpen = false}) {
     const [formData, setFormData] = useState({  
@@ -337,14 +340,26 @@ export default function FreeDesignPopup({ onClose ,isPopupOpen = false}) {
                             <label className="block text-left text-sm mb-1">
                                 Select Available Date
                             </label>
-                            <input
+                            <DatePicker selected={formData.date}
+                            minDate={new Date().toISOString().split('T')[0]}
+                            onChange={(date) => {
+                                            setFormData({
+                                                ...formData,
+                                                date: date,
+                                            });
+                                            setErrors({ ...errors, date: '' });
+                            }}
+                            customInput={<input className="mt-1 p-2 rounded-md w-full bg-[#1C2433] text-white cursor-pointer" style={{border:"1px solid #343947"}} />}
+                            onClick={(e) => e.target.showPicker()}
+                             />
+                            {/* <input
                                 type="date"
                                 name="date"
                                 value={formData.date}
                                 onChange={handleChange}
                                 onClick={(e) => e.target.showPicker()}
                                 className={`mt-1 p-2 border border-[#343947] rounded-md w-full bg-[#1C2433] ${errors.date ? 'border-[#ff0000]' : ''}`}
-                            />
+                            /> */}
                         </div>
                         <div className="mt-4">
                             <label className="block text-left text-sm mb-1">
