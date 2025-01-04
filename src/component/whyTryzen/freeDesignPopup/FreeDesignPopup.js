@@ -8,7 +8,7 @@ import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
 
 export default function FreeDesignPopup({ onClose ,isPopupOpen = false}) {
-    const [formData, setFormData] = useState({
+    const [formData, setFormData] = useState({  
         email: '',
         phone: '',
         timezone: '',
@@ -33,6 +33,16 @@ export default function FreeDesignPopup({ onClose ,isPopupOpen = false}) {
             document.body.style.overflow = "auto";
         }
     }, [isPopupOpen]);
+
+    useEffect(() => {
+        const tomorrow = new Date();
+        tomorrow.setDate(tomorrow.getDate() + 1);
+        setFormData({
+            ...formData,
+            date: tomorrow.toISOString().split('T')[0],
+            time: "09:30"
+        });
+      }, []);
 
     const handleChange = (e) => {
         if (e && e.target) {
