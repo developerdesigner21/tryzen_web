@@ -112,7 +112,7 @@ export default function TryzenTable() {
             </div>
             <div className="apply-button-container mt-8">
                 <button onClick={handleButtonClick} className="apply-button px-2 py-2 md:px-6 md:py-3 text-lg md:text-2xl lg:text-3xl">APPLY FOR YOUR FREE WEBSITE DESIGN</button>
-                {isPopupOpen && <FreeDesignPopup onClose={handlePopupClose} />}
+                <FreeDesignPopup onClose={handlePopupClose} isPopupOpen={isPopupOpen} />
             </div>
         </div>
     );

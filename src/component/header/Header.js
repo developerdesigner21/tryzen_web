@@ -44,7 +44,7 @@ export default function Header() {
                     <Link to='/whyTryzen' className={`headers-title font-semibold hover:text-[#FF6802] xl:text-lg cursor-pointer ${isActive('/whyTryzen')}`}>Why This Solution?</Link>
                 </div>
 
-                {/* <div className="flex flex-1 justify-end">
+                <div className="flex flex-1 justify-end">
                     <button onClick={handleButtonClick} className="flex gap-2 items-center bg-black text-white font-bold border border-2 border-black px-1 md:px-4 py-1 md:py-2 rounded-lg hover:border-gray-600">
                         <img
                             src={require('../../assets/freeDesign.png')}
@@ -53,9 +53,9 @@ export default function Header() {
                         />
                         FREE DESIGN
                     </button>
-                    {isPopupOpen && <FreeDesignPopup onClose={handlePopupClose} />}
-                </div> */}
-                <div className="flex flex-1 justify-end">
+                    <FreeDesignPopup onClose={handlePopupClose} isPopupOpen={isPopupOpen} />
+                </div>
+                {/* <div className="flex flex-1 justify-end">
                     <button className="flex gap-2 items-center bg-black text-white font-bold border border-2 border-black px-1 md:px-4 py-1 md:py-2 rounded-lg hover:border-gray-600">
                         <Link to="/whyTryzen" className="flex items-center gap-2">
                             <img
@@ -66,7 +66,7 @@ export default function Header() {
                             FREE DESIGN
                         </Link>
                     </button>
-                </div>
+                </div> */}
                 {sidebarOpen && (
                     <div className="fixed top-0 left-0 w-2/3 md:w-1/3 h-full bg-white shadow-lg z-50 flex flex-col p-5">
                         <div className='flex justify-between items-center'>

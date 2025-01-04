@@ -36,7 +36,7 @@ export default function Footer() {
                 </div>
                 <div className='md:flex md:flex-col lg:flex-row footer-right lg:gap-5'>
                     <div className="footer-left">
-                        <button className="hidden sm:block footer-button blue">
+                        <button className="hidden sm:block footer-button blue mb-1 sm:mb-0">
                             <a target='_blank' href='https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ2FER0ii8AlZSUfg1KNcGONZ6ZPp-O9Vfl1EZ9nYvqPl0RP60QSDSMJtPCbs5zPUMiFT5zelOzk'>
                                 Book Demo<br />Meeting Now
                             </a>
@@ -51,7 +51,9 @@ export default function Footer() {
                         <button className="hidden sm:block footer-button orange">
                             <Link to="/whyTryzen">Free Website<br /> Design</Link>
                         </button>
-                        <button className="sm:hidden footer-button orange">Free Website Design</button>
+                        <button className="sm:hidden footer-button orange">
+                            <Link to="/whyTryzen">Free Website Design</Link>
+                        </button>
                     </div>
                 </div>
             </div>

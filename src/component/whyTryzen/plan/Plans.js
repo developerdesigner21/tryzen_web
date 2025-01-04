@@ -83,7 +83,7 @@ export default function Plans() {
                         </ul>
                         <div className='flex justify-left mt-5'>
                             <button onClick={handleButtonClick} className='bg-black px-6 py-2 rounded-full text-white'>GET A QUOTE</button>
-                            {isPopupOpen && <FreeDesignPopup onClose={handlePopupClose} />}
+                            <FreeDesignPopup onClose={handlePopupClose} isPopupOpen={isPopupOpen} />
                         </div>
                     </div>
                 ))}

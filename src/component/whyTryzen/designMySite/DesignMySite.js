@@ -25,7 +25,7 @@ export default function DesignMySite() {
             </div>
             <div className='mb-3 md:mb-6'>
                 <button onClick={handleButtonClick} className="bg-black text-white rounded-lg px-4 py-2 sm:px-6 sm:py-3 text-xs sm:text-lg lg:text-2xl font-bold">DESIGN MY SITE FOR FREE!</button>
-                {isPopupOpen && <FreeDesignPopup onClose={handlePopupClose} />}
+                <FreeDesignPopup onClose={handlePopupClose} isPopupOpen={isPopupOpen} />
             </div>
             <div className="flex items-center justify-center">
                 <img

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './FreeDesignPopup.css';
 import axios from 'axios';
 import timezonesData from '../../Json/TimeZone.json';
@@ -7,7 +7,7 @@ import Select from 'react-select';
 import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
 
-export default function FreeDesignPopup({ onClose }) {
+export default function FreeDesignPopup({ onClose ,isPopupOpen = false}) {
     const [formData, setFormData] = useState({
         email: '',
         phone: '',
@@ -25,6 +25,14 @@ export default function FreeDesignPopup({ onClose }) {
     const timezones = timezonesData.timezones;
     const langauges = langaugeData.langauges;
     const [errors, setErrors] = useState({});
+
+    useEffect(() => {
+        if (isPopupOpen) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "auto";
+        }
+    }, [isPopupOpen]);
 
     const handleChange = (e) => {
         if (e && e.target) {
@@ -148,7 +156,7 @@ export default function FreeDesignPopup({ onClose }) {
                 if (response.status === 200) {
                     console.log('API Response:', response.data);
                     alert('Form submitted successfully!');
-                    onClose();
+                    handleClose();
                 } else {
                     console.error('API Error:', response.data);
                     alert('Failed to submit the form. Please try again.');
@@ -159,18 +167,37 @@ export default function FreeDesignPopup({ onClose }) {
         }
     };
 
+    const handleClose = () => {
+        setFormData({
+            email: '',
+            phone: '',
+            timezone: '',
+            date: '',
+            time: '',
+            businessName: '',
+            hasWebsite: '',
+            likesWebsite: '',
+            preferdLanguage: '',
+            website: '',
+            websiteWish: '',
+        })
+        setErrors({})
+        onClose()
+    }
+
     return (
         <form
             className="fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center z-50"
             onSubmit={handleSubmit}
+            style={{display: isPopupOpen ? "" : "none"}}
         >
-            <div className="bg-[#101828] px-16 pt-6 pb-8 rounded-lg max-h-[95vh] max-w-full relative overflow-y-auto">
-                <button
-                    onClick={onClose}
-                    className="absolute top-5 right-3 hover:text-gray-700"
+            <div className="bg-[#101828] px-8 sm:px-16 pt-6 pb-8 rounded-lg max-h-[95vh] max-w-full relative overflow-y-auto">
+                <div
+                    onClick={()=>{handleClose()}}
+                    className="absolute top-5 right-3 hover:text-gray-700 cursor-pointer"
                 >
                     <img src={require('../../../assets/cross-icon.png')} className='w-5' alt="Close" />
-                </button>
+                </div>
                 <div className='text-center mb-5'>
                     <h1 className='custom-web-design text-lg mb-1'>GET YOUR FREE CUSTOM WEBSITE DESIGN</h1>
                     <h1 className='rest-ecom text-3xl font-semibold'>FOR YOUR RESTAURANT OR ECOMMERCE!</h1>
@@ -190,9 +217,9 @@ export default function FreeDesignPopup({ onClose }) {
                                 name="email"
                                 value={formData.email}
                                 onChange={handleChange}
-                                className={`mt-1 p-2 border border-[#343947] rounded-md w-full bg-[#1C2433] ${errors.email ? 'border-red-500' : ''}`}
+                                className={`mt-1 p-2 border border-[#343947] rounded-md w-full bg-[#1C2433] ${errors.email ? 'border-[#ff0000]' : ''}`}
                                 placeholder="yourname@gmail.com"
-                                autocomplete="off"
+                                autoComplete="off"
                             />
                         </div>
                         <div className="mt-4">
@@ -204,9 +231,9 @@ export default function FreeDesignPopup({ onClose }) {
                                 name="phone"
                                 value={formData.phone}
                                 onChange={handleChange}
-                                className={`mt-1 p-2 border border-[#343947] rounded-md w-full bg-[#1C2433] ${errors.phone ? 'border-red-500' : ''}`}
+                                className={`mt-1 p-2 border border-[#343947] rounded-md w-full bg-[#1C2433] ${errors.phone ? 'border-[#ff0000]' : ''}`}
                                 placeholder="+91 9998220731"
-                                autocomplete="off"
+                                autoComplete="off"
                             /> */}
                             <PhoneInput
                                 country={'in'}
@@ -306,7 +333,7 @@ export default function FreeDesignPopup({ onClose }) {
                                 value={formData.date}
                                 onChange={handleChange}
                                 onClick={(e) => e.target.showPicker()}
-                                className={`mt-1 p-2 border border-[#343947] rounded-md w-full bg-[#1C2433] ${errors.date ? 'border-red-500' : ''}`}
+                                className={`mt-1 p-2 border border-[#343947] rounded-md w-full bg-[#1C2433] ${errors.date ? 'border-[#ff0000]' : ''}`}
                             />
                         </div>
                         <div className="mt-4">
@@ -319,7 +346,7 @@ export default function FreeDesignPopup({ onClose }) {
                                 value={formData.time}
                                 onChange={handleChange}
                                 onClick={(e) => e.target.showPicker()}
-                                className={`mt-1 p-2 border border-[#343947] rounded-md w-full bg-[#1C2433] !text-white ${errors.time ? 'border-red-500' : ''}`}
+                                className={`mt-1 p-2 border border-[#343947] rounded-md w-full bg-[#1C2433] !text-white ${errors.time ? 'border-[#ff0000]' : ''}`}
                             />
                         </div>
                         <div className='mt-4'>
@@ -340,9 +367,9 @@ export default function FreeDesignPopup({ onClose }) {
                                 name="businessName"
                                 value={formData.businessName}
                                 onChange={handleChange}
-                                className={`mt-1 p-2 border border-[#343947] rounded-md w-full bg-[#1C2433] ${errors.businessName ? 'border-red-500' : ''}`}
+                                className={`mt-1 p-2 border border-[#343947] rounded-md w-full bg-[#1C2433] ${errors.businessName ? 'border-[#ff0000]' : ''}`}
                                 placeholder="Business Name"
-                                autocomplete="off"
+                                autoComplete="off"
                             />
                         </div>
                         <div className="mt-4">
@@ -440,9 +467,9 @@ export default function FreeDesignPopup({ onClose }) {
                                     value={formData.hasWebsite === 'Yes' ? formData.website : ''}
                                     onChange={handleChange}
                                     disabled={formData.hasWebsite !== 'Yes'}
-                                    className={`mt-1 p-2 border border-[#343947] rounded-md w-full bg-[#1C2433] ${errors.website && formData.hasWebsite === 'Yes' ? 'border-red-500' : ''} ${formData.hasWebsite !== 'Yes' ? 'bg-[#2a3542]' : ''}`}
+                                    className={`mt-1 p-2 border border-[#343947] rounded-md w-full bg-[#1C2433] ${errors.website && formData.hasWebsite === 'Yes' ? 'border-[#ff0000]' : ''} ${formData.hasWebsite !== 'Yes' ? 'bg-[#2a3542]' : ''}`}
                                     placeholder={formData.hasWebsite === 'Yes' ? "Enter Website" : ''}
-                                    autocomplete="off"
+                                    autoComplete="off"
                                 />
                             </div>
                         </div>
@@ -479,9 +506,9 @@ export default function FreeDesignPopup({ onClose }) {
                                     value={formData.likesWebsite === 'Yes' ? formData.websiteWish : ''}
                                     onChange={handleChange}
                                     disabled={formData.likesWebsite !== 'Yes'}
-                                    className={`mt-1 p-2 border border-[#343947] rounded-md w-full bg-[#1C2433] ${errors.websiteWish && formData.likesWebsite === 'Yes' ? 'border-red-500' : ''} ${formData.likesWebsite !== 'Yes' ? 'bg-[#2a3542]' : ''}`}
+                                    className={`mt-1 p-2 border border-[#343947] rounded-md w-full bg-[#1C2433] ${errors.websiteWish && formData.likesWebsite === 'Yes' ? 'border-[#ff0000]' : ''} ${formData.likesWebsite !== 'Yes' ? 'bg-[#2a3542]' : ''}`}
                                     placeholder={formData.likesWebsite === 'Yes' ? "Enter Website" : ''}
-                                    autocomplete="off"
+                                    autoComplete="off"
                                 />
                             </div>
                         </div>
