@@ -51,7 +51,7 @@ export default function IntroSection() {
 
                     <div className="info-content">
                         <img
-                            src={require('../../../assets/ecommerce.png')}
+                            src={require('../../../assets/ecommerce.webp')}
                             alt="E-Commerce"
                             className="info-image"
                         />
@@ -69,7 +69,7 @@ export default function IntroSection() {
                     <a href="https://restaurant.tryzensolution.com/" target="_blank" rel="noopener noreferrer">
                         <div className="info-content">
                             <img
-                                src={require('../../../assets/restaurent.png')}
+                                src={require('../../../assets/restaurent.webp')}
                                 alt="Restaurant"
                                 className="info-image"
                             />

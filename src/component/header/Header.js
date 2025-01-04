@@ -1,16 +1,26 @@
 import React, { useState } from "react";
 import { Link, useLocation } from 'react-router-dom';
 import mainLogo from '../../assets/mainlogo.png';
-
+import FreeDesignPopup
+    from "../whyTryzen/freeDesignPopup/FreeDesignPopup";
 export default function Header() {
     const [sidebarOpen, setSidebarOpen] = useState(false);
+    const [isPopupOpen, setIsPopupOpen] = useState(false);
     const location = useLocation();
 
     const toggleSidebar = () => {
         setSidebarOpen(!sidebarOpen);
     };
-    
+
     const isActive = (path) => location.pathname === path ? 'text-[#FD7E14]' : 'text-gray-600';
+
+    const handleButtonClick = () => {
+        setIsPopupOpen(true);
+    };
+
+    const handlePopupClose = () => {
+        setIsPopupOpen(false);
+    };
 
     return (
         <div className="fixed top-0 left-0 right-0 z-50 bg-white border-b">
@@ -28,22 +38,35 @@ export default function Header() {
                 </Link>
 
                 <div id="nav-menu" className="flex hidden lg:flex lg:gap-6 xl:gap-12">
-                    <Link to='/restaurent' className={`font-semibold hover:text-[#FD7E14] xl:text-lg cursor-pointer ${isActive('/restaurent')}`}>Restaurant</Link>
-                    <Link to='/e-commerce' className={`font-semibold hover:text-[#FD7E14] xl:text-lg cursor-pointer ${isActive('/e-commerce')}`}>E-Commerce</Link>
-                    <Link to='/whyTryzen' className={`font-semibold hover:text-[#FD7E14] xl:text-lg cursor-pointer ${isActive('/whyTryzen')}`}>Why This Solution?</Link>
-                    {/* <a className="font-semibold hover:text-[#FD7E14] xl:text-lg cursor-pointer">Blogs</a>
-                        <a className="font-semibold hover:text-[#FD7E14] xl:text-lg cursor-pointer">Portfolio</a>
-                        <a className="font-medium hover:text-[#FD7E14] xl:text-lg cursor-pointer">Calculate Loss</a> */}
+                    <Link to='/restaurent' className={`font-semibold hover:text-[#FF6802] xl:text-lg cursor-pointer ${isActive('/restaurent')}`}>Restaurant</Link>
+                    <Link to='/e-commerce' className={`font-semibold hover:text-[#FF6802] xl:text-lg cursor-pointer ${isActive('/e-commerce')}`}>E-Commerce</Link>
+                    <Link to='/whyTryzen' className={`font-semibold hover:text-[#FF6802] xl:text-lg cursor-pointer ${isActive('/whyTryzen')}`}>Why This Solution?</Link>
+                    {/* <a className="font-semibold hover:text-[#FF6802] xl:text-lg cursor-pointer">Blogs</a>
+                        <a className="font-semibold hover:text-[#FF6802] xl:text-lg cursor-pointer">Portfolio</a>
+                        <a className="font-medium hover:text-[#FF6802] xl:text-lg cursor-pointer">Calculate Loss</a> */}
                 </div>
 
-                <div className="flex flex-1 justify-end">
-                    <button className="flex gap-2 items-center bg-black text-white font-bold border border-2 border-black px-1 md:px-4 py-1 md:py-2 rounded-lg hover:border-gray-600">
+                {/* <div className="flex flex-1 justify-end">
+                    <button onClick={handleButtonClick} className="flex gap-2 items-center bg-black text-white font-bold border border-2 border-black px-1 md:px-4 py-1 md:py-2 rounded-lg hover:border-gray-600">
                         <img
                             src={require('../../assets/freeDesign.png')}
                             alt="free"
                             style={{ height: "1rem" }}
                         />
                         FREE DESIGN
+                    </button>
+                    {isPopupOpen && <FreeDesignPopup onClose={handlePopupClose} />}
+                </div> */}
+                <div className="flex flex-1 justify-end">
+                    <button className="flex gap-2 items-center bg-black text-white font-bold border border-2 border-black px-1 md:px-4 py-1 md:py-2 rounded-lg hover:border-gray-600">
+                        <Link to="/whyTryzen" className="flex items-center gap-2">
+                            <img
+                                src={require('../../assets/freeDesign.png')}
+                                alt="free"
+                                style={{ height: "1rem" }}
+                            />
+                            FREE DESIGN
+                        </Link>
                     </button>
                 </div>
                 {sidebarOpen && (
@@ -62,22 +85,22 @@ export default function Header() {
                             </button>
                         </div>
                         <nav className="flex flex-col gap-4 mt-5">
-                            <Link to="/restaurent" className={`font-semibold hover:text-[#FD7E14] xl:text-lg cursor-pointer ${isActive('/restaurent')}`} onClick={toggleSidebar}>
+                            <Link to="/restaurent" className={`font-semibold hover:text-[#FF6802] xl:text-lg cursor-pointer ${isActive('/restaurent')}`} onClick={toggleSidebar}>
                                 Restaurant
                             </Link>
-                            <Link to="/e-commerce" className={`font-semibold hover:text-[#FD7E14] xl:text-lg cursor-pointer ${isActive('/e-commerce')}`} onClick={toggleSidebar}>
+                            <Link to="/e-commerce" className={`font-semibold hover:text-[#FF6802] xl:text-lg cursor-pointer ${isActive('/e-commerce')}`} onClick={toggleSidebar}>
                                 E-Commerce
                             </Link>
-                            <Link to='/whyTryzen' className={`font-semibold hover:text-[#FD7E14] xl:text-lg cursor-pointer ${isActive('/whyTryzen')}`} onClick={toggleSidebar}>
+                            <Link to='/whyTryzen' className={`font-semibold hover:text-[#FF6802] xl:text-lg cursor-pointer ${isActive('/whyTryzen')}`} onClick={toggleSidebar}>
                                 Why This Solution?
                             </Link>
-                            {/* <a className="font-semibold hover:text-[#FD7E14]" onClick={toggleSidebar}>
+                            {/* <a className="font-semibold hover:text-[#FF6802]" onClick={toggleSidebar}>
                                     Blogs
                                 </a>
-                                <a className="font-semibold hover:text-[#FD7E14]" onClick={toggleSidebar}>
+                                <a className="font-semibold hover:text-[#FF6802]" onClick={toggleSidebar}>
                                     Portfolio
                                 </a>
-                                <a className="font-medium hover:text-[#FD7E14]" onClick={toggleSidebar}>
+                                <a className="font-medium hover:text-[#FF6802]" onClick={toggleSidebar}>
                                     Calculate Loss
                                 </a> */}
                         </nav>

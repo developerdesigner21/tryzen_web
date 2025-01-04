@@ -18,54 +18,58 @@ import vapeStore from '../../../assets/vape-store.png';
 import womenStore from '../../../assets/WOMEN STORE.png';
 
 export default function ImageScroller() {
-    const leftContainerRef = useRef(null);
-    const rightContainerRef = useRef(null);
-
     useEffect(() => {
-        const cloneImages = (containerRef) => {
-            const container = containerRef.current;
-            const images = Array.from(container.children);
-            images.forEach((image) => {
-                const clone = image.cloneNode(true);
-                container.appendChild(clone);
-            });
-        };
-        cloneImages(leftContainerRef);
-        cloneImages(rightContainerRef);
-    }, []);
+        const scrollers = document.querySelectorAll(".scroller");
 
+        if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+            scrollers.forEach((scroller) => {
+                scroller.setAttribute("data-animated", true);
+
+                const scrollerInner = scroller.querySelector(".scroller__inner");
+                const scrollerContent = Array.from(scrollerInner.children);
+
+                scrollerContent.forEach((item) => {
+                    const duplicatedItem = item.cloneNode(true);
+                    duplicatedItem.setAttribute("aria-hidden", true);
+                    scrollerInner.appendChild(duplicatedItem);
+                });
+            });
+        }
+    }, []);
 
     return (
         <>
             <div class="text-center mb-8 md:mb-10">
                 <p class="ecom-our-food font-bold text-center text-lg md:text-2xl xl:text-3xl mb-1 md:mb-3">
-                    OUR FOOD
+                    OUR ECOMMERCE
                 </p>
                 <h1 class="website-design text-2xl md:text-4xl lg:text-6xl">
                     Website Designs
                 </h1>
             </div>
-            <div className="carousel-wrapper gap-5">
-                <div className="carousel-line gap-3 md:gap-5" ref={leftContainerRef}>
-                    <img src={babyStore} alt="Image 1" className='rounded-xl' />
-                    <img src={cbdStore} alt="Image 2" className='rounded-xl' />
-                    <img src={costmaticStore} alt="Image 3" className='rounded-xl' />
-                    <img src={ebikeStore} alt="Image 4" className='rounded-xl' />
-                    <img src={fashionStore} alt="Image 5" className='rounded-xl' />
-                    <img src={fitnessStore} alt="Image 6" className='rounded-xl' />
-                    <img src={groceryStore} alt="Image 7" className='rounded-xl' />
-                    <img src={decoreStore} alt="Image 8" className='rounded-xl' />
+            <div className="scroller" data-direction="left" data-speed="slow">
+                <div className="scroller__inner">
+                    <img src={babyStore} alt="Baby Store" />
+                    <img src={cbdStore} alt="CBD Store" />
+                    <img src={costmaticStore} alt="Cosmetic Store" />
+                    <img src={ebikeStore} alt="E-bike Store" />
+                    <img src={fashionStore} alt="Fashion Store" />
+                    <img src={fitnessStore} alt="Fitness Store" />
+                    <img src={groceryStore} alt="Grocery Store" />
+                    <img src={decoreStore} alt="Decore Store" />
                 </div>
+            </div>
 
-                <div className="carousel-line gap-3 reverse md:gap-5" ref={rightContainerRef}>
-                    <img src={jewelleryStore} alt="Image 1" className='rounded-xl' />
-                    <img src={medicalStore} alt="Image 2" className='rounded-xl' />
-                    <img src={mensStore} alt="Image 3" className='rounded-xl' />
-                    <img src={petStore} alt="Image 4" className='rounded-xl' />
-                    <img src={restaurantOrder} alt="Image 5" className='rounded-xl' />
-                    <img src={restaurantStore} alt="Image 6" className='rounded-xl' />
-                    <img src={vapeStore} alt="Image 7" className='rounded-xl' />
-                    <img src={womenStore} alt="Image 8" className='rounded-xl' />
+            <div className="scroller" data-direction="right" data-speed="slow">
+                <div className="scroller__inner">
+                    <img src={jewelleryStore} alt="Jewellery Store" />
+                    <img src={medicalStore} alt="Medical Store" />
+                    <img src={mensStore} alt="Men's Store" />
+                    <img src={petStore} alt="Pet Food Store" />
+                    <img src={restaurantOrder} alt="Restaurant Order" />
+                    <img src={restaurantStore} alt="Restaurant Store" />
+                    <img src={vapeStore} alt="Vape Store" />
+                    <img src={womenStore} alt="Women Store" />
                 </div>
             </div>
         </>

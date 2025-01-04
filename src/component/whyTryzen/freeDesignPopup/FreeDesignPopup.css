@@ -79,3 +79,33 @@ input[type="time"]::-webkit-calendar-picker-indicator {
     background-color: orange;
     color: white;
 }
+
+.phone-input .form-control {
+    padding-left: 48px !important;
+}
+
+.phone-input .flag-dropdown {
+    padding-right: 10px !important;
+}
+
+.phone-input .country-list {
+    background-color: #1C2433 !important;
+    border: 1px solid #343947;
+}
+
+.react-tel-input .selected-flag:hover, .react-tel-input .selected-flag:focus {
+    background-color: #4a5b6e !important;
+}
+
+.react-tel-input .flag-dropdown.open .selected-flag {
+    background: #4a5b6e !important;
+    border-radius: 3px 0 0 0;
+}
+
+.react-tel-input .country-list:hover .country.highlight {
+    background-color: #4a5b6e !important;
+}
+
+.react-tel-input .country-list .country:hover {
+    background-color: #4a5b6e !important;
+}

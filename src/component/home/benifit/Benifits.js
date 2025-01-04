@@ -12,10 +12,10 @@ export default function Benifits() {
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8" style={{ marginTop: "2rem" }}>
                     <div class="relative flex flex-col">
-                        <img src={require("../../../assets/OnlineOrderSystem.png")} alt="Grow" class="h-full" />
+                        <img src={require("../../../assets/home1.webp")} alt="Grow" class="h-full" />
                     </div>
                     <div class="relative flex flex-col">
-                        <img src={require("../../../assets/3rdPartyComission.png")} alt="Grow" class="h-full" />
+                        <img src={require("../../../assets/home2.webp")} alt="Grow" class="h-full" />
                     </div>
                 </div>
             </div>

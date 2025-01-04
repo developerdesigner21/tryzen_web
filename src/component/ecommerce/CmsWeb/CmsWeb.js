@@ -12,7 +12,7 @@ export default function CmsWeb() {
                         <img className='w-[15px] md:w-[25px] lg:w-[35px] xl:w-[40px] xl:h-10' src={require('../../../assets/wix.png')} alt="Wix Logo" />
                         <img className='w-[15px] md:w-[25px] lg:w-[35px] xl:w-[40px] xl:h-10' src={require('../../../assets/shopify.png')} alt="Shopify Logo" />
                     </div>
-                    <h1 className="title text-3xl md:text-4xl lg:text-5xl xl:text-7xl"><span className='text-[#0488C2] mr-1 md:mr-2'>C</span><span className='text-black mr-1 md:mr-2'>M</span><span className='text-[#5E8E3E]'>S</span></h1>
+                    <h1 className="title text-3xl md:text-4xl lg:text-5xl xl:text-7xl"><span className='text-[#0F54FF] mr-1 md:mr-2'>C</span><span className='text-black mr-1 md:mr-2'>M</span><span className='text-[#5E8E3E]'>S</span></h1>
                 </div>
                 <h1 className="main-sub-title text-3xl md:text-4xl lg:text-5xl xl:text-7xl pt-5 md:pt-7 lg:pt-9">Website</h1>
             </div>
@@ -24,7 +24,9 @@ export default function CmsWeb() {
                 </p>
             </div>
             <div>
-                <button className="bold-title bg-[#0051F2] text-white rounded-full px-6 py-2.5 text-sm md:text-md lg:text-xl font-semibold">WITH EASY TO CHECKOUT</button>
+                <button className="bold-title bg-[#0F54FF] text-white rounded-full px-6 py-2.5 text-sm md:text-md lg:text-xl font-semibold">
+                    <a href="#EcomBento">WITH EASY TO CHECKOUT</a>
+                </button>
             </div>
             <div className="ecommerce-container mt-4 lg:mt-6 gap-4 md:gap-3 lg:gap-6 xl:gap-10">
                 <div className="order-steps down mt-16">

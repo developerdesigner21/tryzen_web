@@ -4,8 +4,8 @@ import './EcomBento.css';
 export default function BentoGrid() {
     return (
         <>
-            <div className="text-center mb-8 md:mb-10">
-                <p className="our-food font-bold text-center text-lg md:text-2xl xl:text-3xl mb-1 md:mb-3">
+            <div id="EcomBento" className="text-center mb-8 md:mb-10">
+                <p className="text-[#0F54FF] font-bold text-center text-lg md:text-2xl xl:text-3xl mb-1 md:mb-3">
                     OUR SERVICES
                 </p>
                 <h1 className="website-design text-2xl md:text-4xl lg:text-6xl">

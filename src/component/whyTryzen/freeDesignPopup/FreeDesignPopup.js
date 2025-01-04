@@ -4,8 +4,10 @@ import axios from 'axios';
 import timezonesData from '../../Json/TimeZone.json';
 import langaugeData from '../../Json/Langauges.json';
 import Select from 'react-select';
+import PhoneInput from 'react-phone-input-2'
+import 'react-phone-input-2/lib/style.css'
 
-export default function FreeDesignForm({ onClose }) {
+export default function FreeDesignPopup({ onClose }) {
     const [formData, setFormData] = useState({
         email: '',
         phone: '',
@@ -42,6 +44,16 @@ export default function FreeDesignForm({ onClose }) {
                 [name]: e.value,
             });
             setErrors({ ...errors, [name]: '' });
+        }
+    };
+
+    const handleChangePhone = (e) => {
+        if (e && e.phone) {
+            setFormData({
+                ...formData,
+                phone: e.phone,
+            });
+            setErrors({ ...errors, phone: '' });
         }
     };
 
@@ -181,7 +193,7 @@ export default function FreeDesignForm({ onClose }) {
                             <label className="block text-left text-sm mb-1">
                                 Mobile Number
                             </label>
-                            <input
+                            {/* <input
                                 type="tel"
                                 name="phone"
                                 value={formData.phone}
@@ -189,6 +201,33 @@ export default function FreeDesignForm({ onClose }) {
                                 className={`mt-1 p-2 border border-[#343947] rounded-md w-full bg-[#1C2433] ${errors.phone ? 'border-red-500' : ''}`}
                                 placeholder="+91 9998220731"
                                 autocomplete="off"
+                            /> */}
+                            <PhoneInput
+                                country={'in'}
+                                value={formData.phone}
+                                onChange={phone => handleChangePhone({ phone })}
+                                inputStyle={{
+                                    backgroundColor: '#1C2433',
+                                    borderColor: errors.phone ? '#FF0000' : '#343947',
+                                    color: '#FFFFFF',
+                                    borderRadius: '4px',
+                                    width: '100%',
+                                    height: '44px',
+                                    paddingLeft: '50px',
+                                }}
+                                buttonStyle={{
+                                    backgroundColor: '#1C2433',
+                                    borderColor: errors.phone ? '#FF0000' : '#343947',
+                                    borderRadius: '4px 0 0 4px',
+                                    height: '44px',
+                                    padding: '0 2px',
+                                }}
+                                dropdownStyle={{
+                                    backgroundColor: '#1C2433',
+                                    color: '#FFFFFF',
+                                }}
+                                placeholder="+91 9998220731"
+                                autoComplete="off"
                             />
                         </div>
                         <div className="mt-4">
@@ -238,6 +277,10 @@ export default function FreeDesignForm({ onClose }) {
                                         ...provided,
                                         color: '#fff',
                                         textAlign: 'left',
+                                    }),
+                                    input: (provided) => ({
+                                        ...provided,
+                                        color: '#FFFFFF',
                                     }),
                                 }}
                                 menuPlacement="auto"
@@ -325,8 +368,8 @@ export default function FreeDesignForm({ onClose }) {
                                     value={formData.hasWebsite === 'Yes' ? formData.website : ''}
                                     onChange={handleChange}
                                     disabled={formData.hasWebsite !== 'Yes'}
-                                    className={`mt-1 p-2 border border-[#343947] rounded-md w-full bg-[#1C2433] ${errors.website && formData.hasWebsite === 'Yes' ? 'border-red-500' : ''} ${formData.hasWebsite !== 'Yes' ? 'bg-[#2a3542]' : ''}`} 
-                                    placeholder={formData.hasWebsite === 'Yes' ? "Enter Website" : ''} 
+                                    className={`mt-1 p-2 border border-[#343947] rounded-md w-full bg-[#1C2433] ${errors.website && formData.hasWebsite === 'Yes' ? 'border-red-500' : ''} ${formData.hasWebsite !== 'Yes' ? 'bg-[#2a3542]' : ''}`}
+                                    placeholder={formData.hasWebsite === 'Yes' ? "Enter Website" : ''}
                                     autocomplete="off"
                                 />
                             </div>
@@ -364,8 +407,8 @@ export default function FreeDesignForm({ onClose }) {
                                     value={formData.likesWebsite === 'Yes' ? formData.websiteWish : ''}
                                     onChange={handleChange}
                                     disabled={formData.likesWebsite !== 'Yes'}
-                                    className={`mt-1 p-2 border border-[#343947] rounded-md w-full bg-[#1C2433] ${errors.websiteWish && formData.likesWebsite === 'Yes' ? 'border-red-500' : ''} ${formData.likesWebsite !== 'Yes' ? 'bg-[#2a3542]' : ''}`} 
-                                    placeholder={formData.likesWebsite === 'Yes' ? "Enter Website" : ''} 
+                                    className={`mt-1 p-2 border border-[#343947] rounded-md w-full bg-[#1C2433] ${errors.websiteWish && formData.likesWebsite === 'Yes' ? 'border-red-500' : ''} ${formData.likesWebsite !== 'Yes' ? 'bg-[#2a3542]' : ''}`}
+                                    placeholder={formData.likesWebsite === 'Yes' ? "Enter Website" : ''}
                                     autocomplete="off"
                                 />
                             </div>
@@ -386,7 +429,7 @@ export default function FreeDesignForm({ onClose }) {
                                             backgroundColor: '#1C2433',
                                             borderColor: errors.preferdLanguage ? 'red' : '#343947',
                                             borderRadius: '5px',
-                                            color: '#fff',
+                                            color: '#FFFFFF',
                                             padding: '3px',
                                             textAlign: 'left',
                                         }),
@@ -397,7 +440,7 @@ export default function FreeDesignForm({ onClose }) {
                                             backgroundColor: '#2a3542',
                                             borderRadius: '5px',
                                             border: '1px solid #343947',
-                                            color: '#fff',
+                                            color: '#FFFFF',
                                             zIndex: 9999,
                                         }),
                                         option: (provided, state) => ({
@@ -405,7 +448,7 @@ export default function FreeDesignForm({ onClose }) {
                                             backgroundColor: state.isSelected ? '#4a5b6e' : 'transparent',
                                             padding: '10px',
                                             cursor: 'pointer',
-                                            color: '#fff',
+                                            color: '#FFFFFF',
                                             fontSize: '14px',
                                             textAlign: 'left',
                                             transition: 'background-color 0.2s ease, color 0.2s ease',
@@ -418,6 +461,10 @@ export default function FreeDesignForm({ onClose }) {
                                             ...provided,
                                             color: '#fff',
                                             textAlign: 'left',
+                                        }),
+                                        input: (provided) => ({
+                                            ...provided,
+                                            color: '#FFFFFF',
                                         }),
                                     }}
                                     menuPlacement="auto"

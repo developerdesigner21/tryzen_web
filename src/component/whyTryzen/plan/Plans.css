@@ -43,13 +43,13 @@ ul {
     padding: 0;
 }
 
-li {
+.li-feature {
     display: flex;
     align-items: center;
     margin-bottom: 15px;
 }
 
-li img {
+.li-feature img {
     width: 20px;
     margin-right: 16px;
 }

@@ -30,7 +30,7 @@ export default function UberDirect() {
                                 <img src={require('../../../assets/UberWebsite.png')} alt="QR Code Website" className='h-32 lg:h-48' />
                             </div>
                             <div className='demo-buttons'>
-                                <a href="#" className="flex items-center rounded-full gap-2 px-4 py-2 font-bold text-xs lg:text-sm">Check Website
+                                <a href="https://restaurant.tryzensolution.com/" target='_balnk' className="flex items-center rounded-full gap-2 px-4 py-2 font-bold text-xs lg:text-sm">Check Website
                                     <img src={require('../../../assets/buttonArrow.png')} alt="Arrow" className='w-4 h-2' />
                                 </a>
                             </div>
@@ -40,7 +40,7 @@ export default function UberDirect() {
                                 <img src={require('../../../assets/scanner.png')} alt="QR Code Website" className='h-32 lg:h-48' />
                             </div>
                             <div className='demo-buttons'>
-                                <a href="#" className="flex items-center rounded-full gap-1 md:gap-2 px-2 md:px-4 py-2 font-bold text-xs lg:text-sm">SCAN TO CHECK APP
+                                <a href="https://restaurant.tryzensolution.com/" target='_balnk' className="flex items-center rounded-full gap-1 md:gap-2 px-2 md:px-4 py-2 font-bold text-xs lg:text-sm">SCAN TO CHECK APP
                                     <img src={require('../../../assets/buttonArrow.png')} alt="Arrow" className='w-4 h-2' />
                                 </a>
                             </div>

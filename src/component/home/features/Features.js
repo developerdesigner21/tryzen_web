@@ -38,7 +38,7 @@ export default function Features() {
 
                 <div class="p-4 md:p-6 rounded-lg text-center" style={{ backgroundColor: "#F1F1F1" }}>
                     <img src={FasterTack} alt="Faster Tack" class="mx-auto mb-4 h-40" />
-                    <h3 class="text-md md:text-xl font-semibold mb-2">We achieve Faster Speed with best technologies</h3>
+                    <h3 class="text-md md:text-xl font-semibold mb-2">We achieve Faster Speed with best tech</h3>
                     <p class="text-gray-700 text-sm font-semibold mt-3 md:mt-6">We ensures faster speed, optimised
                         performance, This tech used by Uber, Instagram, DoorDash & other big company</p>
                 </div>
@@ -54,7 +54,7 @@ export default function Features() {
                     <img src={GoogleGrowth} alt="Google Growth" class="mx-auto mb-4 h-40" />
                     <h3 class="text-md md:text-xl font-semibold mb-2">Google Ranking & Social media marketing</h3>
                     <p class="text-gray-700 text-sm font-semibold mt-3 md:mt-6">We help Combining Google ranking with social
-                        media marketing creates a powerful strategy to drive more customers.</p>
+                        media marketing creates a powerful strategy to drive more sales.</p>
                 </div>
 
                 <div class="p-4 md:p-6 rounded-lg text-center" style={{ backgroundColor: "#DAFFF6" }}>

@@ -1,11 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './TryzenTable.css';
 import GreenCheckIcon from "../../../assets/greenCheck.png";
 import CrossIcon from "../../../assets/redCross.png";
 import TryzenLogo from "../../../assets/trzenTableLogo.png";
 import TryzenSmallLogo from "../../../assets/tryzenSmallLogo.png";
+import FreeDesignPopup from '../freeDesignPopup/FreeDesignPopup';
 
 export default function TryzenTable() {
+    const [isPopupOpen, setIsPopupOpen] = useState(false);
+
+    const handleButtonClick = () => {
+        setIsPopupOpen(true);
+    };
+
+    const handlePopupClose = () => {
+        setIsPopupOpen(false);
+    };
+
     const isSmallScreen = window.innerWidth < 540;
     const columns = [
         {
@@ -22,7 +33,7 @@ export default function TryzenTable() {
             checks: [true, true, true, true, true, true],
         },
         {
-            name: isSmallScreen ? "Typical Agencies":"Typical Agencies <br> or Big Company",
+            name: isSmallScreen ? "Typical Agencies" : "Typical Agencies <br> or Big Company",
             features: [
                 "Long onboarding process with <br> junior members with low authority.",
                 "3-12+ month contracts with no <br> personalized design.",
@@ -34,7 +45,7 @@ export default function TryzenTable() {
             checks: [false, false, false, false, false, false],
         },
         {
-            name: isSmallScreen ? "Hiring In-House": "Hiring <br> In-House",
+            name: isSmallScreen ? "Hiring In-House" : "Hiring <br> In-House",
             features: [
                 "Time-consuming hiring and <br> training.",
                 "Stuck with staff even if <br> underperforming.",
@@ -69,7 +80,7 @@ export default function TryzenTable() {
                                 <th key={index} className={col.logo === TryzenLogo || col.logo === TryzenSmallLogo ? "highlight-header" : ""}>
                                     <div className="platform-header">
                                         {col.logo && (
-                                            <img src={col.logo} alt={col.name} className="logo" />
+                                            <img src={col.logo} alt={col.name} className="logo object-fit" />
                                         )}
                                         <div dangerouslySetInnerHTML={{ __html: col.name }} />
                                     </div>
@@ -100,7 +111,8 @@ export default function TryzenTable() {
                 </table>
             </div>
             <div className="apply-button-container mt-8">
-                <button className="apply-button px-2 py-2 md:px-6 md:py-3 text-lg md:text-2xl lg:text-3xl">APPLY FOR YOUR FREE WEBSITE DESIGN</button>
+                <button onClick={handleButtonClick} className="apply-button px-2 py-2 md:px-6 md:py-3 text-lg md:text-2xl lg:text-3xl">APPLY FOR YOUR FREE WEBSITE DESIGN</button>
+                {isPopupOpen && <FreeDesignPopup onClose={handlePopupClose} />}
             </div>
         </div>
     );

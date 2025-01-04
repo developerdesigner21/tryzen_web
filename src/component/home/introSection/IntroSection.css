@@ -89,7 +89,7 @@
 }
 
 .info-button {
-    background-color: #007bff;
+    background-color: #0F54FF;
     color: white;
     border: none;
     border-radius: 20px;
@@ -98,7 +98,7 @@
 }
 
 .info-box:nth-child(2) .info-button {
-    background-color: #ff6600;
+    background-color: #FF6802;
 }
 
 .info-button:hover {

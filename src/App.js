@@ -19,6 +19,7 @@ import SeoMistakes from "./component/blog/SeoMistakes";
 import Restaurent from "./component/restaurent/Restaurent";
 import Ecommerce from "./component/ecommerce/Ecommerce";
 import WhyTryzen from "./component/whyTryzen/WhyTryzen";
+import './App.css';
 
 function App() {
   return (

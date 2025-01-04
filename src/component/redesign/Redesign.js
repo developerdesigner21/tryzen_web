@@ -4,13 +4,13 @@ import { Link } from 'react-router-dom';
 
 export default function Redesign() {
     return (
-        <div className="flex flex-col md:flex-row home-redesign-container px-4 py-8 md:px-4 md:py-6 md:p-6 lg:px-6 lg:py-6 xl:px-10 xl:py-10 rounded-lg xl:gap-20">
-            <div className="md:w-1/2 mb-5 xl:pl-10 md:order-last md:order-first">
+        <div className="flex flex-col md:flex-row home-redesign-container px-4 py-8 md:px-4 md:py-6 md:p-6 lg:px-6 lg:py-6 xl:px-10 xl:py-10 rounded-lg gap-4 xl:gap-20">
+            <div className="md:w-1/2 mb-5 xl:pl-10 order-last md:order-first">
                 <div className="flex items-center mb-6">
                     <img
-                        src={require('../../assets/redesignClients.png')}
+                        src={require('../../assets/clients.webp')}
                         alt="Worldwide Clients"
-                        className="md:w-32 xl:w-48 rounded-full mr-2.5"
+                        className="w-32 md:w-32 xl:w-48 rounded-full mr-2.5"
                     />
                     <div className='flex flex-col gap-1'>
                         <p className="text-sm text-white">Trusted by clients worldwide</p>
@@ -57,7 +57,7 @@ export default function Redesign() {
 
             <div className="md:w-1/2 max-w-[500px] md:max-w-[700px]">
                 <img
-                    src={require('../../assets/redesignImage.png')}
+                    src={require('../../assets/redesignImage.webp')}
                     alt="Web Design"
                 />
             </div>
