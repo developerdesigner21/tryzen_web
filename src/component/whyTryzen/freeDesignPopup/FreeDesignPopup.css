@@ -137,3 +137,17 @@ input[type="date"]:invalid, input[type="time"]:invalid {
 input[type="date"].error, input[type="time"].error {
     border-color: #ff0000; /* Red border for error */
 }
+
+input[type="date"]::placeholder,
+input[type="time"]::placeholder {
+    color: rgba(255, 255, 255, 0.6); /* Light color for the placeholder */
+}
+
+/* Safari-specific styles to preserve default appearance */
+@supports (-webkit-appearance: none) {
+    input[type="date"],
+    input[type="time"] {
+        -webkit-appearance: textfield; /* Re-enable the native appearance in Safari */
+        appearance: textfield;
+    }
+}
