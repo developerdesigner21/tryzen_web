@@ -110,35 +110,36 @@ input[type="time"]::-webkit-calendar-picker-indicator {
     background-color: #4a5b6e !important;
 }
 
-/* General input styling */
 input[type="date"],
 input[type="time"] {
-    width: 100%; /* Ensure full width */
+    -webkit-appearance: none;  /* Disable iOS/Safari input styling */
+    -moz-appearance: none;
+    appearance: none;
+    width: 100% !important ; /* Ensure full width */
     box-sizing: border-box; /* Prevent height increase due to padding/border */
+    text-align: left;
+}
+
+input[type="date"]:focus,
+input[type="time"]:focus {
+    outline: none; /* Remove default focus styling */
+}
+
+input[type="date"], input[type="time"] {
     background-color: #1C2433;
     color: white;
-    border-radius: 0.375rem; /* Rounded corners */
-    font-size: 1rem; /* Adjust font size */
-    text-align: left; /* Align text to the left */
 }
 
-/* Placeholder styling */
+input[type="date"]:invalid, input[type="time"]:invalid {
+    border-color: #ff0000; /* Red border for invalid state */
+}
+
+/* Ensure border red for errors */
+input[type="date"].error, input[type="time"].error {
+    border-color: #ff0000; /* Red border for error */
+}
+
 input[type="date"]::placeholder,
 input[type="time"]::placeholder {
-    color: rgba(255, 255, 255, 0.5); /* Light gray for placeholder */
-}
-
-/* Safari-specific styles to preserve default appearance */
-@supports (-webkit-appearance: none) {
-    input[type="date"],
-    input[type="time"] {
-        -webkit-appearance: textfield; /* Re-enable the native appearance in Safari */
-        appearance: textfield;
-    }
-}
-
-/* Optional: Specific styles for error state on focus */
-input[type="date"]:focus.error,
-input[type="time"]:focus.error {
-    border-color: #ff0000; /* Red border when there's an error and the field is focused */
+    color: rgba(255, 255, 255, 0.6); /* Light color for the placeholder */
 }
