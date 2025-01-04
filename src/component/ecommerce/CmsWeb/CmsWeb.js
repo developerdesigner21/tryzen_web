@@ -12,7 +12,7 @@ export default function CmsWeb() {
                         <img className='w-[15px] md:w-[25px] lg:w-[35px] xl:w-[40px] xl:h-10' src={require('../../../assets/wix.png')} alt="Wix Logo" />
                         <img className='w-[15px] md:w-[25px] lg:w-[35px] xl:w-[40px] xl:h-10' src={require('../../../assets/shopify.png')} alt="Shopify Logo" />
                     </div>
-                    <h1 className="title text-3xl md:text-4xl lg:text-5xl xl:text-7xl"><span className='text-[#0F54FF] mr-1 md:mr-2'>C</span><span className='text-black mr-1 md:mr-2'>M</span><span className='text-[#5E8E3E]'>S</span></h1>
+                    <h1 className="title text-3xl md:text-4xl lg:text-5xl xl:text-7xl"><span className='text-[#0f8cc3] mr-1 md:mr-2'>C</span><span className='text-black mr-1 md:mr-2'>M</span><span className='text-[#5E8E3E]'>S</span></h1>
                 </div>
                 <h1 className="main-sub-title text-3xl md:text-4xl lg:text-5xl xl:text-7xl pt-5 md:pt-7 lg:pt-9">Website</h1>
             </div>
