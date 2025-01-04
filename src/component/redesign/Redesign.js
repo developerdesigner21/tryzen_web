@@ -38,11 +38,11 @@ export default function Redesign() {
                         <img src={require('../../assets/redesignCheck.png')} alt="Check" className="w-5 lg:w-7 mr-2.5" /> <span className='font-semibold mr-1'>Proven track record</span>of clients
                     </li>
                     <li className="flex items-center  text-white text-xl lg:text-2xl xl:text-3xl mb-3">
-                        <img src={require('../../assets/redesignCheck.png')} alt="Check" className="w-5 lg:w-7 mr-2.5" /> <span className='font-semibold mr-1'>No hidden costs</span>or commitments
+                        <img src={require('../../assets/redesignCheck.png')} alt="Check" className="w-5 lg:w-7 mr-2.5" /> <span className='font-semibold mr-1'>No hidden costs </span> or commitments
                     </li>
                 </ul>
 
-                <button className="start-success-button px-5 xl:px-8 xl:px-12 py-3.5 font-semibold rounded-lg text-md lg:text-lg xl:text-2xl cursor-pointer">
+                <button className="start-success-button px-2 xl:px-8 xl:px-12 py-3.5 font-semibold rounded-lg text-md lg:text-lg xl:text-2xl cursor-pointer">
                     <Link to="/whyTryzen" className='flex items-center'>
                         START YOUR SUCCESS WITH US <span className="ml-2.5"><img src={require('../../assets/redesignButton.png')} className="w-8" /></span>
                     </Link>

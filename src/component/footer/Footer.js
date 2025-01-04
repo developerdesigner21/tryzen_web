@@ -6,8 +6,8 @@ export default function Footer() {
     return (
         <div style={{ backgroundColor: "#f8f9fa"}}>
             <div className="footer justify-between container mx-auto">
-                <div className='md:flex md:flex-col lg:flex-row items-center'>
-                    <div className="footer-left mb-2">
+                <div className='lg:flex lg:flex-row items-center'>
+                    <div className="footer-left mb-2 lg:mb-0">
                         <img
                             src={require('../../assets/mainTryzenLogo.png')}
                             alt="Tryzen Solution"
@@ -23,20 +23,20 @@ export default function Footer() {
                 <div className="footer-middle">
                     <p className='mb-2'>Follow Us On</p>
                     <div className="social-icons flex">
-                        <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
+                        <a href="https://in.linkedin.com/in/tryzen-solution-aa40ab242" target="_blank" rel="noopener noreferrer">
                             <img src={require('../../assets/linkedin.png')} alt="LinkedIn" />
                         </a>
-                        <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
+                        <a href="https://instagram.com/tryzensolution" target="_blank" rel="noopener noreferrer">
                             <img src={require('../../assets/instagram.png')} alt="Instagram" />
                         </a>
-                        <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer">
+                        <a href="https://x.com/tryzensolution" target="_blank" rel="noopener noreferrer">
                             <img src={require('../../assets/twitter.png')} alt="Twitter" />
                         </a>
                     </div>
                 </div>
                 <div className='md:flex md:flex-col lg:flex-row footer-right lg:gap-5'>
                     <div className="footer-left">
-                        <button className="hidden sm:block footer-button blue mb-1 sm:mb-0">
+                        <button className="hidden sm:block footer-button blue mb-1 lg:mb-0">
                             <a target='_blank' href='https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ2FER0ii8AlZSUfg1KNcGONZ6ZPp-O9Vfl1EZ9nYvqPl0RP60QSDSMJtPCbs5zPUMiFT5zelOzk'>
                                 Book Demo<br />Meeting Now
                             </a>

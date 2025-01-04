@@ -1,7 +1,7 @@
 .home-redesign-container {
     justify-content: space-between;
     align-items: center;
-    background: url('../../assets/redesignBg.png') no-repeat center center/cover;
+    background: url('../../assets/redesignBg.webp') no-repeat center center/cover;
 }
 
 .start-success-button {

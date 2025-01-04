@@ -66,7 +66,6 @@ export default function IntroSection() {
 
                 </div>
                 <div className="info-box relative">
-                    <a href="https://restaurant.tryzensolution.com/" target="_blank" rel="noopener noreferrer">
                         <div className="info-content">
                             <img
                                 src={require('../../../assets/restaurent.webp')}
@@ -81,7 +80,6 @@ export default function IntroSection() {
                                 </button>
                             </div>
                         </div>
-                    </a>
                 </div>
             </div>
         </div>

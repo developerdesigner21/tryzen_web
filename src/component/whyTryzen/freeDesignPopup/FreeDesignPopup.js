@@ -349,7 +349,7 @@ export default function FreeDesignPopup({ onClose ,isPopupOpen = false}) {
                                 className={`mt-1 p-2 border border-[#343947] rounded-md w-full bg-[#1C2433] !text-white ${errors.time ? 'border-[#ff0000]' : ''}`}
                             />
                         </div>
-                        <div className='mt-4'>
+                        <div className='mt-4 hidden md:block'>
                             <p className="text-left note-title font-bold"><span className='text-white'>NOTE: </span><span className='text-[#F9ED32]'>WE NEVER SHARE YOUR INFORMATION</span></p>
                         </div>
                     </div>
@@ -518,6 +518,9 @@ export default function FreeDesignPopup({ onClose ,isPopupOpen = false}) {
                         >
                             BOOK FREE WEBSITE CONSULTATION!
                         </button>
+                        <div className='mt-4 md:hidden'>
+                            <p className="text-left note-title font-bold"><span className='text-white'>NOTE: </span><span className='text-[#F9ED32]'>WE NEVER SHARE YOUR INFORMATION</span></p>
+                        </div>
                     </div>
                 </div>
             </div>

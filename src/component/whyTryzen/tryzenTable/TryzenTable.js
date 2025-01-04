@@ -80,7 +80,7 @@ export default function TryzenTable() {
                                 <th key={index} className={col.logo === TryzenLogo || col.logo === TryzenSmallLogo ? "highlight-header" : ""}>
                                     <div className="platform-header">
                                         {col.logo && (
-                                            <img src={col.logo} alt={col.name} className="logo object-fit" />
+                                            <img src={col.logo} alt={col.name} className="logo object-contain" />
                                         )}
                                         <div dangerouslySetInnerHTML={{ __html: col.name }} />
                                     </div>
