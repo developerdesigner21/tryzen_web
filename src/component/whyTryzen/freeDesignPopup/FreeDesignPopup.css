@@ -142,12 +142,3 @@ input[type="date"]::placeholder,
 input[type="time"]::placeholder {
     color: rgba(255, 255, 255, 0.6); /* Light color for the placeholder */
 }
-
-/* Safari-specific styles to preserve default appearance */
-@supports (-webkit-appearance: none) {
-    input[type="date"],
-    input[type="time"] {
-        -webkit-appearance: textfield; /* Re-enable the native appearance in Safari */
-        appearance: textfield;
-    }
-}
