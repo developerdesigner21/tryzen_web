@@ -4,6 +4,11 @@
 }
 
 @font-face {
+    font-family: "desc-text";
+    src: url("/src/assets/fonts/LarkenDEMO-Black.otf") format("opentype");
+}
+
+@font-face {
     font-family: "Simplified";
     src: url("/src/assets/fonts/DupincelSmallTest-SemiBoldItalic.otf") format("opentype");
 }
@@ -17,7 +22,7 @@
     text-align: center;
 }
 
-.title {
+.food-delivery-title {
     font-family: "FoodDelivery";
     text-transform: uppercase;
     margin: 0;
@@ -30,8 +35,8 @@
     color: #FF6802;
 }
 
-.description-text {
-    font-family: "customWebApp";
+.rest-description-text {
+    font-family: "desc-text";
 }
 
 
@@ -81,5 +86,15 @@
         max-width: 250px;
         height: auto;
         border-radius: 150px;
+    }
+}
+
+@media (max-width: 350px) {
+    .food-delivery-title {
+        font-size: 20px;
+    }
+
+    .simplified {
+        font-size: 20px;
     }
 }

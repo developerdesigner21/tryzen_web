@@ -1,7 +1,5 @@
 import React,{ useState } from 'react';
 import { Link } from 'react-router-dom';
-import './Home.css';
-import { Swiper, SwiperSlide } from 'swiper/react';
 import increase from '../../assets/increase.webp';
 import menu from '../../assets/menu.webp';
 import strategy from '../../assets/strategy.webp';
@@ -32,7 +30,7 @@ export default function BlogsSection() {
         setActiveContent(contentId);
     };
     return (
-        <div id="blogs" class="md:px-6 lg:px-12 pt-8 md:pt-16">
+        <div id="blogs">
             <div class="rounded-xl py-5 md:pt-12 pb-6 md:pb-10 px-6 lg:px-10">
                 <div class="text-center mb-2 md:mb-5">
                     <p class="sub-title text-xl md:text-4xl md:text-3xl mb-5">READ DIFFERENT BLOGS</p>
@@ -42,7 +40,7 @@ export default function BlogsSection() {
                 </div>
 
                 <div class="flex flex-col mx-2">
-                    <div class="hidden md:flex flex-col mt-4 md:p-2 p-1">
+                    {/* <div class="hidden md:flex flex-col mt-4 md:p-2 p-1">
                         <div class="flex flex-wrap gap-4 mb-6 flex-row justify-center">
                             <button id="btn1" 
                                 onClick={()=>handleClick(1)}
@@ -126,7 +124,7 @@ export default function BlogsSection() {
                             </div>
                             <div class="swiper-pagination"></div>
                         </div>
-                    </div>
+                    </div> */}
 
                     <div id="content1" class={`content w-full flex flex-col lg:flex-row items-center rounded-lg ${activeContent !== 1 ? 'hidden-content' : ''}`}>
                         <div class="lg:w-1/2 md:p-6 rounded-lg">

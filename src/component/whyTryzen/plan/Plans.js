@@ -16,7 +16,7 @@ export default function Plans() {
     const plans = [
         {
             name: 'LITE MODE',
-            description: 'Best platform with high speed and all important features to help grow your business.',
+            description: 'Best platform with high speed and all important feature that helps you to Grow your business.',
             vector: require('../../../assets/lite.png'),
             features: [
                 { name: 'Unlimited Orders', vector: require('../../../assets/lite1.png') },
@@ -31,7 +31,7 @@ export default function Plans() {
         },
         {
             name: 'GROWTH MODE',
-            description: 'Here’s you Don’t to worry Branding Designs, Strategies, Banner, social media design to Grow profit',
+            description: 'Here you Don’t need to worry about Branding Banner, Designs,  Strategies, social media design to Grow profit',
             vector: require('../../../assets/growth.png'),
             features: [
                 { name: 'Store Quality Check And Tracking', vector: require('../../../assets/growth1.png') },
@@ -46,12 +46,12 @@ export default function Plans() {
         },
         {
             name: 'ZEN MODE',
-            description: 'The ultimate solution you Don’t need to worry for anything Marketing, design and seo we do it for you',
+            description: 'The ultimate solution you Don’t need to worry about Marketing, design and seo we will do it for you ',
             vector: require('../../../assets/zen.png'),
             features: [
                 { name: 'Complete Advanced Automation', vector: require('../../../assets/zen1.webp') },
                 { name: 'Social Media Management', vector: require('../../../assets/zen2.webp') },
-                { name: 'AD’s Management (Google, FB, INSTS)', vector: require('../../../assets/zen3.webp') },
+                { name: 'AD’s Management (Google, FB)', vector: require('../../../assets/zen3.webp') },
                 { name: 'Content Management', vector: require('../../../assets/zen4.webp') },
                 { name: 'Email Marketing & Retargeting', vector: require('../../../assets/zen5.webp') },
                 { name: 'Advanced Analytics And Insights', vector: require('../../../assets/zen6.webp') },

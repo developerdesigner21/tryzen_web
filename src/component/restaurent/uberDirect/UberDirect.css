@@ -61,6 +61,8 @@
     display: flex;
     gap: 15px;
     margin-top: 20px;
+    align-items: center;
+    justify-content: center;
 }
 
 .demo-buttons a {
@@ -68,6 +70,9 @@
     color: white;
     background-color: #038851;
     transition: background-color 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center ;
 }
 
 .demo-buttons a:hover {
@@ -85,4 +90,36 @@
         width: 100%;
         order:2
     }    
+}
+
+@media (max-width: 410px) {    
+    .countries li {
+        display: flex;
+        align-items: center;
+        font-size: 14px;
+    }
+
+    .demo-buttons a {
+       padding-left: 4px;
+       padding-right: 4px;
+       width: 100%;
+    }
+
+    .scan-text {
+        display: none;
+    }
+
+    .check-app-text {
+        display: inline;
+    }
+
+    .arrow-image {
+        width: 12px;
+    }
+}
+
+@media (max-width: 400px) {    
+    .check-images {
+        height: 100px ;
+    }
 }

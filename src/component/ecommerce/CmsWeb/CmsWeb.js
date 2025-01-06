@@ -4,7 +4,7 @@ import './CmsWeb.css';
 export default function CmsWeb() {
     return (
         <div className="intro-container mt-5 md:mt-8">
-            <div className="flex flex-row gap-2 lg:gap-3 items-center justify-center">
+            <div className="flex flex-row gap-2 lg:gap-3 items-center justify-center full-title-gap">
                 <h1 className="main-sub-title text-3xl md:text-4xl lg:text-5xl xl:text-7xl pt-5 md:pt-7 lg:pt-9">Go Beyond</h1>
                 <div className='flex flex-col'>
                     <div class="logos flex flex-row xl:gap-3">
@@ -12,19 +12,19 @@ export default function CmsWeb() {
                         <img className='w-[15px] md:w-[25px] lg:w-[35px] xl:w-[40px] xl:h-10' src={require('../../../assets/wix.png')} alt="Wix Logo" />
                         <img className='w-[15px] md:w-[25px] lg:w-[35px] xl:w-[40px] xl:h-10' src={require('../../../assets/shopify.png')} alt="Shopify Logo" />
                     </div>
-                    <h1 className="title text-3xl md:text-4xl lg:text-5xl xl:text-7xl"><span className='text-[#0f8cc3] mr-1 md:mr-2'>C</span><span className='text-black mr-1 md:mr-2'>M</span><span className='text-[#5E8E3E]'>S</span></h1>
+                    <h1 className="cms-title text-3xl md:text-4xl lg:text-5xl xl:text-7xl"><span className='text-[#0f8cc3] mr-1 md:mr-2'>C</span><span className='text-black mr-1 md:mr-2'>M</span><span className='text-[#5E8E3E]'>S</span></h1>
                 </div>
-                <h1 className="main-sub-title text-3xl md:text-4xl lg:text-5xl xl:text-7xl pt-5 md:pt-7 lg:pt-9">Website</h1>
+                <h1 className="main-sub-title text-3xl md:text-4xl lg:text-5xl xl:text-7xl pt-5 md:pt-7 lg:pt-9">THEME</h1>
             </div>
             <div className='mt-2'>
-                <p className="text-md md:text-xl lg:text-4xl mb-2 md:mb-4 lg:mb-6">
-                    <span className='description-text'>choose custom coded solution that</span>
+                <p className="ecom-description-text text-md md:text-xl lg:text-4xl mb-2 md:mb-4 lg:mb-6">
+                    CHOOSE CUSTOM CODED SOLUTION
                     <br />{" "}
-                    <span className="bold-title">SKYROCKET YOUR SALES, PROFIT AND ROI</span>
+                    TO <span className='text-[#0051F2]'>SKYROCKET YOUR SALES!</span>
                 </p>
             </div>
             <div>
-                <button className="bold-title bg-[#0F54FF] text-white rounded-full px-6 py-2.5 text-sm md:text-md lg:text-xl font-semibold">
+                <button className="bold-title bg-[#0F54FF] text-white rounded-md px-6 py-2.5 text-sm md:text-md lg:text-xl font-semibold">
                     <a href="#EcomBento">WITH EASY TO CHECKOUT</a>
                 </button>
             </div>

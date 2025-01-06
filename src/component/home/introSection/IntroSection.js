@@ -10,41 +10,8 @@ export default function IntroSection() {
                 <h1 className="achieve-title text-3xl md:text-5xl xl:text-7xl">ACHIEVE</h1>
                 <h2 className="profit-title text-3xl md:text-5xl xl:text-7xl">30% Profit</h2>
             </div>
-            <p className="hidden md:block description-text md:mt-5 md:text-xl lg:text-4xl md:mb-8">
-                By creating your own custom website and application <br /> for your{" "}
-                <span className="relative-container ecom-Restaurant">
-                    E-Commerce
-                    <div className="arrow-container hidden md:flex">
-                        <img
-                            src={require('../../../assets/ItalicArrow.png')}
-                            alt="Arrow for E-Commerce"
-                            className="arrow-image"
-                        />
-                    </div>
-                </span>{" "}
-                or{" "}
-                <span className="relative-container ecom-Restaurant">
-                    Restaurant
-                    <div className="arrow-container hidden md:flex">
-                        <img
-                            src={require('../../../assets/ItalicArrow.png')}
-                            alt="Arrow for Restaurant"
-                            className="arrow-image"
-                        />
-                    </div>
-                </span>{" "}
-                business.
-            </p>
-            <p className="md:hidden description-text text-md mt-3 mb-2">
-                By creating your own custom web and app <br /> for your{" "}
-                <span className="relative-container ecom-Restaurant">
-                    E-Commerce
-                </span>{" "}
-                or{" "}
-                <span className="relative-container ecom-Restaurant">
-                    Restaurant
-                </span>{" "}
-                business.
+            <p className="home-description-text md:mt-5 md:text-xl lg:text-4xl md:mb-8">
+                By OWN ONLINE ORDERING SYSTEM OF <br /> <span className="text-[#0F54FF]">E-COMMERCE</span> OR <span className="text-[#FF6802]">RESTAURENT</span>
             </p>
             <div className="info-sections flex flex-col md:flex-row gap-2 md:gap-3 xl:gap-5 mt-5 md:mt-12">
                 <div className="info-box relative">

@@ -54,3 +54,9 @@ ul {
     margin-right: 16px;
     margin-bottom: 0px;
 }
+
+@media (max-width: 330px) {
+    .business-need {
+        font-size: 22px;
+    }
+}

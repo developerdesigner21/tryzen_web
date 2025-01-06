@@ -6,3 +6,21 @@
 .headers-title {
     font-family: "headers";
 }
+
+@media (max-width: 380px) {
+    #brand img {
+        height: 2.5rem !important;
+    }
+
+    .free-design-btn {
+        font-size: 0.8rem;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem; 
+    }
+
+    .free-design-btn .gap-2 {
+        gap: 0.5rem;
+    }
+}

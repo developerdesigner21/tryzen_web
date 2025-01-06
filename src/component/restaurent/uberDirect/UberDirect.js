@@ -27,21 +27,23 @@ export default function UberDirect() {
                     <div className='grid grid-cols-2 items-center gap-2 lg:gap-5'>
                         <div className='flex flex-col items-center justify-center bg-white p-2 md:p-4 rounded-lg'>
                             <div>
-                                <img src={require('../../../assets/UberWebsite.png')} alt="QR Code Website" className='h-32 lg:h-48' />
+                                <img src={require('../../../assets/UberWebsite.png')} alt="QR Code Website" className='h-32 lg:h-48 check-images' />
                             </div>
-                            <div className='demo-buttons'>
+                            <div className='demo-buttons w-full'>
                                 <a href="https://restaurant.tryzensolution.com/" target='_balnk' className="flex items-center rounded-full gap-2 px-4 py-2 font-bold text-xs lg:text-sm">Check Website
-                                    <img src={require('../../../assets/buttonArrow.png')} alt="Arrow" className='w-4 h-2' />
+                                    <img src={require('../../../assets/buttonArrow.png')} alt="Arrow" className='w-4 h-2 arrow-image' />
                                 </a>
                             </div>
                         </div>
                         <div className='flex flex-col items-center justify-center bg-white p-2 md:p-4 rounded-lg'>
                             <div>
-                                <img src={require('../../../assets/scanner.png')} alt="QR Code Website" className='h-32 lg:h-48' />
+                                <img src={require('../../../assets/scanner.png')} alt="QR Code Website" className='h-32 lg:h-48 check-images' />
                             </div>
-                            <div className='demo-buttons'>
-                                <a href="https://restaurant.tryzensolution.com/" target='_balnk' className="flex items-center rounded-full gap-1 md:gap-2 px-2 md:px-4 py-2 font-bold text-xs lg:text-sm">SCAN TO CHECK APP
-                                    <img src={require('../../../assets/buttonArrow.png')} alt="Arrow" className='w-4 h-2' />
+                            <div className='demo-buttons w-full'>
+                                <a href="https://restaurant.tryzensolution.com/" target='_blank' className="flex items-center rounded-full gap-1 md:gap-2 px-2 md:px-4 py-2 font-bold text-xs lg:text-sm">
+                                    <span className="scan-text">SCAN TO CHECK APP</span>
+                                    <span className="check-app-text hidden">Check App</span>
+                                    <img src={require('../../../assets/buttonArrow.png')} alt="Arrow" className='w-4 h-2 arrow-image' />
                                 </a>
                             </div>
                         </div>

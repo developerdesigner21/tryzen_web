@@ -27,6 +27,52 @@
     font-family: "Note";
 }
 
+@media (max-width: 768px) {
+    .rest-ecom {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 535px) {
+    .rest-ecom {
+        font-size: 20px;
+    }
+
+    .custom-web-design {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 455px) {
+    .rest-ecom {
+        font-size: 18px;
+    }
+
+    .custom-web-design {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 425px) {
+    .rest-ecom {
+        font-size: 16px;
+    }
+
+    .custom-web-design {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 360px) {
+    .rest-ecom {
+        font-size: 14px;
+    }
+
+    .custom-web-design {
+        font-size: 10px;
+    }
+}
+
 .appearance-none {
     width: 16px;
     height: 16px;
@@ -88,7 +134,8 @@
     border: 1px solid #343947;
 }
 
-.react-tel-input .selected-flag:hover, .react-tel-input .selected-flag:focus {
+.react-tel-input .selected-flag:hover,
+.react-tel-input .selected-flag:focus {
     background-color: #4a5b6e !important;
 }
 

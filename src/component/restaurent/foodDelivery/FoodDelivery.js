@@ -5,20 +5,18 @@ export default function FoodDelivery() {
     return (
         <div className="intro-container pt-5 lg:pt-10">
             <div className="flex flex-row gap-2 md:gap-3 items-center justify-center">
-                <h1 className="title text-2xl md:text-4xl xl:text-5xl">FOOD DELIVERY</h1>
-                <h2 className="simplified text-2xl md:text-4xl xl:text-5xl">Simplified</h2>
+                <h1 className="food-delivery-title text-2xl md:text-4xl xl:text-5xl">FOOD DELIVERY</h1>
+                <h2 className="simplified text-2xl md:text-4xl xl:text-5xl">SIMPLIFIED</h2>
             </div>
             <div className='mt-2 lg:mt-5'>
-                <p className="description-text text-md md:text-xl lg:text-4xl mb-4 lg:mb-6">
-                    Streamline your Food Delivery
-                    <br />{" "}
-                    <span className="font-extrabold">without hiring People</span>{" "}
-                    with{" "}
-                    <span className="font-extrabold">0% Platform Fees</span>
+                <p className="rest-description-text text-md md:text-xl lg:text-4xl mb-4 lg:mb-6">
+                    WITHOUT HIRING PEOPLE AND
+                    <br /> WITH
+                    <span className="text-[#FF6802]"> <span style={{fontWeight:'bolder'}}>0%</span> <span>PLATEFORM FEES</span> </span>
                 </p>
             </div>
             <div>
-                <button className="bg-[#A35FFA] text-white rounded-full px-5 py-2.5 text-xs lg:text-xl font-bold">
+                <button className="bg-[#FF6802] text-white rounded-md px-5 py-2.5 text-xs lg:text-xl font-bold">
                     <a href="#uberDirect">
                         USING UBER DIRECT
                     </a>

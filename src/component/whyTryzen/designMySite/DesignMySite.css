@@ -4,8 +4,14 @@
 }
 
 @font-face {
-    font-family: "ecom-rest";
-    src: url("/src/assets/fonts/DupincelSmallTest-BoldItalic.otf") format("opentype");
+    font-family: "buyers";
+    src: url("/src/assets/fonts/DupincelSmallTest-SemiBoldItalic.otf") format("opentype");
+}
+
+.into-buyers {
+    font-family: "buyers";
+    margin: 0;
+    color: #00A963;
 }
 
 .intro-container {
@@ -17,18 +23,6 @@
     text-transform: uppercase;
     margin: 0;
     color: #000;
-}
-
-.ecom-title {
-    font-family: "ecom-rest";
-    margin: 0;
-    color: #0F54FF;
-}
-
-.rest-title {
-    font-family: "ecom-rest";
-    margin: 0;
-    color: #FF6802;
 }
 
 .design-process-container {

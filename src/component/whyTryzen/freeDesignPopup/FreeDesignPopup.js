@@ -204,7 +204,7 @@ export default function FreeDesignPopup({ onClose ,isPopupOpen = false}) {
             onSubmit={handleSubmit}
             style={{display: isPopupOpen ? "" : "none"}}
         >
-            <div className="bg-[#101828] px-8 sm:px-16 pt-6 pb-8 rounded-lg max-h-[95vh] max-w-full relative overflow-y-auto">
+            <div className="bg-[#101828] px-4 sm:px-8 sm:px-16 pt-6 pb-8 rounded-lg max-h-[95vh] max-w-full relative overflow-y-auto">
                 <div
                     onClick={()=>{handleClose()}}
                     className="absolute top-5 right-3 hover:text-gray-700 cursor-pointer"
@@ -215,7 +215,7 @@ export default function FreeDesignPopup({ onClose ,isPopupOpen = false}) {
                     <h1 className='custom-web-design text-lg mb-1'>GET YOUR FREE CUSTOM WEBSITE DESIGN</h1>
                     <h1 className='rest-ecom text-3xl font-semibold'>FOR YOUR RESTAURANT OR ECOMMERCE!</h1>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-20">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20">
                     <div className='text-white'>
                         <div className="mb-4 text-left">
                             <h2 className="text-xl font-bold">Contact Information</h2>

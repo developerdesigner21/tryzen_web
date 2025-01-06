@@ -15,7 +15,7 @@ export default function Footer() {
                         />
                     </div>
                     <div className="footer-text mb-4 sm:mb-0">
-                        <p style={{ marginBottom: '4px' }}><Link to="/restaurent" className='hover:text-[#FF6802]'>Restaurant Zero % Commission</Link></p>
+                        <p style={{ marginBottom: '4px' }}><Link to="/restaurent" className='hover:text-[#FF6802]'>Food Delivery Solution</Link></p>
                         <p><Link to="/e-commerce" className='hover:text-[#FF6802]'>Ecommerce Website Development</Link></p>
                     </div>
                 </div>

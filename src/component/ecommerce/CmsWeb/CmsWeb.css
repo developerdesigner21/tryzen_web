@@ -1,10 +1,10 @@
 @font-face {
-    font-family: "Larken";
+    font-family: "GoBeyond";
     src: url("/src/assets/fonts/LarkenDEMO-Black.otf") format("opentype");
 }
 
 @font-face {
-    font-family: "GoBeyond";
+    font-family: "cms-title";
     src: url("/src/assets/fonts/DupincelSmallTest-SemiBoldItalic.otf") format("opentype");
 }
 
@@ -22,8 +22,8 @@
     text-align: center;
 }
 
-.title {
-    font-family: "Larken",
+.cms-title {
+    font-family: "cms-title";
 }
 
 .main-sub-title {
@@ -32,8 +32,8 @@
     color: black;
 }
 
-.description-text {
-    font-family: "customWebApp";
+.ecom-description-text {
+    font-family: "GoBeyond";
 }
 
 .bold-title {
@@ -42,8 +42,8 @@
 
 .logos {
     margin-bottom: 5px;
-  }
-  
+}
+
 .logos img {
     margin: 0 5px;
 }
@@ -87,5 +87,19 @@
     .order-steps {
         width: 100%;
         align-self: center;
+    }
+}
+
+@media (max-width: 380px) {
+    .main-sub-title {
+        font-size: 24px;
+    }
+
+    .cms-title {
+        font-size: 24px;
+    }
+
+    .full-title-gap {
+        gap: 2px;
     }
 }

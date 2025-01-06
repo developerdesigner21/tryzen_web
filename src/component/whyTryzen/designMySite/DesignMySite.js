@@ -16,11 +16,12 @@ export default function DesignMySite() {
     return (
         <div className="intro-container pt-5 lg:pt-8">
             <div className="flex flex-col gap-2 sm:gap-3 items-center justify-center mb-3 sm:mb-5 lg:mb-8">
-                <h1 className="text-sm md:text-xl xl:text-2xl font-bold">QUALITY DESIGN THAT</h1>
-                <h2 className="text-xl md:text-4xl xl:text-5xl convert-title">
-                    <p className='md:mb-1 xl:mb-2'>Focus on Convert</p>
-                    <p className='md:mb-1 xl:mb-2'>Visitors to Buyers!</p>
-                    <span className='ecom-title'>Ecommerce</span> OR <span className='rest-title'>Restaurant</span>
+                <h2 className="convert-title">
+                    <p className='text-2xl md:text-5xl xl:text-6xl md:mb-1 xl:mb-2'>VISITORS <span className='into-buyers'>INTO BUYERS</span></p>
+                    <p className='text-xl md:text-4xl xl:text-5xl md:mb-1 xl:mb-2'>
+                        FOR YOUR <span className='text-[#FF6802]'>ECOMMERCE</span> OR <br />
+                        <span className='text-[#0F54FF]'>RESTAURANT</span> BUISNESS!
+                    </p>                
                 </h2>
             </div>
             <div className='mb-3 md:mb-6'>

@@ -8,6 +8,11 @@
     src: url("/src/assets/fonts/DupincelSmallTest-SemiBoldItalic.otf") format("opentype");
 }
 
+@font-face {
+    font-family: "homeDescription";
+    src: url("/src/assets/fonts/LarkenDEMO-Black.otf") format("opentype");
+}
+
 .intro-container {
     text-align: center;
 }
@@ -22,11 +27,11 @@
 .profit-title {
     font-family: "Profit";
     margin: 0;
-    color: #089668;
+    color: #00A963;
 }
 
-.description-text {
-    font-family: "customWebApp";
+.home-description-text {
+    font-family: "homeDescription";
 }
 
 .ecom-Restaurant {
@@ -94,7 +99,6 @@
     border: none;
     border-radius: 20px;
     cursor: pointer;
-    /* transition: transform 0.3s ease, background-color 0.3s ease; */
 }
 
 .info-box:nth-child(2) .info-button {
@@ -103,4 +107,18 @@
 
 .info-button:hover {
     transform: scale(1.1);
+}
+
+@media (max-width: 340px) {
+    .info-button {
+        font-size: 12px;
+        padding-top: 6px;
+        padding-bottom: 6px;
+    }
+}
+
+@media (max-width: 330px) {
+    .home-description-text {
+        font-size: 15px;
+    }
 }

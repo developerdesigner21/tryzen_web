@@ -20,6 +20,7 @@ import Restaurent from "./component/restaurent/Restaurent";
 import Ecommerce from "./component/ecommerce/Ecommerce";
 import WhyTryzen from "./component/whyTryzen/WhyTryzen";
 import './App.css';
+import Blogs from "./component/blog/Blogs";
 
 // ScrollToTop Component to reset scroll position on route change
 function ScrollToTop() {
@@ -57,6 +58,7 @@ function App() {
         <Route path="/restaurent" element={<Restaurent />} />
         <Route path="/e-commerce" element={<Ecommerce />} />
         <Route path="/whyTryzen" element={<WhyTryzen />} />
+        <Route path="/blogs" element={<Blogs />} />
       </Routes>
     </Router>
   );
