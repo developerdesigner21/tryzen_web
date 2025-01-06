@@ -7,8 +7,10 @@ import Pricing from "./pricing/Pricing";
 import Header from "../header/Header";
 import Redesign from "../redesign/Redesign";
 import Footer from "../footer/Footer";
+import usePageMeta from "../../usePageMeta";
 
 function Home() {
+    usePageMeta('Tryzen Solution', 'Boost your restaurants online sales with Tryzen Solution, create custom e-commerce website development and manage multiple outlet and online orders across country without paying any commissions to third-party apps. Get a free website demo now','restaurant website design, online order management, food delivery website, custom restaurant websites, commission-free food ordering, multi-outlet management, multi-location store, multi-vendor e-commerce platform, restaurant website  with Tryzen Solution');
     return (
         <div>
             <Header />

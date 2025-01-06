@@ -7,8 +7,10 @@ import BeforeAfter from './beforeAfter/BeforeAfter';
 import TryzenTable from './tryzenTable/TryzenTable';
 import Header from '../header/Header';
 import Footer from "../footer/Footer";
+import usePageMeta from '../../usePageMeta';
 
 export default function WhyTryzen() {
+    usePageMeta('FREE DESGIN', 'Discover the benefits of partnering with Tryzen Solution. Schedule a free design consultation to see how our services can fill bater to your customers.','Free website demo, FREE Custom Website design');
     return (
         <div>
             <Header />

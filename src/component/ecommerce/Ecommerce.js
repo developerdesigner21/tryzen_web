@@ -6,8 +6,10 @@ import EcomBentoGrid from './bento/EcomBentoGrid';
 import Header from '../header/Header';
 import Redesign from '../redesign/Redesign';
 import Footer from '../footer/Footer';
+import usePageMeta from '../../usePageMeta';
 
 export default function Ecommerce() {
+    usePageMeta('Custom E-commerce Website', 'Create a custom e-commerce website with Tryzen Solution and manage multiple outlets and online orders nationwide without paying commissions to third-party apps. Get a free website demo now','Custom e-commerce development, Online store creation, Commission-free e-commerce platforms, Manage multiple outlets, E-commerce solutions');
     return (
         <div>
             <Header />

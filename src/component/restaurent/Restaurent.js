@@ -8,8 +8,10 @@ import ImageScroller from './ImageScroll/ImageScroller';
 import Header from '../header/Header';
 import Redesign from '../redesign/Redesign';
 import Footer from '../footer/Footer';
+import usePageMeta from '../../usePageMeta';
 
 export default function Restaurent() {
+  usePageMeta('Custom Online Food Ordering', 'Increase your restaurant online sales with Tryzen Solution custom online ordering systems, offering interactive features and personalized recommendations to enhance customer engagement','Restaurant online ordering systems, Increase restaurant sales, Customer engagement, Personalized recommendations, Digital presence for restaurants');
   return (
     <div>
       <Header />
