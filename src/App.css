@@ -1,23 +1,80 @@
 .no-scrollbar::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 .no-scrollbar {
-    -ms-overflow-style: none;
-    /* scrollbar-width: none; */
+  -ms-overflow-style: none;
+  /* scrollbar-width: none; */
 }
 
 ::-webkit-scrollbar {
-    width: 6px;
-    height: 6px;
+  width: 6px;
+  height: 6px;
 }
 
 ::-webkit-scrollbar-track {
-    background: #FFFFFF;
+  background: #ffffff;
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: #FF6802;
-    border-radius: 10px;
-    border: 2px solid #FF6802;
+  background-color: #ff6802;
+  border-radius: 10px;
+  border: 2px solid #ff6802;
+}
+
+.loading-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh !important;
+  width: 100vw !important;
+}
+
+.img-dots-container {
+  text-align: center;
+}
+
+.loading-dots {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  background-color: #000;
+  border-radius: 50%;
+  animation: moveUpDown 3s infinite ease-in-out;
+}
+
+.dot:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.dot:nth-child(2) {
+  animation-delay: 0.6s;
+}
+
+.dot:nth-child(3) {
+  animation-delay: 1.2s;
+}
+
+.dot:nth-child(4) {
+  animation-delay: 1.8s;
+}
+
+.dot:nth-child(5) {
+  animation-delay: 2.4s;
+}
+
+@keyframes moveUpDown {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px); /* Move the dot up by 10px */
+  }
 }
