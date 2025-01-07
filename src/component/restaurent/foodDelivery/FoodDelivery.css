@@ -18,6 +18,15 @@
     src: url("/src/assets/fonts/CraftRounded-Regular.ttf") format("truetype");
 }
 
+@font-face {
+    font-family: "SaveFees";
+    src: url("/src/assets/fonts/CraftRounded-Bold.ttf") format("truetype");
+}
+
+.save-fees-button {
+    font-family: "SaveFees";
+}
+
 .intro-container {
     text-align: center;
 }

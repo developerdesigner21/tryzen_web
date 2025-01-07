@@ -57,7 +57,7 @@ export default function Pricing() {
                         </div>
                     </div>
                     <div className="mt-6 text-center">
-                        <button className="w-full bg-[#0F54FF] hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-bold text-sm md:text-lg">
+                        <button className="w-full bg-[#0F54FF] hover:bg-blue-700 text-white px-6 py-3 rounded-md font-bold text-sm md:text-lg">
                             <Link to="/e-commerce">
                                 EXPLORE ECOMMERCE INFO
                             </Link>
@@ -109,7 +109,7 @@ export default function Pricing() {
                         </div>
                     </div>
                     <div className="mt-6 text-center">
-                        <button className="w-full bg-[#FF6802] hover:bg-orange-600 text-white px-6 py-3 font-bold rounded-lg text-sm md:text-lg">
+                        <button className="w-full bg-[#FF6802] hover:bg-orange-600 text-white px-6 py-3 font-bold rounded-md text-sm md:text-lg">
                             <Link to="/restaurent">
                                 EXPLORE RESTAURANT INFO
                             </Link>

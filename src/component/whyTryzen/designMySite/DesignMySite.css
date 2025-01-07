@@ -8,6 +8,15 @@
     src: url("/src/assets/fonts/DupincelSmallTest-SemiBoldItalic.otf") format("opentype");
 }
 
+@font-face {
+    font-family: "EasyCheckout";
+    src: url("/src/assets/fonts/CraftRounded-Bold.ttf") format("truetype");
+}
+
+.easy-checkout-button {
+    font-family: "EasyCheckout";
+}
+
 .into-buyers {
     font-family: "buyers";
     margin: 0;
