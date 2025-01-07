@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useLocation } from 'react-router-dom';
 import mainLogo from '../../assets/mainTryzenLogo.png';
 import FreeDesignPopup from "../whyTryzen/freeDesignPopup/FreeDesignPopup";
@@ -8,6 +8,18 @@ export default function Header() {
     const [sidebarOpen, setSidebarOpen] = useState(false);
     const [isPopupOpen, setIsPopupOpen] = useState(false);
     const location = useLocation();
+    const [isWideScreen, setIsWideScreen] = useState(false);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setIsWideScreen(window.innerWidth > 1800);
+        };
+        handleResize();
+        window.addEventListener('resize', handleResize);
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
 
     const toggleSidebar = () => {
         setSidebarOpen(!sidebarOpen);
@@ -25,7 +37,7 @@ export default function Header() {
 
     return (
         <div className="fixed top-0 left-0 right-0 z-50 bg-white border-b">
-            <div className="container mx-auto bg-transparent p-3 flex justify-between items-center">
+            <div className={`bg-transparent p-3 flex justify-between items-center ${isWideScreen ? 'responsive-container' : ''}`}>
                 <button className="p-2 lg:hidden" onClick={toggleSidebar}>
                     <i className={`fa-solid ${sidebarOpen ? 'fa-times' : 'fa-bars'} text-gray-600`}></i>
                 </button>
@@ -46,7 +58,7 @@ export default function Header() {
                 </div>
 
                 <div className="flex flex-1 justify-end">
-                    <button onClick={handleButtonClick} className="flex gap-2 items-center bg-black text-white font-bold border border-2 border-black px-1 md:px-4 py-1 md:py-2 rounded-lg hover:border-gray-600 free-design-btn">
+                    <button onClick={handleButtonClick} className="flex gap-2 items-center bg-black text-white font-bold border border-2 border-black px-1 md:px-4 py-1 md:py-2 rounded-md hover:border-gray-600 free-design-btn">
                         <img
                             src={require('../../assets/freeDesign.png')}
                             alt="free"

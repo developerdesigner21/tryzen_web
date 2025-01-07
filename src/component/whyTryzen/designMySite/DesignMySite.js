@@ -15,17 +15,17 @@ export default function DesignMySite() {
 
     return (
         <div className="intro-container pt-5 lg:pt-8">
-            <div className="flex flex-col gap-2 sm:gap-3 items-center justify-center mb-3 sm:mb-5 lg:mb-8">
+            <div className="flex flex-col gap-2 sm:gap-3 items-center justify-center">
                 <h2 className="convert-title">
-                    <p className='text-2xl md:text-5xl xl:text-6xl md:mb-1 xl:mb-2'>VISITORS <span className='into-buyers'>INTO BUYERS</span></p>
-                    <p className='text-xl md:text-4xl xl:text-5xl md:mb-1 xl:mb-2'>
+                    <p className='text-2xl md:text-4xl lg:text-5xl md:mb-1 xl:mb-2'>VISITORS <span className='into-buyers'>INTO BUYERS</span></p>
+                    <p className='md:text-2xl lg:text-3xl mb-3 md:mb-5'>
                         FOR YOUR <span className='text-[#FF6802]'>ECOMMERCE</span> OR <br />
                         <span className='text-[#0F54FF]'>RESTAURANT</span> BUISNESS!
                     </p>                
                 </h2>
             </div>
             <div className='mb-3 md:mb-6'>
-                <button onClick={handleButtonClick} className="bg-black text-white rounded-lg px-4 py-2 sm:px-6 sm:py-3 text-xs sm:text-lg lg:text-2xl font-bold">DESIGN MY SITE FOR FREE!</button>
+                <button onClick={handleButtonClick} className="easy-checkout-button bg-black text-white rounded-md px-6 py-2.5 text-sm md:text-md lg:text-xl font-semibold">DESIGN MY SITE FOR FREE!</button>
                 <FreeDesignPopup onClose={handlePopupClose} isPopupOpen={isPopupOpen} />
             </div>
             <div className="flex items-center justify-center">

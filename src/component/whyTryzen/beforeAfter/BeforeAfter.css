@@ -23,19 +23,23 @@
     align-items: center;
 }
 
-.content {
+/* .content {
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #f9f9f9;
-}
+} */
 
 .scroll-section {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
     justify-items: center;
+    position: sticky;
+    top: 0;
+    background-color: white;
+    z-index: 1;
 }
 
 .image-container {
@@ -60,7 +64,9 @@
     height: 100%;
     object-fit: cover;
     backface-visibility: hidden;
-    transition: transform 1s ease;
+    /* transition: transform 1s ease; */
+    transform-style: preserve-3d;
+    transition: transform 0.3s ease-out;
 }
 
 .flipped-img {
@@ -68,8 +74,8 @@
     top: 0;
     left: 0;
     transform: rotateY(180deg);
-    opacity: 0;
-    transition: opacity 1s ease;
+    /* opacity: 0;
+    transition: opacity 1s ease; */
 }
 
 .flipped-img.visible {

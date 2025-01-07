@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{ useState, useEffect } from 'react';
 import './Restaurent.css';
 import FoodDelivery from './foodDelivery/FoodDelivery';
 import BentoGrid from './bento/BentoGrid';
@@ -12,10 +12,23 @@ import usePageMeta from '../../usePageMeta';
 
 export default function Restaurent() {
   usePageMeta('Custom Online Food Ordering', 'Increase your restaurant online sales with Tryzen Solution custom online ordering systems, offering interactive features and personalized recommendations to enhance customer engagement','Restaurant online ordering systems, Increase restaurant sales, Customer engagement, Personalized recommendations, Digital presence for restaurants');
+  const [isWideScreen, setIsWideScreen] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsWideScreen(window.innerWidth > 1800);
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   return (
     <div>
       <Header />
-      <div className="container mx-auto px-2 md:px-6 lg:px-10 xl:px-12 pb-10 pt-16">
+      <div className={`px-2 md:px-6 lg:px-10 xl:px-12 pb-10 pt-16 ${isWideScreen ? 'responsive-container' : ''}`}>
         <div className="mb-8 md:mb-12 lg:mb-16 xl:mb-20"><FoodDelivery /></div>
         <div className="mb-8 md:mb-12 lg:mb-16 xl:mb-20"><ImageScroller /></div>
         <div className="mb-8 md:mb-12 lg:mb-16 xl:mb-20"><BentoGrid /></div>
