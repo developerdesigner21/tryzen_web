@@ -62,8 +62,8 @@ export default function Plans() {
     ];
     return (
         <div className="plans-section">
-            <h2 className='plan font-bold text-xl lg:text-4xl md:text-3xl mb-2 md:mb-5'>FIND THE PERFECT PLAN</h2>
-            <h3 className='business-need font-semibold text-2xl md:text-5xl'>FOR YOUR BUSINESS NEEDS</h3>
+            <h2 className='plan font-bold text-xl md:text-2xl xl:text-3xl mb-1 md:mb-2'>FIND THE PERFECT PLAN</h2>
+            <h3 className='business-need font-semibold text-3xl md:text-4xl lg:text-6xl'>For Your Buisness Needs</h3>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 xl:gap-12 mt-10">
                 {plans.map((plan) => (

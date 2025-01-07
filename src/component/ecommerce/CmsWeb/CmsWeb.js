@@ -30,7 +30,7 @@ export default function CmsWeb() {
                 <h1 className="main-sub-title text-2xl md:text-4xl lg:text-5xl pt-5 md:pt-7 lg:pt-9">THEME</h1>
             </div>
             <div className='mt-2'>
-                <p className="ecom-description-text md:text-2xl lg:text-3xl mb-3 md:mb-5">
+                <p className="ecom-description-text md:text-2xl lg:text-3xl mb-2 md:mb-3">
                     CHOOSE CUSTOM CODED SOLUTION
                     <br />{" "}
                     TO <span className='text-[#0051F2]'>SKYROCKET YOUR SALES!</span>
@@ -41,7 +41,7 @@ export default function CmsWeb() {
                     WITH EASY TO CHECKOUT
                 </button>
             </div>
-            <div className="ecommerce-container mt-4 lg:mt-6 gap-4 md:gap-3 lg:gap-6 xl:gap-10">
+            <div className="ecommerce-container mt-5 md:mt-10 gap-4 md:gap-3 lg:gap-6 xl:gap-10">
                 <div className="order-steps down mt-16">
                     <img
                         className="step-images"

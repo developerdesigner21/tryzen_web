@@ -10,51 +10,31 @@ import after3 from '../../../assets/after3.webp';
 import after4 from '../../../assets/after4.webp';
 
 export default function BeforeAfter() {
-    // const [isFlipped, setIsFlipped] = useState(false);
-    const [scrollPos, setScrollPos] = useState(0);
-    const [allFlipped, setAllFlipped] = useState(false);
+    const [isFlipped, setIsFlipped] = useState(false);
     const sectionRef = useRef(null);
 
     const beforeImages = [before1, before2, before3, before4];
     const afterImages = [after1, after2, after3, after4];
 
-    // const handleScroll = () => {
-    //     if (sectionRef.current) {
-    //         const sectionTop = sectionRef.current.getBoundingClientRect().top;
-    //         const sectionHeight = sectionRef.current.offsetHeight;
-    //         const sectionMiddle = sectionTop + sectionHeight / 2;
-            
-    //         const viewportCenter = window.innerHeight / 2;
-
-    //         if (sectionMiddle <= viewportCenter + 50 && sectionMiddle >= viewportCenter - 50) {
-    //             setIsFlipped(true);
-    //         }
-    //         else if (sectionTop > window.innerHeight || sectionTop + sectionHeight < 0) {
-    //             setIsFlipped(false);
-    //         }
-    //     }
-    // };
-
-    const handleScroll = (event) => {
+    const handleScroll = () => {
         if (sectionRef.current) {
-            const sectionTop = sectionRef.current.offsetTop;
+            const sectionTop = sectionRef.current.getBoundingClientRect().top;
             const sectionHeight = sectionRef.current.offsetHeight;
-            const scrollY = window.scrollY;
+            const sectionMiddle = sectionTop + sectionHeight / 2;
+            
+            const viewportCenter = window.innerHeight / 2;
 
-            if (scrollY >= sectionTop && scrollY <= sectionTop + sectionHeight) {
-                event.preventDefault();
-                const scrollRange = sectionHeight / beforeImages.length;
-                const newScrollPos = Math.min(beforeImages.length, Math.max(0, (scrollY - sectionTop) / scrollRange));
-                setScrollPos(newScrollPos);
-                if (newScrollPos >= beforeImages.length - 1) {
-                    setAllFlipped(true);
-                }
+            if (sectionMiddle <= viewportCenter + 50 && sectionMiddle >= viewportCenter - 50) {
+                setIsFlipped(true);
+            }
+            else if (sectionTop > window.innerHeight || sectionTop + sectionHeight < 0) {
+                setIsFlipped(false);
             }
         }
     };
     
     useEffect(() => {
-        window.addEventListener('scroll', handleScroll, { passive: false });
+        window.addEventListener('scroll', handleScroll);
         return () => {
             window.removeEventListener('scroll', handleScroll);
         };
@@ -63,19 +43,18 @@ export default function BeforeAfter() {
     return (
         <div className="before-after-container">
             <div className='mb-5 md:mb-10'>
-                <p className="growth-title font-bold text-center text-lg md:text-xl xl:text-2xl md:mb-1">
+                <p className="growth-title font-bold text-center text-xl md:text-2xl xl:text-3xl mb-1 md:mb-2">
                     ARE YOU LOOKING FOR GROWTH IN 
                 </p>
-                <h1 className="ecomm-rest text-3xl md:text-4xl lg:text-5xl">
+                <h1 className="ecomm-rest text-3xl md:text-4xl lg:text-6xl">
                     E-commerce & Restaurant 
                 </h1>
             </div>
             <div className="scroll-section" ref={sectionRef}>
                 {beforeImages.map((beforeImage, index) => {
-                    const flipProgress = Math.min(1, Math.max(0, scrollPos - index));
                     return (
                         <div className="image-container" key={index}>
-                            {/* <div className={`image-wrapper ${isFlipped ? 'flipped' : ''}`}>
+                            <div className={`image-wrapper ${isFlipped ? 'flipped' : ''}`}>
                                 <img
                                     src={beforeImage}
                                     alt={`Before ${index + 1}`}
@@ -86,10 +65,6 @@ export default function BeforeAfter() {
                                     alt={`After ${index + 1}`}
                                     className={`flipped-img images ${isFlipped ? 'visible' : ''}`}
                                 />
-                            </div> */}
-                            <div className="image-wrapper" style={{ transform: `rotateY(${flipProgress * 180}deg)` }}>
-                                <img src={beforeImage} alt={`Before ${index + 1}`} className="original images" />
-                                <img src={afterImages[index]} alt={`After ${index + 1}`} className="flipped-img images" />
                             </div>
                         </div>
                     );

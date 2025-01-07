@@ -1,16 +1,16 @@
 @font-face {
     font-family: "title-font";
-    src: url("/src/assets/fonts/LarkenDEMO-ExtraBoldItalic.otf") format("opentype");
+    src: url("/src/assets/fonts/LarkenDEMO-Black.otf") format("opentype");
 }
 
 @font-face {
     font-family: "subtitle-font";
-    src: url("/src/assets/fonts/LarkenDEMO-Bold.otf") format("opentype");
+    src: url("/src/assets/fonts//DupincelSmallTest-SemiBoldItalic.otf") format("opentype");
 }
 
 .tryzen-title {
     font-family: "title-font";
-    color: #0F54FF;
+    color: #FF6802;
     text-align: center;
 }
 
@@ -29,8 +29,10 @@
 
 .comparison-table {
     width: 100%;
-    border-collapse: collapse;
     margin-top: 10px;
+    border-collapse: separate;
+    border-spacing: 0;
+    overflow: hidden; 
 }
 
 @media screen and (max-width: 540px) {
@@ -61,9 +63,9 @@
 
 .comparison-table th,
 .comparison-table td {
-    padding: 15px;
+    padding: 10px;
     text-align: center;
-    border: 1px solid #ddd;
+    border-bottom: 1px solid #fff;
     vertical-align: top;
     border-left: none;
     border-right: none;
@@ -74,6 +76,7 @@
     color: #FFFFFF;
     border: none;
     white-space: pre-wrap;
+    border-bottom: 1px solid #fff;
 }
 
 .comparison-table td.feature {
@@ -89,28 +92,38 @@
 }
 
 .comparison-table tr:last-child .highlight-column {
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-bottom: 2px solid #fff;
+    overflow: hidden;
 }
 
 .comparison-table .highlight-column {
     background-color: #19202E;
     color: white;
-    border-bottom: 2px solid transparent;
+    border-bottom: 1px solid #616060;
+    border-left: 2px solid #fff;
+    border-right: 2px solid #fff;
+    padding: 10px;
+    overflow: hidden;
 }
 
 .comparison-table .highlight-header {
     background-color: #19202E;
     color: white;
-    border-bottom: 2px solid transparent;
+    border-bottom: 1px solid #616060;
+    border-left: 2px solid #fff;
+    border-right: 2px solid #fff;
+    border-top: 2px solid #fff;
+    overflow: hidden;
 }
 
 .highlight-header {
     background-color: #19202E;
     color: white;
     font-weight: bold;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
     border-bottom: 2px solid transparent;
 }
 

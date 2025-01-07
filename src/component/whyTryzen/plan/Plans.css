@@ -3,14 +3,19 @@
     src: url("/src/assets/fonts/LarkenDEMO-Black.otf") format("opentype");
 }
 
-@font-face {
+/* @font-face {
     font-family: "businessNeed";
     src: url("/src/assets/fonts/LarkenDEMO-Regular.otf") format("opentype");
+} */
+
+@font-face {
+    font-family: "businessNeed";
+    src: url("/src/assets/fonts/DupincelSmallTest-SemiBoldItalic.otf") format("opentype");
 }
 
 .plan {
     font-family: "plan";
-    color: #FF6802;
+    color: #0F54FF;
 }
 
 .business-need {
@@ -19,7 +24,6 @@
 
 .plans-section {
     text-align: center;
-    padding: 50px 0;
 }
 
 .plan-card {

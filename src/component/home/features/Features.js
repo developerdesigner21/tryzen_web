@@ -13,7 +13,7 @@ export default function Features() {
     return (
         <div id="features" class="rounded-xl">
             <div class="text-center pt-5 mb-8 md:mb-10">
-                <p class="sub-title font-bold text-center text-lg md:text-2xl xl:text-3xl mb-1 md:mb-3">
+                <p class="sub-title font-bold text-center text-lg md:text-2xl xl:text-3xl mb-1 md:mb-2">
                     REASON TO CHOOSE
                 </p>
                 <h1 class="header-title text-2xl md:text-4xl lg:text-5xl">
@@ -44,21 +44,21 @@ export default function Features() {
                 </div>
 
                 <div class="p-4 md:p-6 rounded-lg text-center" style={{ backgroundColor: "#D9F2F7" }}>
-                    <img src={FastDelivery} alt="Fast Delivery" class="mx-auto mt-4 h-40" />
+                    <img src={FastDelivery} alt="Fast Delivery" class="mx-auto mb-4 h-40" />
                     <h3 class="text-md md:text-xl font-semibold mb-2">Quick Delivery with Uber Direct | Doordash</h3>
                     <p class="text-gray-700 text-sm font-semibold mt-3 md:mt-6">This Feature Enable quick deliveries using
                         Uber Direct & DoorDash for seamless logistics and faster service.</p>
                 </div>
 
                 <div class="p-4 md:p-6 rounded-lg text-center" style={{ backgroundColor: "#EEECFF" }}>
-                    <img src={GoogleGrowth} alt="Google Growth" class="mx-auto mb-4 h-40" />
+                    <img src={WhatsAppMarketing} alt="Google Growth" class="mx-auto mb-4 h-40" />
                     <h3 class="text-md md:text-xl font-semibold mb-2">Google Ranking & Social media marketing</h3>
                     <p class="text-gray-700 text-sm font-semibold mt-3 md:mt-6">We help Combining Google ranking with social
                         media marketing creates a powerful strategy to drive more sales.</p>
                 </div>
 
                 <div class="p-4 md:p-6 rounded-lg text-center" style={{ backgroundColor: "#DAFFF6" }}>
-                    <img src={WhatsAppMarketing} alt="WhatsApp Marketing" class="mx-auto mb-4 h-40" />
+                    <img src={GoogleGrowth} alt="WhatsApp Marketing" class="mx-auto mb-4 h-40" />
                     <h3 class="text-md md:text-xl font-semibold mb-2">WhatsApp Marketing with and Review Offer</h3>
                     <p class="text-gray-700 text-sm font-semibold mt-3 md:mt-6">Engage customers instantly through personalised messages and updates et more attention,
                         leading to quick decisions.</p>
@@ -72,7 +72,7 @@ export default function Features() {
                 </div>
 
                 <div class="p-4 md:p-6 rounded-lg text-center" style={{ backgroundColor: "#FFEFBA" }}>
-                    <img src={POS} alt="POS" class="mx-auto my-2 h-40" />
+                    <img src={POS} alt="POS" class="mx-auto mb-4 h-40" />
                     <h3 class="text-md md:text-xl font-semibold mb-2">It helps to manage In-House and Online stock</h3>
                     <p class="text-gray-700 text-sm font-semibold mt-3 md:mt-6">POS helps smarter decision-making with real-time data and sales analysis, inventory management & insights.</p>
                 </div>

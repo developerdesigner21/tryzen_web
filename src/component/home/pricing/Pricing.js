@@ -5,7 +5,7 @@ export default function Pricing() {
     return (
         <div id="pricing" class="rounded-xl">
             <div class="text-center pt-5 mb-8 md:mb-10">
-                <h1 class="sub-title font-bold text-lg md:text-2xl xl:text-3xl mb-1 md:mb-3">
+                <h1 class="sub-title font-bold text-lg md:text-2xl xl:text-3xl mb-1 md:mb-2">
                     STOP USING <span className='font-extrabold'>3</span>RD PARTY APPS
                 </h1>
                 <p class="header-title text-center text-xl md:text-3xl lg:text-5xl">
@@ -13,7 +13,7 @@ export default function Pricing() {
                 </p>
             </div>
             <div className="flex flex-col lg:flex-row gap-10">
-                <div className="bg-white border border-gray-300 rounded-lg p-6 md:p-8 lg:p-2 xl:p-4 w-full lg:w-1/2">
+                <div className="bg-white border border-gray-300 rounded-xl p-6 md:p-8 lg:p-2 xl:p-4 w-full lg:w-1/2">
                     <h2 className="mb-4">
                         <span className='md:text-xl lg:text-2xl'>STOP RELYING ON SITE LIKE</span> <br /><span className='text-xl md:text-3xl font-bold text-[#0F54FF]'>Wordpress, Shopify, Wix</span>
                     </h2>
@@ -34,7 +34,7 @@ export default function Pricing() {
                                     <li className='flex gap-2 items-center'><img src={require("../../../assets/falseIcon.png")} style={{ width:'20px', height:"20px" }} /> Generic Templates Design</li>
                                     <li className='flex gap-2 items-center'><img src={require("../../../assets/falseIcon.png")} style={{ width:'20px', height:"20px" }} /> SEO Limitations on Site</li>
                                     <li className='flex gap-2 items-center'><img src={require("../../../assets/falseIcon.png")} style={{ width:'20px', height:"20px" }} />Plugin or APP Overload</li>
-                                    <li className='flex gap-2 items-center'><img src={require("../../../assets/falseIcon.png")} style={{ width:'20px', height:"20px" }} /> NO Checkout customisation</li>
+                                    <li className='flex gap-2 items-center'><img src={require("../../../assets/falseIcon.png")} style={{ width:'20px', height:"20px" }} /> NO Checkout customization</li>
                                     <li className='flex gap-2 items-center'><img src={require("../../../assets/falseIcon.png")} style={{ width:'20px', height:"20px" }} /> Not Future-Proof</li>
                                 </ul>
                             </div>
@@ -57,9 +57,9 @@ export default function Pricing() {
                         </div>
                     </div>
                     <div className="mt-6 text-center">
-                        <button className="w-full bg-[#0F54FF] hover:bg-blue-700 text-white px-6 py-3 rounded-md font-bold text-sm md:text-lg">
+                        <button className="w-full bg-[#0F54FF] hover:bg-blue-700 text-white px-6 py-3 rounded-md font-bold text-sm md:text-lg button-discover">
                             <Link to="/e-commerce">
-                                EXPLORE ECOMMERCE INFO
+                                DISCOVER MORE ABOUT ECOMMERCE
                             </Link>
                         </button>
                     </div>
@@ -109,9 +109,9 @@ export default function Pricing() {
                         </div>
                     </div>
                     <div className="mt-6 text-center">
-                        <button className="w-full bg-[#FF6802] hover:bg-orange-600 text-white px-6 py-3 font-bold rounded-md text-sm md:text-lg">
+                        <button className="w-full bg-[#FF6802] hover:bg-orange-600 text-white py-3 font-bold rounded-md text-sm md:text-lg button-discover">
                             <Link to="/restaurent">
-                                EXPLORE RESTAURANT INFO
+                                DISCOVER MORE ABOUT RESTAURANT
                             </Link>
                         </button>
                     </div>

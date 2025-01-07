@@ -18,13 +18,13 @@ export default function FoodDelivery() {
     };
 
     return (
-        <div className="intro-container pt-5 lg:pt-10">
+        <div className="intro-container pt-8 lg:pt-16">
             <div className="flex flex-row gap-2 md:gap-3 items-center justify-center">
                 <h1 className="food-delivery-title text-2xl md:text-4xl lg:text-5xl">FOOD DELIVERY</h1>
                 <h2 className="simplified text-2xl md:text-4xl lg:text-5xl">SIMPLIFIED</h2>
             </div>
-            <div className='mt-2 lg:mt-5'>
-                <p className="rest-description-text t md:text-2xl lg:text-3xl mb-3 md:mb-5">
+            <div className='mt-2 lg:mt-3'>
+                <p className="rest-description-text t md:text-2xl lg:text-4xl mb-2 md:mb-3">
                     WITHOUT HIRING PEOPLE AND
                     <br /> WITH
                     <span className="text-[#FF6802]"> <span style={{fontWeight:'bolder'}}>0%</span> <span>PLATEFORM FEES</span> </span>
@@ -35,7 +35,7 @@ export default function FoodDelivery() {
                     SAVE PLATEFORM FEES
                 </button>
             </div>
-            <div className="order-process-container mt-4 lg:mt-6 gap-4 md:gap-3 lg:gap-6 xl:gap-10">
+            <div className="order-process-container mt-5 lg:mt-10 gap-4 md:gap-3 lg:gap-6 xl:gap-10">
                 <div className="order-step down mt-10 md:mt-16">
                     <img
                         className="step-image"

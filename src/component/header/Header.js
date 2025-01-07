@@ -25,7 +25,7 @@ export default function Header() {
         setSidebarOpen(!sidebarOpen);
     };
 
-    const isActive = (path) => location.pathname === path ? 'text-[#FD7E14]' : 'text-gray-600';
+    const isActive = (path) => location.pathname === path ? 'text-[#FF6802]' : 'text-gray-600';
 
     const handleButtonClick = () => {
         setIsPopupOpen(true);
