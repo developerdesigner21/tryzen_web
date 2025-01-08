@@ -1,11 +1,16 @@
 @font-face {
     font-family: "Countries";
-    src: url("/src/assets/fonts/DupincelSmallTest-SemiBoldItalic.otf") format("opentype");
+    src: url("/src/assets/fonts/DupincelSmallTest-SemiBoldItalic.otf") format("truetype");
 }
 
 @font-face {
     font-family: "Uber";
     src: url("/src/assets/fonts/LarkenDEMO-Black.otf") format("opentype");
+}
+
+@font-face {
+    font-family: "Ubercontent";
+    src: url("/src/assets/fonts/CraftRounded-Regular.ttf") format("truetype");
 }
 
 .country-names {
@@ -14,6 +19,10 @@
 
 .uber {
     font-family: "Uber";
+}
+
+.uber-content {
+    font-family: "Ubercontent";
 }
 
 .section {
@@ -73,10 +82,6 @@
     display: flex;
     align-items: center;
     justify-content: center ;
-}
-
-.demo-buttons a:hover {
-    background-color: #008d42;
 }
 
 @media (max-width: 768px) {

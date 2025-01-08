@@ -70,7 +70,7 @@ export default function TryzenTable() {
     return (
         <div className="comparison-table-container bg-[#112747] py-5 md:p-6 rounded-lg">
             <h2 className="tryzen-title font-extrabold text-xl md:text-2xl xl:text-3xl mb-1 md:mb-2">WHY TRYZEN SOLUTION</h2>
-            <h3 className="subtitle text-3xl md:text-4xl lg:text-6xl mb-10">Is Better Choice To Grow</h3>
+            <h3 className="subtitle text-2xl md:text-4xl lg:text-6xl mb-10">Is Better Choice To Grow</h3>
             <div>
                 <table className="comparison-table">
                     <thead>
@@ -91,7 +91,7 @@ export default function TryzenTable() {
                     <tbody>
                         {featureDescriptions.map((feature, rowIndex) => (
                             <tr key={rowIndex}>
-                                <td className="feature">{feature}</td>
+                                <td className="feature table-content">{feature}</td>
                                 {columns.map((col, colIndex) => (
                                     <td
                                         key={colIndex}
@@ -102,7 +102,7 @@ export default function TryzenTable() {
                                         ) : (
                                             <img src={CrossIcon} alt="Cross" className="icon" />
                                         )}
-                                        <div className='hidden md:block text-white text-xs md:text-sm' dangerouslySetInnerHTML={{ __html: col.features[rowIndex] }} />
+                                        <div className='table-content hidden md:block text-white text-xs md:text-sm' dangerouslySetInnerHTML={{ __html: col.features[rowIndex] }} />
                                     </td>
                                 ))}
                             </tr>
@@ -111,7 +111,7 @@ export default function TryzenTable() {
                 </table>
             </div>
             <div className="apply-button-container mt-8">
-                <button onClick={handleButtonClick} className="apply-button px-2 py-2 md:px-6 md:py-3 text-lg md:text-2xl lg:text-3xl">APPLY FOR YOUR FREE WEBSITE DESIGN</button>
+                <button onClick={handleButtonClick} className="table-content apply-button px-2 py-2 md:px-6 md:py-3 text-lg md:text-2xl lg:text-3xl">APPLY FOR YOUR FREE WEBSITE DESIGN</button>
                 <FreeDesignPopup onClose={handlePopupClose} isPopupOpen={isPopupOpen} />
             </div>
         </div>

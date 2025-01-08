@@ -3,10 +3,10 @@
     src: url("/src/assets/fonts/LarkenDEMO-Black.otf") format("opentype");
 }
 
-/* @font-face {
-    font-family: "businessNeed";
-    src: url("/src/assets/fonts/LarkenDEMO-Regular.otf") format("opentype");
-} */
+@font-face {
+    font-family: "plansContent";
+    src: url("/src/assets/fonts/CraftRounded-Regular.ttf") format("truetype");
+}
 
 @font-face {
     font-family: "businessNeed";
@@ -20,6 +20,10 @@
 
 .business-need {
     font-family: "businessNeed";
+}
+
+.plan-content {
+    font-family: "plansContent";
 }
 
 .plans-section {

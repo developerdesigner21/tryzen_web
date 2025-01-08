@@ -36,8 +36,8 @@ export default function Header() {
     };
 
     return (
-        <div className="fixed top-0 left-0 right-0 z-50 bg-white border-b">
-            <div className={`bg-transparent p-3 flex justify-between items-center ${isWideScreen ? 'responsive-container' : ''}`}>
+        <div className="fixed top-0 left-0 right-0 z-50 bg-white border-b px-2 md:px-6 lg:px-10 xl:px-12">
+            <div className={`bg-transparent py-3 flex justify-between items-center ${isWideScreen ? 'responsive-container' : ''}`}>
                 <button className="p-2 lg:hidden" onClick={toggleSidebar}>
                     <i className={`fa-solid ${sidebarOpen ? 'fa-times' : 'fa-bars'} text-gray-600`}></i>
                 </button>
@@ -59,7 +59,7 @@ export default function Header() {
                 </div>
 
                 <div className="flex flex-1 justify-end">
-                    <button onClick={handleButtonClick} className="flex gap-2 items-center bg-black text-white font-bold border border-2 border-black px-1 md:px-4 py-1 md:py-2 rounded-md hover:border-gray-600 free-design-btn">
+                    <button onClick={handleButtonClick} className="flex gap-2 items-center bg-black text-white font-bold border border-2 border-black px-2 sm:px-4 py-1 sm:py-2 rounded-md free-design-btn">
                         <img
                             src={require('../../assets/freeDesign.png')}
                             alt="free"
@@ -97,25 +97,25 @@ export default function Header() {
                             </button>
                         </div>
                         <nav className="flex flex-col gap-4 mt-5">
-                            <Link to="/" className={`headers-title font-semibold hover:text-[#FF6802] xl:text-lg cursor-pointer ${isActive('/')}`} onClick={toggleSidebar}>
+                            <Link to="/" className={`headers-title font-semibold xl:text-lg cursor-pointer ${isActive('/')}`} onClick={toggleSidebar}>
                                 Home
                             </Link>
-                            <Link to="/restaurent" className={`headers-title font-semibold hover:text-[#FF6802] xl:text-lg cursor-pointer ${isActive('/restaurent')}`} onClick={toggleSidebar}>
+                            <Link to="/restaurent" className={`headers-title font-semibold xl:text-lg cursor-pointer ${isActive('/restaurent')}`} onClick={toggleSidebar}>
                                 Restaurant
                             </Link>
-                            <Link to="/e-commerce" className={`headers-title font-semibold hover:text-[#FF6802] xl:text-lg cursor-pointer ${isActive('/e-commerce')}`} onClick={toggleSidebar}>
+                            <Link to="/e-commerce" className={`headers-title font-semibold xl:text-lg cursor-pointer ${isActive('/e-commerce')}`} onClick={toggleSidebar}>
                                 E-Commerce
                             </Link>
-                            <Link to='/whyTryzen' className={`headers-title font-semibold hover:text-[#FF6802] xl:text-lg cursor-pointer ${isActive('/whyTryzen')}`} onClick={toggleSidebar}>
+                            <Link to='/whyTryzen' className={`headers-title font-semibold xl:text-lg cursor-pointer ${isActive('/whyTryzen')}`} onClick={toggleSidebar}>
                                 Why This Solution?
                             </Link>
-                            {/* <a className="headers-title font-semibold hover:text-[#FF6802]" onClick={toggleSidebar}>
+                            {/* <a className="headers-title font-semibold" onClick={toggleSidebar}>
                                     Blogs
                                 </a>
-                                <a className="headers-title font-semibold hover:text-[#FF6802]" onClick={toggleSidebar}>
+                                <a className="headers-title font-semibold" onClick={toggleSidebar}>
                                     Portfolio
                                 </a>
-                                <a className="headers-title font-medium hover:text-[#FF6802]" onClick={toggleSidebar}>
+                                <a className="headers-title font-medium" onClick={toggleSidebar}>
                                     Calculate Loss
                                 </a> */}
                         </nav>

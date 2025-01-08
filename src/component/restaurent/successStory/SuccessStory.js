@@ -33,11 +33,17 @@ export default function SuccessStory() {
             author: "Adrian McKenzie",
             image: require('../../../assets/success5.webp'),
         },
+        {
+            title: "Harris Farm",
+            description: "We chose Uber Direct to improve the customer experience and reduce order delivery costs. Right off the bat, we went from same-day delivery to delivery in just 2 hours, and we reduced our average cost per delivery significantly.",
+            author: "Mitch Grave",
+            image: require('../../../assets/success6.webp'),
+        },
     ];
 
     const [currentSection, setCurrentSection] = useState(sections[0]);
     const [isMobile, setIsMobile] = useState(false);
-    
+
     const sectionRefs = useRef([]);
     useEffect(() => {
         const handleResize = () => {
@@ -50,7 +56,7 @@ export default function SuccessStory() {
         return () => window.removeEventListener('resize', handleResize);
     }, []);
 
-    useEffect(()=>{
+    useEffect(() => {
         if (isMobile) {
             const sectionElement = sectionRefs.current[currentSection.title];
             if (sectionElement) {
@@ -60,7 +66,7 @@ export default function SuccessStory() {
                 });
             }
         }
-    },[currentSection.title])
+    }, [currentSection.title])
 
     const toggleSection = (section) => {
         if (currentSection.title === section.title) {
@@ -71,39 +77,43 @@ export default function SuccessStory() {
     };
 
     return (
-        <div id="uberDirect" className="story-container gap-5 rounded-xl">
-            <div className="left-section p-3 xl:p-16">
-                <h2 className='uber-service text-lg md:text-xl'>UBER DIRECT SERVICE</h2>
-                <h3 className='success-story text-lg md:text-xl md:mb-5'>SUCCESS STORY</h3>
-                {sections.map((section, index) => (
-                    <div key={index} className="dropdown">
-                        <div
-                            ref={(el) => (sectionRefs.current[section.title] = el)} // Add ref to each section
-                            id={section.title}
-                            className={`dropdown-header xl:text-lg ${currentSection.title === section.title ? "active mb-2" : "text-[#038851]"} `}
-                            onClick={() => toggleSection(section)}
-                        >
-                            {section.title}
-                            <span className="arrow" style={{ transform: `rotate(${currentSection.title === section.title ? 0 : 180}deg)` }}></span>
-                        </div>
-                        <div className="dropdown-content pb-2" style={{ display: currentSection.title === section.title ? "block" : "none" }}>
-                            <p className='xl:text-lg'>{section.description}</p>
-                            <p className="author font-bold">{section.author}</p>
-                            <div className="dropdown-image">
-                                <img src={section.image} alt={section.title} className="section-image" />
+        <div id="uberDirect">
+            <div className='text-center'>
+                <h2 className='uber-service text-xl md:text-2xl xl:text-3xl mb-1 md:mb-2'>SUCCESS STORIES OF</h2>
+                <h3 className='success-story text-2xl md:text-4xl lg:text-6xl mb-8 md:mb-10'>Uber Direct Service</h3>
+            </div>
+            <div className="story-container gap-5 rounded-xl">
+                <div className="left-section p-3 xl:p-16">
+                    {sections.map((section, index) => (
+                        <div key={index} className="dropdown">
+                            <div
+                                ref={(el) => (sectionRefs.current[section.title] = el)}
+                                id={section.title}
+                                className={`dropdown-header xl:text-lg ${currentSection.title === section.title ? "active mb-2" : "text-[#038851]"} `}
+                                onClick={() => toggleSection(section)}
+                            >
+                                {section.title}
+                                <span className="arrow" style={{ transform: `rotate(${currentSection.title === section.title ? 0 : 180}deg)` }}></span>
+                            </div>
+                            <div className="dropdown-content pb-2" style={{ display: currentSection.title === section.title ? "block" : "none" }}>
+                                <p className='story-content xl:text-lg'>{section.description}</p>
+                                <p className="story-content author font-bold">{section.author}</p>
+                                <div className="dropdown-image">
+                                    <img src={section.image} alt={section.title} className="section-image" />
+                                </div>
                             </div>
                         </div>
-                    </div>
-                ))}
-            </div>
-            <div className="right-section hidden md:block">
-                {currentSection.image ? (
-                    <img
-                        src={currentSection.image}
-                        alt={currentSection.title}
-                        className="section-image"
-                    />
-                ) : null}
+                    ))}
+                </div>
+                <div className="right-section hidden md:block">
+                    {currentSection.image ? (
+                        <img
+                            src={currentSection.image}
+                            alt={currentSection.title}
+                            className="section-image"
+                        />
+                    ) : null}
+                </div>
             </div>
         </div>
     );

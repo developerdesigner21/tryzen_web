@@ -3,6 +3,15 @@
     src: url("/src/assets/fonts/CraftRounded-Regular.ttf") format("truetype");
 }
 
+@font-face {
+    font-family: "buttonContent";
+    src: url("/src/assets/fonts/CraftRounded-Regular.ttf") format("truetype");
+}
+
+.free-design-btn {
+    font-family: "buttonContent";
+}
+
 .headers-title {
     font-family: "headers";
 }

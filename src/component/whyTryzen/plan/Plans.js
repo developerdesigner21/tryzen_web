@@ -62,27 +62,28 @@ export default function Plans() {
     ];
     return (
         <div className="plans-section">
-            <h2 className='plan font-bold text-xl md:text-2xl xl:text-3xl mb-1 md:mb-2'>FIND THE PERFECT PLAN</h2>
-            <h3 className='business-need font-semibold text-3xl md:text-4xl lg:text-6xl'>For Your Buisness Needs</h3>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 xl:gap-12 mt-10">
+            <div className='mb-8 md:mb-10'>
+                <h2 className='plan font-bold text-xl md:text-2xl xl:text-3xl mb-1 md:mb-2'>FIND THE PERFECT PLAN</h2>
+                <h3 className='business-need font-semibold text-2xl md:text-4xl lg:text-6xl'>For Your Buisness Needs</h3>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 xl:gap-12">
                 {plans.map((plan) => (
                     <div className="plan-card border border-gray-200 p-4 xl:p-6" key={plan.name}>
                         <div className="plan-header">
                             <img src={plan.vector} alt={`${plan.name} Plan Vector`} />
-                            <h3 className='text-lg font-bold'>{plan.name}</h3>
+                            <h3 className='plan-content text-lg font-bold'>{plan.name}</h3>
                         </div>
-                        <p className='text-left font-semibold mb-5 text-xl'>{plan.description}</p>
+                        <p className='plan-content text-left font-semibold mb-5 text-xl'>{plan.description}</p>
                         <ul>
                             {plan.features.map((feature) => (
-                                <li className='li-feature text-sm xl:text-lg text-left flex items-center' key={feature.name}>
+                                <li className='plan-content li-feature text-sm xl:text-lg text-left flex items-center' key={feature.name}>
                                     <img className='li-feature img' src={feature.vector} alt={`${feature.name} Vector`} />
                                     {feature.name}
                                 </li>
                             ))}
                         </ul>
                         <div className='flex justify-left mt-5'>
-                            <button onClick={handleButtonClick} className='bg-black px-6 py-2 rounded-full text-white'>GET A QUOTE</button>
+                            <button onClick={handleButtonClick} className='plan-content bg-black px-6 py-2 rounded-full text-white'>GET A QUOTE</button>
                             <FreeDesignPopup onClose={handlePopupClose} isPopupOpen={isPopupOpen} />
                         </div>
                     </div>

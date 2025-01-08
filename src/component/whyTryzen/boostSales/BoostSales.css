@@ -1,3 +1,12 @@
+@font-face {
+    font-family: "BoostContent";
+    src: url("/src/assets/fonts/CraftRounded-Regular.ttf") format("truetype");
+}
+
+.boost-content {
+    font-family: "BoostContent";
+}
+
 .boost-sales-container {
     background: url('../../../assets/redesignBGStroke.webp') no-repeat center center/cover;
     padding: 20px;

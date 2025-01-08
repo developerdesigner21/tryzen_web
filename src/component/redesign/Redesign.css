@@ -1,3 +1,12 @@
+@font-face {
+    font-family: "redesignContent";
+    src: url("/src/assets/fonts/CraftRounded-Regular.ttf") format("truetype");
+}
+
+.redesign-content {
+    font-family: "redesignContent";
+}
+
 .home-redesign-container {
     background: url('../../assets/redesignBGStroke.webp') no-repeat center center/cover;
     padding: 20px;
@@ -74,7 +83,12 @@
         background-color: white;
         border-radius: 20px;
         padding-top: 24px;
-        padding-bottom: 24px;    }
+        padding-bottom: 24px;    
+    }
+
+    .redesign-button {
+        padding: 8px;
+    }
 
     .home-redesign-container {
         border-radius: 32px;
@@ -86,7 +100,8 @@
 @media (max-width: 470px) {
     .redesign-button {
         font-size: 18px; 
-        font-weight: 500;
+        font-weight: 900;
+        padding: 5px;
     }
 
     .boost-feature{
@@ -94,10 +109,10 @@
     }
 }
 
-@media (max-width: 375px) {
+@media (max-width: 380px) {
     .redesign-button {
         font-size: 14px; 
-        font-weight: 500;
+        font-weight: 900;
         padding: 4px;
     }
 

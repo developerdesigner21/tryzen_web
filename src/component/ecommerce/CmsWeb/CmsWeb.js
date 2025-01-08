@@ -26,7 +26,7 @@ export default function CmsWeb() {
                     </div>
                     <div className="flex flex-col items-center ml-1">
                         <img className='w-[15px] md:w-[25px] lg:w-[35px] xl:w-[40px] h-[15px] md:h-[25px] lg:h-[35px] xl:h-[40px]' src={require('../../../assets/wix.png')} alt="Wix Logo" />
-                        <h1 className="cms-title text-2xl md:text-4xl lg:text-5xl"><span className='text-black'>M</span></h1>
+                        <h1 className="cms-title text-2xl md:text-4xl lg:text-5xl"><span className='text-black mr-1'>M</span></h1>
                     </div>
                     <div className="flex flex-col items-center ml-1">
                         <img className='w-[15px] md:w-[25px] lg:w-[35px] xl:w-[40px] h-[15px] md:h-[25px] lg:h-[35px] xl:h-[40px]' src={require('../../../assets/shopify.png')} alt="Shopify Logo" />
@@ -39,7 +39,7 @@ export default function CmsWeb() {
                 <p className="ecom-description-text md:text-2xl lg:text-3xl mb-2 md:mb-3">
                     CHOOSE CUSTOM CODED SOLUTION
                     <br />{" "}
-                    TO <span className='text-[#0051F2]'>SKYROCKET YOUR SALES!</span>
+                    TO <span className='text-[#0F54FF]'>SKYROCKET YOUR SALES!</span>
                 </p>
             </div>
             <div>

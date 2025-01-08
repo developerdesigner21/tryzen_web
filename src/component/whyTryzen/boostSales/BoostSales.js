@@ -23,22 +23,22 @@ export default function BoostSales() {
                 <div className="icon-row">
                     <div className="icons-item">
                         <img src={require('../../../assets/redesignIcon1.png')} alt="No Hidden Costs" className="icon" />
-                        <p className='font-semibold boost-features'>NO HIDDEN COSTS</p>
+                        <p className='boost-content font-semibold boost-features'>NO HIDDEN COSTS</p>
                     </div>
                     <div className="icons-item">
                         <img src={require('../../../assets/redesignIcon2.png')} alt="No Commitments" className="icon" />
-                        <p className='font-semibold boost-features'>NO COMMITMENTS</p>
+                        <p className='boost-content font-semibold boost-features'>NO COMMITMENTS</p>
                     </div>
                     <div className='hidden sm:block'>
                         <div className="icons-item boost-feature">
                             <img src={require('../../../assets/redesignIcon3.png')} alt="Best Results" className="icon" />
-                            <p className='font-semibold boost-features'>JUST BEST RESULTS</p>
+                            <p className='boost-content font-semibold boost-features'>JUST BEST RESULTS</p>
                         </div>
                     </div>
                 </div>
                 <div className="mb-3 flex items-center justify-center">
                     <button onClick={handleButtonClick} className="bg-[#FFEB3B] flex items-center justify-center px-10 sm:px-4 text-center py-2.5 font-semibold rounded-full text-2xl sm:text-md lg:text-xl xl:text-2xl cursor-pointer button-section">
-                        <div className='flex items-center text-black'>
+                        <div className='flex items-center text-black boost-content'>
                             START FREE DESIGN <span className="ml-2"><img src={require('../../../assets/nextButton.png')} className="w-8" /></span>
                         </div>
                     </button>

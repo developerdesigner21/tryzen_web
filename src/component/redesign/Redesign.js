@@ -13,22 +13,22 @@ export default function Redesign() {
                 <div className="icons-row">
                     <div className="icon-item">
                         <img src={require('../../assets/redesignIcon1.png')} alt="No Hidden Costs" className="icon" />
-                        <p className='font-semibold boost-feature'>NO HIDDEN COSTS</p>
+                        <p className='redesign-content font-semibold boost-feature'>NO HIDDEN COSTS</p>
                     </div>
                     <div className="icon-item">
                         <img src={require('../../assets/redesignIcon2.png')} alt="No Commitments" className="icon" />
-                        <p className='font-semibold boost-feature'>NO COMMITMENTS</p>
+                        <p className='redesign-content font-semibold boost-feature'>NO COMMITMENTS</p>
                     </div>
                     <div className='hidden sm:block'>
-                        <div className="icon-item boost-feature">
+                        <div className="icon-item">
                             <img src={require('../../assets/redesignIcon3.png')} alt="Best Results" className="icon" />
-                            <p className='font-semibold'>JUST BEST RESULTS</p>
+                            <p className='redesign-content font-semibold boost-feature'>JUST BEST RESULTS</p>
                         </div>
                     </div>
                 </div>
                 <div className='redesign-section p-4 sm:p-6'>
                     <div className="flex flex-col sm:flex-row bg-white text-black gap-4 lg:gap-12" style={{ borderRadius: "50px" }}>
-                        <div className="sm:w-1/2 mb-5 lg:pt-8 xl:pt-12">
+                        <div className="sm:w-1/2 mb-5 lg:pt-8 xl:pt-12 order-last sm:order-first">
                             <div className="flex items-center mb-5 lg:mb-8">
                                 <img
                                     src={require('../../assets/clients.webp')}
@@ -36,7 +36,7 @@ export default function Redesign() {
                                     className="w-24 md:w-24 xl:w-24 rounded-full mr-2.5"
                                 />
                                 <div className='flex flex-col gap-1'>
-                                    <p className="text-xs font-semibold">Trusted by clients worldwide</p>
+                                    <p className="redesign-content text-xs font-semibold">Trusted by clients worldwide</p>
                                     <img
                                         src={require('../../assets/redesign5star.png')}
                                         alt="5 Stars"
@@ -46,28 +46,28 @@ export default function Redesign() {
                             </div>
 
                             <ul className="list-none p-0 mb-5 lg:mb-8">
-                                <li className="check-list flex items-center text-xl sm:text-sm md:text-lg lg:text-xl xl:text-2xl font-semibold mb-3">
+                                <li className="redesign-content check-list flex items-center text-xl sm:text-sm md:text-lg lg:text-xl xl:text-2xl font-semibold mb-3">
                                     <img src={require('../../assets/greenCheck.png')} alt="Check" className="w-5 lg:w-7 mr-2.5" /> <p className='font-bold'>100% FREE DESIGNS</p>
                                 </li>
-                                <li className="check-list flex items-center text-xl sm:text-sm md:text-lg lg:text-xl xl:text-2xl mb-3">
+                                <li className="redesign-content check-list flex items-center text-xl sm:text-sm md:text-lg lg:text-xl xl:text-2xl mb-3">
                                     <img src={require('../../assets/greenCheck.png')} alt="Check" className="w-5 lg:w-7 mr-2.5" /> <p>Designs that <strong> drive more sales</strong></p>
                                 </li>
-                                <li className="check-list flex items-center text-xl sm:text-sm md:text-lg lg:text-xl xl:text-2xl mb-3">
+                                <li className="redesign-content check-list flex items-center text-xl sm:text-sm md:text-lg lg:text-xl xl:text-2xl mb-3">
                                     <img src={require('../../assets/greenCheck.png')} alt="Check" className="w-5 lg:w-7 mr-2.5" /> <p><strong>Proven track record</strong> of clients</p>
                                 </li>
-                                <li className="check-list flex items-center text-xl sm:text-sm md:text-lg lg:text-xl xl:text-2xl mb-3">
+                                <li className="redesign-content check-list flex items-center text-xl sm:text-sm md:text-lg lg:text-xl xl:text-2xl mb-3">
                                     <img src={require('../../assets/greenCheck.png')} alt="Check" className="w-5 lg:w-7 mr-2.5" /> <p><strong>Transform Your Online Presence</strong></p>
                                 </li>
                             </ul>
 
-                            <button className="bg-[#FFEB3B] w-full flex items-center justify-center px-10 sm:px-4 text-center py-4 font-bold rounded-full text-2xl sm:text-md lg:text-xl xl:text-3xl cursor-pointer redesign-button">
-                                <Link to="/whyTryzen" className='flex items-center'>
+                            <button className="bg-[#FFEB3B] w-full flex items-center justify-center px-10 sm:px-4 text-center py-4 font-bold rounded-full text-2xl sm:text-lg md:text-xl lg:text-2xl xl:text-3xl cursor-pointer redesign-button">
+                                <Link to="/whyTryzen" className='redesign-content flex items-center'>
                                     START FREE DESIGN <span className="ml-2"><img src={require('../../assets/nextButton.png')} className="w-9" /></span>
                                 </Link>
                             </button>
                         </div>
 
-                        <div className="sm:w-1/2 max-w-[500px]">
+                        <div className="sm:w-1/2 max-w-[500px] order-first sm:order-last">
                             <img
                                 src={require('../../assets/redesignImage.webp')}
                                 alt="Web Design"

@@ -1,3 +1,12 @@
+@font-face {
+    font-family: "footerContent";
+    src: url("/src/assets/fonts/CraftRounded-Regular.ttf") format("truetype");
+}
+
+.footer-content {
+    font-family: "footerContent";
+}
+
 .footer {
     justify-content: space-between;
     align-items: center;

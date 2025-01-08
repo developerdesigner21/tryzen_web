@@ -27,7 +27,7 @@
     width: max-content;
     margin-bottom: 20px;
     height: 100%;
-    animation: scroll var(--_animation-duration, 20s) var(--_animation-direction, forwards) linear infinite;
+    animation: scroll var(--_animation-duration, 30s) var(--_animation-direction, forwards) linear infinite;
 }
 
 .scroller[data-direction="right"] {

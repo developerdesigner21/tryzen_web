@@ -42,11 +42,11 @@ export default function BeforeAfter() {
 
     return (
         <div className="before-after-container">
-            <div className='mb-5 md:mb-10'>
+            <div className='mb-8 md:mb-10'>
                 <p className="growth-title font-bold text-center text-xl md:text-2xl xl:text-3xl mb-1 md:mb-2">
                     ARE YOU LOOKING FOR GROWTH IN 
                 </p>
-                <h1 className="ecomm-rest text-3xl md:text-4xl lg:text-6xl">
+                <h1 className="ecomm-rest text-2xl md:text-4xl lg:text-6xl">
                     E-commerce & Restaurant 
                 </h1>
             </div>

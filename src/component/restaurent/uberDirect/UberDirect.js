@@ -7,8 +7,8 @@ export default function UberDirect() {
             <div className="section p-4 lg:p-8 gap-5">
                 <div className="section-left md:w-2/3">
                     <h3 className='uber lg:text-xl xl:text-2xl'>UBER DIRECT</h3>
-                    <p className='country-names mb-4 lg:text-xl'>Is Available in Your Country?</p>
-                    <ul className="countries grid grid-cols-2 gap-2 lg:gap-4">
+                    <p className='country-names mb-5 md:mb-8 lg:text-xl'>Is Available in Your Country?</p>
+                    <ul className="countries uber-content grid grid-cols-2 gap-2 lg:gap-4 xl:gap-6">
                         <li className='text-md lg:text-lg xl:text-2xl'><img src={require('../../../assets/mexico.png')} alt="Mexico" className='w-5 h-5 lg:w-7 lg:h-7 mr-1' />Mexico</li>
                         <li className='text-md lg:text-lg xl:text-2xl'><img src={require('../../../assets/spain.png')} alt="Spain" className='w-5 h-5 lg:w-7 lg:h-7 mr-1' />Spain</li>
                         <li className='text-md lg:text-lg xl:text-2xl'><img src={require('../../../assets/canada.png')} alt="Canada" className='w-5 h-5 lg:w-7 lg:h-7 mr-1' />Canada</li>
@@ -22,15 +22,15 @@ export default function UberDirect() {
                     </ul>
                 </div>
                 <div className="section-right">
-                    <h3 className='font-bold mb-3 lg:text-xl xl:text-2xl'>CHECK LIVE DEMO TO EXPERIENCE</h3>
-                    <p className='mb-3 lg:mb-5 lg:text-xl'>Branded by you, delivered with UberDirect. Offer on-demand delivery for your own website <strong className='text-[#00B67A]'>NO MARKETPLACE FEES</strong>.</p>
+                    <h3 className='uber-content font-bold mb-3 lg:text-xl xl:text-2xl'>CHECK LIVE DEMO TO EXPERIENCE</h3>
+                    <p className='uber-content mb-3 lg:mb-5 lg:text-xl'>Branded by you, delivered with UberDirect. Offer on-demand delivery for your own website <strong className='text-[#00B67A]'>NO MARKETPLACE FEES</strong>.</p>
                     <div className='grid grid-cols-2 items-center gap-2 lg:gap-5'>
                         <div className='flex flex-col items-center justify-center bg-white p-2 md:p-4 rounded-lg'>
                             <div>
                                 <img src={require('../../../assets/UberWebsite.png')} alt="QR Code Website" className='h-32 lg:h-48 check-images' />
                             </div>
                             <div className='demo-buttons w-full'>
-                                <a href="https://restaurant.tryzensolution.com/" target='_balnk' className="flex items-center rounded-full gap-2 px-4 py-2 font-bold text-xs lg:text-sm">Check Website
+                                <a href="https://restaurant.tryzensolution.com/" target='_balnk' className="uber-content flex items-center rounded-full gap-2 px-4 py-2 font-bold text-xs lg:text-sm">Check Website
                                     <img src={require('../../../assets/buttonArrow.png')} alt="Arrow" className='w-4 h-2 arrow-image' />
                                 </a>
                             </div>
@@ -41,8 +41,8 @@ export default function UberDirect() {
                             </div>
                             <div className='demo-buttons w-full'>
                                 <a href="https://restaurant.tryzensolution.com/" target='_blank' className="flex items-center rounded-full gap-1 md:gap-2 px-2 md:px-4 py-2 font-bold text-xs lg:text-sm">
-                                    <span className="scan-text">SCAN TO CHECK APP</span>
-                                    <span className="check-app-text hidden">Check App</span>
+                                    <span className="uber-content scan-text">SCAN TO CHECK APP</span>
+                                    <span className="uber-content check-app-text hidden">Check App</span>
                                     <img src={require('../../../assets/buttonArrow.png')} alt="Arrow" className='w-4 h-2 arrow-image' />
                                 </a>
                             </div>

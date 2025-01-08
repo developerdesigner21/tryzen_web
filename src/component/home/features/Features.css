@@ -3,7 +3,16 @@
     src: url("/src/assets/fonts/LarkenDEMO-Black.otf") format("opentype");
 }
 
+@font-face {
+    font-family: "FeaturesContent";
+    src: url("/src/assets/fonts/CraftRounded-Regular.ttf") format("truetype");
+}
+
 .features-titles {
     font-family: 'FeaturesTitles' ;
     text-transform: uppercase;
+}
+
+.features-content {
+    font-family: 'FeaturesContent' ;
 }

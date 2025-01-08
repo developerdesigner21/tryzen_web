@@ -216,10 +216,10 @@ export default function FreeDesignPopup({ onClose ,isPopupOpen = false}) {
                 </div>
                 <div className='text-center mb-5'>
                     <h1 className='custom-web-design text-lg mb-1'>GET YOUR FREE CUSTOM WEBSITE DESIGN</h1>
-                    <h1 className='rest-ecom text-3xl font-semibold'>FOR YOUR RESTAURANT OR ECOMMERCE!</h1>
+                    <h1 className='rest-ecom text-3xl font-semibold'>For Your Restaurant Or Ecommerce!</h1>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-20">
-                    <div className='text-white'>
+                    <div className='text-white popup-content'>
                         <div className="mb-4 text-left">
                             <h2 className="text-xl font-bold">Contact Information</h2>
                             <p className="text-sm">This Information Helps Us To Show Demo In Meeting</p>
@@ -381,7 +381,7 @@ export default function FreeDesignPopup({ onClose ,isPopupOpen = false}) {
                             <p className="text-left note-title font-bold"><span className='text-white'>NOTE: </span><span className='text-[#F9ED32]'>WE NEVER SHARE YOUR INFORMATION</span></p>
                         </div>
                     </div>
-                    <div className='text-white'>
+                    <div className='text-white popup-content'>
                         <div className="mb-4 text-left">
                             <h2 className="text-xl font-bold">Business Information</h2>
                             <p className="text-sm">This Information Helps Us Prepare A Personalised Demo For Your Meeting!</p>
@@ -542,7 +542,7 @@ export default function FreeDesignPopup({ onClose ,isPopupOpen = false}) {
                         </div>
                         <button
                             type="submit"
-                            className="w-full mt-4 bg-white text-black font-bold rounded-md px-4 py-2 btn-free-design"
+                            className="w-full mt-4 bg-white text-black font-bold rounded-md px-4 py-2 popup-content btn-free-design"
                         >
                             BOOK FREE WEBSITE CONSULTATION!
                         </button>

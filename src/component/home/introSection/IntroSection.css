@@ -13,6 +13,11 @@
     src: url("/src/assets/fonts/LarkenDEMO-Black.otf") format("opentype");
 }
 
+@font-face {
+    font-family: "content";
+    src: url("/src/assets/fonts/CraftRounded-Regular.ttf") format("truetype");
+}
+
 .intro-container {
     text-align: center;
 }
@@ -98,6 +103,7 @@
     color: white;
     border: none;
     cursor: pointer;
+    font-family: "content";
 }
 
 .info-box:nth-child(2) .info-button {
@@ -106,6 +112,12 @@
 
 .info-button:hover {
     transform: scale(1.1);
+}
+
+@media (max-width: 540px) {
+    .info-button:hover {
+        transform: none;
+    }
 }
 
 @media (max-width: 340px) {

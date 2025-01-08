@@ -13,6 +13,11 @@
     src: url("/src/assets/fonts/LarkenDEMO-Medium.otf") format("opentype");
 }
 
+@font-face {
+    font-family: "story-content";
+    src: url("/src/assets/fonts/CraftRounded-Regular.ttf") format("truetype");
+}
+
 .uber-service {
     font-family: "UberService";
     color: #FF6802;
@@ -20,6 +25,10 @@
 
 .success-story {
     font-family: "successStory";
+}
+
+.story-content {
+    font-family: "story-content";
 }
 
 .story-container {
