@@ -28,7 +28,6 @@
 
 .main-sub-title {
     font-family: "GoBeyond";
-    margin: 0;
     color: black;
 }
 
@@ -41,11 +40,11 @@
 }
 
 .logos {
-    margin-bottom: 5px;
+    margin-bottom: 0;
 }
 
 .logos img {
-    margin: 0 5px;
+    margin: 0;
 }
 
 .ecommerce-container {
@@ -92,7 +91,8 @@
 
 @media (max-width: 380px) {
     .main-sub-title {
-        font-size: 23px;
+        font-size: 22px;
+        padding-top: 15px;
     }
 
     .cms-title {
@@ -100,6 +100,6 @@
     }
 
     .full-title-gap {
-        gap: 2px;
+        gap: 0.75rem;
     }
 }

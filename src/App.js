@@ -20,7 +20,7 @@ function LoadingScreen() {
         <img
           src={require('./assets/loading_screen.webp')}
           alt="Logo"
-          className="logo w-[75vw] sm:w-[25vw]"
+          className="logo w-[75vw] sm:w-[25vw] lg:w-[25vw]"
         />
         <div className="loading-dots">
           <span className="dot"></span>
