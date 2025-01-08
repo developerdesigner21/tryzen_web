@@ -45,7 +45,7 @@
 }
 
 .rest-description-text {
-    font-family: "desc-text";
+    font-family: "desc-text", sans-serif;
 }
 
 
@@ -98,7 +98,7 @@
     }
 }
 
-@media (max-width: 350px) {
+@media (max-width: 370px) {
     .food-delivery-title {
         font-size: 20px;
     }

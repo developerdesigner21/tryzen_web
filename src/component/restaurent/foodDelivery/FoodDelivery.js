@@ -27,7 +27,7 @@ export default function FoodDelivery() {
                 <p className="rest-description-text t md:text-2xl lg:text-4xl mb-2 md:mb-3">
                     WITHOUT HIRING PEOPLE AND
                     <br /> WITH
-                    <span className="text-[#FF6802]"> <span style={{fontWeight:'bolder'}}>0%</span> <span>PLATEFORM FEES</span> </span>
+                    <span className="text-[#FF6802]"> <span style={{fontWeight:900}}>0%</span> <span>PLATEFORM FEES</span> </span>
                 </p>
             </div>
             <div>

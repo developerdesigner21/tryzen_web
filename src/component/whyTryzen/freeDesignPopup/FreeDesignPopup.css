@@ -29,13 +29,19 @@
 
 @media (max-width: 768px) {
     .rest-ecom {
-        font-size: 24px;
+        font-size: 20px;
+    }
+
+    .btn-free-design{
+        padding-left: 8px;
+        padding-right: 8px;
+        font-size: 16px;
     }
 }
 
 @media (max-width: 535px) {
     .rest-ecom {
-        font-size: 20px;
+        font-size: 18px;
     }
 
     .custom-web-design {
@@ -45,7 +51,7 @@
 
 @media (max-width: 455px) {
     .rest-ecom {
-        font-size: 18px;
+        font-size: 16px;
     }
 
     .custom-web-design {
@@ -55,21 +61,41 @@
 
 @media (max-width: 425px) {
     .rest-ecom {
-        font-size: 16px;
+        font-size: 14px;
     }
 
     .custom-web-design {
         font-size: 12px;
     }
+
+    .note-title {
+        font-size: 13px;
+    }
 }
 
 @media (max-width: 360px) {
     .rest-ecom {
-        font-size: 14px;
+        font-size: 12px;
     }
 
     .custom-web-design {
         font-size: 10px;
+    }
+
+    .note-title {
+        font-size: 12px;
+    }
+
+    .btn-free-design{
+        padding-left: 8px;
+        padding-right: 8px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 350px) {
+    .yes-no-website {
+        font-size: 14px;
     }
 }
 
@@ -154,4 +180,24 @@
 
 .react-datepicker-wrapper{
     width: 100%;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 50;
+}
+
+.modal-content {
+    padding: 10px;
+    max-width: 100%;
+    position: relative;
+    z-index: 50;
 }

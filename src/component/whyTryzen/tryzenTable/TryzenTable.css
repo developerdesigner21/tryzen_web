@@ -191,4 +191,12 @@
     .apply-button{
         font-size: 14px;
     }
+
+    .tryzen-title {
+        font-size: 15px;
+    }
+
+    .subtitle {
+       font-size: 26px;
+    }
 }

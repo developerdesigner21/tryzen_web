@@ -13,7 +13,7 @@ export default function Pricing() {
                 </p>
             </div>
             <div className="flex flex-col lg:flex-row gap-10">
-                <div className="bg-white border border-gray-300 rounded-xl p-6 md:p-8 lg:p-2 xl:p-4 w-full lg:w-1/2">
+                <div className="bg-white border border-gray-300 rounded-lg p-4 md:p-8 lg:p-2 xl:p-4 w-full lg:w-1/2">
                     <h2 className="mb-4">
                         <span className='md:text-xl lg:text-2xl'>STOP RELYING ON SITE LIKE</span> <br /><span className='text-xl md:text-3xl font-bold text-[#0F54FF]'>Wordpress, Shopify, Wix</span>
                     </h2>
@@ -27,7 +27,7 @@ export default function Pricing() {
                             <div className="bg-[#F44336] text-white p-4">
                                 <h3 className="text-center text-md md:text-lg font-bold">3RD PARTY SITE</h3>
                             </div>
-                            <div className="bg-gray-100 p-4 p-4 lg:p-2 xl:p-4">
+                            <div className="bg-gray-100 p-4 lg:p-2 xl:p-4">
                                 <ul className="space-y-2 text-sm md:text-md font-semibold">
                                     <li className='flex gap-2 items-center'><img src={require("../../../assets/falseIcon.png")} style={{ width:'20px', height:"20px" }} /> Limited Customisation</li>
                                     <li className='flex gap-2 items-center'><img src={require("../../../assets/falseIcon.png")} style={{ width:'20px', height:"20px" }} /> Slow Performance</li>
@@ -43,7 +43,7 @@ export default function Pricing() {
                             <div className="bg-[#0F54FF] text-white p-4">
                                 <h3 className="text-center text-md md:text-lg font-bold">OWN CUSTOM WEB</h3>
                             </div>
-                            <div className="bg-gray-100 p-4 p-4 lg:p-2 xl:p-4">
+                            <div className="bg-gray-100 p-4 lg:p-2 xl:p-4">
                                 <ul className="space-y-2 text-sm md:text-md font-semibold">
                                     <li className='flex gap-2 items-center'><img src={require("../../../assets/trueIcon.png")} style={{ width:'20px', height:"20px" }} /> Complete Customisation</li>
                                     <li className='flex gap-2 items-center'><img src={require("../../../assets/trueIcon.png")} style={{ width:'20px', height:"20px" }} />Faster Load Times</li>
@@ -57,7 +57,7 @@ export default function Pricing() {
                         </div>
                     </div>
                     <div className="mt-6 text-center">
-                        <button className="w-full bg-[#0F54FF] hover:bg-blue-700 text-white px-6 py-3 rounded-md font-bold text-sm md:text-lg button-discover">
+                        <button className="w-full bg-[#0F54FF] hover:bg-blue-700 text-white py-3 rounded-md font-bold text-sm md:text-lg button-discover">
                             <Link to="/e-commerce">
                                 DISCOVER MORE ABOUT ECOMMERCE
                             </Link>
@@ -79,7 +79,7 @@ export default function Pricing() {
                             <div className="bg-[#F44336] text-white p-4">
                                 <h3 className="text-center text-md md:text-lg font-bold">3RD PARTY APPS</h3>
                             </div>
-                            <div className="bg-gray-100 p-4 p-4 lg:p-2 xl:p-4">
+                            <div className="bg-gray-100 p-4 lg:p-2 xl:p-4">
                                 <ul className="space-y-2 text-sm md:text-md font-semibold">
                                     <li className='flex gap-2 items-center'><img src={require("../../../assets/falseIcon.png")} style={{ width:'20px', height:"20px" }} /> +⁠30% Commissions</li>
                                     <li className='flex gap-2 items-center'><img src={require("../../../assets/falseIcon.png")} style={{ width:'20px', height:"20px" }} /> No Customer Loyalty</li>
@@ -95,7 +95,7 @@ export default function Pricing() {
                             <div className="bg-[#FF6802] text-white p-4">
                                 <h3 className="text-center text-md md:text-lg font-bold">OWN SOLUTION</h3>
                             </div>
-                            <div className="bg-gray-100 p-4 p-4 lg:p-2 xl:p-4">
+                            <div className="bg-gray-100 p-4 lg:p-2 xl:p-4">
                                 <ul className="space-y-2 text-sm md:text-md font-semibold">
                                     <li className='flex gap-2 items-center'><img src={require("../../../assets/trueIcon.png")} style={{ width:'20px', height:"20px" }} />Zero Commissions</li>
                                     <li className='flex gap-2 items-center'><img src={require("../../../assets/trueIcon.png")} style={{ width:'20px', height:"20px" }} />Direct Customer Relationship</li>

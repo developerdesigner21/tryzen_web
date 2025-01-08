@@ -1,0 +1,9 @@
+@font-face {
+    font-family: "FeaturesTitles";
+    src: url("/src/assets/fonts/LarkenDEMO-Black.otf") format("opentype");
+}
+
+.features-titles {
+    font-family: 'FeaturesTitles' ;
+    text-transform: uppercase;
+}

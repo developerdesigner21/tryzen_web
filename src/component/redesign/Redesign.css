@@ -18,6 +18,10 @@
     color: #07FF98;
 }
 
+.icon {
+    width: 20px;
+}
+
 .icons-row {
     display: flex;
     justify-content: center;
@@ -79,10 +83,14 @@
     }
 }
 
-@media (max-width: 430px) {
+@media (max-width: 470px) {
     .redesign-button {
         font-size: 18px; 
         font-weight: 500;
+    }
+
+    .boost-feature{
+        font-size: 14px;
     }
 }
 

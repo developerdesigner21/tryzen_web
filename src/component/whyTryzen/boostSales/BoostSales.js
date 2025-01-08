@@ -21,16 +21,16 @@ export default function BoostSales() {
                 <h2 className="redesign-sub-title text-3xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6">BOOSTS YOUR SALES!</h2>
 
                 <div className="icon-row">
-                    <div className="icon-item">
+                    <div className="icons-item">
                         <img src={require('../../../assets/redesignIcon1.png')} alt="No Hidden Costs" className="icon" />
                         <p className='font-semibold boost-features'>NO HIDDEN COSTS</p>
                     </div>
-                    <div className="icon-item">
+                    <div className="icons-item">
                         <img src={require('../../../assets/redesignIcon2.png')} alt="No Commitments" className="icon" />
                         <p className='font-semibold boost-features'>NO COMMITMENTS</p>
                     </div>
                     <div className='hidden sm:block'>
-                        <div className="icon-item boost-feature">
+                        <div className="icons-item boost-feature">
                             <img src={require('../../../assets/redesignIcon3.png')} alt="Best Results" className="icon" />
                             <p className='font-semibold boost-features'>JUST BEST RESULTS</p>
                         </div>

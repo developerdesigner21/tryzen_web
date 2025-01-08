@@ -51,6 +51,7 @@ export default function Header() {
                 </Link>
 
                 <div id="nav-menu" className="flex hidden lg:flex lg:gap-6 xl:gap-12">
+                    <Link to='/' className={`headers-title font-semibold hover:text-[#FF6802] xl:text-lg cursor-pointer ${isActive('/')}`}>Home</Link>
                     <Link to='/restaurent' className={`headers-title font-semibold hover:text-[#FF6802] xl:text-lg cursor-pointer ${isActive('/restaurent')}`}>Restaurant</Link>
                     <Link to='/e-commerce' className={`headers-title font-semibold hover:text-[#FF6802] xl:text-lg cursor-pointer ${isActive('/e-commerce')}`}>E-Commerce</Link>
                     <Link to='/whyTryzen' className={`headers-title font-semibold hover:text-[#FF6802] xl:text-lg cursor-pointer ${isActive('/whyTryzen')}`}>Why This Solution?</Link>
@@ -96,6 +97,9 @@ export default function Header() {
                             </button>
                         </div>
                         <nav className="flex flex-col gap-4 mt-5">
+                            <Link to="/" className={`headers-title font-semibold hover:text-[#FF6802] xl:text-lg cursor-pointer ${isActive('/')}`} onClick={toggleSidebar}>
+                                Home
+                            </Link>
                             <Link to="/restaurent" className={`headers-title font-semibold hover:text-[#FF6802] xl:text-lg cursor-pointer ${isActive('/restaurent')}`} onClick={toggleSidebar}>
                                 Restaurant
                             </Link>

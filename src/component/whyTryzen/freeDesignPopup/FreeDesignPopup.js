@@ -8,7 +8,9 @@ import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import Modal from 'react-modal';
 
+Modal.setAppElement('#root');
 
 export default function FreeDesignPopup({ onClose ,isPopupOpen = false}) {
     const [formData, setFormData] = useState({  
@@ -199,14 +201,15 @@ export default function FreeDesignPopup({ onClose ,isPopupOpen = false}) {
     }
 
     return (
+        <Modal isOpen={isPopupOpen} onClose={onClose} shouldCloseOnOverlayClick={false} contentLabel="Free Design Popup" className="modal-content" overlayClassName="modal-overlay">
         <form
-            className="fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center z-50"
+            // className="fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center z-50"
             onSubmit={handleSubmit}
-            style={{display: isPopupOpen ? "" : "none"}}
+            // style={{display: isPopupOpen ? "" : "none"}}
         >
-            <div className="bg-[#101828] px-4 sm:px-8 sm:px-16 pt-6 pb-8 rounded-lg max-h-[95vh] max-w-full relative overflow-y-auto">
+            <div className="bg-[#101828] px-4 sm:px-8 pt-6 pb-8 rounded-lg max-h-[95vh] max-w-full relative overflow-y-auto">
                 <div
-                    onClick={()=>{handleClose()}}
+                    onClick={onClose}
                     className="absolute top-5 right-3 hover:text-gray-700 cursor-pointer"
                 >
                     <img src={require('../../../assets/cross-icon.png')} className='w-5' alt="Close" />
@@ -215,7 +218,7 @@ export default function FreeDesignPopup({ onClose ,isPopupOpen = false}) {
                     <h1 className='custom-web-design text-lg mb-1'>GET YOUR FREE CUSTOM WEBSITE DESIGN</h1>
                     <h1 className='rest-ecom text-3xl font-semibold'>FOR YOUR RESTAURANT OR ECOMMERCE!</h1>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-20">
                     <div className='text-white'>
                         <div className="mb-4 text-left">
                             <h2 className="text-xl font-bold">Contact Information</h2>
@@ -472,7 +475,7 @@ export default function FreeDesignPopup({ onClose ,isPopupOpen = false}) {
                                             onChange={handleChange}
                                             className="appearance-none w-5 h-5 border-2 rounded-full bg-[#1C2433] checked:border-white checked:bg-[#1C2433] relative"
                                         />
-                                        <span>Yes, I Have Site</span>
+                                        <span className='yes-no-website'>Yes, I Have Site</span>
                                     </label>
                                     <label className="flex items-center space-x-2">
                                         <input
@@ -483,7 +486,7 @@ export default function FreeDesignPopup({ onClose ,isPopupOpen = false}) {
                                             onChange={handleChange}
                                             className="appearance-none w-5 h-5 border-2 rounded-full bg-[#1C2433] checked:border-white checked:bg-[#1C2433] relative"
                                         />
-                                        <span>No, I Don't Have</span>
+                                        <span className='yes-no-website'>No, I Don't Have</span>
                                     </label>
                                 </div>
                                 <input
@@ -511,7 +514,7 @@ export default function FreeDesignPopup({ onClose ,isPopupOpen = false}) {
                                             onChange={handleChange}
                                             className="appearance-none w-5 h-5 border-2 rounded-full bg-[#1C2433] checked:border-white relative"
                                         />
-                                        <span>Yes, I Like One</span>
+                                        <span className='yes-no-website'>Yes, I Like One</span>
                                     </label>
                                     <label className="flex items-center space-x-2">
                                         <input
@@ -522,7 +525,7 @@ export default function FreeDesignPopup({ onClose ,isPopupOpen = false}) {
                                             onChange={handleChange}
                                             className="appearance-none w-5 h-5 border-2 rounded-full bg-[#1C2433] checked:border-white checked:bg-[#1C2433] relative"
                                         />
-                                        <span>No, I Don't Like Any</span>
+                                        <span className='yes-no-website'>No, I Don't Like Any</span>
                                     </label>
                                 </div>
                                 <input
@@ -539,7 +542,7 @@ export default function FreeDesignPopup({ onClose ,isPopupOpen = false}) {
                         </div>
                         <button
                             type="submit"
-                            className="w-full mt-4 bg-white text-black font-bold rounded-md px-4 py-2"
+                            className="w-full mt-4 bg-white text-black font-bold rounded-md px-4 py-2 btn-free-design"
                         >
                             BOOK FREE WEBSITE CONSULTATION!
                         </button>
@@ -550,5 +553,6 @@ export default function FreeDesignPopup({ onClose ,isPopupOpen = false}) {
                 </div>
             </div>
         </form>
+        </Modal>
     );
 }

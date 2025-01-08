@@ -33,6 +33,10 @@
     gap: 8px;
 }
 
+.icon {
+    width: 20px;
+}
+
 @media (max-width: 640px) {
     .home-redesign-container {
         border-radius: 32px;

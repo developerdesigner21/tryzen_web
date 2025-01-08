@@ -31,7 +31,7 @@ export default function Plans() {
         },
         {
             name: 'GROWTH MODE',
-            description: 'Here you Don’t need to worry about Branding Banner, Designs,  Strategies, social media design to Grow profit',
+            description: 'Here you Don’t need to worry for Branding, Designs, Strategies, Social media to Grow profit.',
             vector: require('../../../assets/growth.png'),
             features: [
                 { name: 'Store Quality Check And Tracking', vector: require('../../../assets/growth1.png') },
@@ -46,7 +46,7 @@ export default function Plans() {
         },
         {
             name: 'ZEN MODE',
-            description: 'The ultimate solution you Don’t need to worry about Marketing, design and seo we will do it for you ',
+            description: 'The ultimate solution you Don’t need to worry about Marketing, design and seo we will do it.',
             vector: require('../../../assets/zen.png'),
             features: [
                 { name: 'Complete Advanced Automation', vector: require('../../../assets/zen1.webp') },
