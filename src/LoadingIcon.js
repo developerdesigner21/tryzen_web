@@ -1,8 +1,7 @@
 import * as React from "react";
 const LoadingIcon = (props) => (
   <svg
-    width={512}
-    height={175}
+    className="w-[75vw] sm:w-[50vw] lg:w-[25vw] h-auto"
     viewBox="0 0 512 175"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
