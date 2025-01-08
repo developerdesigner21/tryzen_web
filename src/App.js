@@ -1,6 +1,7 @@
 import React, { useEffect, useState, Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import "./App.css";
+import LoadingIcon from "./LoadingIcon";
 
 // ScrollToTop Component to reset scroll position on route change
 function ScrollToTop() {
@@ -17,11 +18,7 @@ function LoadingScreen() {
   return (
     <div className="loading-screen">
       <div className="img-dots-container">
-        <img
-          src={require('./assets/loading_screen.webp')}
-          alt="Logo"
-          className="logo w-[75vw] sm:w-[25vw] lg:w-[25vw]"
-        />
+        <LoadingIcon />
         <div className="loading-dots">
           <span className="dot"></span>
           <span className="dot"></span>
