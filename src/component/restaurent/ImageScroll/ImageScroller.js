@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import "./ImageScroller.css";
 import burger from "../../../assets/rest-burger.webp";
 import fastFood from "../../../assets/rest-fast-food.webp";
@@ -15,21 +15,55 @@ import store from "../../../assets/rest-STORE.webp";
 import tacos from "../../../assets/rest-tacos-bull.webp";
 
 export default function ImageScroller() {
+    // useEffect(() => {
+    //     const scrollers = document.querySelectorAll(".scroller");
+
+    //     if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    //         scrollers.forEach((scroller) => {
+    //             scroller.setAttribute("data-animated", true);
+
+    //             const scrollerInner = scroller.querySelector(".scroller__inner");
+    //             const scrollerContent = Array.from(scrollerInner.children);
+
+    //             scrollerContent.forEach((item) => {
+    //                 const duplicatedItem = item.cloneNode(true);
+    //                 duplicatedItem.setAttribute("aria-hidden", true);
+    //                 scrollerInner.appendChild(duplicatedItem);
+    //             });
+    //         });
+    //     }
+    // }, []);
+
     useEffect(() => {
         const scrollers = document.querySelectorAll(".scroller");
 
         if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
             scrollers.forEach((scroller) => {
-                scroller.setAttribute("data-animated", true);
-
                 const scrollerInner = scroller.querySelector(".scroller__inner");
                 const scrollerContent = Array.from(scrollerInner.children);
 
                 scrollerContent.forEach((item) => {
-                    const duplicatedItem = item.cloneNode(true);
-                    duplicatedItem.setAttribute("aria-hidden", true);
-                    scrollerInner.appendChild(duplicatedItem);
+                    const clone = item.cloneNode(true);
+                    clone.setAttribute("aria-hidden", true);
+                    scrollerInner.appendChild(clone);
                 });
+
+                let scrollAmount = 0;
+                const direction = scroller.getAttribute("data-direction");
+                const speed = direction === "left" ? -1 : 1;
+
+                const scroll = () => {
+                    scrollAmount += speed;
+                    scrollerInner.style.transform = `translateX(${scrollAmount}px)`;
+
+                    if (Math.abs(scrollAmount) >= scrollerInner.scrollWidth / 2) {
+                        scrollAmount = 0;
+                    }
+
+                    requestAnimationFrame(scroll);
+                };
+
+                scroll();
             });
         }
     }, []);
@@ -37,7 +71,7 @@ export default function ImageScroller() {
     return (
         <>
             <div className="text-center mb-8 md:mb-10">
-                <p className="our-food font-bold text-center text-xl md:text-2xl xl:text-3xl mb-1 md:mb-2">
+                <p className="our-food font-bold text-center text-md md:text-2xl xl:text-3xl mb-1 md:mb-2">
                     OUR FOOD
                 </p>
                 <h1 className="website-design text-2xl md:text-4xl lg:text-6xl">
@@ -45,7 +79,7 @@ export default function ImageScroller() {
                 </h1>
             </div>
 
-            <div className="scroller" data-direction="left" data-speed="slow">
+            <div className="scroller" data-direction="left" >
                 <div className="scroller__inner">
                     <img src={fastFood} alt="CBD Store" />
                     <img src={burger} alt="Baby Store" />
@@ -56,7 +90,7 @@ export default function ImageScroller() {
                 </div>
             </div>
 
-            <div className="scroller" data-direction="right" data-speed="slow">
+            <div className="scroller" data-direction="right" >
                 <div className="scroller__inner">
                     <img src={burgerMeal} alt="Jewellery Store" />
                     <img src={fastFoodMeal} alt="Medical Store" />

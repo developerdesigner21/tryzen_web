@@ -63,10 +63,10 @@ export default function Plans() {
     return (
         <div className="plans-section">
             <div className='mb-8 md:mb-10'>
-                <h2 className='plan font-bold text-xl md:text-2xl xl:text-3xl mb-1 md:mb-2'>FIND THE PERFECT PLAN</h2>
+                <h2 className='plan font-bold text-md md:text-2xl xl:text-3xl mb-1 md:mb-2'>FIND THE PERFECT PLAN</h2>
                 <h3 className='business-need font-semibold text-2xl md:text-4xl lg:text-6xl'>For Your Buisness Needs</h3>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 xl:gap-12">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 xl:gap-12">
                 {plans.map((plan) => (
                     <div className="plan-card border border-gray-200 p-4 xl:p-6" key={plan.name}>
                         <div className="plan-header">

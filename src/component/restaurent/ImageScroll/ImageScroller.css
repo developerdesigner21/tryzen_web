@@ -10,7 +10,7 @@
 
 .our-food {
     color: #FF6802;
-    font-family:"our-website";
+    font-family: "our-website";
 }
 
 .website-design {
@@ -20,6 +20,7 @@
 .scroller {
     max-width: 100%;
     overflow: hidden;
+    position: relative;
 }
 
 .scroller__inner {
@@ -27,7 +28,8 @@
     width: max-content;
     margin-bottom: 20px;
     height: 100%;
-    animation: scroll var(--_animation-duration, 30s) var(--_animation-direction, forwards) linear infinite;
+    will-change: transform;
+    animation: scroll var(--_animation-duration, 20s) var(--_animation-direction, forwards) linear infinite;
 }
 
 .scroller[data-direction="right"] {
@@ -38,13 +40,13 @@
     --_animation-direction: forwards;
 }
 
-.scroller[data-speed="slow"] {
-    --_animation-duration: 30s;
+/* .scroller[data-speed="slow"] {
+    --_animation-duration: 20s;
 }
 
-.scroller[data-speed="slow"] {
-    --_animation-duration: 30s;
-}
+.scroller[data-speed="fast"] {
+    --_animation-duration: 15s;
+} */
 
 .scroller__inner img {
     width: auto;
@@ -64,15 +66,18 @@
     }
 }
 
+/* @keyframes scroll {
+    to {
+        transform: translateX(calc(-50% - 1rem));
+    }
+} */
+
 @keyframes scroll {
+    from {
+        transform: translateX(0);
+    }
+
     to {
         transform: translateX(calc(-50% - 1rem));
     }
 }
-
-/* .scroller[data-animated="true"] {
-    -webkit-mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
-    mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
-} */
-
-  

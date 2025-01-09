@@ -5,7 +5,7 @@ export default function BentoGrid() {
     return (
         <>
             <div id="EcomBento" className="text-center mb-8 md:mb-10">
-                <p className="bento-title text-[#0F54FF] font-bold text-center text-xl md:text-2xl xl:text-3xl mb-1 md:mb-2">
+                <p className="bento-title text-[#0F54FF] font-bold text-center text-md md:text-2xl xl:text-3xl mb-1 md:mb-2">
                     OUR SERVICES
                 </p>
                 <h1 className="website-design text-2xl md:text-4xl lg:text-6xl">

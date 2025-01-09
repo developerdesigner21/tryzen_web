@@ -6,7 +6,7 @@ export default function Pricing() {
     return (
         <div id="pricing" class="rounded-xl">
             <div class="text-center mb-8 md:mb-10">
-                <h1 class="sub-title text-[#FF6802] font-bold text-xl md:text-2xl xl:text-3xl mb-1 md:mb-2">
+                <h1 class="sub-title text-[#FF6802] font-bold text-md md:text-2xl xl:text-3xl mb-1 md:mb-2">
                     STOP USING <span className='font-extrabold'>3</span>RD PARTY APPS
                 </h1>
                 <p class="header-title text-center text-2xl md:text-4xl lg:text-6xl">

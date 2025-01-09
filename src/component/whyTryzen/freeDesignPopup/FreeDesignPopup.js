@@ -207,7 +207,7 @@ export default function FreeDesignPopup({ onClose ,isPopupOpen = false}) {
             onSubmit={handleSubmit}
             // style={{display: isPopupOpen ? "" : "none"}}
         >
-            <div className="bg-[#101828] px-4 sm:px-8 pt-6 pb-8 rounded-lg max-h-[95vh] max-w-full relative overflow-y-auto">
+            <div className="bg-[#101828] px-4 sm:px-8 pt-6 pb-8 rounded-lg max-h-[80vh] md:max-h-[95vh] max-w-full relative overflow-y-auto">
                 <div
                     onClick={onClose}
                     className="absolute top-5 right-3 hover:text-gray-700 cursor-pointer"

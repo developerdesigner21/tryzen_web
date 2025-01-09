@@ -14,7 +14,7 @@ export default function Features() {
     return (
         <div id="features" class="rounded-xl">
             <div class="text-center mb-8 md:mb-10">
-                <p class="sub-title text-[#FF6802] font-bold text-center text-xl md:text-2xl xl:text-3xl mb-1 md:mb-2">
+                <p class="sub-title text-[#FF6802] font-bold text-center text-md md:text-2xl xl:text-3xl mb-1 md:mb-2">
                     REASON TO CHOOSE
                 </p>
                 <h1 class="header-title text-2xl md:text-4xl lg:text-6xl">
