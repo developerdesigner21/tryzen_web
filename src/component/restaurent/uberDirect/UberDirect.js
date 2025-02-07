@@ -4,49 +4,50 @@ import './UberDirect.css';
 export default function UberDirect() {
     return (
         <div className='flex items-center'>
-            <div className="section p-4 lg:p-8 gap-5">
+            <div className="section p-4 sm:p-6 md:p-4 lg:p-6 xl:p-8 gap-5 xl:gap-0">
                 <div className="section-left md:w-2/3">
-                    <h3 className='uber lg:text-xl xl:text-2xl'>UBER DIRECT</h3>
-                    <p className='country-names mb-5 md:mb-8 lg:text-xl'>Is Available in Your Country?</p>
-                    <ul className="countries uber-content grid grid-cols-2 gap-2 lg:gap-4 xl:gap-6">
-                        <li className='text-md lg:text-lg xl:text-2xl'><img src={require('../../../assets/mexico.png')} alt="Mexico" className='w-5 h-5 lg:w-7 lg:h-7 mr-1' />Mexico</li>
-                        <li className='text-md lg:text-lg xl:text-2xl'><img src={require('../../../assets/spain.png')} alt="Spain" className='w-5 h-5 lg:w-7 lg:h-7 mr-1' />Spain</li>
-                        <li className='text-md lg:text-lg xl:text-2xl'><img src={require('../../../assets/canada.png')} alt="Canada" className='w-5 h-5 lg:w-7 lg:h-7 mr-1' />Canada</li>
-                        <li className='text-md lg:text-lg xl:text-2xl'><img src={require('../../../assets/uk.png')} alt="United Kingdom" className='w-5 h-5 lg:w-7 lg:h-7 mr-1' />United Kingdom</li>
-                        <li className='text-md lg:text-lg xl:text-2xl'><img src={require('../../../assets/australia.png')} alt="Australia" className='w-5 h-5 lg:w-7 lg:h-7 mr-1' />Australia</li>
-                        <li className='text-md lg:text-lg xl:text-2xl'><img src={require('../../../assets/germany.png')} alt="Germany" className='w-5 h-5 lg:w-7 lg:h-7 mr-1' />Germany</li>
-                        <li className='text-md lg:text-lg xl:text-2xl'><img src={require('../../../assets/netherlands.png')} alt="Netherlands" className='w-5 h-5 lg:w-7 lg:h-7 mr-1' />Netherlands</li>
-                        <li className='text-md lg:text-lg xl:text-2xl'><img src={require('../../../assets/usa.png')} alt="United States" className='w-5 h-5 lg:w-7 lg:h-7 mr-1' />United States</li>
-                        <li className='text-md lg:text-lg xl:text-2xl'><img src={require('../../../assets/portugal.png')} alt="Portugal" className='w-5 h-5 lg:w-7 lg:h-7 mr-1' />Portugal</li>
-                        <li className='text-md lg:text-lg xl:text-2xl'><img src={require('../../../assets/france.png')} alt="France" className='w-5 h-5 lg:w-7 lg:h-7 mr-1' />France</li>
+                    <h3 className='uber text-lg lg:text-xl xl:text-3xl mb-1 lg:mb-3'>WHY OWN ONLINE ORDER</h3>
+                    <p className='uber-content text-lg lg:text-xl xl:text-2xl 2xl:text-3xl mb-3 md:mb-5'>Is better then any 3rd party apps</p>
+                    <ul className="countries uber-content flex flex-col gap-2">
+                        <li className='text-lg lg:text-xl xl:text-2xl 2xl:text-3xl'><img src={require('../../../assets/greenCheck.png')} alt="Mexico" className='w-5 h-5 lg:w-7 lg:h-7 mr-1' />No More Commissions to 3rd Party Apps</li>
+                        <li className='text-lg lg:text-xl xl:text-2xl 2xl:text-3xl'><img src={require('../../../assets/greenCheck.png')} alt="Spain" className='w-5 h-5 lg:w-7 lg:h-7 mr-1' />Direct Customer Relationship</li>
+                        <li className='text-lg lg:text-xl xl:text-2xl 2xl:text-3xl'><img src={require('../../../assets/greenCheck.png')} alt="Canada" className='w-5 h-5 lg:w-7 lg:h-7 mr-1' />Full Control on Branding</li>
+                        <li className='text-lg lg:text-xl xl:text-2xl 2xl:text-3xl'><img src={require('../../../assets/greenCheck.png')} alt="United Kingdom" className='w-5 h-5 lg:w-7 lg:h-7 mr-1' />Enhanced Customer Experience</li>
+                        <li className='text-lg lg:text-xl xl:text-2xl 2xl:text-3xl'><img src={require('../../../assets/greenCheck.png')} alt="Australia" className='w-5 h-5 lg:w-7 lg:h-7 mr-1' />Increased Brand Loyalty</li>
+                        <li className='text-lg lg:text-xl xl:text-2xl 2xl:text-3xl'><img src={require('../../../assets/greenCheck.png')} alt="Germany" className='w-5 h-5 lg:w-7 lg:h-7 mr-1' />No Restriction on Policy and Marketing</li>
+                        <li className='text-lg lg:text-xl xl:text-2xl 2xl:text-3xl'><img src={require('../../../assets/greenCheck.png')} alt="Netherlands" className='w-5 h-5 lg:w-7 lg:h-7 mr-1' />Seamless Operational Orders</li>
                     </ul>
                 </div>
-                <div className="section-right">
-                    <h3 className='uber-content font-bold mb-3 lg:text-xl xl:text-2xl'>CHECK LIVE DEMO TO EXPERIENCE</h3>
-                    <p className='uber-content mb-3 lg:mb-5 lg:text-xl'>Branded by you, delivered with UberDirect. Offer on-demand delivery for your own website <strong className='text-[#00B67A]'>NO MARKETPLACE FEES</strong>.</p>
-                    <div className='grid grid-cols-2 items-center gap-2 lg:gap-5'>
-                        <div className='flex flex-col items-center justify-center bg-white p-2 md:p-4 rounded-lg'>
+                <div className="section-right justify-between">
+                    <div>
+                        <h3 className='uber-content font-bold mb-2 lg:mb-4 text-xl sm:text-2xl xl:text-3xl'>Explore Demo</h3>
+                        <p className='uber-content text-sm sm:text-lg md:text-xl xl:text-2xl font-semibold'>Let’s Grow together, with your vision, our Solution</p>
+                        <p className='uber-content text-sm sm:text-lg md:text-xl xl:text-2xl font-semibold mb-3'>and Services with <span className='text-[#00B67A]'> 0% marketplace fees!</span>.</p>
+                    </div>
+                    <div className='rest-demo-grid grid grid-cols-2 items-center gap-2 sm:gap-5'>
+                        <a href="https://restaurant.tryzensolution.com/" target='_blank' className='flex flex-col items-center justify-center bg-white p-2 md:p-4 rounded-lg'>
                             <div>
-                                <img src={require('../../../assets/UberWebsite.png')} alt="QR Code Website" className='h-32 lg:h-48 check-images' />
+                                <img src={require('../../../assets/restaurentHome.webp')} alt="QR Code Website" className='check-images' />
                             </div>
                             <div className='demo-buttons w-full'>
-                                <a href="https://restaurant.tryzensolution.com/" target='_balnk' className="uber-content flex items-center rounded-full gap-2 px-4 py-2 font-bold text-xs lg:text-sm">Check Website
+                                <div className="flex items-center rounded-full bg-[#038851] gap-1 sm:gap-2 px-4 py-2 font-bold text-xs lg:text-sm">
+                                    <span className="uber-content xl:text-lg">CHECK WEBSITE</span>
                                     <img src={require('../../../assets/buttonArrow.png')} alt="Arrow" className='w-4 h-2 arrow-image' />
-                                </a>
+                                </div>
                             </div>
-                        </div>
-                        <div className='flex flex-col items-center justify-center bg-white p-2 md:p-4 rounded-lg'>
+                        </a>
+                        <a href="https://restaurant.tryzensolution.com/" target='_blank' className='flex flex-col items-center justify-center bg-white p-2 md:p-4 rounded-lg'>
                             <div>
-                                <img src={require('../../../assets/scanner.png')} alt="QR Code Website" className='h-32 lg:h-48 check-images' />
+                                <img src={require('../../../assets/RestaurentScan.webp')} alt="QR Code Website" className='rest-scanner-images' />
                             </div>
                             <div className='demo-buttons w-full'>
-                                <a href="https://restaurant.tryzensolution.com/" target='_blank' className="flex items-center rounded-full gap-1 md:gap-2 px-2 md:px-4 py-2 font-bold text-xs lg:text-sm">
-                                    <span className="uber-content scan-text">SCAN TO CHECK APP</span>
-                                    <span className="uber-content check-app-text hidden">Check App</span>
+                                <div className="flex items-center rounded-full bg-[#038851] gap-1 sm:gap-2 px-4 py-2 font-bold text-xs lg:text-sm">
+                                    <span className="hidden sm:flex uber-content xl:text-lg">CHECK APPLICATION</span>
+                                    <span className="sm:hidden uber-content xl:text-lg">CHECK APP</span>
                                     <img src={require('../../../assets/buttonArrow.png')} alt="Arrow" className='w-4 h-2 arrow-image' />
-                                </a>
+                                </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 </div>
             </div>

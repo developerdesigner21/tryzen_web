@@ -8,6 +8,7 @@ import Header from "../header/Header";
 import Redesign from "../redesign/Redesign";
 import Footer from "../footer/Footer";
 import usePageMeta from "../../usePageMeta";
+import HomeWhyTryzen from "./homeWhyTryzen/HomeWhyTryzen";
 
 function Home() {
     usePageMeta('Tryzen Solution', 'Boost your restaurants online sales with Tryzen Solution, create custom e-commerce website development and manage multiple outlet and online orders across country without paying any commissions to third-party apps. Get a free website demo now','restaurant website design, online order management, food delivery website, custom restaurant websites, commission-free food ordering, multi-outlet management, multi-location store, multi-vendor e-commerce platform, restaurant website  with Tryzen Solution');
@@ -33,6 +34,7 @@ function Home() {
                 <div className="mb-8 md:mb-12 lg:mb-16 xl:mb-20"><Redesign /></div>
                 <div className="mb-8 md:mb-12 lg:mb-16 xl:mb-20"><Benifits /></div>
                 <div className="mb-8 md:mb-12 lg:mb-16 xl:mb-20"><Pricing /></div>
+                <div className="mb-8 md:mb-12 lg:mb-16 xl:mb-20"><HomeWhyTryzen /></div>
             </div>
             <Footer />
         </div>

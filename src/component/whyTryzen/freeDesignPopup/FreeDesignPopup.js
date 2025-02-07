@@ -3,6 +3,7 @@ import './FreeDesignPopup.css';
 import axios from 'axios';
 import timezonesData from '../../Json/TimeZone.json';
 import langaugeData from '../../Json/Langauges.json';
+import timesData from '../../Json/Times.json';
 import Select from 'react-select';
 import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
@@ -29,6 +30,7 @@ export default function FreeDesignPopup({ onClose ,isPopupOpen = false}) {
 
     const timezones = timezonesData.timezones;
     const langauges = langaugeData.langauges;
+    const times = timesData.times;
     const [errors, setErrors] = useState({});
 
     useEffect(() => {
@@ -368,15 +370,73 @@ export default function FreeDesignPopup({ onClose ,isPopupOpen = false}) {
                             <label className="block text-left text-sm mb-1">
                                 Select Available Time
                             </label>
-                            <input
+                            {/* <input
                                 type="time"
                                 name="time"
                                 value={formData.time}
                                 onChange={handleChange}
                                 onClick={(e) => e.target.showPicker()}
                                 className={`mt-1 p-2 border border-[#343947] rounded-md w-full bg-[#1C2433] !text-white ${errors.time ? 'border-[#ff0000]' : ''}`}
+                            /> */}
+                            <Select
+                                value={times.find(t => t.value === formData.time)}
+                                onChange={(e) => handleChangeSelect(e, "timezone")}
+                                options={times}
+                                name="time"
+                                classNamePrefix="react-select"
+                                isClearable={true}
+                                styles={{
+                                    control: (provided) => ({
+                                        ...provided,
+                                        backgroundColor: '#1C2433',
+                                        borderColor: errors.time ? 'red' : '#343947',
+                                        borderRadius: '5px',
+                                        color: '#fff',
+                                        padding: '3px',
+                                        textAlign: 'left',
+                                    }),
+                                    menu: (provided) => ({
+                                        ...provided,
+                                        backgroundColor: '#2a3542',
+                                        borderRadius: '5px',
+                                        border: '1px solid #343947',
+                                        color: '#fff',
+                                        zIndex: 9999,
+                                    }),
+                                    menuList: (provided) => ({
+                                        ...provided,
+                                        maxHeight: '200px',
+                                        overflowY: 'auto',
+                                        paddingRight: '10px',
+                                    }),
+                                    option: (provided, state) => ({
+                                        ...provided,
+                                        backgroundColor: state.isSelected ? '#4a5b6e' : 'transparent',
+                                        padding: '10px',
+                                        cursor: 'pointer',
+                                        color: '#fff',
+                                        fontSize: '14px',
+                                        textAlign: 'left',
+                                        transition: 'background-color 0.2s ease, color 0.2s ease',
+                                        '&:hover': {
+                                            backgroundColor: '#4a5b6e',
+                                            color: '#FF6802',
+                                        },
+                                    }),
+                                    singleValue: (provided) => ({
+                                        ...provided,
+                                        color: '#fff',
+                                        textAlign: 'left',
+                                    }),
+                                    input: (provided) => ({
+                                        ...provided,
+                                        color: '#FFFFFF',
+                                    }),
+                                }}
+                                menuPlacement="auto"
                             />
                         </div>
+
                         <div className='mt-4 hidden md:block'>
                             <p className="text-left note-title font-bold"><span className='text-white'>NOTE: </span><span className='text-[#F9ED32]'>WE NEVER SHARE YOUR INFORMATION</span></p>
                         </div>

@@ -1,31 +1,22 @@
 @font-face {
-    font-family: "Countries";
-    src: url("/src/assets/fonts/DupincelSmallTest-SemiBoldItalic.otf") format("truetype");
-}
-
-@font-face {
-    font-family: "Uber";
+    font-family: "why-ecom";
     src: url("/src/assets/fonts/LarkenDEMO-Black.otf") format("opentype");
 }
 
 @font-face {
-    font-family: "Ubercontent";
+    font-family: "ecomcontent";
     src: url("/src/assets/fonts/CraftRounded-Regular.ttf") format("truetype");
 }
 
-.country-names {
-    font-family: "Countries";
+.why-ecom {
+    font-family: "why-ecom";
 }
 
-.uber {
-    font-family: "Uber";
+.ecom-content {
+    font-family: "ecomcontent";
 }
 
-.uber-content {
-    font-family: "Ubercontent";
-}
-
-.section {
+.ecom-section {
     background-color: #1c1c1c;
     color: white;
     border-radius: 15px;
@@ -36,32 +27,32 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.section-left {
+.ecom-section-left {
     display: flex;
     flex-direction: column;
 }
 
-.section-left h3 {
+.ecom-section-left h3 {
     color: #FF6802;
 }
 
-.countries {
+.ecom-points {
     list-style-type: none;
     padding: 0;
     margin: 0;
 }
 
-.countries li {
+.ecom-points li {
     display: flex;
     align-items: center;
 }
 
-.section-right {
+.ecom-section-right {
     display: flex;
     flex-direction: column;
 }
 
-.demo-buttons {
+.ecom-demo-buttons {
     display: flex;
     gap: 15px;
     margin-top: 20px;
@@ -69,7 +60,7 @@
     justify-content: center;
 }
 
-.demo-buttons a {
+.ecom-demo-buttons a {
     text-decoration: none;
     color: white;
     transition: background-color 0.3s;
@@ -78,121 +69,121 @@
     justify-content: center ;
 }
 
-.check-images {
+.ecom-check-images {
     max-width: 100%;
     height: auto;
 }
 
-.rest-demo-grid > div {
+.ecom-demo-grid > div {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
     background: white;
-    padding: 10px;
+    padding: 16px;
     border-radius: 8px;
     height: 100%;
 }
 
 @media (min-width: 300px) {   
-    .rest-scanner-images {
+    .ecom-scanner-images {
         height: 100px ;
     }
 }
 
 @media (min-width: 500px) {   
-    .rest-scanner-images {
+    .ecom-scanner-images {
         height: 130px ;
     }
 }
 
 @media (min-width: 540px) {   
-    .rest-scanner-images {
-        height: 160px ;
-    }
-}
-
-@media (min-width: 580px) {   
-    .rest-scanner-images {
-        height: 180px ;
-    }
-}
-
-@media (min-width: 680px) {   
-    .rest-scanner-images {
-        height: 200px ;
-    }
-}
-
-@media (min-width: 820px) {   
-    .rest-scanner-images {
-        height: 240px ;
-    }
-}
-
-@media (min-width: 930px) {   
-    .rest-scanner-images {
+    .ecom-scanner-images {
         height: 150px ;
     }
 }
 
-@media (min-width: 1200px) {   
-    .rest-scanner-images {
-        height: 160px ;
+@media (min-width: 670px) {   
+    .ecom-scanner-images {
+        height: 170px ;
     }
 }
 
-@media (min-width: 1300px) {   
-    .rest-scanner-images {
+@media (min-width: 740px) {   
+    .ecom-scanner-images {
         height: 190px ;
     }
 }
 
+@media (min-width: 820px) {   
+    .ecom-scanner-images {
+        height: 225px ;
+    }
+}
+
+@media (min-width: 930px) {   
+    .ecom-scanner-images {
+        height: 130px ;
+    }
+}
+
+@media (min-width: 1024px) {   
+    .ecom-scanner-images {
+        height: 140px ;
+    }
+}
+
+@media (min-width: 1200px) {   
+    .ecom-scanner-images {
+        height: 150px ;
+    }
+}
+
+@media (min-width: 1300px) {   
+    .ecom-scanner-images {
+        height: 170px ;
+    }
+}
+
 @media (max-width: 930px) {    
-    .section {
+    .ecom-section {
         flex-direction: column;
         text-align: center;
     }
-    .section-left {
+    .ecom-section-left {
         width: 100%;
         order:2;
         align-items: center;
         justify-content: center;
     }
-    .section-left h3 {
+    .ecom-section-left h3 {
         color: #FF6802;
     }
-    .countries li {
+    .ecom-points li {
         font-size: 20px;
     }
 }
 
 @media (max-width: 830px) {   
-    .countries li {
+    .ecom-points li {
         font-size: 16px;
     }
 }
 
 @media (max-width: 680px) {   
-    .countries li {
+    .ecom-points li {
         font-size: 13px;
     }
 }
 
 @media (max-width: 560px) {   
-    .countries li {
+    .ecom-points li {
         font-size: 18px;
     }
 }
 
-@media (max-width: 400px) {   
-    .countries li {
-        font-size: 12px;
-    }
-}
-
 @media (max-width: 930px) and (min-width: 560px) {
-    .countries {
+    .ecom-points {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 16px;
@@ -200,40 +191,49 @@
 }
 
 @media (max-width: 420px) {    
-    .countries {
+    .ecom-points li {
         display: flex;
+        align-items: center;
         font-size: 14px;
     }
 
-    .demo-buttons a {
+    .ecom-demo-buttons a {
        padding-left: 4px;
        padding-right: 4px;
        width: 100%;
     }
 
-    .arrow-image {
+    .ecom-scan-text {
+        display: none;
+    }
+
+    .ecom-check-app-text {
+        display: inline;
+    }
+
+    .ecom-arrow-image {
         width: 12px;
     }
 
-    .rest-demo-grid > div {
+    .ecom-demo-grid > div {
         padding: 8px;
     }
 }
 
 @media (max-width: 500px) {    
-    .check-images {
+    .ecom-check-images {
         height: 100px ;
     }
-    .rest-demo-grid > div {
+    .ecom-demo-grid > div {
         padding: 8px;
     }
 }
 
-@media (max-width: 350px) { 
-    .section {
+@media (max-width: 335px) { 
+    .ecom-section {
         padding: 8px;
     }   
-    .rest-demo-grid > div {
+    .ecom-demo-grid > div {
         padding: 4px;
     }
 }
