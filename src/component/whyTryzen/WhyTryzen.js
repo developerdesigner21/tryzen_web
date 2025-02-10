@@ -10,6 +10,7 @@ import Footer from "../footer/Footer";
 import './WhyTryzen.css';
 import usePageMeta from '../../usePageMeta';
 import BoostSales from './boostSales/BoostSales';
+import WhyTryzenSection from './whyTryzenSection/WhyTryzenSection';
 
 export default function WhyTryzen() {
     usePageMeta('FREE DESGIN', 'Discover the benefits of partnering with Tryzen Solution. Schedule a free design consultation to see how our services can fill bater to your customers.','Free website demo, FREE Custom Website design');
@@ -34,6 +35,7 @@ export default function WhyTryzen() {
                 <div className="mb-8 md:mb-12 lg:mb-16 xl:mb-20"><BeforeAfter /></div>
                 <div className="mb-8 md:mb-12 lg:mb-16 xl:mb-20"><TryzenTable /></div>
                 <div className="mb-8 md:mb-12 lg:mb-16 xl:mb-20"><Plans /></div>
+                <div className="mb-8 md:mb-12 lg:mb-16 xl:mb-20"><WhyTryzenSection /></div>
                 <div className="mb-8 md:mb-12 lg:mb-16 xl:mb-20"><BoostSales /></div>
             </div>
             <Footer />

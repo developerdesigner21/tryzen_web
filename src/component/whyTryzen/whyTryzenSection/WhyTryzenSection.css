@@ -1,0 +1,198 @@
+@font-face {
+    font-family: "Countries-why";
+    src: url("/src/assets/fonts/DupincelSmallTest-SemiBoldItalic.otf") format("truetype");
+}
+
+@font-face {
+    font-family: "Uber-why";
+    src: url("/src/assets/fonts/LarkenDEMO-Black.otf") format("opentype");
+}
+
+@font-face {
+    font-family: "Ubercontent-why";
+    src: url("/src/assets/fonts/CraftRounded-Regular.ttf") format("truetype");
+}
+
+.country-names-why {
+    font-family: "Countries-why";
+}
+
+.uber-why {
+    font-family: "Uber-why";
+}
+
+.uber-content-why {
+    font-family: "Ubercontent-why";
+}
+
+.section-why {
+    background-color: #1c1c1c;
+    color: white;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.section-why-left {
+    display: flex;
+    flex-direction: column;
+}
+
+.section-why-left h3 {
+    color: #FF6802;
+    margin-bottom: 24px;
+}
+
+.countries-why {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.countries-why li {
+    display: flex;
+    align-items: center;
+}
+
+.section-why-right {
+    display: flex;
+    flex-direction: column;
+}
+
+.demo-buttons-why {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.demo-buttons-why a {
+    text-decoration: none;
+    color: white;
+    transition: background-color 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center ;
+}
+
+.check-images-why {
+    max-width: 100%;
+    height: auto;
+}
+
+.why-demo-grid > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background: white;
+    padding: 10px;
+    border-radius: 8px;
+    height: 100%;
+}
+
+@media (max-width: 930px) {    
+    .section-why {
+        flex-direction: column;
+        text-align: center;
+    }
+    .section-why-left {
+        width: 100%;
+        order:2;
+        align-items: center;
+        justify-content: center;
+    }
+    .section-why-left h3 {
+        color: #FF6802;
+    }
+    .countries-why li {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 860px) {    
+    .countries-why li {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 930px) and (min-width: 700px) {
+    .countries-why {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+}
+
+@media (max-width: 680px) {    
+    .countries-why li {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 440px) {   
+    .countries-why li {
+        display: flex;
+        align-items: center;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 420px) {    
+    .countries-why li {
+        display: flex;
+        align-items: center;
+        font-size: 14px;
+    }
+
+    .demo-buttons-why a {
+       padding-left: 4px;
+       padding-right: 4px;
+       width: 100%;
+    }
+
+    .scan-text-why {
+        display: none;
+    }
+
+    .check-app-text-why {
+        display: inline;
+    }
+
+    .arrow-image-why {
+        width: 12px;
+    }
+
+    .why-demo-grid > div {
+        padding: 8px;
+    }
+}
+
+@media (max-width: 400px) {    
+    .check-images-why {
+        height: 100px ;
+    }
+    .why-demo-grid > div {
+        padding: 8px;
+    }
+    .countries-why li {
+        display: flex;
+        align-items: center;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 335px) {    
+    .why-demo-grid > div {
+        padding: 4px;
+    }
+    .countries-why li {
+        display: flex;
+        align-items: center;
+        font-size: 13px;
+    }
+}
