@@ -47,16 +47,16 @@ export default function Redesign() {
 
                             <ul className="list-none p-0 mb-5 lg:mb-8">
                                 <li className="redesign-content check-list flex items-center text-xl sm:text-sm md:text-lg lg:text-xl xl:text-2xl font-semibold mb-3">
-                                    <img src={require('../../assets/greenCheck.png')} alt="Check" className="w-5 lg:w-7 mr-2.5" /> <p className='font-bold'>100% FREE DESIGNS</p>
+                                    <img src={require('../../assets/greenRight.png')} alt="Check" className="w-5 lg:w-7 mr-2.5" /> <p className='font-bold'>100% FREE DESIGNS</p>
                                 </li>
                                 <li className="redesign-content check-list flex items-center text-xl sm:text-sm md:text-lg lg:text-xl xl:text-2xl mb-3">
-                                    <img src={require('../../assets/greenCheck.png')} alt="Check" className="w-5 lg:w-7 mr-2.5" /> <p>Designs that <strong> drive more sales</strong></p>
+                                    <img src={require('../../assets/greenRight.png')} alt="Check" className="w-5 lg:w-7 mr-2.5" /> <p>Designs that <strong> drive more sales</strong></p>
                                 </li>
                                 <li className="redesign-content check-list flex items-center text-xl sm:text-sm md:text-lg lg:text-xl xl:text-2xl mb-3">
-                                    <img src={require('../../assets/greenCheck.png')} alt="Check" className="w-5 lg:w-7 mr-2.5" /> <p><strong>Proven track record</strong> of clients</p>
+                                    <img src={require('../../assets/greenRight.png')} alt="Check" className="w-5 lg:w-7 mr-2.5" /> <p><strong>Proven track record</strong> of clients</p>
                                 </li>
                                 <li className="redesign-content check-list flex items-center text-xl sm:text-sm md:text-lg lg:text-xl xl:text-2xl mb-3">
-                                    <img src={require('../../assets/greenCheck.png')} alt="Check" className="w-5 lg:w-7 mr-2.5" /> <p><strong>Transform Your Online Presence</strong></p>
+                                    <img src={require('../../assets/greenRight.png')} alt="Check" className="w-5 lg:w-7 mr-2.5" /> <p><strong>Transform Your Online Presence</strong></p>
                                 </li>
                             </ul>
 

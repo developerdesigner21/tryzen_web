@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './TryzenTable.css';
-import GreenCheckIcon from "../../../assets/greenCheck.png";
+import GreenCheckIcon from "../../../assets/greenRight.png";
 import CrossIcon from "../../../assets/redCross.png";
 import TryzenLogo from "../../../assets/trzenTableLogo.png";
 import TryzenSmallLogo from "../../../assets/tryzenSmallLogo.png";
