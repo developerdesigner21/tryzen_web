@@ -10,7 +10,7 @@ import usePageMeta from '../../usePageMeta';
 import WhyCustomNeed from './whyCustomNeed/WhyCustomNeed';
 
 export default function Ecommerce() {
-    usePageMeta('Custom E-commerce Website', 'Create a custom e-commerce website with Tryzen Solution and manage multiple outlets and online orders nationwide without paying commissions to third-party apps. Get a free website demo now','Custom e-commerce development, Online store creation, Commission-free e-commerce platforms, Manage multiple outlets, E-commerce solutions');
+    usePageMeta('Custom Ecommerce', 'Custom e-commerce to manage multiple outlets and online orders nationwide without paying commissions to third-party apps with Tryzen Solution. Get a free website demo now','Custom e-commerce development, Online store creation, Commission-free e-commerce platforms, Manage multiple outlets, E-commerce solutions');
 
     return (
         <div>

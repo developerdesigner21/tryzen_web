@@ -15,7 +15,7 @@ export default function Footer() {
                         />
                     </div>
                     <div className="footer-text mb-4 sm:mb-0">
-                        <p style={{ marginBottom: '4px' }}><Link to="/restaurent" className='footer-content sm:hover:text-[#FF6802]'>Food Delivery Solution</Link></p>
+                        <p style={{ marginBottom: '4px' }}><Link to="/restaurant" className='footer-content sm:hover:text-[#FF6802]'>Food Delivery Solution</Link></p>
                         <p><Link to="/e-commerce" className='footer-content sm:hover:text-[#FF6802]'>Ecommerce Website Development</Link></p>
                     </div>
                 </div>

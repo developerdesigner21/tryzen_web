@@ -13,19 +13,7 @@ import BoostSales from './boostSales/BoostSales';
 import WhyTryzenSection from './whyTryzenSection/WhyTryzenSection';
 
 export default function WhyTryzen() {
-    usePageMeta('FREE DESGIN', 'Discover the benefits of partnering with Tryzen Solution. Schedule a free design consultation to see how our services can fill bater to your customers.','Free website demo, FREE Custom Website design');
-    const [isWideScreen, setIsWideScreen] = useState(false);
-
-    useEffect(() => {
-        const handleResize = () => {
-            setIsWideScreen(window.innerWidth > 1800);
-        };
-        handleResize();
-        window.addEventListener('resize', handleResize);
-        return () => {
-            window.removeEventListener('resize', handleResize);
-        };
-    }, []);
+    usePageMeta('FREE DESIGN', 'Discover the benefits of partnering with Tryzen Solution. Schedule a free design consultation to see how our services can fill bater to your customers.','Free website demo, FREE Custom Website design');
 
     return (
         <div>

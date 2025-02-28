@@ -14,25 +14,6 @@ import petFoodStore from '../../../assets/EcomPETFOODSTORE.webp';
 import mensStore from '../../../assets/EcomMENΓÇÖSSTORE.webp';
 
 export default function ImageScroller() {
-    useEffect(() => {
-        const scrollers = document.querySelectorAll(".scroller");
-
-        if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-            scrollers.forEach((scroller) => {
-                scroller.setAttribute("data-animated", true);
-
-                const scrollerInner = scroller.querySelector(".scroller__inner");
-                const scrollerContent = Array.from(scrollerInner.children);
-
-                scrollerContent.forEach((item) => {
-                    const duplicatedItem = item.cloneNode(true);
-                    // duplicatedItem.setAttribute("aria-hidden", true);
-                    scrollerInner.appendChild(duplicatedItem);
-                });
-            });
-        }
-    }, []);
-
     return (
         <>
             <div class="text-center mb-8 md:mb-10">
@@ -43,26 +24,25 @@ export default function ImageScroller() {
                     Website Designs
                 </h1>
             </div>
-            <div className="scroller" data-direction="left" data-speed="slow">
+            <div className="scroller" data-direction="left">
                 <div className="scroller__inner">
-                    <img src={babyStore} alt="Baby Store" />
-                    <img src={womenStore} alt="CBD Store" />
-                    <img src={costmaticStore} alt="Cosmetic Store" />
-                    <img src={ebikeStore} alt="E-bike Store" />
-                    <img src={fashionStore} alt="Fashion Store" />
-                    <img src={fitnessStore} alt="Fitness Store" />
+                    {[babyStore, womenStore, costmaticStore, ebikeStore, fashionStore, fitnessStore].map((img, i) => (
+                        <img key={i} src={img} alt={`Image ${i}`} />
+                    ))}
+                    {[babyStore, womenStore, costmaticStore, ebikeStore, fashionStore, fitnessStore].map((img, i) => (
+                        <img key={`dup-${i}`} src={img} alt={`Duplicate ${i}`} />
+                    ))}
                 </div>
             </div>
 
-            <div className="scroller" data-direction="right" data-speed="slow">
+            <div className="scroller" data-direction="right">
                 <div className="scroller__inner">
-                    <img src={jewelleryStore} alt="Jewellery Store" />
-                    <img src={beutyStore} alt="Medical Store" />
-                    <img src={womenStore} alt="Women Store" />
-                    <img src={petFoodStore} alt="Restaurant Store" />
-                    <img src={mensStore} alt="Vape Store" />
-                    <img src={fashion} alt="Grocery Store" />
-                    <img src={decoreStore} alt="Decore Store" />
+                    {[jewelleryStore, beutyStore, womenStore, petFoodStore, mensStore, fashion, decoreStore].map((img, i) => (
+                        <img key={i} src={img} alt={`Image ${i}`} />
+                    ))}
+                    {[jewelleryStore, beutyStore, womenStore, petFoodStore, mensStore, fashion, decoreStore].map((img, i) => (
+                        <img key={`dup-${i}`} src={img} alt={`Duplicate ${i}`} />
+                    ))}
                 </div>
             </div>
         </>

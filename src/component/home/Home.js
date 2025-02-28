@@ -11,19 +11,7 @@ import usePageMeta from "../../usePageMeta";
 import HomeWhyTryzen from "./homeWhyTryzen/HomeWhyTryzen";
 
 function Home() {
-    usePageMeta('Tryzen Solution', 'Boost your restaurants online sales with Tryzen Solution, create custom e-commerce website development and manage multiple outlet and online orders across country without paying any commissions to third-party apps. Get a free website demo now','restaurant website design, online order management, food delivery website, custom restaurant websites, commission-free food ordering, multi-outlet management, multi-location store, multi-vendor e-commerce platform, restaurant website  with Tryzen Solution');
-    const [isWideScreen, setIsWideScreen] = useState(false);
-
-    useEffect(() => {
-        const handleResize = () => {
-            setIsWideScreen(window.innerWidth > 1800);
-        };
-        handleResize();
-        window.addEventListener('resize', handleResize);
-        return () => {
-            window.removeEventListener('resize', handleResize);
-        };
-    }, []);
+    usePageMeta('Tryzen Solution', 'Boost your sales with custom Solution, Create a custom e-commerce or food-ordering website to manage multiple outlets and online orders nationwide—without paying commissions to third-party apps. Get a free website demo today! Keywords: restaurant website design, online order management, food delivery website, custom restaurant websites, commission-free food ordering, multi-outlet management, multi-location store, multi-vendor e-commerce platform, restaurant website by Tryzen Solution.');
 
     return (
         <div>

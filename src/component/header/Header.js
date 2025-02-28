@@ -8,18 +8,6 @@ export default function Header() {
     const [sidebarOpen, setSidebarOpen] = useState(false);
     const [isPopupOpen, setIsPopupOpen] = useState(false);
     const location = useLocation();
-    const [isWideScreen, setIsWideScreen] = useState(false);
-
-    useEffect(() => {
-        const handleResize = () => {
-            setIsWideScreen(window.innerWidth > 1800);
-        };
-        handleResize();
-        window.addEventListener('resize', handleResize);
-        return () => {
-            window.removeEventListener('resize', handleResize);
-        };
-    }, []);
 
     const toggleSidebar = () => {
         setSidebarOpen(!sidebarOpen);
@@ -52,7 +40,7 @@ export default function Header() {
 
                 <div id="nav-menu" className="flex hidden lg:flex lg:gap-6 xl:gap-12">
                     <Link to='/' className={`headers-title font-semibold hover:text-[#FF6802] xl:text-lg cursor-pointer ${isActive('/')}`}>Home</Link>
-                    <Link to='/restaurent' className={`headers-title font-semibold hover:text-[#FF6802] xl:text-lg cursor-pointer ${isActive('/restaurent')}`}>Restaurant</Link>
+                    <Link to='/restaurant' className={`headers-title font-semibold hover:text-[#FF6802] xl:text-lg cursor-pointer ${isActive('/restaurant')}`}>Restaurant</Link>
                     <Link to='/e-commerce' className={`headers-title font-semibold hover:text-[#FF6802] xl:text-lg cursor-pointer ${isActive('/e-commerce')}`}>E-Commerce</Link>
                     <Link to='/whyTryzen' className={`headers-title font-semibold hover:text-[#FF6802] xl:text-lg cursor-pointer ${isActive('/whyTryzen')}`}>Why This Solution?</Link>
                     {/* <Link to='/blogs' className={`headers-title font-semibold hover:text-[#FF6802] xl:text-lg cursor-pointer ${isActive('/blogs')}`}>Blogs</Link> */}
@@ -100,7 +88,7 @@ export default function Header() {
                             <Link to="/" className={`headers-title font-semibold xl:text-lg cursor-pointer ${isActive('/')}`} onClick={toggleSidebar}>
                                 Home
                             </Link>
-                            <Link to="/restaurent" className={`headers-title font-semibold xl:text-lg cursor-pointer ${isActive('/restaurent')}`} onClick={toggleSidebar}>
+                            <Link to="/restaurant" className={`headers-title font-semibold xl:text-lg cursor-pointer ${isActive('/restaurant')}`} onClick={toggleSidebar}>
                                 Restaurant
                             </Link>
                             <Link to="/e-commerce" className={`headers-title font-semibold xl:text-lg cursor-pointer ${isActive('/e-commerce')}`} onClick={toggleSidebar}>

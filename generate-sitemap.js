@@ -11,7 +11,7 @@ const routes = [
     { path: '/', lastmod: getCurrentDateISO(), changefreq: 'daily', priority: 1.0 },
     { path: '/e-commerce', lastmod: getCurrentDateISO(), changefreq: 'daily', priority: 1.0 },
     { path: '/whyTryzen', lastmod: getCurrentDateISO(), changefreq: 'daily', priority: 1.0 },
-    { path: '/restaurent', lastmod: getCurrentDateISO(), changefreq: 'daily', priority: 1.0 },
+    { path: '/restaurant', lastmod: getCurrentDateISO(), changefreq: 'daily', priority: 1.0 },
 ];
 
 // Function to generate the XML content
