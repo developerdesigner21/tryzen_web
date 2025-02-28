@@ -8,13 +8,13 @@ export default function HomeWhyTryzen() {
                 <div className="section-home-left md:w-2/3">
                     <h3 className='uber-home text-lg lg:text-xl xl:text-3xl mb-1 lg:mb-3'>WHY TRYZEN SOLUTION</h3>
                     <ul className="countries-home uber-content-home flex flex-col gap-2 lg:gap-4 xl:gap-6">
-                        <li className='text-lg lg:text-xl xl:text-2xl 2xl:text-3xl'><img src={require('../../../assets/greenRight.png')} alt="Mexico" className='w-5 h-5 lg:w-7 lg:h-7 mr-2' />Ready to deliver immediate results.</li>
-                        <li className='text-lg lg:text-xl xl:text-2xl 2xl:text-3xl'><img src={require('../../../assets/greenRight.png')} alt="Spain" className='w-5 h-5 lg:w-7 lg:h-7 mr-2' />Flexibility with NO long-term contracts</li>
-                        <li className='text-lg lg:text-xl xl:text-2xl 2xl:text-3xl'><img src={require('../../../assets/greenRight.png')} alt="Canada" className='w-5 h-5 lg:w-7 lg:h-7 mr-2' />Custom strategies to grow your business.</li>
-                        <li className='text-lg lg:text-xl xl:text-2xl 2xl:text-3xl'><img src={require('../../../assets/greenRight.png')} alt="United Kingdom" className='w-5 h-5 lg:w-7 lg:h-7 mr-2' />Weekly updates without follow-up.</li>
-                        <li className='text-lg lg:text-xl xl:text-2xl 2xl:text-3xl'><img src={require('../../../assets/greenRight.png')} alt="Australia" className='w-5 h-5 lg:w-7 lg:h-7 mr-2' />Designs that convert visiter to buyer</li>
-                        <li className='text-lg lg:text-xl xl:text-2xl 2xl:text-3xl'><img src={require('../../../assets/greenRight.png')} alt="Germany" className='w-5 h-5 lg:w-7 lg:h-7 mr-2' />Launch services in 10 Days</li>
-                        <li className='text-lg lg:text-xl xl:text-2xl 2xl:text-3xl'><img src={require('../../../assets/greenRight.png')} alt="Netherlands" className='w-5 h-5 lg:w-7 lg:h-7 mr-2' />100 Days guaranteed Results </li>
+                        <li className='text-lg lg:text-xl xl:text-2xl'><img src={require('../../../assets/greenRight.png')} alt="Mexico" className='w-5 h-5 lg:w-7 lg:h-7 mr-2' />Ready to deliver immediate results.</li>
+                        <li className='text-lg lg:text-xl xl:text-2xl'><img src={require('../../../assets/greenRight.png')} alt="Spain" className='w-5 h-5 lg:w-7 lg:h-7 mr-2' />Flexibility with NO long-term contracts</li>
+                        <li className='text-lg lg:text-xl xl:text-2xl'><img src={require('../../../assets/greenRight.png')} alt="Canada" className='w-5 h-5 lg:w-7 lg:h-7 mr-2' />Custom strategies to grow your business.</li>
+                        <li className='text-lg lg:text-xl xl:text-2xl'><img src={require('../../../assets/greenRight.png')} alt="United Kingdom" className='w-5 h-5 lg:w-7 lg:h-7 mr-2' />Weekly updates without follow-up.</li>
+                        <li className='text-lg lg:text-xl xl:text-2xl'><img src={require('../../../assets/greenRight.png')} alt="Australia" className='w-5 h-5 lg:w-7 lg:h-7 mr-2' />Designs that convert visiter to buyer</li>
+                        <li className='text-lg lg:text-xl xl:text-2xl'><img src={require('../../../assets/greenRight.png')} alt="Germany" className='w-5 h-5 lg:w-7 lg:h-7 mr-2' />Launch services in 10 Days</li>
+                        <li className='text-lg lg:text-xl xl:text-2xl'><img src={require('../../../assets/greenRight.png')} alt="Netherlands" className='w-5 h-5 lg:w-7 lg:h-7 mr-2' />100 Days guaranteed Results </li>
                     </ul>
                 </div>
                 <div className="section-home-right justify-between">

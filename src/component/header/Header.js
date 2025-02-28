@@ -37,7 +37,7 @@ export default function Header() {
 
     return (
         <div className="fixed top-0 left-0 right-0 z-50 bg-white border-b px-2 md:px-6 lg:px-10 xl:px-12">
-            <div className={`bg-transparent py-3 flex justify-between items-center ${isWideScreen ? 'responsive-container' : ''}`}>
+            <div className={`bg-transparent py-3 flex justify-between items-center responsive-container`}>
                 <button className="p-2 lg:hidden" onClick={toggleSidebar}>
                     <i className={`fa-solid ${sidebarOpen ? 'fa-times' : 'fa-bars'} text-gray-600`}></i>
                 </button>

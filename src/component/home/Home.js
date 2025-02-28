@@ -28,7 +28,7 @@ function Home() {
     return (
         <div>
             <Header />
-            <div className={`px-2 md:px-6 lg:px-10 xl:px-12 pt-16 ${isWideScreen ? 'responsive-container' : ''}`}>
+            <div className={`px-2 md:px-6 lg:px-10 xl:px-12 pt-16 responsive-container`}>
                 <div className="mb-8 md:mb-12 lg:mb-16 xl:mb-20"><IntroSection /></div>
                 <div className="mb-8 md:mb-12 lg:mb-16 xl:mb-20"><Features /></div>
                 <div className="mb-8 md:mb-12 lg:mb-16 xl:mb-20"><Redesign /></div>

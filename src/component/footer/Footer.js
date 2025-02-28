@@ -3,22 +3,9 @@ import './Footer.css';
 import { Link } from 'react-router-dom';
 
 export default function Footer() {
-    const [isWideScreen, setIsWideScreen] = useState(false);
-
-    useEffect(() => {
-        const handleResize = () => {
-            setIsWideScreen(window.innerWidth > 1800);
-        };
-        handleResize();
-        window.addEventListener('resize', handleResize);
-        return () => {
-            window.removeEventListener('resize', handleResize);
-        };
-    }, []);
-
     return (
         <div style={{ backgroundColor: "#f8f9fa" }} className='px-2 md:px-6 lg:px-10 xl:px-12'>
-            <div className={`footer justify-between ${isWideScreen ? 'responsive-container' : ''}`}>
+            <div className={`footer justify-between responsive-container`}>
                 <div className='lg:flex lg:flex-row items-center'>
                     <div className="footer-left mb-2 lg:mb-0">
                         <img
