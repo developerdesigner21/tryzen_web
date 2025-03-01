@@ -1,11 +1,12 @@
 import * as React from "react";
 const LoadingIcon = (props) => (
   <svg
-    className="w-[75vw] sm:w-[50vw] lg:w-[25vw] h-auto"
+    className="w-full max-w-[75vw] sm:max-w-[50vw] lg:max-w-[25vw] h-auto"
     viewBox="0 0 512 175"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
     xmlnsXlink="http://www.w3.org/1999/xlink"
+    style={{transform:"translateZ(0)", willChange:"transform"}}
     {...props}
   >
     <g clipPath="url(#clip0_365_191)">
