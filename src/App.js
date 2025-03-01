@@ -15,10 +15,21 @@ function ScrollToTop() {
 }
 
 function LoadingScreen() {
+  const [isWebkit, setIsWebkit] = useState(false);
+
+  useEffect(() => {
+    const userAgent = navigator.userAgent.toLowerCase();
+    if (userAgent.includes("safari") && !userAgent.includes("chrome")) {
+      setIsWebkit(true);
+    } else if (userAgent.includes("iphone") || userAgent.includes("ipad")) {
+      setIsWebkit(true);
+    }
+  }, []);
+
   return (
     <div className="loading-screen">
       <div className="img-dots-container w-full max-w-[75%] sm:max-w-[50%] lg:max-w-[25%] h-auto mb-16">
-        <LoadingIcon />
+        <LoadingIcon key={isWebkit ? "webkit-fix" : "default"} />
         <div className="loading-dots">
           <span className="dot"></span>
           <span className="dot"></span>
