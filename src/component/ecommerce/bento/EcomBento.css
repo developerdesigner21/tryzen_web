@@ -1,11 +1,5 @@
-
-@font-face {
-    font-family: "our-web";
-    src: url("/src/assets/fonts/LarkenDEMO-Black.otf") format("opentype");
-}
-
 .bento-title {
-    font-family: 'our-web';
+    font-family: 'LarkenDEMO-Black';
 }
 
 .ecomgrid-container {

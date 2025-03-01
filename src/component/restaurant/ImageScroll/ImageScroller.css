@@ -1,20 +1,10 @@
-@font-face {
-    font-family: "our-website";
-    src: url("/src/assets/fonts/LarkenDEMO-Black.otf") format("opentype");
-}
-
-@font-face {
-    font-family: "websiteDesign";
-    src: url("/src/assets/fonts/DupincelSmallTest-SemiBoldItalic.otf") format("opentype");
-}
-
 .our-food {
     color: #FF6802;
-    font-family: "our-website";
+    font-family: "LarkenDEMO-Black";
 }
 
 .website-design {
-    font-family: "websiteDesign";
+    font-family: "DupincelSmallTest-SemiBoldItalic";
 }
 
 .scroller {

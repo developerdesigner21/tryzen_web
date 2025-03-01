@@ -1,19 +1,9 @@
-@font-face {
-    font-family: "why-ecom";
-    src: url("/src/assets/fonts/LarkenDEMO-Black.otf") format("opentype");
-}
-
-@font-face {
-    font-family: "ecomcontent";
-    src: url("/src/assets/fonts/CraftRounded-Regular.ttf") format("truetype");
-}
-
 .why-ecom {
-    font-family: "why-ecom";
+    font-family: "LarkenDEMO-Black";
 }
 
 .ecom-content {
-    font-family: "ecomcontent";
+    font-family: "CraftRounded-Regular";
 }
 
 .ecom-section {

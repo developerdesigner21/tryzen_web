@@ -1,10 +1,5 @@
-@font-face {
-    font-family: "redesignContent";
-    src: url("/src/assets/fonts/CraftRounded-Regular.ttf") format("truetype");
-}
-
 .redesign-content {
-    font-family: "redesignContent";
+    font-family: "CraftRounded-Regular";
 }
 
 .home-redesign-container {

@@ -1,28 +1,13 @@
-@font-face {
-    font-family: "Countries-why";
-    src: url("/src/assets/fonts/DupincelSmallTest-SemiBoldItalic.otf") format("truetype");
-}
-
-@font-face {
-    font-family: "Uber-why";
-    src: url("/src/assets/fonts/LarkenDEMO-Black.otf") format("opentype");
-}
-
-@font-face {
-    font-family: "Ubercontent-why";
-    src: url("/src/assets/fonts/CraftRounded-Regular.ttf") format("truetype");
-}
-
 .country-names-why {
-    font-family: "Countries-why";
+    font-family: "DupincelSmallTest-SemiBoldItalic";
 }
 
 .uber-why {
-    font-family: "Uber-why";
+    font-family: "LarkenDEMO-Black";
 }
 
 .uber-content-why {
-    font-family: "Ubercontent-why";
+    font-family: "CraftRounded-Regular";
 }
 
 .section-why {

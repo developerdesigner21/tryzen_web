@@ -1,19 +1,9 @@
-@font-face {
-    font-family: "headers";
-    src: url("/src/assets/fonts/CraftRounded-Regular.ttf") format("truetype");
-}
-
-@font-face {
-    font-family: "buttonContent";
-    src: url("/src/assets/fonts/CraftRounded-Regular.ttf") format("truetype");
-}
-
 .free-design-btn {
-    font-family: "buttonContent";
+    font-family: "CraftRounded-Regular";
 }
 
 .headers-title {
-    font-family: "headers";
+    font-family: "CraftRounded-Regular";
 }
 
 @media (max-width: 380px) {

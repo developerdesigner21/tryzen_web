@@ -1,28 +1,13 @@
-@font-face {
-    font-family: "Countries";
-    src: url("/src/assets/fonts/DupincelSmallTest-SemiBoldItalic.otf") format("truetype");
-}
-
-@font-face {
-    font-family: "Uber";
-    src: url("/src/assets/fonts/LarkenDEMO-Black.otf") format("opentype");
-}
-
-@font-face {
-    font-family: "Ubercontent";
-    src: url("/src/assets/fonts/CraftRounded-Regular.ttf") format("truetype");
-}
-
 .country-names {
-    font-family: "Countries";
+    font-family: "DupincelSmallTest-SemiBoldItalic";
 }
 
 .uber {
-    font-family: "Uber";
+    font-family: "LarkenDEMO-Black";
 }
 
 .uber-content {
-    font-family: "Ubercontent";
+    font-family: "CraftRounded-Regular";
 }
 
 .section {

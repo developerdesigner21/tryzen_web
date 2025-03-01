@@ -1,30 +1,15 @@
-@font-face {
-    font-family: "title-font";
-    src: url("/src/assets/fonts/LarkenDEMO-Black.otf") format("opentype");
-}
-
-@font-face {
-    font-family: "subtitle-font";
-    src: url("/src/assets/fonts/DupincelSmallTest-SemiBoldItalic.otf") format("opentype");
-}
-
-@font-face {
-    font-family: "table-content";
-    src: url("/src/assets/fonts/CraftRounded-Regular.ttf") format("truetype");
-}
-
 .table-content {
-    font-family: "table-content";
+    font-family: "CraftRounded-Regular";
 }
 
 .tryzen-title {
-    font-family: "title-font";
+    font-family: "LarkenDEMO-Black";
     color: #FF6802;
     text-align: center;
 }
 
 .subtitle {
-    font-family: "subtitle-font";
+    font-family: "DupincelSmallTest-SemiBoldItalic";
     color: #FFFFFF;
     text-align: center;
 }
@@ -149,7 +134,7 @@
     display: block;
     font-size: 16px;
     font-weight: bold;
-    font-family: "title-font";
+    font-family: "LarkenDEMO-Black";
 }
 
 .platform-header p {

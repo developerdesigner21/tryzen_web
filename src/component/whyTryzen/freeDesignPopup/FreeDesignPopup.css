@@ -1,34 +1,14 @@
-@font-face {
-    font-family: "CustomWebDesign";
-    src: url("/src/assets/fonts/LarkenDEMO-Black.otf") format("opentype");
-}
-
-@font-face {
-    font-family: "RestEcom";
-    src: url("/src/assets/fonts/DupincelSmallTest-SemiBoldItalic.otf") format("opentype");
-}
-
-@font-face {
-    font-family: "NoteTitle";
-    src: url("/src/assets/fonts/LarkenDEMO-Black.otf") format("opentype");
-}
-
-@font-face {
-    font-family: "popup-content";
-    src: url("/src/assets/fonts/CraftRounded-Regular.ttf") format("truetype");
-}
-
 .popup-content {
-    font-family: "popup-content";
+    font-family: "CraftRounded-Regular";
 }
 
 .custom-web-design {
-    font-family: "CustomWebDesign";
+    font-family: "LarkenDEMO-Black";
     color: #FF6802;
 }
 
 .rest-ecom {
-    font-family: "businessNeed";
+    font-family: "DupincelSmallTest-SemiBoldItalic";
     color: white;
 }
 

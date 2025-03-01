@@ -1,10 +1,5 @@
-@font-face {
-    font-family: "our-web";
-    src: url("/src/assets/fonts/LarkenDEMO-Black.otf") format("opentype");
-}
-
 .restbento-title {
-    font-family: 'our-web';
+    font-family: 'LarkenDEMO-Black';
     color: #0F54FF;
 }
 

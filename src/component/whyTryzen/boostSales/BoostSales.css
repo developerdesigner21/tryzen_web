@@ -1,10 +1,5 @@
-@font-face {
-    font-family: "BoostContent";
-    src: url("/src/assets/fonts/CraftRounded-Regular.ttf") format("truetype");
-}
-
 .boost-content {
-    font-family: "BoostContent";
+    font-family: "CraftRounded-Regular";
 }
 
 .boost-sales-container {

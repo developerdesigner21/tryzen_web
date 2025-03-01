@@ -39,33 +39,12 @@
     cursor: pointer;
 }
 
-
-@font-face {
-    font-family: "Header";
-    src: url("/src/assets/fonts/DupincelMediumTest-BoldItalic.otf") format("opentype");
-}
-
-@font-face {
-    font-family: "SubTitle";
-    src: url("/src/assets/fonts/LarkenDEMO-Black.otf") format("opentype");
-}
-
-@font-face {
-    font-family: "customWebApp";
-    src: url("/src/assets/fonts/CraftRounded-Regular.ttf") format("truetype");
-}
-
-@font-face {
-    font-family: "EcomRestaurant";
-    src: url("/src/assets/fonts/CraftRounded-Bold.ttf") format("truetype");
-}
-
 .header-title {
-    font-family: "Header";
+    font-family: "DupincelSmallTest-SemiBoldItalic";
 }
 
 .sub-title {
-    font-family: 'SubTitle', sans-serif;
+    font-family: 'LarkenDEMO-Black', sans-serif;
 }
 
 @media (max-width: 360px) {

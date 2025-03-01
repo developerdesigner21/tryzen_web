@@ -1,24 +1,9 @@
-@font-face {
-    font-family: "convertTitle";
-    src: url("/src/assets/fonts/LarkenDEMO-Black.otf") format("opentype");
-}
-
-@font-face {
-    font-family: "buyers";
-    src: url("/src/assets/fonts/DupincelSmallTest-SemiBoldItalic.otf") format("opentype");
-}
-
-@font-face {
-    font-family: "EasyCheckout";
-    src: url("/src/assets/fonts/CraftRounded-Bold.ttf") format("truetype");
-}
-
 .easy-checkout-button {
-    font-family: "EasyCheckout";
+    font-family: "CraftRounded-Bold";
 }
 
 .into-buyers {
-    font-family: "buyers";
+    font-family: "DupincelSmallTest-SemiBoldItalic";
     margin: 0;
     color: #00A963;
 }
@@ -28,7 +13,7 @@
 }
 
 .convert-title {
-    font-family: "convertTitle";
+    font-family: "LarkenDEMO-Black";
     text-transform: uppercase;
     margin: 0;
     color: #000;

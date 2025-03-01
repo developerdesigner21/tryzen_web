@@ -1,29 +1,14 @@
-@font-face {
-    font-family: "plan";
-    src: url("/src/assets/fonts/LarkenDEMO-Black.otf") format("opentype");
-}
-
-@font-face {
-    font-family: "plansContent";
-    src: url("/src/assets/fonts/CraftRounded-Regular.ttf") format("truetype");
-}
-
-@font-face {
-    font-family: "businessNeed";
-    src: url("/src/assets/fonts/DupincelSmallTest-SemiBoldItalic.otf") format("opentype");
-}
-
 .plan {
-    font-family: "plan";
+    font-family: "LarkenDEMO-Black";
     color: #0F54FF;
 }
 
 .business-need {
-    font-family: "businessNeed";
+    font-family: "DupincelSmallTest-SemiBoldItalic";
 }
 
 .plan-content {
-    font-family: "plansContent";
+    font-family: "CraftRounded-Regular";
 }
 
 .plans-section {

@@ -1,42 +1,22 @@
-@font-face {
-    font-family: "Achieve";
-    src: url("/src/assets/fonts/LarkenDEMO-Black.otf") format("opentype");
-}
-
-@font-face {
-    font-family: "Profit";
-    src: url("/src/assets/fonts/DupincelSmallTest-SemiBoldItalic.otf") format("opentype");
-}
-
-@font-face {
-    font-family: "homeDescription";
-    src: url("/src/assets/fonts/LarkenDEMO-Black.otf") format("opentype");
-}
-
-@font-face {
-    font-family: "content";
-    src: url("/src/assets/fonts/CraftRounded-Regular.ttf") format("truetype");
-}
-
 .intro-container {
     text-align: center;
 }
 
 .achieve-title {
-    font-family: "Achieve";
+    font-family: "LarkenDEMO-Black";
     text-transform: uppercase;
     margin: 0;
     color: #000;
 }
 
 .profit-title {
-    font-family: "Profit";
+    font-family: "DupincelSmallTest-SemiBoldItalic";
     margin: 0;
     color: #00A963;
 }
 
 .home-description-text {
-    font-family: "homeDescription";
+    font-family: "LarkenDEMO-Black";
 }
 
 .ecom-Restaurant {
@@ -103,7 +83,7 @@
     color: white;
     border: none;
     cursor: pointer;
-    font-family: "content";
+    font-family: "CraftRounded-Regular";
 }
 
 .info-box:nth-child(2) .info-button {

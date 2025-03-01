@@ -79,3 +79,28 @@
     opacity: 0.6;
   }
 }
+
+@font-face {
+  font-family: "LarkenDEMO-Black";
+  src: url("/src/assets/fonts/LarkenDEMO-Black.woff2") format("opentype");
+}
+
+@font-face {
+  font-family: "LarkenDEMO-Medium";
+  src: url("/src/assets/fonts/LarkenDEMO-Medium.woff2") format("opentype");
+}
+
+@font-face {
+  font-family: "DupincelSmallTest-SemiBoldItalic";
+  src: url("/src/assets/fonts/DupincelSmallTest-SemiBoldItalic.woff2") format("opentype");
+}
+
+@font-face {
+  font-family: "CraftRounded-Regular";
+  src: url("/src/assets/fonts/CraftRounded-Regular.woff2") format("truetype");
+}
+
+@font-face {
+  font-family: "CraftRounded-Bold";
+  src: url("/src/assets/fonts/CraftRounded-Bold.woff2") format("truetype");
+}

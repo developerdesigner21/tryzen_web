@@ -1,34 +1,14 @@
-@font-face {
-    font-family: "UberService";
-    src: url("/src/assets/fonts/LarkenDEMO-Black.otf") format("opentype");
-}
-
-@font-face {
-    font-family: "successStory";
-    src: url("/src/assets/fonts/DupincelSmallTest-SemiBoldItalic.otf") format("opentype");
-}
-
-@font-face {
-    font-family: "story-title";
-    src: url("/src/assets/fonts/LarkenDEMO-Medium.otf") format("opentype");
-}
-
-@font-face {
-    font-family: "story-content";
-    src: url("/src/assets/fonts/CraftRounded-Regular.ttf") format("truetype");
-}
-
 .uber-service {
-    font-family: "UberService";
+    font-family: "LarkenDEMO-Black";
     color: #FF6802;
 }
 
 .success-story {
-    font-family: "successStory";
+    font-family: "DupincelSmallTest-SemiBoldItalic";
 }
 
 .story-content {
-    font-family: "story-content";
+    font-family: "CraftRounded-Regular";
 }
 
 .story-container {
@@ -99,7 +79,7 @@
     align-items: center;
     font-weight: bold;
     cursor: pointer;
-    font-family: "story-title";
+    font-family: "LarkenDEMO-Medium";
 }
 
 .dropdown-header.active {

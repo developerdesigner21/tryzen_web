@@ -1,28 +1,13 @@
-@font-face {
-    font-family: "Countries-home";
-    src: url("/src/assets/fonts/DupincelSmallTest-SemiBoldItalic.otf") format("truetype");
-}
-
-@font-face {
-    font-family: "Uber-home";
-    src: url("/src/assets/fonts/LarkenDEMO-Black.otf") format("opentype");
-}
-
-@font-face {
-    font-family: "Ubercontent-home";
-    src: url("/src/assets/fonts/CraftRounded-Regular.ttf") format("truetype");
-}
-
 .country-names-home {
-    font-family: "Countries-home";
+    font-family: "DupincelSmallTest-SemiBoldItalic";
 }
 
 .uber-home {
-    font-family: "Uber-home";
+    font-family: "LarkenDEMO-Black";
 }
 
 .uber-content-home {
-    font-family: "Ubercontent-home";
+    font-family: "CraftRounded-Regular";
 }
 
 .section-home {

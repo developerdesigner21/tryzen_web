@@ -1,10 +1,5 @@
-@font-face {
-    font-family: "PricingContent";
-    src: url("/src/assets/fonts/CraftRounded-Regular.ttf") format("truetype");
-}
-
 .pricing-content {
-    font-family: "PricingContent";
+    font-family: "CraftRounded-Regular";
 }
 
 .grid-sections {

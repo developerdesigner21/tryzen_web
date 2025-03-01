@@ -1,20 +1,10 @@
-@font-face {
-    font-family: "growth";
-    src: url("/src/assets/fonts/LarkenDEMO-Black.otf") format("opentype");
-}
-
-@font-face {
-    font-family: "ecomm-rest";
-    src: url("/src/assets/fonts/DupincelSmallTest-SemiBoldItalic.otf") format("opentype");
-}
-
 .growth-title {
     color: #0F54FF;
-    font-family: "growth";
+    font-family: "LarkenDEMO-Black";
 }
 
 .ecomm-rest {
-    font-family: "ecomm-rest";
+    font-family: "DupincelSmallTest-SemiBoldItalic";
 }
 
 .before-after-container {

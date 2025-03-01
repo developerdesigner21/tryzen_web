@@ -1,42 +1,22 @@
-@font-face {
-    font-family: "GoBeyond";
-    src: url("/src/assets/fonts/LarkenDEMO-Black.otf") format("opentype");
-}
-
-@font-face {
-    font-family: "cms-title";
-    src: url("/src/assets/fonts/DupincelSmallTest-SemiBoldItalic.otf") format("opentype");
-}
-
-@font-face {
-    font-family: "customWebApp";
-    src: url("/src/assets/fonts/CraftRounded-Regular.ttf") format("truetype");
-}
-
-@font-face {
-    font-family: "Bold-title";
-    src: url("/src/assets/fonts/CraftRounded-Bold.ttf") format("truetype");
-}
-
 .intro-container {
     text-align: center;
 }
 
 .cms-title {
-    font-family: "GoBeyond";
+    font-family: "LarkenDEMO-Black";
 }
 
 .main-sub-title {
-    font-family: "GoBeyond";
+    font-family: "LarkenDEMO-Black";
     color: black;
 }
 
 .ecom-description-text {
-    font-family: "GoBeyond";
+    font-family: "LarkenDEMO-Black";
 }
 
 .bold-title {
-    font-family: "Bold-title";
+    font-family: "CraftRounded-Bold";
 }
 
 .logos {

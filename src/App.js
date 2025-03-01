@@ -64,39 +64,42 @@ function App() {
     loadPage();
   }, []);
 
-  if (!isPageLoaded) {
-    return <LoadingScreen />;
-  }
-
   return (
-    <Router>
-      <ScrollToTop />
-      <Suspense fallback={<LoadingScreen />}>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          {/* <Route path="/order-blog" element={<OrderBlog />} />
-          <Route path="/increase-sales" element={<IncreaseSales />} />
-           <Route path="/enhance-order" element={<EnhanceOrder />} />
-           <Route path="/grow-offline" element={<GrowOffline />} />
-           <Route path="/online-ordering" element={<OnlineOrdering />} />
-           <Route path="/plateform" element={<Plateform />} />
-           <Route path="/optimize-operation" element={<OptimizeOperation />} />
-           <Route path="/ensure-consistency" element={<EnsureConsistency />} />
-           <Route path="/brand-experience" element={<BrandExperience />} />
-           <Route path="/brand-journey" element={<BrandJourney />} />
-           <Route path="/future-shaping" element={<FutureShaping />} />
-           <Route path="/online-shift" element={<OnlineShift />} />
-           <Route path="/online-reputation" element={<OnlineReputation />} />
-           <Route path="/restaurant-rank" element={<RestaurantRank />} />
-           <Route path="/seo-mistakes" element={<SeoMistakes />} /> */}
-           <Route path="/restaurant" element={<Restaurant />} />
-           <Route path="/e-commerce" element={<Ecommerce />} />
-           <Route path="/whyTryzen" element={<WhyTryzen />} />
-           {/* <Route path="/blogs" element={<Blogs />} /> */}
-           <Route path="*" element={<Navigate to="/" replace />} />
-        </Routes>
-      </Suspense>
-    </Router>
+    <>
+      <div style={{display:isPageLoaded?'none':'block'}}>
+        <LoadingScreen />
+      </div>
+      <div style={{display:!isPageLoaded?'none':'block'}}>
+        <Router>
+          <ScrollToTop />
+          <Suspense fallback={<LoadingScreen />}>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              {/* <Route path="/order-blog" element={<OrderBlog />} />
+              <Route path="/increase-sales" element={<IncreaseSales />} />
+              <Route path="/enhance-order" element={<EnhanceOrder />} />
+              <Route path="/grow-offline" element={<GrowOffline />} />
+              <Route path="/online-ordering" element={<OnlineOrdering />} />
+              <Route path="/plateform" element={<Plateform />} />
+              <Route path="/optimize-operation" element={<OptimizeOperation />} />
+              <Route path="/ensure-consistency" element={<EnsureConsistency />} />
+              <Route path="/brand-experience" element={<BrandExperience />} />
+              <Route path="/brand-journey" element={<BrandJourney />} />
+              <Route path="/future-shaping" element={<FutureShaping />} />
+              <Route path="/online-shift" element={<OnlineShift />} />
+              <Route path="/online-reputation" element={<OnlineReputation />} />
+              <Route path="/restaurant-rank" element={<RestaurantRank />} />
+              <Route path="/seo-mistakes" element={<SeoMistakes />} /> */}
+              <Route path="/restaurant" element={<Restaurant />} />
+              <Route path="/e-commerce" element={<Ecommerce />} />
+              <Route path="/whyTryzen" element={<WhyTryzen />} />
+              {/* <Route path="/blogs" element={<Blogs />} /> */}
+              <Route path="*" element={<Navigate to="/" replace />} />
+            </Routes>
+          </Suspense>
+        </Router>
+      </div>
+    </>
   );
 }
 
