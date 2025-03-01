@@ -104,7 +104,7 @@ function App() {
 
   return (
     <>
-      <div style={{display:isPageLoaded?'none':'block'}}>
+      <div style={{display:isPageLoaded?'none':''}}>
         <LoadingScreen />
       </div>
       <div style={{display:!isPageLoaded?'none':'block'}}>

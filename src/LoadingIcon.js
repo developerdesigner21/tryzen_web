@@ -5,7 +5,6 @@ const LoadingIcon = (props) => (
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
     xmlnsXlink="http://www.w3.org/1999/xlink"
-    style={{transform:"translateZ(0)", willChange:"transform"}}
     {...props}
   >
     <g clipPath="url(#clip0_365_191)">
