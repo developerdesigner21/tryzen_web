@@ -17,7 +17,7 @@ function ScrollToTop() {
 function LoadingScreen() {
   return (
     <div className="loading-screen">
-      <div className="img-dots-container w-full max-w-[75vw] sm:max-w-[50vw] lg:max-w-[25vw] h-auto mb-16">
+      <div className="img-dots-container w-full max-w-[75%] sm:max-w-[50%] lg:max-w-[25%] h-auto mb-16">
         <LoadingIcon />
         <div className="loading-dots">
           <span className="dot"></span>
