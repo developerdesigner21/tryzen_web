@@ -55,13 +55,51 @@ const WhyTryzen = React.lazy(() => import("./component/whyTryzen/WhyTryzen"));
 function App() {
   const [isPageLoaded, setIsPageLoaded] = useState(false);
 
+  // useEffect(() => {
+  //   const loadPage = async () => {
+  //     await new Promise((resolve) => setTimeout(resolve, 3000)); // Simulate loading delay
+  //     setIsPageLoaded(true);
+  //   };
+
+  //   loadPage();
+  // }, []);
+
+  const imagePaths = [
+    require('./assets/ecommerce.webp'),
+    require('./assets/restaurent.webp'),
+    require('./assets/ecomFashion.webp'),
+    require('./assets/ecomAppliances.webp'),
+    require('./assets/ecomHomedecore.webp'),
+    require('./assets/ecomSmartDeice.webp'),
+    require('./assets/why1.webp'),
+    require('./assets/why2.webp'),
+    require('./assets/why3.webp'),
+    require('./assets/why4.webp'),
+    require('./assets/redesignBGStroke.webp'),
+    require('./assets/resStep-1.gif'),
+    require('./assets/resStep-2.gif'),
+    require('./assets/resStep-3.gif'),
+    require('./assets/resStep-4.gif'),
+  ];
+
   useEffect(() => {
-    const loadPage = async () => {
-      await new Promise((resolve) => setTimeout(resolve, 3000)); // Simulate loading delay
-      setIsPageLoaded(true);
+    let loadedImages = 0;
+
+    const loadImage = (src) => {
+      return new Promise((resolve) => {
+        const img = new Image();
+        img.src = src;
+        img.onload = () => {
+          loadedImages++;
+          if (loadedImages === imagePaths.length) {
+            setIsPageLoaded(true);
+          }
+          resolve();
+        };
+      });
     };
 
-    loadPage();
+    Promise.all(imagePaths.map(loadImage)).then(() => setIsPageLoaded(true));
   }, []);
 
   return (
