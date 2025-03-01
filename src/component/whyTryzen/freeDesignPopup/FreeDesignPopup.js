@@ -122,12 +122,12 @@ export default function FreeDesignPopup({ onClose ,isPopupOpen = false}) {
             valid = false;
         }
 
-        if (!formData.website) {
+        if (formData.hasWebsite === 'Yes' && !formData.website) {
             newErrors.website = 'Required';
             valid = false;
         }
 
-        if (!formData.websiteWish) {
+        if (formData.likesWebsite === 'Yes' && !formData.websiteWish) {
             newErrors.websiteWish = 'Required';
             valid = false;
         }
@@ -202,6 +202,35 @@ export default function FreeDesignPopup({ onClose ,isPopupOpen = false}) {
         onClose()
     }
 
+    useEffect(() => {
+        if (isPopupOpen) {
+            document.body.style.overflow = "hidden";
+            setFormData({
+                email: '',
+                phone: '',
+                timezone: '',
+                date: '',
+                time: '',
+                businessName: '',
+                hasWebsite: 'No',
+                likesWebsite: 'No',
+                preferdLanguage: '',
+                website: '',
+                websiteWish: '',
+            });
+            setErrors({});
+            const tomorrow = new Date();
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            setFormData(prevFormData => ({
+              ...prevFormData,
+              date: tomorrow.toISOString().split('T')[0],
+              time: "09:30"
+            }));
+        } else {
+            document.body.style.overflow = "auto";
+        }
+    }, [isPopupOpen]);
+
     return (
         <Modal isOpen={isPopupOpen} onClose={onClose} shouldCloseOnOverlayClick={false} contentLabel="Free Design Popup" className="modal-content" overlayClassName="modal-overlay">
         <form
@@ -231,7 +260,7 @@ export default function FreeDesignPopup({ onClose ,isPopupOpen = false}) {
                                 Email Address
                             </label>
                             <input
-                                type="email"
+                                type="text"
                                 name="email"
                                 value={formData.email}
                                 onChange={handleChange}
@@ -291,14 +320,18 @@ export default function FreeDesignPopup({ onClose ,isPopupOpen = false}) {
                                 classNamePrefix="react-select"
                                 isClearable={true}
                                 styles={{
-                                    control: (provided) => ({
+                                    control: (provided, state) => ({
                                         ...provided,
                                         backgroundColor: '#1C2433',
-                                        borderColor: errors.timezone ? 'red' : '#343947',
+                                        borderColor: state.isFocused ? "#ffffff" : errors.timezone ? "red" : "#343947",
                                         borderRadius: '5px',
                                         color: '#fff',
                                         padding: '3px',
                                         textAlign: 'left',
+                                        boxShadow: state.isFocused ? "0 0 0 0px #ffffff" : "none",
+                                        "&:hover": {
+                                            borderColor: state.isFocused ? "#ffffff" : "#343947",
+                                        }
                                     }),
                                     menu: (provided) => ({
                                         ...provided,
@@ -339,6 +372,7 @@ export default function FreeDesignPopup({ onClose ,isPopupOpen = false}) {
                                     }),
                                 }}
                                 menuPlacement="auto"
+                                menuShouldBlockScroll={true}
                             />
                         </div>
                         <div className="mt-4">
@@ -386,14 +420,18 @@ export default function FreeDesignPopup({ onClose ,isPopupOpen = false}) {
                                 classNamePrefix="react-select"
                                 isClearable={true}
                                 styles={{
-                                    control: (provided) => ({
+                                    control: (provided, state) => ({
                                         ...provided,
                                         backgroundColor: '#1C2433',
-                                        borderColor: errors.time ? 'red' : '#343947',
+                                        borderColor: state.isFocused ? "#ffffff" : errors.time ? "red" : "#343947",
                                         borderRadius: '5px',
                                         color: '#fff',
                                         padding: '3px',
                                         textAlign: 'left',
+                                        boxShadow: state.isFocused ? "0 0 0 0px #ffffff" : "none",
+                                        "&:hover": {
+                                            borderColor: state.isFocused ? "#ffffff" : "#343947",
+                                        }
                                     }),
                                     menu: (provided) => ({
                                         ...provided,
@@ -434,6 +472,7 @@ export default function FreeDesignPopup({ onClose ,isPopupOpen = false}) {
                                     }),
                                 }}
                                 menuPlacement="auto"
+                                menuShouldBlockScroll={true}
                             />
                         </div>
 
@@ -474,14 +513,18 @@ export default function FreeDesignPopup({ onClose ,isPopupOpen = false}) {
                                 classNamePrefix="react-select"
                                 isClearable={true}
                                 styles={{
-                                control: (provided) => ({
+                                control: (provided, state) => ({
                                     ...provided,
                                     backgroundColor: "#1C2433",
-                                    borderColor: errors.timezone ? "red" : "#343947",
+                                    borderColor: state.isFocused ? "#ffffff" : errors.preferdLanguage ? "red" : "#343947",
                                     borderRadius: "5px",
                                     color: "#fff",
                                     padding: "3px",
                                     textAlign: "left",
+                                    boxShadow: state.isFocused ? "0 0 0 0px #ffffff" : "none",
+                                    "&:hover": {
+                                        borderColor: state.isFocused ? "#ffffff" : "#343947",
+                                    }
                                 }),
                                 menu: (provided) => ({
                                     ...provided,
@@ -520,6 +563,7 @@ export default function FreeDesignPopup({ onClose ,isPopupOpen = false}) {
                                 }),
                                 }}
                                 menuPlacement="auto"
+                                menuShouldBlockScroll={true}
                             />
                         </div>
                         <div className="mt-4">
