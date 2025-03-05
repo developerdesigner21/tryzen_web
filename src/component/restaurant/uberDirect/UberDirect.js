@@ -25,23 +25,23 @@ export default function UberDirect() {
                         <p className='uber-content text-sm sm:text-lg md:text-xl xl:text-2xl font-semibold mb-3'>and Services with <span className='text-[#00B67A]'> 0% marketplace fees!</span>.</p>
                     </div>
                     <div className='rest-demo-grid grid grid-cols-2 items-center gap-2 sm:gap-5'>
-                        <a href="https://restaurant.tryzensolution.com/" target='_blank' className='flex flex-col items-center justify-center bg-white p-2 md:p-4 rounded-lg'>
+                        <a href="https://restaurant.tryzensolution.com/" target='_blank' className='flex flex-col items-center justify-center bg-white p-2 md:p-4 rounded-lg h-full small-padding'>
                             <div>
                                 <img src={require('../../../assets/restaurentHome.webp')} alt="QR Code Website" className='check-images' />
                             </div>
                             <div className='demo-buttons w-full'>
-                                <div className="flex items-center rounded-full bg-[#038851] gap-1 sm:gap-2 px-4 py-2 font-bold text-xs lg:text-sm">
+                                <div className="flex items-center rounded-full bg-[#038851] gap-1 sm:gap-2 px-4 py-2 font-bold text-xs lg:text-sm small-button">
                                     <span className="uber-content xl:text-lg">DEMO WEBSITE</span>
                                     <img src={require('../../../assets/buttonArrow.png')} alt="Arrow" className='w-4 h-2 arrow-image' />
                                 </div>
                             </div>
                         </a>
-                        <a href="https://restaurant.tryzensolution.com/" target='_blank' className='flex flex-col items-center justify-center bg-white p-2 md:p-4 rounded-lg'>
+                        <a href="https://restaurant.tryzensolution.com/" target='_blank' className='flex flex-col items-center justify-center bg-white p-2 md:p-4 rounded-lg h-full small-padding'>
                             <div>
                                 <img src={require('../../../assets/RestaurentScan.webp')} alt="QR Code Website" className='rest-scanner-images' />
                             </div>
                             <div className='demo-buttons w-full'>
-                                <div className="flex items-center rounded-full bg-[#038851] gap-1 sm:gap-2 px-4 py-2 font-bold text-xs lg:text-sm">
+                                <div className="flex items-center rounded-full bg-[#038851] gap-1 sm:gap-2 px-4 py-2 font-bold text-xs lg:text-sm small-button">
                                     <span className="hidden sm:flex uber-content xl:text-lg">DEMO APPLICATION</span>
                                     <span className="sm:hidden uber-content xl:text-lg">DEMO APP</span>
                                     <img src={require('../../../assets/buttonArrow.png')} alt="Arrow" className='w-4 h-2 arrow-image' />

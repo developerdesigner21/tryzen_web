@@ -159,7 +159,7 @@
 
 @media (max-width: 400px) {    
     .check-images-why {
-        height: 100px ;
+        height: auto ;
     }
     .why-demo-grid > div {
         padding: 8px;
@@ -179,5 +179,15 @@
         display: flex;
         align-items: center;
         font-size: 13px;
+    }
+}
+
+@media (max-width: 370px) {    
+    .small-button {
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+    .small-padding {
+        padding: 4px;
     }
 }

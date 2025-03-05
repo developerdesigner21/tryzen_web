@@ -214,11 +214,21 @@
     }
 }
 
-@media (max-width: 350px) { 
+@media (max-width: 370px) { 
     .section {
         padding: 8px;
     }   
     .rest-demo-grid > div {
+        padding: 4px;
+    }
+}
+
+@media (max-width: 345px) {    
+    .small-button {
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+    .small-padding {
         padding: 4px;
     }
 }

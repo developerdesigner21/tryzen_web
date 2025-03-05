@@ -15,7 +15,22 @@ export default function IntroSection() {
             </p>
             <div className="info-sections flex flex-col sm:flex-row gap-2 md:gap-3 xl:gap-5 mt-5 md:mt-12">
                 <div className="info-box relative">
-
+                    <div className="info-content">
+                        <img
+                            src={require('../../../assets/restaurent.webp')}
+                            alt="Restaurant"
+                            className="info-image"
+                        />
+                        <div className="info-button-container bottom-[3%]">
+                            <button className="info-button px-5 py-2.5 text-sm md:text-xs lg:text-xl font-semibold rounded-md">
+                                <Link to="/restaurant">
+                                    MORE ABOUT RESTAURANT
+                                </Link>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div className="info-box relative">
                     <div className="info-content">
                         <img
                             src={require('../../../assets/ecommerce.webp')}
@@ -30,23 +45,6 @@ export default function IntroSection() {
                             </button>
                         </div>
                     </div>
-
-                </div>
-                <div className="info-box relative">
-                        <div className="info-content">
-                            <img
-                                src={require('../../../assets/restaurent.webp')}
-                                alt="Restaurant"
-                                className="info-image"
-                            />
-                            <div className="info-button-container bottom-[3%]">
-                                <button className="info-button px-5 py-2.5 text-sm md:text-xs lg:text-xl font-semibold rounded-md">
-                                    <Link to="/restaurant">
-                                        MORE ABOUT RESTAURANT
-                                    </Link>
-                                </button>
-                            </div>
-                        </div>
                 </div>
             </div>
         </div>

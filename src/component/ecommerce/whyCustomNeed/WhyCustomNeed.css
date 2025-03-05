@@ -227,3 +227,13 @@
         padding: 4px;
     }
 }
+
+@media (max-width: 360px) {    
+    .small-button {
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+    .small-padding {
+        padding: 4px;
+    }
+}

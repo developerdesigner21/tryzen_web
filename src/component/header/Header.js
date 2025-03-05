@@ -42,7 +42,7 @@ export default function Header() {
                     <Link to='/' className={`headers-title font-semibold hover:text-[#FF6802] xl:text-lg cursor-pointer ${isActive('/')}`}>Home</Link>
                     <Link to='/restaurant' className={`headers-title font-semibold hover:text-[#FF6802] xl:text-lg cursor-pointer ${isActive('/restaurant')}`}>Restaurant</Link>
                     <Link to='/e-commerce' className={`headers-title font-semibold hover:text-[#FF6802] xl:text-lg cursor-pointer ${isActive('/e-commerce')}`}>E-Commerce</Link>
-                    <Link to='/whyTryzen' className={`headers-title font-semibold hover:text-[#FF6802] xl:text-lg cursor-pointer ${isActive('/whyTryzen')}`}>Why This Solution?</Link>
+                    <Link to='/whyTryzen' className={`headers-title font-semibold hover:text-[#FF6802] xl:text-lg cursor-pointer ${isActive('/whyTryzen')}`}>Why Tryzen Solution?</Link>
                     {/* <Link to='/blogs' className={`headers-title font-semibold hover:text-[#FF6802] xl:text-lg cursor-pointer ${isActive('/blogs')}`}>Blogs</Link> */}
                 </div>
 
@@ -95,7 +95,7 @@ export default function Header() {
                                 E-Commerce
                             </Link>
                             <Link to='/whyTryzen' className={`headers-title font-semibold xl:text-lg cursor-pointer ${isActive('/whyTryzen')}`} onClick={toggleSidebar}>
-                                Why This Solution?
+                                Why Tryzen Solution?
                             </Link>
                             {/* <a className="headers-title font-semibold" onClick={toggleSidebar}>
                                     Blogs
