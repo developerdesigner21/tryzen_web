@@ -8,7 +8,7 @@ export default function Redesign() {
             <div className="text-section">
                 <h1 className="hidden sm:block redesign-main-title sm:text-3xl md:text-4xl lg:text-5xl font-bold sm:mb-5">GET A <span className='text-[#FFEB3B]'>FREE </span>WEBSITE DESIGN</h1>
                 <h1 className="sm:hidden redesign-main-title text-3xl font-bold mb-2">GET A <span className='text-[#FFEB3B]'>FREE </span><br />WEBSITE DESIGN</h1>
-                <h2 className="redesign-sub-title text-3xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6">BOOSTS YOUR SALES!</h2>
+                <h2 className="redesign-sub-title text-3xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6">BOOST YOUR SALES!</h2>
 
                 <div className="icons-row">
                     <div className="icon-item">
