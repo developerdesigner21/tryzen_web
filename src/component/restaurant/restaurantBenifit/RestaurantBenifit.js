@@ -1,8 +1,18 @@
 import React from 'react';
 import './RestaurantBenifit.css';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export default function RestaurantBenifit() {
+    const navigate = useNavigate();
+
+    const handleInternalNavigation = () => {
+        navigate('/whyTryzen');
+    };
+
+    const handleExternalNavigation = () => {
+        window.open('https://restaurant.tryzensolution.com/', '_blank');
+    };
+
     return (
         <div id="benefits" class="rounded-xl">
             <div class="relative">
@@ -13,14 +23,12 @@ export default function RestaurantBenifit() {
                     </h1>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8" style={{ marginTop: "2rem" }}>
-                    {/* <div class="relative flex flex-col"> */}
-                        <Link to='/whyTryzen'>
-                            <img src={require("../../../assets/restauretAvoid.webp")} alt="Grow" class="h-full" />
-                        </Link>
-                    {/* </div> */}
-                    <a href='https://restaurant.tryzensolution.com/' class="relative flex flex-col" target='_blank'>
+                    <div class="relative flex flex-col cursor-pointer" onClick={handleInternalNavigation}>
+                        <img src={require("../../../assets/restauretAvoid.webp")} alt="Grow" class="h-full" />
+                    </div>
+                    <div class="relative flex flex-col cursor-pointer" onClick={handleExternalNavigation}>
                         <img src={require("../../../assets/restaurentBenifits.webp")} alt="Grow" class="h-full" />
-                    </a>
+                    </div>
                 </div>
             </div>
         </div>

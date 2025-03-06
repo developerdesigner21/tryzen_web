@@ -1,8 +1,18 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import './EcomBenifit.css';
+import { useNavigate } from 'react-router-dom';
 
 export default function EcomBenifit() {
+    const navigate = useNavigate();
+
+    const handleInternalNavigation = () => {
+        navigate('/whyTryzen');
+    };
+
+    const handleExternalNavigation = () => {
+        window.open('https://codmarket.co.ke/', '_blank');
+    };
+
     return (
         <div id="benefits" class="rounded-xl">
             <div class="relative">
@@ -13,14 +23,12 @@ export default function EcomBenifit() {
                     </h1>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8" style={{ marginTop: "2rem" }}>
-                    {/* <div class="relative flex flex-col"> */}
-                    <Link to='/whyTryzen'>                        
+                    <div class="relative flex flex-col cursor-pointer" onClick={handleInternalNavigation}>
                         <img src={require("../../../assets/ecomAvoid.webp")} alt="Grow" class="h-full" />
-                    </Link>
-                    {/* </div> */}
-                    <a class="relative flex flex-col" href="https://codmarket.co.ke/" target='_blank'>
+                    </div>
+                    <div class="relative flex flex-col cursor-pointer" onClick={handleExternalNavigation}>
                         <img src={require("../../../assets/ecomBenifit.webp")} alt="Grow" class="h-full" />
-                    </a>
+                    </div>
                 </div>
             </div>
         </div>

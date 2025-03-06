@@ -1,7 +1,17 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export default function HomeBenifit() {
+    const navigate = useNavigate();
+
+    const handleRestaurantNavigation = () => {
+        navigate('/restaurant');
+    };
+
+    const handleEcommerceNavigation = () => {
+        navigate('/restaurant');
+    };
+
     return (
         <div id="benefits" class="rounded-xl">
             <div class="relative">
@@ -12,16 +22,12 @@ export default function HomeBenifit() {
                     </h1>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8" style={{ marginTop: "2rem" }}>
-                    {/* <div class="relative flex flex-col"> */}
-                        <Link to='/restaurant'>     
-                            <img src={require("../../../assets/homeBenifit.webp")} alt="Grow" class="h-full" />
-                        </Link>
-                    {/* </div> */}
-                    {/* <div class="relative flex flex-col"> */}
-                        <Link to='/e-commerce'>
-                            <img src={require("../../../assets/homeAvoid.png")} alt="Grow" class="h-full" />
-                        </Link>
-                    {/* </div> */}
+                    <div class="relative flex flex-col cursor-pointer" onClick={handleRestaurantNavigation}>
+                        <img src={require("../../../assets/homeBenifit.webp")} alt="Grow" class="h-full" />
+                    </div>
+                    <div class="relative flex flex-col cursor-pointer" onClick={handleEcommerceNavigation}>
+                        <img src={require("../../../assets/homeAvoid.png")} alt="Grow" class="h-full" />
+                    </div>
                 </div>
             </div>
         </div>
