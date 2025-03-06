@@ -9,7 +9,7 @@ export default function HomeBenifit() {
     };
 
     const handleEcommerceNavigation = () => {
-        navigate('/restaurant');
+        navigate('/e-commerce');
     };
 
     return (
