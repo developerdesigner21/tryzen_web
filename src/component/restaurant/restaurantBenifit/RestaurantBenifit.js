@@ -13,11 +13,11 @@ export default function RestaurantBenifit() {
                     </h1>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8" style={{ marginTop: "2rem" }}>
-                    <div class="relative flex flex-col">
+                    {/* <div class="relative flex flex-col"> */}
                         <Link to='/whyTryzen'>
                             <img src={require("../../../assets/restauretAvoid.webp")} alt="Grow" class="h-full" />
                         </Link>
-                    </div>
+                    {/* </div> */}
                     <a href='https://restaurant.tryzensolution.com/' class="relative flex flex-col" target='_blank'>
                         <img src={require("../../../assets/restaurentBenifits.webp")} alt="Grow" class="h-full" />
                     </a>
