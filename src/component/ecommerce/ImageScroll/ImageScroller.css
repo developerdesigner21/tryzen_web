@@ -17,6 +17,7 @@
 }
 
 .scroller__inner {
+    will-change: transform;
     display: flex;
     width: fit-content;
     flex-wrap: nowrap;

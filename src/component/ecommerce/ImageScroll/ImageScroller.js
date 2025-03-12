@@ -14,6 +14,15 @@ import petFoodStore from '../../../assets/EcomPETFOODSTORE.webp';
 import mensStore from '../../../assets/EcomMENΓÇÖSSTORE.webp';
 
 export default function ImageScroller() {
+    useEffect(() => {
+        const leftScroller = document.querySelector('.scroller[data-direction="left"] .scroller__inner');
+        if (leftScroller) {
+            leftScroller.style.animation = 'none';
+            setTimeout(() => {
+                leftScroller.style.animation = 'scroll 50s linear infinite';
+            }, 50); // Small delay to reapply animation
+        }
+    }, []);
     return (
         <>
             <div class="text-center mb-8 md:mb-10">
