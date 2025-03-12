@@ -48,7 +48,7 @@
     background: aliceblue;
 }
 
-.scroller__inner img {
+.scroller__inner .image-wrapper img {
     width: auto;
     max-width: 300px;
     height: 100%;
@@ -59,7 +59,7 @@
 }
 
 @media (max-width: 540px) {
-    .scroller__inner img {
+    .scroller__inner .image-wrapper img {
         max-width: 150px;
         height: auto;
         margin-right: 8px;
