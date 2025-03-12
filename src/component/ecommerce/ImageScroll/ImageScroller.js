@@ -15,12 +15,11 @@ import mensStore from '../../../assets/EcomMENΓÇÖSSTORE.webp';
 
 export default function ImageScroller() {
     useEffect(() => {
-        const leftScroller = document.querySelector('.scroller[data-direction="left"] .scroller__inner');
-        if (leftScroller) {
-            leftScroller.style.animation = 'none';
-            setTimeout(() => {
-                leftScroller.style.animation = 'scroll 50s linear infinite';
-            }, 50); // Small delay to reapply animation
+        const scroller = document.querySelector('.scroller[data-direction="left"] .scroller__inner');
+        if (scroller) {
+            scroller.style.animation = 'none';
+            void scroller.offsetHeight;
+            scroller.style.animation = '';
         }
     }, []);
     return (
