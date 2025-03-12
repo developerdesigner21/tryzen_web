@@ -41,7 +41,7 @@ export default function UberDirect() {
                         <a href="https://restaurant.tryzensolution.com/" target='_blank'>
                             <div className='flex flex-col items-center justify-center bg-white p-2 md:p-4 rounded-lg h-full small-padding'>
                                 <div>
-                                    <img src={require('../../../assets/RestaurentScan.webp')} alt="QR Code Website" className='rest-scanner-images' />
+                                    <img src={require('../../../assets/RestaurentScan.webp')} alt="QR Code Website" className='check-images' />
                                 </div>
                                 <div className='demo-buttons w-full'>
                                     <div className="flex items-center rounded-full bg-[#038851] gap-1 sm:gap-2 px-4 py-2 font-bold text-xs lg:text-sm small-button">
