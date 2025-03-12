@@ -55,7 +55,7 @@
     justify-content: center;
 }
 
-.demo-buttons-home div {
+.demo-buttons-home a {
     text-decoration: none;
     color: white;
     transition: background-color 0.3s;
@@ -134,7 +134,7 @@
         font-size: 14px;
     }
 
-    .demo-buttons-home div {
+    .demo-buttons-home a {
        padding-left: 4px;
        padding-right: 4px;
        width: 100%;

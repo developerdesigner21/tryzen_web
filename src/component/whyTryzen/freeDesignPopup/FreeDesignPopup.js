@@ -371,7 +371,7 @@ export default function FreeDesignPopup({ onClose ,isPopupOpen = false}) {
                                         color: '#FFFFFF',
                                     }),
                                 }}
-                                // menuPlacement="auto"
+                                menuPlacement="auto"
                                 menuShouldBlockScroll={true}
                             />
                         </div>
@@ -562,7 +562,7 @@ export default function FreeDesignPopup({ onClose ,isPopupOpen = false}) {
                                     textAlign: "left",
                                 }),
                                 }}
-                                // menuPlacement="auto"
+                                menuPlacement="auto"
                                 menuShouldBlockScroll={true}
                             />
                         </div>
