@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./ImageScroller.css";
 import burger from "../../../assets/rest-burger.webp";
 import fastFood from "../../../assets/rest-fast-food.webp";
@@ -29,10 +29,10 @@ export default function ImageScroller() {
             <div className="scroller" data-direction="left">
                 <div className="scroller__inner">
                     {[fastFood, burger, hotdogs, grocery, delight, variety].map((img, i) => (
-                        <img key={i} src={img} alt={`Image ${i}`} />
+                        <ImageWithLoader key={i} src={img} alt={`Image ${i}`} />
                     ))}
                     {[fastFood, burger, hotdogs, grocery, delight, variety].map((img, i) => (
-                        <img key={`dup-${i}`} src={img} alt={`Duplicate ${i}`} />
+                        <ImageWithLoader key={`dup-${i}`} src={img} alt={`Duplicate ${i}`} />
                     ))}
                 </div>
             </div>
@@ -40,13 +40,29 @@ export default function ImageScroller() {
             <div className="scroller" data-direction="right">
                 <div className="scroller__inner">
                     {[burgerMeal, fastFoodMeal, indian, store, tacos, sandwich].map((img, i) => (
-                        <img key={i} src={img} alt={`Image ${i}`} />
+                        <ImageWithLoader key={i} src={img} alt={`Image ${i}`} />
                     ))}
                     {[burgerMeal, fastFoodMeal, indian, store, tacos, sandwich].map((img, i) => (
-                        <img key={`dup-${i}`} src={img} alt={`Duplicate ${i}`} />
+                        <ImageWithLoader key={`dup-${i}`} src={img} alt={`Duplicate ${i}`} />
                     ))}
                 </div>
             </div>
         </>
+    )
+}
+
+function ImageWithLoader({ src, alt }) {
+    const [loading, setLoading] = useState(true);
+
+    return (
+        <div className="image-wrapper">
+            {loading && <div className="image-placeholder"></div>}
+            <img
+                src={src}
+                alt={alt}
+                className={`image ${loading ? "hidden" : "visible"}`}
+                onLoad={() => setLoading(false)}
+            />
+        </div>
     );
 }

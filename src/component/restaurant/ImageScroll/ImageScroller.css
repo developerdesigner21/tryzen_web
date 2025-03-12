@@ -17,6 +17,7 @@
 }
 
 .scroller__inner {
+    will-change: transform;
     display: flex;
     width: fit-content;
     flex-wrap: nowrap;
@@ -37,10 +38,20 @@
     }
 }
 
-.scroller__inner img {
+
+.image-placeholder{
+    width: 300px;
+    height: 337.3px;
+    flex: 0 0 auto;
+    margin-right: 1rem;
+    border-radius: 8px;
+    background: aliceblue;
+}
+
+.scroller__inner .image-wrapper img {
     width: auto;
     max-width: 300px;
-    height: 100%;
+    height: auto;
     object-fit: cover;
     flex: 0 0 auto;
     margin-right: 1rem;
@@ -48,9 +59,14 @@
 }
 
 @media (max-width: 540px) {
-    .scroller__inner img {
+    .scroller__inner .image-wrapper img {
         max-width: 150px;
         height: auto;
         margin-right: 8px;
+    }
+
+    .image-placeholder{
+        width: 150px;
+        height: 168.55px;
     }
 }

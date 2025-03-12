@@ -17,7 +17,7 @@ function ScrollToTop() {
 function LoadingScreen() {
   const calcWidth =() =>{
     if (window.innerWidth < 640) {
-      return window.innerWidth * 0.8
+      return window.innerWidth
     } else if (window.innerWidth < 1024) {
       return window.innerWidth * 0.5
     } else {
@@ -27,7 +27,7 @@ function LoadingScreen() {
   
   return (
     <div className="loading-screen">
-      <div className="img-dots-container h-auto" style={{width:calcWidth()+'px'}} >
+      <div className="img-dots-container h-auto" style={{width:calcWidth()+'px', padding:"32px", marginBottom:"64px"}} >
         <LoadingIcon />
         <div className="loading-dots">
           <span className="dot"></span>
