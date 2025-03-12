@@ -24,26 +24,30 @@ export default function WhyCustomNeed() {
                         <p className='ecom-content text-sm sm:text-lg md:text-xl xl:text-2xl font-semibold mb-3'>A Faster, Smarter, and More Profitable <br /> <span className='text-[#00B67A]'>Alternative to Shopify, wordpress or wix </span>.</p>
                     </div>
                     <div className='ecom-demo-grid grid grid-cols-2 items-center gap-2 sm:gap-5'>
-                        <a href="https://codmarket.co.ke/" target='_blank' className='flex flex-col items-center justify-center bg-white p-2 md:p-4 rounded-lg h-full small-padding'>
-                            <div>
-                                <img src={require('../../../assets/ecommerceHome.webp')} alt="QR Code Website" className='ecom-check-images' />
-                            </div>
-                            <div className='ecom-demo-buttons w-full'>
-                                <div className="flex items-center rounded-full bg-[#038851] gap-1 sm:gap-2 px-4 py-2 font-bold text-xs lg:text-sm small-button">
-                                    <span className="ecom-content xl:text-lg">DEMO WEBSITE</span>
-                                    <img src={require('../../../assets/buttonArrow.png')} alt="Arrow" className='w-4 h-2 ecom-arrow-image' />
+                        <a href="https://codmarket.co.ke/" target='_blank' >
+                            <div className='flex flex-col items-center justify-center bg-white p-2 md:p-4 rounded-lg h-full small-padding'>
+                                <div>
+                                    <img src={require('../../../assets/ecommerceHome.webp')} alt="QR Code Website" className='ecom-check-images' />
+                                </div>
+                                <div className='ecom-demo-buttons w-full'>
+                                    <div className="flex items-center rounded-full bg-[#038851] gap-1 sm:gap-2 px-4 py-2 font-bold text-xs lg:text-sm small-button">
+                                        <span className="ecom-content xl:text-lg">DEMO WEBSITE</span>
+                                        <img src={require('../../../assets/buttonArrow.png')} alt="Arrow" className='w-4 h-2 ecom-arrow-image' />
+                                    </div>
                                 </div>
                             </div>
                         </a>
-                        <a href="https://codmarket.co.ke/" target='_blank' className='flex flex-col items-center justify-center bg-white p-2 md:p-4 rounded-lg h-full small-padding'>
-                            <div>
-                                <img src={require('../../../assets/EcommerceScan.webp')} alt="QR Code Website" className='ecom-scanner-images' />
-                            </div>
-                            <div className='ecom-demo-buttons w-full'>
-                                <div className="flex items-center rounded-full bg-[#038851] gap-1 sm:gap-2 px-4 py-2 font-bold text-xs lg:text-sm small-button">
-                                    <span className="hidden sm:flex ecom-content xl:text-lg">DEMO APPLICATION</span>
-                                    <span className="sm:hidden ecom-content xl:text-lg">DEMO APP</span>
-                                    <img src={require('../../../assets/buttonArrow.png')} alt="Arrow" className='w-4 h-2 ecom-arrow-image' />
+                        <a href="https://codmarket.co.ke/" target='_blank'>
+                            <div className='flex flex-col items-center justify-center bg-white p-2 md:p-4 rounded-lg h-full small-padding'>
+                                <div>
+                                    <img src={require('../../../assets/EcommerceScan.webp')} alt="QR Code Website" className='ecom-scanner-images' />
+                                </div>
+                                <div className='ecom-demo-buttons w-full'>
+                                    <div className="flex items-center rounded-full bg-[#038851] gap-1 sm:gap-2 px-4 py-2 font-bold text-xs lg:text-sm small-button">
+                                        <span className="hidden sm:flex ecom-content xl:text-lg">DEMO APPLICATION</span>
+                                        <span className="sm:hidden ecom-content xl:text-lg">DEMO APP</span>
+                                        <img src={require('../../../assets/buttonArrow.png')} alt="Arrow" className='w-4 h-2 ecom-arrow-image' />
+                                    </div>
                                 </div>
                             </div>
                         </a>
