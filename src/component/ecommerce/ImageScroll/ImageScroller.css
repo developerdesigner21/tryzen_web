@@ -38,6 +38,16 @@
     }
 }
 
+
+.image-placeholder{
+    width: 300px;
+    height: 337.3px;
+    flex: 0 0 auto;
+    margin-right: 1rem;
+    border-radius: 8px;
+    background: aliceblue;
+}
+
 .scroller__inner img {
     width: auto;
     max-width: 300px;
@@ -53,5 +63,10 @@
         max-width: 150px;
         height: auto;
         margin-right: 8px;
+    }
+
+    .image-placeholder{
+        width: 150px;
+        height: 168.55px;
     }
 }

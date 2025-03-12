@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState } from 'react';
 import './ImageScroller.css';
 import babyStore from '../../../assets/EcomBABYSTORE.webp';
 import womenStore from '../../../assets/EcomWOMENSTORE.webp';
@@ -14,14 +14,6 @@ import petFoodStore from '../../../assets/EcomPETFOODSTORE.webp';
 import mensStore from '../../../assets/EcomMENΓÇÖSSTORE.webp';
 
 export default function ImageScroller() {
-    useEffect(() => {
-        const scroller = document.querySelector('.scroller[data-direction="left"] .scroller__inner');
-        if (scroller) {
-            scroller.style.animation = 'none';
-            void scroller.offsetHeight;
-            scroller.style.animation = '';
-        }
-    }, []);
     return (
         <>
             <div class="text-center mb-8 md:mb-10">
@@ -35,10 +27,10 @@ export default function ImageScroller() {
             <div className="scroller" data-direction="left">
                 <div className="scroller__inner">
                     {[babyStore, womenStore, costmaticStore, ebikeStore, fashionStore, fitnessStore].map((img, i) => (
-                        <img key={i} src={img} alt={`Image ${i}`} />
+                        <ImageWithLoader key={i} src={img} alt={`Image ${i}`} />
                     ))}
                     {[babyStore, womenStore, costmaticStore, ebikeStore, fashionStore, fitnessStore].map((img, i) => (
-                        <img key={`dup-${i}`} src={img} alt={`Duplicate ${i}`} />
+                        <ImageWithLoader key={`dup-${i}`} src={img} alt={`Duplicate ${i}`} />
                     ))}
                 </div>
             </div>
@@ -46,13 +38,29 @@ export default function ImageScroller() {
             <div className="scroller" data-direction="right">
                 <div className="scroller__inner">
                     {[jewelleryStore, beutyStore, womenStore, petFoodStore, mensStore, fashion, decoreStore].map((img, i) => (
-                        <img key={i} src={img} alt={`Image ${i}`} />
+                        <ImageWithLoader key={i} src={img} alt={`Image ${i}`} />
                     ))}
                     {[jewelleryStore, beutyStore, womenStore, petFoodStore, mensStore, fashion, decoreStore].map((img, i) => (
-                        <img key={`dup-${i}`} src={img} alt={`Duplicate ${i}`} />
+                        <ImageWithLoader key={`dup-${i}`} src={img} alt={`Duplicate ${i}`} />
                     ))}
                 </div>
             </div>
         </>
     )
+}
+
+function ImageWithLoader({ src, alt }) {
+    const [loading, setLoading] = useState(true);
+
+    return (
+        <div className="image-wrapper">
+            {loading && <div className="image-placeholder"></div>}
+            <img
+                src={src}
+                alt={alt}
+                className={`image ${loading ? "hidden" : "visible"}`}
+                onLoad={() => setLoading(false)}
+            />
+        </div>
+    );
 }
