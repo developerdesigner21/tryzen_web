@@ -5,7 +5,7 @@ export default function WhyCustomNeed() {
     return (
         <div className='flex items-center'>
             <div className="ecom-section p-4 sm:p-6 md:p-4 lg:p-6 xl:p-8 gap-5 xl:gap-0">
-                <div className="ecom-section-left md:w-2/3">
+                <div className="ecom-section-left md:w-1/2">
                     <h3 className='why-ecom text-lg lg:text-xl xl:text-3xl mb-1 lg:mb-3'>WHY CUSTOM CODED</h3>
                     <p className='ecom-content text-md sm:text-lg lg:text-xl xl:text-2xl mb-3 md:mb-5'>Is better choice for long time</p>
                     <ul className="ecom-points ecom-content flex flex-col gap-2 lg:gap-4">
@@ -18,7 +18,7 @@ export default function WhyCustomNeed() {
                         <li className='text-lg lg:text-xl xl:text-2xl'><img src={require('../../../assets/greenRight.png')} alt="Netherlands" className='w-5 h-5 lg:w-7 lg:h-7 mr-2' />Slow Performance Due to Plugins</li>
                     </ul>
                 </div>
-                <div className="ecom-section-right justify-between">
+                <div className="ecom-section-right justify-between w-1/2">
                     <div>
                         <h3 className='ecom-content font-bold mb-2 lg:mb-4 text-xl sm:text-2xl xl:text-3xl'>Explore Demo</h3>
                         <p className='ecom-content text-sm sm:text-lg md:text-xl xl:text-2xl font-semibold mb-3'>A Faster, Smarter, and More Profitable <br /> <span className='text-[#00B67A]'>Alternative to Shopify, wordpress or wix </span>.</p>

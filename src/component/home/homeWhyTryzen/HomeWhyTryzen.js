@@ -17,7 +17,7 @@ export default function HomeWhyTryzen() {
                         <li className='text-lg lg:text-xl xl:text-2xl'><img src={require('../../../assets/greenRight.png')} alt="Netherlands" className='w-5 h-5 lg:w-7 lg:h-7 mr-2' />100 Days guaranteed Results </li>
                     </ul>
                 </div>
-                <div className="section-home-right justify-between md:w-1/2">
+                <div className="section-home-right justify-between w-1/2">
                     <div>
                         <h3 className='uber-content-home font-bold mb-2 lg:mb-4 text-xl sm:text-2xl xl:text-3xl'>Explore Demo</h3>
                         <p className='uber-content-home text-sm sm:text-lg md:text-xl xl:text-2xl font-semibold mb-3'>Stop Paying Commissions and Build Own <br/> Custom Solution with<span className='text-[#FF6802]'> Designed to grow Sales!</span>.</p>

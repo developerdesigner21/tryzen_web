@@ -97,6 +97,9 @@
     .countries-home li {
         font-size: 20px;
     }
+    .section-home-right {
+        width: 100%;
+    }
 }
 
 @media (max-width: 860px) {    

@@ -5,7 +5,7 @@ export default function UberDirect() {
     return (
         <div className='flex items-center'>
             <div className="section p-4 sm:p-6 md:p-4 lg:p-6 xl:p-8 gap-5 xl:gap-0">
-                <div className="section-left md:w-2/3">
+                <div className="section-left md:w-1/2">
                     <h3 className='uber text-lg lg:text-xl xl:text-3xl mb-1 lg:mb-3'>WHY OWN ONLINE ORDER</h3>
                     <p className='uber-content text-lg lg:text-xl xl:text-2xl mb-3 md:mb-5'>Is better then any 3rd party apps</p>
                     <ul className="countries uber-content flex flex-col gap-2 lg:gap-4">
@@ -18,7 +18,7 @@ export default function UberDirect() {
                         <li className='text-lg lg:text-xl xl:text-2xl'><img src={require('../../../assets/greenRight.png')} alt="Netherlands" className='w-5 h-5 lg:w-7 lg:h-7 mr-2' />Seamless Operational Orders</li>
                     </ul>
                 </div>
-                <div className="section-right justify-between">
+                <div className="section-right justify-between w-1/2">
                     <div>
                         <h3 className='uber-content font-bold mb-2 lg:mb-4 text-xl sm:text-2xl xl:text-3xl'>Explore Demo</h3>
                         <p className='uber-content text-sm sm:text-lg md:text-xl xl:text-2xl font-semibold'>Let’s Grow together, with your vision, our Solution</p>
