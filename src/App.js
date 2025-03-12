@@ -27,7 +27,7 @@ function LoadingScreen() {
   
   return (
     <div className="loading-screen">
-      <div className="img-dots-container h-auto mb-16 p-8" style={{width:calcWidth()+'px'}} >
+      <div className="img-dots-container h-auto" style={{width:calcWidth()+'px'}} >
         <LoadingIcon />
         <div className="loading-dots">
           <span className="dot"></span>
