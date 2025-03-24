@@ -23,7 +23,7 @@ export default function HomeWhyTryzen() {
                         <p className='uber-content-home text-sm sm:text-lg md:text-xl xl:text-2xl font-semibold mb-3'>Stop Paying Commissions and Build Own <br/> Custom Solution with<span className='text-[#FF6802]'> Designed to grow Sales!</span>.</p>
                     </div>
                     <div className='demo-grid grid grid-cols-2 items-center gap-2 sm:gap-5'>
-                        <a href="https://codmarket.co.ke/" target='_blank'>
+                        <a href="https://ecom.tryzensolution.com/" target='_blank'>
                             <div className="flex flex-col items-center justify-center bg-white p-2 md:p-4 rounded-lg h-full small-padding">
                                 <div>
                                     <h1 className='uber-home text-[#0F54FF] text-center mb-4 text-lg sm:text-xl'>ECOMMERCE</h1>

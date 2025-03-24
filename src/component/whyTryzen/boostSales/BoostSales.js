@@ -37,9 +37,9 @@ export default function BoostSales() {
                     </div>
                 </div>
                 <div className="mb-3 flex items-center justify-center">
-                    <button onClick={handleButtonClick} className="bg-[#FFEB3B] flex items-center justify-center px-10 sm:px-4 text-center py-2.5 font-semibold rounded-full text-2xl sm:text-md lg:text-xl xl:text-2xl cursor-pointer button-section">
-                        <div className='flex items-center text-black boost-content'>
-                            START FREE DESIGN <span className="ml-2"><img src={require('../../../assets/nextButton.png')} className="w-8" /></span>
+                    <button onClick={handleButtonClick} className="bg-[#0F54FF] flex items-center justify-center px-10 sm:px-4 text-center py-2.5 font-semibold rounded-full text-2xl sm:text-md lg:text-xl xl:text-2xl cursor-pointer button-section">
+                        <div className='flex items-center boost-content'>
+                            START FREE DESIGN <span className="ml-2"><img src={require('../../../assets/nextButtons.png')} className="w-8" /></span>
                         </div>
                     </button>
                     <FreeDesignPopup onClose={handlePopupClose} isPopupOpen={isPopupOpen} />

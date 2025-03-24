@@ -60,9 +60,9 @@ export default function Redesign() {
                                 </li>
                             </ul>
 
-                            <button className="bg-[#FFEB3B] w-full flex items-center justify-center px-10 sm:px-4 text-center py-4 font-bold rounded-full text-2xl sm:text-lg md:text-xl lg:text-2xl xl:text-3xl cursor-pointer redesign-button">
-                                <Link to="/whyTryzen" className='redesign-content flex items-center'>
-                                    START FREE DESIGN <span className="ml-2"><img src={require('../../assets/nextButton.png')} className="w-9" /></span>
+                            <button className="bg-[#0F54FF] w-full flex items-center justify-center px-10 sm:px-4 text-center py-4 font-bold rounded-full text-2xl sm:text-lg md:text-xl lg:text-2xl xl:text-3xl cursor-pointer redesign-button">
+                                <Link to="/whyTryzen" className='redesign-content text-white flex items-center'>
+                                    START FREE DESIGN <span className="ml-2"><img src={require('../../assets/nextButtons.png')} className="w-9" /></span>
                                 </Link>
                             </button>
                         </div>

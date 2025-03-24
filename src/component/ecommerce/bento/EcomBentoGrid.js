@@ -20,7 +20,7 @@ export default function BentoGrid() {
                 <div class="ecombento-item ecomitem-5"><img src={require('../../../assets/ecomGrid5.webp')} alt="Responsive Website" /></div>
                 <div class="ecombento-item ecomitem-6"><img src={require('../../../assets/ecomGrid6.webp')} alt="Save 30% Replace Third Party" /></div>
                 <div class="ecombento-item ecomitem-7"><img src={require('../../../assets/ecomGrid7.webp')} alt="Customer Data Strategies" /></div>
-                <div class="ecombento-item ecomitem-8"><img src={require('../../../assets/ecomGrid8.webp')} alt="Customer Data Strategies" /></div>
+                <div class="ecombento-item ecomitem-8"><img src={require('../../../assets/ecomGrid8.png')} alt="Customer Data Strategies" /></div>
             </div>
         </>
     )

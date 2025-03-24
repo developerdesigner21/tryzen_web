@@ -21,10 +21,10 @@ export default function WhyCustomNeed() {
                 <div className="ecom-section-right justify-between w-1/2">
                     <div>
                         <h3 className='ecom-content font-bold mb-2 lg:mb-4 text-xl sm:text-2xl xl:text-3xl'>Explore Demo</h3>
-                        <p className='ecom-content text-sm sm:text-lg md:text-xl xl:text-2xl font-semibold mb-3'>A Faster, Smarter, and More Profitable <br /> <span className='text-[#00B67A]'>Alternative to Shopify, wordpress or wix </span>.</p>
+                        <p className='ecom-content text-sm sm:text-lg md:text-xl xl:text-2xl font-semibold mb-3'>A Faster, Smarter, and More Profitable <br /> <span className='text-[#00B67A]'>Alternative to Shopify, wordpress or wix builder. </span></p>
                     </div>
                     <div className='ecom-demo-grid grid grid-cols-2 items-center gap-2 sm:gap-5'>
-                        <a href="http://ecom.tryzensolution.com/" target='_blank' >
+                        <a href="https://ecom.tryzensolution.com/" target='_blank' >
                             <div className='flex flex-col items-center justify-center bg-white p-2 md:p-4 rounded-lg h-full small-padding'>
                                 <div>
                                     <img src={require('../../../assets/ecommerceHome.webp')} alt="QR Code Website" className='ecom-check-images' />
@@ -37,7 +37,7 @@ export default function WhyCustomNeed() {
                                 </div>
                             </div>
                         </a>
-                        <a href="http://ecom.tryzensolution.com/" target='_blank'>
+                        <a href="https://ecom.tryzensolution.com/" target='_blank'>
                             <div className='flex flex-col items-center justify-center bg-white p-2 md:p-4 rounded-lg h-full small-padding'>
                                 <div>
                                     <img src={require('../../../assets/EcommerceScan.webp')} alt="QR Code Website" className='ecom-check-images' />
