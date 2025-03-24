@@ -1,0 +1,55 @@
+.plan {
+    font-family: "LarkenDEMO-Black";
+    color: #0F54FF;
+}
+
+.business-need {
+    font-family: "DupincelSmallTest-SemiBoldItalic";
+}
+
+.plan-content {
+    font-family: "CraftRounded-Regular";
+}
+
+.plans-section {
+    text-align: center;
+}
+
+.plan-card {
+    background-color: #F9F9F9;
+    border-radius: 12px;
+}
+
+.plan-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.plan-header img {
+    width: 25px;
+    margin-right: 10px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+.li-feature {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.li-feature img {
+    width: 20px;
+    margin-right: 16px;
+    margin-bottom: 0px;
+}
+
+@media (max-width: 330px) {
+    .business-need {
+        font-size: 22px;
+    }
+}
