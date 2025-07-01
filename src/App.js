@@ -60,7 +60,8 @@ const Home = React.lazy(() => import("./component/home/Home"));
 const Restaurant = React.lazy(() => import("./component/restaurant/Restaurant"));
 const Ecommerce = React.lazy(() => import("./component/ecommerce/Ecommerce"));
 const WhyTryzen = React.lazy(() => import("./component/whyTryzen/WhyTryzen"));
-// const Blogs = React.lazy(() => import("./component/blog/Blogs"));
+const Blogs = React.lazy(() => import("./component/blog/Blogs"));
+const BlogPost  = React.lazy(() => import("./component/blog/BlogPost"));
 
 function App() {
   const [isPageLoaded, setIsPageLoaded] = useState(false);
@@ -141,7 +142,8 @@ function App() {
               <Route path="/restaurant" element={<Restaurant />} />
               <Route path="/e-commerce" element={<Ecommerce />} />
               <Route path="/whyTryzen" element={<WhyTryzen />} />
-              {/* <Route path="/blogs" element={<Blogs />} /> */}
+              <Route path="/blogs" element={<Blogs />} />
+              <Route path="/blogs/:slug" element={<BlogPost />} />
               <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
           </Suspense>

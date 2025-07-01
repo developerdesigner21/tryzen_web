@@ -43,7 +43,7 @@ export default function Header() {
                     <Link to='/restaurant' className={`headers-title font-semibold hover:text-[#FF6802] xl:text-lg cursor-pointer ${isActive('/restaurant')}`}>Restaurant</Link>
                     <Link to='/e-commerce' className={`headers-title font-semibold hover:text-[#FF6802] xl:text-lg cursor-pointer ${isActive('/e-commerce')}`}>E-Commerce</Link>
                     <Link to='/whyTryzen' className={`headers-title font-semibold hover:text-[#FF6802] xl:text-lg cursor-pointer ${isActive('/whyTryzen')}`}>Why Tryzen Solution?</Link>
-                    {/* <Link to='/blogs' className={`headers-title font-semibold hover:text-[#FF6802] xl:text-lg cursor-pointer ${isActive('/blogs')}`}>Blogs</Link> */}
+                    <Link to='/blogs' className={`headers-title font-semibold hover:text-[#FF6802] xl:text-lg cursor-pointer ${isActive('/blogs')}`}>Blogs</Link>
                 </div>
 
                 <div className="flex flex-1 justify-end">
@@ -97,15 +97,9 @@ export default function Header() {
                             <Link to='/whyTryzen' className={`headers-title font-semibold xl:text-lg cursor-pointer ${isActive('/whyTryzen')}`} onClick={toggleSidebar}>
                                 Why Tryzen Solution?
                             </Link>
-                            {/* <a className="headers-title font-semibold" onClick={toggleSidebar}>
-                                    Blogs
-                                </a>
-                                <a className="headers-title font-semibold" onClick={toggleSidebar}>
-                                    Portfolio
-                                </a>
-                                <a className="headers-title font-medium" onClick={toggleSidebar}>
-                                    Calculate Loss
-                                </a> */}
+                            <Link to='/blogs' className={`headers-title font-semibold xl:text-lg cursor-pointer ${isActive('/blogs')}`} onClick={toggleSidebar}>
+                               Blogs
+                            </Link>
                         </nav>
                     </div>
                 )}

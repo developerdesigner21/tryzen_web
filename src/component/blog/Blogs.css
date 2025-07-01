@@ -7,3 +7,12 @@
         padding-right: 0;
     }
 }
+
+.blog-content {
+    font-family: "CraftRounded-Regular";
+}
+
+.blog-heading-content {
+    font-family: 'LarkenDEMO-Black' ;
+    text-transform: uppercase;
+}
