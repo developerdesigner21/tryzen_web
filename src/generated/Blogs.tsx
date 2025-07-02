@@ -19,28 +19,28 @@ export type Scalars = {
 
 export type Blog = {
   __typename?: 'Blog';
-  Author_info?: Maybe<Scalars['String']['output']>;
-  Basic_info?: Maybe<Scalars['String']['output']>;
-  Blogslug?: Maybe<Scalars['String']['output']>;
-  Blogtitle?: Maybe<Scalars['String']['output']>;
-  Category?: Maybe<Category>;
-  Category_id?: Maybe<Scalars['Int']['output']>;
-  Comment_data?: Maybe<Scalars['String']['output']>;
-  Created_at?: Maybe<Scalars['String']['output']>;
-  Deleted_at?: Maybe<Scalars['String']['output']>;
-  Id: Scalars['Int']['output'];
-  Metadata?: Maybe<Scalars['String']['output']>;
-  Section_data?: Maybe<Scalars['String']['output']>;
-  Updated_at?: Maybe<Scalars['String']['output']>;
+  author_info?: Maybe<Scalars['String']['output']>;
+  basic_info?: Maybe<Scalars['String']['output']>;
+  blog_slug?: Maybe<Scalars['String']['output']>;
+  blog_title?: Maybe<Scalars['String']['output']>;
+  category?: Maybe<Category>;
+  category_id?: Maybe<Scalars['Int']['output']>;
+  comment_data?: Maybe<Scalars['String']['output']>;
+  created_at?: Maybe<Scalars['String']['output']>;
+  deleted_at?: Maybe<Scalars['String']['output']>;
+  id: Scalars['Int']['output'];
+  meta_data?: Maybe<Scalars['String']['output']>;
+  section_data?: Maybe<Scalars['String']['output']>;
+  updated_at?: Maybe<Scalars['String']['output']>;
 };
 
 export type Category = {
   __typename?: 'Category';
-  Category_name?: Maybe<Scalars['String']['output']>;
-  Created_at?: Maybe<Scalars['String']['output']>;
-  Deleted_at?: Maybe<Scalars['String']['output']>;
-  Id: Scalars['Int']['output'];
-  Updated_at?: Maybe<Scalars['String']['output']>;
+  category_name?: Maybe<Scalars['String']['output']>;
+  created_at?: Maybe<Scalars['String']['output']>;
+  deleted_at?: Maybe<Scalars['String']['output']>;
+  id: Scalars['Int']['output'];
+  updated_at?: Maybe<Scalars['String']['output']>;
 };
 
 export type Mutation = {
@@ -55,53 +55,52 @@ export type Mutation = {
 
 
 export type MutationCreateBlogArgs = {
-  Author_info: Scalars['String']['input'];
-  Basic_info: Scalars['String']['input'];
-  Blogslug: Scalars['String']['input'];
-  Blogtitle: Scalars['String']['input'];
-  Category_id: Scalars['Int']['input'];
-  Comment_data: Scalars['String']['input'];
-  Metadata: Scalars['String']['input'];
-  Section_data: Scalars['String']['input'];
+  author_info: Scalars['String']['input'];
+  basic_info: Scalars['String']['input'];
+  blog_slug: Scalars['String']['input'];
+  blog_title: Scalars['String']['input'];
+  category_id: Scalars['Int']['input'];
+  comment_data: Scalars['String']['input'];
+  meta_data: Scalars['String']['input'];
+  section_data: Scalars['String']['input'];
 };
 
 
 export type MutationCreateCategoryArgs = {
-  Category_name: Scalars['String']['input'];
+  category_name: Scalars['String']['input'];
 };
 
 
 export type MutationDeleteBlogArgs = {
-  Id: Scalars['Int']['input'];
+  id: Scalars['Int']['input'];
 };
 
 
 export type MutationDeleteCategoryArgs = {
-  Id: Scalars['Int']['input'];
+  id: Scalars['Int']['input'];
 };
 
 
 export type MutationUpdateBlogArgs = {
-  Author_info?: InputMaybe<Scalars['String']['input']>;
-  Basic_info?: InputMaybe<Scalars['String']['input']>;
-  Blogslug?: InputMaybe<Scalars['String']['input']>;
-  Blogtitle?: InputMaybe<Scalars['String']['input']>;
-  Category_id?: InputMaybe<Scalars['Int']['input']>;
-  Comment_data?: InputMaybe<Scalars['String']['input']>;
-  Id: Scalars['Int']['input'];
-  Metadata?: InputMaybe<Scalars['String']['input']>;
-  Section_data?: InputMaybe<Scalars['String']['input']>;
+  author_info?: InputMaybe<Scalars['String']['input']>;
+  basic_info?: InputMaybe<Scalars['String']['input']>;
+  blog_slug?: InputMaybe<Scalars['String']['input']>;
+  blog_title?: InputMaybe<Scalars['String']['input']>;
+  category_id?: InputMaybe<Scalars['Int']['input']>;
+  comment_data?: InputMaybe<Scalars['String']['input']>;
+  id: Scalars['Int']['input'];
+  meta_data?: InputMaybe<Scalars['String']['input']>;
+  section_data?: InputMaybe<Scalars['String']['input']>;
 };
 
 
 export type MutationUpdateCategoryArgs = {
-  Category_name: Scalars['String']['input'];
-  Id: Scalars['Int']['input'];
+  category_name: Scalars['String']['input'];
+  id: Scalars['Int']['input'];
 };
 
 export type Query = {
   __typename?: 'Query';
-  blog?: Maybe<Blog>;
   categories?: Maybe<Array<Maybe<Category>>>;
   getAllBlogs?: Maybe<Array<Maybe<Blog>>>;
   getBlogBySlug?: Maybe<Blog>;
@@ -109,38 +108,36 @@ export type Query = {
 };
 
 
-export type QueryBlogArgs = {
-  Id: Scalars['Int']['input'];
+export type QueryGetBlogBySlugArgs = {
+  blog_slug: Scalars['String']['input'];
 };
 
 
-export type QueryGetBlogBySlugArgs = {
-  Basic_info: Scalars['String']['input'];
-  Blogslug: Scalars['String']['input'];
-  Id: Scalars['Int']['input'];
+export type QueryGetBlogsWithCategoryArgs = {
+  category_id: Scalars['Int']['input'];
 };
 
 export type GetAllBlogsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetAllBlogsQuery = { __typename?: 'Query', getAllBlogs?: Array<{ __typename?: 'Blog', Id: number, Basic_info?: string | null, Metadata?: string | null, Author_info?: string | null, Section_data?: string | null, Comment_data?: string | null, Blogtitle?: string | null, Blogslug?: string | null, Category_id?: number | null, Created_at?: string | null, Updated_at?: string | null, Deleted_at?: string | null } | null> | null };
+export type GetAllBlogsQuery = { __typename?: 'Query', getAllBlogs?: Array<{ __typename?: 'Blog', id: number, basic_info?: string | null, meta_data?: string | null, author_info?: string | null, section_data?: string | null, comment_data?: string | null, blog_title?: string | null, blog_slug?: string | null, category_id?: number | null, created_at?: string | null, updated_at?: string | null, deleted_at?: string | null } | null> | null };
 
 
 export const GetAllBlogsDocument = gql`
     query GetAllBlogs {
   getAllBlogs {
-    Id
-    Basic_info
-    Metadata
-    Author_info
-    Section_data
-    Comment_data
-    Blogtitle
-    Blogslug
-    Category_id
-    Created_at
-    Updated_at
-    Deleted_at
+    id
+    basic_info
+    meta_data
+    author_info
+    section_data
+    comment_data
+    blog_title
+    blog_slug
+    category_id
+    created_at
+    updated_at
+    deleted_at
   }
 }
     `;

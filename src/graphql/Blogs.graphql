@@ -1,17 +1,17 @@
 query GetAllBlogs {
     getAllBlogs {
-        Id
-        Basic_info
-        Metadata
-        Author_info
-        Section_data
-        Comment_data
-        Blogtitle
-        Blogslug
-        Category_id
-        Created_at
-        Updated_at
-        Deleted_at
+        id
+        basic_info
+        meta_data
+        author_info
+        section_data
+        comment_data
+        blog_title
+        blog_slug
+        category_id
+        created_at
+        updated_at
+        deleted_at
     }
 }
 

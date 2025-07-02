@@ -15,8 +15,8 @@ const GRAPHQL_ENDPOINT = process.env.REACT_APP_GRAPHQL_URL;
 const query = gql`
   query GetAllBlogs {
     getAllBlogs {
-      Blogslug
-      Updated_at
+      blog_slug
+      updated_at
     }
   }
 `;
@@ -59,8 +59,8 @@ async function generateSitemap() {
     const blogs = data.getAllBlogs;
 
     const blogRoutes = blogs.map((blog) => ({
-      path: `/blog/${slugify(blog.Blogslug)}`,
-      lastmod: new Date(Number(blog.Updated_at)).toISOString(),
+      path: `/blog/${slugify(blog.blog_slug)}`,
+      lastmod: new Date(Number(blog.updated_at)).toISOString(),
       changefreq: 'weekly',
       priority: 0.8,
     }));
