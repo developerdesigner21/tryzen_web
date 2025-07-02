@@ -15,6 +15,7 @@ import 'swiper/css/navigation';
 import EditIcon from '../../assets/editIcon.png';
 import DeleteIcon from '../../assets/deleteIcon.png';
 import Modal from 'react-modal';
+import { useGetAllBlogsQuery } from '../../generated/Blogs.tsx';
 Modal.setAppElement('#root');
 
 const ArrowNextIcon = (props) => (
@@ -57,6 +58,9 @@ export default function Blogs() {
     const [blogToDelete, setBlogToDelete] = useState(null);
 
     const [swiperStates, setSwiperStates] = useState({});
+
+    const { data } = useGetAllBlogsQuery()
+    console.log("data:",data)
 
     const navigate = useNavigate();
 
