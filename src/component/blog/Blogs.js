@@ -15,7 +15,8 @@ import 'swiper/css/navigation';
 import EditIcon from '../../assets/editIcon.png';
 import DeleteIcon from '../../assets/deleteIcon.png';
 import Modal from 'react-modal';
-import { useGetAllBlogsQuery } from '../../generated/Blogs.tsx';
+import { useDeleteBlogMutation, useGetAllBlogsQuery } from '../../generated/Blogs.tsx';
+import { useCategoriesQuery } from '../../generated/Category.tsx';
 Modal.setAppElement('#root');
 
 const ArrowNextIcon = (props) => (
@@ -50,42 +51,34 @@ const ArrowPrevIcon = (props) => (
 
 export default function Blogs() {
     const [isEditorOpen, setIsEditorOpen] = useState(false);
-    const [categories, setCategories] = useState([]);
-    const [blogs, setBlogs] = useState([]);
     const [selectedCategory, setSelectedCategory] = useState(null);
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [editBlog, setEditBlog] = useState(null);
     const [blogToDelete, setBlogToDelete] = useState(null);
-
     const [swiperStates, setSwiperStates] = useState({});
-
-    const { data } = useGetAllBlogsQuery()
-    console.log("data:",data)
-
     const navigate = useNavigate();
 
-    useEffect(() => {
-        const loadData = () => {
-            try {
-                const savedCategories = JSON.parse(localStorage.getItem('categories')) || [];
-                const savedBlogs = JSON.parse(localStorage.getItem('posts')) || [];
-                setCategories(savedCategories);
-                setBlogs(savedBlogs);
+    const { data: blogsData, loading: blogsLoading, refetch: refetchBlogs } = useGetAllBlogsQuery()
+    const { data: categoriesData, loading: categoriesLoading, refetch: refetchCategories } = useCategoriesQuery();
+    const [deleteBlogMutation] = useDeleteBlogMutation();
 
-                const authToken = sessionStorage.getItem('AuthToken');
-                setIsAuthenticated(true);
-            } catch (error) {
-                console.error('Error loading data:', error);
-            }
+    useEffect(() => {
+        const token = localStorage.getItem('token');
+        setIsAuthenticated(!!token);
+    }, []);
+
+    useEffect(() => {
+        const handleStorageChange = () => {
+            const token = localStorage.getItem('token');
+            setIsAuthenticated(!!token);
         };
-        loadData();
-        window.addEventListener('storage', loadData);
-        return () => window.removeEventListener('storage', loadData);
+        window.addEventListener('storage', handleStorageChange);
+        return () => window.removeEventListener('storage', handleStorageChange);
     }, []);
 
     useEffect(() => {
         if (selectedCategory) {
-            const element = document.getElementById(`category-${selectedCategory.slug}`);
+            const element = document.getElementById(`category-${selectedCategory.id}`);
             if (element) {
                 const headerOffset = 80;
                 const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
@@ -106,12 +99,20 @@ export default function Blogs() {
         }
     }, [blogToDelete]);
 
+    const blogs = blogsData?.getAllBlogs || [];
+    const categories = categoriesData?.categories || [];
+
     const blogsByCategory = blogs.reduce((acc, blog) => {
-        if (!blog.category) return acc;
-        if (!acc[blog.category]) {
-            acc[blog.category] = [];
+        if (!blog.category_id) return acc;
+        const categoryObj = categories.find(cat => cat.id === blog.category_id);
+        if (!categoryObj) return acc;
+        if (!acc[blog.category_id]) {
+            acc[blog.category_id] = {
+                category: categoryObj,
+                blogs: []
+            };
         }
-        acc[blog.category].push(blog);
+        acc[blog.category_id].blogs.push(blog);
         return acc;
     }, {});
 
@@ -119,12 +120,28 @@ export default function Blogs() {
         navigate(`/blogs/${slug}`);
     };
 
-    const handleDeleteBlog = () => {
-        const updatedBlogs = blogs.filter(blog => blog.id !== blogToDelete.id);
-        setBlogs(updatedBlogs);
-        localStorage.setItem('posts', JSON.stringify(updatedBlogs));
-        setBlogToDelete(null);
+    const handleDeleteBlog = async () => {
+        try {
+            await deleteBlogMutation({
+                variables: {
+                    id: blogToDelete.id
+                }
+            });
+            setBlogToDelete(null);
+            await refetchBlogs();
+        } catch (error) {
+            console.error("Failed to delete blog:", error);
+        }
     };
+
+    const handleSaveBlog = () => {
+        setIsEditorOpen(false);
+        setEditBlog(null);
+        refetchBlogs(); 
+    };
+
+    if (blogsLoading || categoriesLoading) return <div className="flex items-center justify-center text-center min-h-screen">Loading...</div>;
+
     return (
         <div>
             <Header />
@@ -144,7 +161,7 @@ export default function Blogs() {
                     )}
                     <div className='relative flex-wrap pt-2 blog-content'>
                         <Swiper
-                            spaceBetween={10}
+                            spaceBetween={8}
                             slidesPerView={'auto'}
                             freeMode={true}
                             pagination={{ clickable: true }}
@@ -167,19 +184,19 @@ export default function Blogs() {
                             </SwiperSlide>
 
                             {categories.map(category => {
-                                const categoryBlogs = blogsByCategory[category.slug] || [];
+                                const categoryBlogs = blogsByCategory[category.id] || [];
                                 if (categoryBlogs.length === 0) return null;
                                 return (
-                                    <SwiperSlide key={category.slug} className='!w-auto'>
+                                    <SwiperSlide key={category.id} className='!w-auto'>
                                         <div
                                             onClick={() => setSelectedCategory(category)}
                                             className={`px-4 py-1 rounded-full whitespace-nowrap cursor-pointer ${
-                                                selectedCategory?.slug === category.slug
+                                                selectedCategory?.id === category.id
                                                     ? 'bg-[#FF6802] text-white'
                                                     : 'bg-gray-200'
                                             }`}
                                         >
-                                            {category.name}
+                                            {category.category_name}
                                         </div>
                                     </SwiperSlide>
                                 )
@@ -190,22 +207,22 @@ export default function Blogs() {
 
                 <div className="space-y-2">
                     {categories.map(category => {
-                        const categoryBlogs = blogsByCategory[category.slug] || [];
+                        const categoryBlogs = blogsByCategory[category.id] || [];
                         const numberOfRows = categoryBlogs.length >= 16 ? 2 : 1;
                         if (categoryBlogs.length === 0) return null;
                         return (
                             <section
-                                key={category.slug}
-                                id={`category-${category.slug}`}
+                                key={category.id}
+                                id={`category-${category.id}`}
                                 className="pt-4"
                             >
-                                <h2 className="text-xl md:text-2xl font-semibold mb-2 blog-heading-content">{category.name}</h2>
+                                <h2 className="text-lg sm:text-2xl font-semibold mb-2 blog-heading-content">{category.category_name}</h2>
                                 <div className="relative">
                                     <Swiper
                                         onSwiper={(swiper) => {
                                             setSwiperStates((prev) => ({
                                                 ...prev,
-                                                [category.slug]: {
+                                                [category.id]: {
                                                     swiper,
                                                     isBeginning: swiper.isBeginning,
                                                     isEnd: swiper.isEnd
@@ -214,7 +231,7 @@ export default function Blogs() {
                                             swiper.on('slideChange', () => {
                                                 setSwiperStates((prev) => ({
                                                     ...prev,
-                                                    [category.slug]: {
+                                                    [category.id]: {
                                                         swiper,
                                                         isBeginning: swiper.isBeginning,
                                                         isEnd: swiper.isEnd
@@ -233,71 +250,73 @@ export default function Blogs() {
                                             fill: 'row', 
                                         }}
                                         navigation={{
-                                            nextEl: `.swiper-button-next-${category.slug}`,
-                                            prevEl: `.swiper-button-prev-${category.slug}`,
+                                            nextEl: `.swiper-button-next-${category.id}`,
+                                            prevEl: `.swiper-button-prev-${category.id}`,
                                         }}
                                     >
-                                        {categoryBlogs.map(blog => (
+                                        {categoryBlogs.blogs.map(blog => (
                                             <SwiperSlide key={blog.id} style={{ width: 'auto', flexShrink: 0 }}>
-                                                <div className="cursor-pointer text-center w-[36vw] sm:w-[30vw] md:w-[26vw] lg:w-[22vw] xl:w-[18vw]" onClick={() => handleBlogClick(blog.slug)}>
-                                                    <div className='relative flex flex-col border cursor-pointer justify-center items-center rounded mt-2 bg-white shadow-lg hover:bg-gray-100'>
-                                                        <div className="absolute bg-white/60 px-2 py-1 top-1 right-1 flex gap-2 z-10 rounded">
-                                                            <div 
-                                                                onClick={(e) => { 
-                                                                    e.stopPropagation(); 
-                                                                    setEditBlog(blog); 
-                                                                    setIsEditorOpen(true); 
-                                                                }}
-                                                            >
-                                                                <img
-                                                                    src={EditIcon}
-                                                                    alt={blog.title}
-                                                                    className="object-contain w-4 h-4 rounded-t"
-                                                                />
+                                                <div className="cursor-pointer text-center w-[36vw] sm:w-[30vw] md:w-[26vw] lg:w-[22vw] xl:w-[18vw]" onClick={() => handleBlogClick(blog.blog_slug)}>
+                                                    <div className='relative flex flex-col border cursor-pointer justify-center items-center rounded mt-3 bg-white shadow-lg hover:bg-gray-100'>
+                                                        {isAuthenticated && (
+                                                            <div className="absolute bg-white/60 px-2 py-1 top-1 right-1 flex gap-2 z-10 rounded">
+                                                                <div 
+                                                                    onClick={(e) => { 
+                                                                        e.stopPropagation(); 
+                                                                        setEditBlog(blog); 
+                                                                        setIsEditorOpen(true); 
+                                                                    }}
+                                                                >
+                                                                    <img
+                                                                        src={EditIcon}
+                                                                        alt={blog?.blog_title}
+                                                                        className="object-contain w-4 h-4 rounded-t"
+                                                                    />
+                                                                </div>
+                                                                <div 
+                                                                    onClick={(e) => { 
+                                                                        e.stopPropagation(); 
+                                                                        setBlogToDelete(blog); 
+                                                                    }}
+                                                                >
+                                                                    <img
+                                                                        src={DeleteIcon}
+                                                                        alt={blog?.blog_title}
+                                                                        className="object-contain w-4 h-4 rounded-t"
+                                                                    />
+                                                                </div>
                                                             </div>
-                                                            <div 
-                                                                onClick={(e) => { 
-                                                                    e.stopPropagation(); 
-                                                                    setBlogToDelete(blog); 
-                                                                }}
-                                                            >
-                                                                <img
-                                                                    src={DeleteIcon}
-                                                                    alt={blog.title}
-                                                                    className="object-contain w-4 h-4 rounded-t"
-                                                                />
-                                                            </div>
-                                                        </div>
-                                                        <div className="w-full aspect-[4/3]">
+                                                        )}
+                                                        <div className='relative w-full h-[36vw] sm:h-[30vw] md:h-[26vw] lg:h-[22vw] xl:h-[18vw]'>
                                                             <img
-                                                                src={blog.image || placeholder}
-                                                                alt={blog.title}
+                                                                src={blog.basic_info || placeholder}
+                                                                alt={blog?.title}
                                                                 className="object-cover w-full h-full rounded-t"
                                                             />
                                                         </div>
                                                         <div className="w-full p-1 sm:p-2">
-                                                            <span className="blog-content text-sm font-semibold text-center line-clamp-2 overflow-hidden">
-                                                                {blog.title}
+                                                            <span className="blog-content text-md font-semibold text-center line-clamp-2 overflow-hidden">
+                                                                {blog?.blog_title}
                                                             </span>
                                                         </div>
                                                     </div>
-                                                </div >
+                                                </div>
                                             </SwiperSlide>
                                         ))}
                                     </Swiper>
                                     <div
-                                        className={`swiper-button-prev-${category.slug} absolute top-1/2 left-[-4px] z-10 
+                                        className={`swiper-button-prev-${category.id} absolute top-1/2 left-[-4px] z-10 
                                             border w-8 h-8 bg-white rounded-full flex items-center justify-center cursor-pointer 
                                             -translate-y-1/2 transition-opacity duration-300
-                                            ${swiperStates[category.slug]?.isBeginning ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
+                                            ${swiperStates[category.id]?.isBeginning ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
                                     >
                                         <ArrowPrevIcon width={18} height={18} />
                                     </div>
                                     <div
-                                        className={`swiper-button-next-${category.slug} absolute top-1/2 right-[-4px] z-10 
+                                        className={`swiper-button-next-${category.id} absolute top-1/2 right-[-4px] z-10 
                                             border w-8 h-8 bg-white rounded-full flex items-center justify-center cursor-pointer 
                                             -translate-y-1/2 transition-opacity duration-300
-                                            ${swiperStates[category.slug]?.isEnd ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
+                                            ${swiperStates[category.id]?.isEnd ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
                                     >
                                         <ArrowNextIcon width={18} height={18} />
                                     </div>
@@ -313,7 +332,9 @@ export default function Blogs() {
                     setIsEditorOpen(false);
                     setEditBlog(null);
                 }}
+                onSave={handleSaveBlog}
                 initialData={editBlog}
+                refetchCategories={refetchCategories}
             />
             {blogToDelete && (
                 <Modal

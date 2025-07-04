@@ -16,16 +16,16 @@ Modal.setAppElement('#root');
 export default function FreeDesignPopup({ onClose ,isPopupOpen = false}) {
     const [formData, setFormData] = useState({  
         email: '',
-        phone: '',
-        timezone: '',
-        date: '',
-        time: '',
-        businessName: '',
+        // phone: '',
+        // timezone: '',
+        // date: '',
+        // time: '',
+        // businessName: '',
         hasWebsite: '',
-        likesWebsite: '',
-        preferdLanguage: '',
+        // likesWebsite: '',
+        // preferdLanguage: '',
         website: '',
-        websiteWish: '',
+        // websiteWish: '',
     });
 
     const timezones = timezonesData.timezones;
@@ -42,12 +42,12 @@ export default function FreeDesignPopup({ onClose ,isPopupOpen = false}) {
     }, [isPopupOpen]);
 
     useEffect(() => {
-        const tomorrow = new Date();
-        tomorrow.setDate(tomorrow.getDate() + 1);
+        // const tomorrow = new Date();
+        // tomorrow.setDate(tomorrow.getDate() + 1);
         setFormData({
             ...formData,
-            date: tomorrow.toISOString().split('T')[0],
-            time: "09:30"
+            // date: tomorrow.toISOString().split('T')[0],
+            // time: "09:30"
         });
       }, []);
 
@@ -97,45 +97,45 @@ export default function FreeDesignPopup({ onClose ,isPopupOpen = false}) {
             valid = false;
         }
 
-        if (!formData.phone || !/^\+?\d{10,15}$/.test(formData.phone)) {
-            newErrors.phone = 'Invalid phone number';
-            valid = false;
-        }
+        // if (!formData.phone || !/^\+?\d{10,15}$/.test(formData.phone)) {
+        //     newErrors.phone = 'Invalid phone number';
+        //     valid = false;
+        // }
 
-        if (!formData.timezone) {
-            newErrors.timezone = 'Required';
-            valid = false;
-        }
+        // if (!formData.timezone) {
+        //     newErrors.timezone = 'Required';
+        //     valid = false;
+        // }
 
-        if (!formData.date) {
-            newErrors.date = 'Required';
-            valid = false;
-        }
+        // if (!formData.date) {
+        //     newErrors.date = 'Required';
+        //     valid = false;
+        // }
 
-        if (!formData.time) {
-            newErrors.time = 'Required';
-            valid = false;
-        }
+        // if (!formData.time) {
+        //     newErrors.time = 'Required';
+        //     valid = false;
+        // }
 
-        if (!formData.businessName) {
-            newErrors.businessName = 'Required';
-            valid = false;
-        }
+        // if (!formData.businessName) {
+        //     newErrors.businessName = 'Required';
+        //     valid = false;
+        // }
 
         if (formData.hasWebsite === 'Yes' && !formData.website) {
             newErrors.website = 'Required';
             valid = false;
         }
 
-        if (formData.likesWebsite === 'Yes' && !formData.websiteWish) {
-            newErrors.websiteWish = 'Required';
-            valid = false;
-        }
+        // if (formData.likesWebsite === 'Yes' && !formData.websiteWish) {
+        //     newErrors.websiteWish = 'Required';
+        //     valid = false;
+        // }
 
-        if (!formData.preferdLanguage) {
-            newErrors.preferdLanguage = 'Required';
-            valid = false;
-        }
+        // if (!formData.preferdLanguage) {
+        //     newErrors.preferdLanguage = 'Required';
+        //     valid = false;
+        // }
 
         setErrors(newErrors);
         return valid;
@@ -147,19 +147,20 @@ export default function FreeDesignPopup({ onClose ,isPopupOpen = false}) {
             const payload = {
                 contact_information: {
                     email: formData.email,
-                    mobile: formData.phone,
-                    timezone: formData.timezone,
-                    available_date: formData.date,
-                    available_time: formData.time,
+                    mobile: "", //formData.phone,
+                    timezone: "", //formData.timezone,
+                    available_date: "", //formData.date,
+                    available_time: "", //formData.time,
                 },
                 business_information: {
-                    business_name: formData.businessName,
-                    have_website: formData.hasWebsite === 'Yes',
-                    website: formData.website || "",
-                    like_website: formData.likesWebsite === 'Yes',
-                    website_wish: formData.websiteWish || "",
+                    business_name: "", // formData.businessName,
+                    have_website: "", //formData.hasWebsite === 'Yes',
+                    website: "", //formData.website || "",
+                    like_website: "", //formData.likesWebsite === 'Yes',
+                    website_wish: "", //formData.websiteWish || "",
                 },
             };
+            const token = localStorage.getItem("token");
             try {
                 const response = await axios.post(
                     'https://api.tryzensolution.com/send-email',
@@ -167,6 +168,7 @@ export default function FreeDesignPopup({ onClose ,isPopupOpen = false}) {
                     {
                         headers: {
                             'Content-Type': 'application/json',
+                            ...(token && { Authorization: `Bearer ${token}` }),
                         },
                     }
                 );
@@ -187,16 +189,16 @@ export default function FreeDesignPopup({ onClose ,isPopupOpen = false}) {
     const handleClose = () => {
         setFormData({
             email: '',
-            phone: '',
-            timezone: '',
-            date: '',
-            time: '',
-            businessName: '',
+            // phone: '',
+            // timezone: '',
+            // date: '',
+            // time: '',
+            // businessName: '',
             hasWebsite: '',
-            likesWebsite: '',
-            preferdLanguage: '',
+            // likesWebsite: '',
+            // preferdLanguage: '',
             website: '',
-            websiteWish: '',
+            // websiteWish: '',
         })
         setErrors({})
         onClose()
@@ -207,24 +209,24 @@ export default function FreeDesignPopup({ onClose ,isPopupOpen = false}) {
             document.body.style.overflow = "hidden";
             setFormData({
                 email: '',
-                phone: '',
-                timezone: '',
-                date: '',
-                time: '',
-                businessName: '',
+                // phone: '',
+                // timezone: '',
+                // date: '',
+                // time: '',
+                // businessName: '',
                 hasWebsite: 'No',
-                likesWebsite: 'No',
-                preferdLanguage: '',
+                // likesWebsite: 'No',
+                // preferdLanguage: '',
                 website: '',
-                websiteWish: '',
+                // websiteWish: '',
             });
             setErrors({});
             const tomorrow = new Date();
             tomorrow.setDate(tomorrow.getDate() + 1);
             setFormData(prevFormData => ({
               ...prevFormData,
-              date: tomorrow.toISOString().split('T')[0],
-              time: "09:30"
+            //   date: tomorrow.toISOString().split('T')[0],
+            //   time: "09:30"
             }));
         } else {
             document.body.style.overflow = "auto";
@@ -238,7 +240,7 @@ export default function FreeDesignPopup({ onClose ,isPopupOpen = false}) {
             onSubmit={handleSubmit}
             // style={{display: isPopupOpen ? "" : "none"}}
         >
-            <div className="bg-[#101828] px-4 sm:px-8 pt-6 pb-8 rounded-lg max-h-[80vh] md:max-h-[95vh] max-w-full relative overflow-y-auto">
+            <div className="bg-[#101828] px-6 sm:px-8 pt-6 pb-8 rounded-lg max-h-[80vh] md:max-h-[95vh] max-w-full relative overflow-y-auto">
                 <div
                     onClick={onClose}
                     className="absolute top-5 right-3 hover:text-gray-700 cursor-pointer"
@@ -246,15 +248,15 @@ export default function FreeDesignPopup({ onClose ,isPopupOpen = false}) {
                     <img src={require('../../../assets/cross-icon.png')} className='w-5' alt="Close" />
                 </div>
                 <div className='text-center mb-5'>
-                    <h1 className='custom-web-design text-lg mb-1'>GET YOUR FREE CUSTOM WEBSITE DESIGN</h1>
+                    <h1 className='custom-web-design md:text-lg mb-1'>GET YOUR FREE CUSTOM WEBSITE DESIGN</h1>
                     <h1 className='rest-ecom text-3xl font-semibold'>For Your Restaurant Or Ecommerce!</h1>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-20">
+                <div className="grid grid-cols-1 gap-8 md:gap-20">
                     <div className='text-white popup-content'>
-                        <div className="mb-4 text-left">
+                        {/* <div className="mb-4 text-left">
                             <h2 className="text-xl font-bold">Contact Information</h2>
                             <p className="text-sm">This Information Helps Us To Show Demo In Meeting</p>
-                        </div>
+                        </div> */}
                         <div>
                             <label className="block text-left text-sm mb-1">
                                 Email Address
@@ -269,19 +271,10 @@ export default function FreeDesignPopup({ onClose ,isPopupOpen = false}) {
                                 autoComplete="off"
                             />
                         </div>
-                        <div className="mt-4">
+                        {/* <div className="mt-4">
                             <label className="block text-left text-sm mb-1">
                                 Mobile Number
                             </label>
-                            {/* <input
-                                type="tel"
-                                name="phone"
-                                value={formData.phone}
-                                onChange={handleChange}
-                                className={`mt-1 p-2 border border-[#343947] rounded-md w-full bg-[#1C2433] ${errors.phone ? 'border-[#ff0000]' : ''}`}
-                                placeholder="+91 9998220731"
-                                autoComplete="off"
-                            /> */}
                             <PhoneInput
                                 country={'in'}
                                 value={formData.phone}
@@ -391,27 +384,11 @@ export default function FreeDesignPopup({ onClose ,isPopupOpen = false}) {
                             customInput={<input className="mt-1 p-2 rounded-md w-full bg-[#1C2433] text-white cursor-pointer" style={{border:"1px solid #343947"}} />}
                             onClick={(e) => e.target.showPicker()}
                              />
-                            {/* <input
-                                type="date"
-                                name="date"
-                                value={formData.date}
-                                onChange={handleChange}
-                                onClick={(e) => e.target.showPicker()}
-                                className={`mt-1 p-2 border border-[#343947] rounded-md w-full bg-[#1C2433] ${errors.date ? 'border-[#ff0000]' : ''}`}
-                            /> */}
                         </div>
                         <div className="mt-4">
                             <label className="block text-left text-sm mb-1">
                                 Select Available Time
                             </label>
-                            {/* <input
-                                type="time"
-                                name="time"
-                                value={formData.time}
-                                onChange={handleChange}
-                                onClick={(e) => e.target.showPicker()}
-                                className={`mt-1 p-2 border border-[#343947] rounded-md w-full bg-[#1C2433] !text-white ${errors.time ? 'border-[#ff0000]' : ''}`}
-                            /> */}
                             <Select
                                 value={times.find(t => t.value === formData.time)}
                                 onChange={(e) => handleChangeSelect(e, "timezone")}
@@ -474,13 +451,57 @@ export default function FreeDesignPopup({ onClose ,isPopupOpen = false}) {
                                 menuPlacement="auto"
                                 menuShouldBlockScroll={true}
                             />
+                        </div> */}
+                        <div className="mt-4">
+                            <p className="text-sm text-left mb-2">Do You Have Website?</p>
+                            <div className="flex flex-col">
+                                <div className='flex items-center space-x-4 mb-2'>
+                                    <label className="flex items-center space-x-2">
+                                        <input
+                                            type="radio"
+                                            name="hasWebsite"
+                                            value="Yes"
+                                            checked={formData.hasWebsite === 'Yes'}
+                                            onChange={handleChange}
+                                            className="appearance-none w-5 h-5 border-2 rounded-full bg-[#1C2433] checked:border-white checked:bg-[#1C2433] relative"
+                                        />
+                                        <span className='yes-no-website'>Yes, I Have Site</span>
+                                    </label>
+                                    <label className="flex items-center space-x-2">
+                                        <input
+                                            type="radio"
+                                            name="hasWebsite"
+                                            value="No"
+                                            checked={formData.hasWebsite === 'No'}
+                                            onChange={handleChange}
+                                            className="appearance-none w-5 h-5 border-2 rounded-full bg-[#1C2433] checked:border-white checked:bg-[#1C2433] relative"
+                                        />
+                                        <span className='yes-no-website'>No, I Don't Have</span>
+                                    </label>
+                                </div>
+                                <input
+                                    type="text"
+                                    name="website"
+                                    value={formData.hasWebsite === 'Yes' ? formData.website : ''}
+                                    onChange={handleChange}
+                                    disabled={formData.hasWebsite !== 'Yes'}
+                                    className={`mt-1 p-2 border border-[#343947] rounded-md w-full bg-[#1C2433] ${errors.website && formData.hasWebsite === 'Yes' ? 'border-[#ff0000]' : ''} ${formData.hasWebsite !== 'Yes' ? 'bg-[#2a3542]' : ''}`}
+                                    placeholder={formData.hasWebsite === 'Yes' ? "Enter Website" : ''}
+                                    autoComplete="off"
+                                />
+                            </div>
                         </div>
-
-                        <div className='mt-4 hidden md:block'>
+                        <button
+                            type="submit"
+                            className="w-full mt-4 bg-white text-black font-bold rounded-md px-4 py-2 popup-content btn-free-design"
+                        >
+                            BOOK FREE WEBSITE CONSULTATION!
+                        </button>
+                        <div className='mt-4'>
                             <p className="text-left note-title font-bold"><span className='text-white'>NOTE: </span><span className='text-[#F9ED32]'>WE NEVER SHARE YOUR INFORMATION</span></p>
                         </div>
                     </div>
-                    <div className='text-white popup-content'>
+                    {/* <div className='text-white popup-content'>
                         <div className="mb-4 text-left">
                             <h2 className="text-xl font-bold">Business Information</h2>
                             <p className="text-sm">This Information Helps Us Prepare A Personalised Demo For Your Meeting!</p>
@@ -653,7 +674,7 @@ export default function FreeDesignPopup({ onClose ,isPopupOpen = false}) {
                         <div className='mt-4 md:hidden'>
                             <p className="text-left note-title font-bold"><span className='text-white'>NOTE: </span><span className='text-[#F9ED32]'>WE NEVER SHARE YOUR INFORMATION</span></p>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </form>

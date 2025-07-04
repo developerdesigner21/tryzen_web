@@ -1,0 +1,23 @@
+query Categories {
+    categories {
+        id
+        category_name
+        created_at
+        updated_at
+        deleted_at
+    }
+}
+
+mutation CreateCategory ($category_name: String!) {
+    createCategory(category_name: $category_name) {
+        id
+        category_name
+        created_at
+        updated_at
+        deleted_at
+    }
+}
+
+mutation DeleteCategory($id: Int!) {
+    deleteCategory(id: $id)
+}

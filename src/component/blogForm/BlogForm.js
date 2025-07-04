@@ -1,34 +1,97 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import { v4 as uuidv4 } from 'uuid';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import Modal from 'react-modal';
+import axios from 'axios';
 import plusIcon from '../../assets/plusIcon.png';
 import 'react-quill/dist/quill.snow.css';
+import { useCategoriesQuery, useCreateCategoryMutation, useDeleteCategoryMutation } from '../../generated/Category.tsx';
+import DeleteIcon from '../../assets/deleteIcon.png';
+import { useCreateBlogMutation, useGetBlogBySlugQuery, useUpdateBlogMutation } from '../../generated/Blogs.tsx';
 const ReactQuill = React.lazy(() => import('react-quill'));
 Modal.setAppElement('#root');
 
-const BlogModal = ({ isOpen, onClose, initialData }) => {
-    
-    const loadData = (key, defaultValue) => {
-        try {
-            const data = localStorage.getItem(key);
-            if (!data) return defaultValue;
-            const parsed = JSON.parse(data);
-            if (key === 'posts') {
-                return parsed.map(post => ({
-                    ...post,
-                    image: post.image?.startsWith('blob:') ? '' : post.image,
-                    ownerProfilePic: post.ownerProfilePic?.startsWith('blob:') ? '' : post.ownerProfilePic
-                }));
-            } 
-            return parsed;
-        } catch (error) {
-            console.error(`Error loading ${key}:`, error);
-            return defaultValue;
-        }
+const CategorySelect = ({ categories, selectedCategory, onSelect, onDelete, hasError }) => {
+    const [showDropdown, setShowDropdown] = useState(false);
+    const dropdownRef = useRef(null);
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+                setShowDropdown(false);
+            }
+        };
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, []);
+    const getBorderClass = () => {
+        return hasError  ? "border-red-500" : "border-gray-300";
     };
+    return (
+        <div className="relative" ref={dropdownRef}>
+            <button
+                type="button"
+                // className="w-full border border-gray-300 p-2 rounded bg-white text-left flex justify-between items-center text-sm"
+                className={`w-full border p-2 rounded bg-white text-left flex justify-between items-center text-sm ${getBorderClass()}`}
+                onClick={() => setShowDropdown(prev => !prev)}
+            >
+                <span>
+                    {categories.find(c => c.id === selectedCategory)?.category_name || 'Select a category'}
+                </span>
+                {showDropdown ? (
+                    <svg className="w-4 h-4 text-gray-500 ml-2" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M19 15l-7-7-7 7" />
+                    </svg>
+                ) : (
+                    <svg className="w-4 h-4 text-gray-500 ml-2" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                    </svg>
+                )}            
+            </button>
 
-     const [formData, setFormData] = useState({
-        id: uuidv4(),
+            {showDropdown && (
+                <div className="absolute z-10 w-full bg-white border mt-1 rounded shadow">
+                    {categories.map(cat => (
+                        <div
+                            key={cat.id}
+                            className="flex justify-between items-center px-3 py-2 hover:bg-gray-100"
+                        >
+                            <span
+                                className="cursor-pointer flex-1"
+                                onClick={() => {
+                                    onSelect(cat.id);
+                                    setShowDropdown(false);
+                                }}
+                            >
+                                {cat.category_name}
+                            </span>
+                            <button
+                                type="button"
+                                onClick={() => onDelete(cat.id)}
+                                className="text-red-500 hover:text-red-700 ml-2 text-sm"
+                            >
+                                <img src={DeleteIcon} alt={''} className="object-contain w-4 h-4 rounded-t" />
+                            </button>
+                        </div>
+                    ))}
+                </div>
+            )}
+        </div>
+    );
+};
+
+const BlogModal = ({ isOpen, onClose, initialData, onSave, refetchCategories }) => {
+    const { data: categoriesData } = useCategoriesQuery();
+    const [createBlogMutation] = useCreateBlogMutation();
+    const [updateBlogMutation] = useUpdateBlogMutation();
+
+    const { data: blogData } = useGetBlogBySlugQuery({
+        variables: {
+            blog_slug: initialData?.blog_slug || ''
+        },
+        skip: !initialData?.blog_slug
+    });
+
+    const [formData, setFormData] = useState({
         title: '',
         slug: '',
         image:'',
@@ -41,10 +104,11 @@ const BlogModal = ({ isOpen, onClose, initialData }) => {
         mainDescription: [{ title: '', description: '' }]
     });
 
-    const [categories, setCategories] = useState(loadData('categories', []));
-    const [posts, setPosts] = useState(loadData('posts', []));
     const [newCategory, setNewCategory] = useState('');
     const [showAddCategory, setShowAddCategory] = useState(false);
+    const [categoryToDelete, setCategoryToDelete] = useState(null);
+    const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
+    const [isUploading, setIsUploading] = useState(false);
 
     const [validationErrors, setValidationErrors] = useState({
         title: false,
@@ -53,8 +117,13 @@ const BlogModal = ({ isOpen, onClose, initialData }) => {
         metaDescription: false,
         ownerName: false,
         ownerPosition: false,
+        image: false,
+        ownerProfilePic: false,
         mainDescription: []
     });
+
+    const [createCategoryMutation] = useCreateCategoryMutation();
+    const [deleteCategoryMutation] = useDeleteCategoryMutation();
 
     useEffect(() => {
         setValidationErrors(prev => ({
@@ -65,32 +134,6 @@ const BlogModal = ({ isOpen, onClose, initialData }) => {
             }))
         }));
     }, [formData.mainDescription.length]);
-    
-    const validateField = (field, value, index = null) => {
-        if (index !== null) {
-            setValidationErrors(prev => {
-                const newDescErrors = [...prev.mainDescription];
-                newDescErrors[index] = {
-                    ...newDescErrors[index],
-                    [field]: !value.trim()
-                };
-                return { ...prev, mainDescription: newDescErrors };
-            });
-        } else {
-            setValidationErrors(prev => ({
-                ...prev,
-                [field]: !value.trim()
-            }));
-        }
-    };
-
-    const saveData = (key, data) => {
-        try {
-            localStorage.setItem(key, JSON.stringify(data));
-        } catch (error) {
-            console.error(`Error saving ${key}:`, error);
-        }
-    };
 
     useEffect(() => {
         if (isOpen) {
@@ -101,12 +144,67 @@ const BlogModal = ({ isOpen, onClose, initialData }) => {
     }, [isOpen]);
 
     useEffect(() => {
-        saveData('categories', categories);
-    }, [categories]);
+        if (blogData?.getBlogBySlug) {
+            const blog = blogData.getBlogBySlug;
+            try {
+                const [metaHeader = '', metaDescription = ''] = blog.meta_data?.split('|||') || [];
+                const [ownerName = '', ownerProfilePic = '', ownerPosition = ''] = blog.author_info?.split('|||') || [];
+                let mainDescription = [];
+                try {
+                    mainDescription = blog.section_data ? JSON.parse(blog.section_data) : [];
+                } catch (e) {
+                    console.error('Error parsing section_data:', e);
+                    mainDescription = [{ title: '', description: '' }];
+                }
+                setFormData({
+                    title: blog.blog_title || '',
+                    slug: blog.blog_slug || '',
+                    image: blog.basic_info || '',
+                    category: blog.category_id, 
+                    metaHeader,
+                    metaDescription,
+                    ownerName,
+                    ownerProfilePic,
+                    ownerPosition,
+                    mainDescription
+                });
+            } catch (error) {
+                console.error('Error parsing initial data:', error);
+            }
+        } else if (!initialData) {
+            setFormData({
+                title: '',
+                slug: '',
+                image: '',
+                category: '',
+                metaHeader: '',
+                metaDescription: '',
+                ownerName: '',
+                ownerProfilePic: '',
+                ownerPosition: '',
+                mainDescription: [{ title: '', description: '' }]
+            });
+        }
+    }, [blogData, initialData]);
 
-    useEffect(() => {
-        saveData('posts', posts);
-    }, [posts]);
+    const validateField = (field, value, index = null) => {
+        const safeValue = String(value || '').trim();
+        if (index !== null) {
+            setValidationErrors(prev => {
+                const newDescErrors = [...prev.mainDescription];
+                newDescErrors[index] = {
+                    ...newDescErrors[index],
+                    [field]: !safeValue
+                };
+                return { ...prev, mainDescription: newDescErrors };
+            });
+        } else {
+            setValidationErrors(prev => ({
+                ...prev,
+                [field]: !safeValue
+            }));
+        }
+    };
 
     const generateSlug = (title) => {
         if (!title) return '';
@@ -115,18 +213,19 @@ const BlogModal = ({ isOpen, onClose, initialData }) => {
             .replace(/[^\w\s]/g, '')
             .replace(/\s+/g, '-')
             .trim();
-        let finalSlug = baseSlug;
-        let counter = 1;
-        const suffixes = ['new', 'latest', 'updated', 'current'];
-        while (posts?.some(post => post.slug === finalSlug)) {
-            if (counter <= suffixes.length) {
-                finalSlug = `${baseSlug}-${suffixes[counter - 1]}`;
-            } else {
-                finalSlug = `${baseSlug}-${counter - suffixes.length}`;
-            }
-            counter++;
-        }
-        return finalSlug;
+        // let finalSlug = baseSlug;
+        // let counter = 1;
+        // const suffixes = ['new', 'latest', 'updated', 'current'];
+        // while (posts?.some(post => post.slug === finalSlug)) {
+        //     if (counter <= suffixes.length) {
+        //         finalSlug = `${baseSlug}-${suffixes[counter - 1]}`;
+        //     } else {
+        //         finalSlug = `${baseSlug}-${counter - suffixes.length}`;
+        //     }
+        //     counter++;
+        // }
+        // return finalSlug;
+        return baseSlug;
     };
 
     const handleTitleChange = (e) => {
@@ -172,86 +271,189 @@ const BlogModal = ({ isOpen, onClose, initialData }) => {
         }
     };
 
-    const addCategory = () => {
-        if (newCategory && !categories?.some(cat => cat.name === newCategory)) {
-            const categorySlug = newCategory
-                .toLowerCase()
-                .replace(/[^\w\s]/g, '')
-                .replace(/\s+/g, '-')
-                .trim();
-            const newCategoryObj = {
-                name: newCategory,
-                slug: categorySlug
-            };
-            setCategories([...categories, newCategoryObj]);
-            setNewCategory('');
+    const addCategory = async () => {
+        const trimmed = newCategory.trim();
+        if (!trimmed) return;
+        try {
+            const { data } = await createCategoryMutation({
+                variables: { category_name: trimmed }
+            });
+            if (data?.createCategory) {
+                setNewCategory('');
+                setShowAddCategory(false);
+                await refetchCategories();
+            }
+        } catch (err) {
+            console.error('Error creating category:', err);
         }
     };
 
-    useEffect(() => {
-        if (initialData) {
-            const formattedMainDescription = initialData.mainDescription?.length > 0 ? initialData.mainDescription  : [{ title: '', description: '' }];
-            setFormData({
-                ...initialData,
-                mainDescription: formattedMainDescription 
-            });
-        } else {
-            setFormData({
-                id: uuidv4(),
-                title: '',
-                slug: '',
-                image: '',
-                category: '',
-                metaHeader: '',
-                metaDescription: '',
-                ownerName: '',
-                ownerProfilePic: '',
-                ownerPosition: '',
-                mainDescription: [{ title: '', description: '' }]
-            });
+    const handleDeleteCategory = async (id) => {
+        if (!id) return;
+        try {
+            await deleteCategoryMutation({ variables: { id } });
+            if (formData.category === id) {
+                setFormData({ ...formData, category: '' });
+            }
+            await refetchCategories();
+        } catch (error) {
+            console.error('Error deleting category:', error);
         }
-    }, [initialData]);
+    };
 
-    const handleSubmit = (e) => {
+    const handleImageUpload = async (field, e) => {
+        const file = e.target.files[0];
+        if (!file) return;
+        setIsUploading(true);
+        const token = localStorage.getItem("token");
+        try {
+            const formData = new FormData();
+            formData.append('image', file);
+            const response = await axios.post(
+                'https://api.tryzensolution.com/upload',
+                formData,
+                {
+                    headers: {
+                        'Content-Type': 'multipart/form-data',
+                        ...(token && { Authorization: `Bearer ${token}` }),
+                    }
+                }
+            );
+            setFormData(prev => ({
+                ...prev,
+                [field]: response.data.file_url
+            }));
+        } catch (error) {
+            console.error('Upload failed:', error);
+        } finally {
+            setIsUploading(false);
+        }
+    };
+
+    const uploadImgToServer = async (file) => {
+        try {
+            const formData = new FormData();
+            formData.append('image', file);
+            const token = localStorage.getItem("token");
+            const response = await axios.post(
+                'https://api.tryzensolution.com/upload',
+                formData,
+                {
+                    headers: {
+                        'Content-Type': 'multipart/form-data',
+                        ...(token && { Authorization: `Bearer ${token}` }),
+                    }
+                }
+            );
+            return response.data.file_url;
+        } catch (error) {
+            console.error('Upload failed:', error);
+            return null;
+        }
+    };
+
+    const replaceBase64WithImgUrls = async (mainDescription) => {
+        if (!Array.isArray(mainDescription)) {
+            console.error('Expected mainDescription to be an array, got:', typeof mainDescription);
+            return mainDescription;
+        }
+        const processedDescriptions = await Promise.all(
+            mainDescription.map(async (section) => {
+                if (typeof section.description !== 'string') {
+                    return section;
+                }
+                const base64Regex = /data:image\/(png|jpeg|jpg);base64,[^"]+/g;
+                const matches = section.description.match(base64Regex);
+                if (!matches) return section;
+                const uniqueMatches = [...new Set(matches)];
+                const replacements = await Promise.all(
+                    uniqueMatches.map(async (base64) => {
+                        try {
+                            const base64Response = await fetch(base64);
+                            const blob = await base64Response.blob();
+                            const file = new File([blob], 'uploaded-image.png', { type: blob.type });
+                            const url = await uploadImgToServer(file);
+                            return { base64, url };
+                        } catch (error) {
+                            console.error('Error processing image:', error);
+                            return { base64, url: null };
+                        }
+                    })
+                );
+                let updatedDescription = section.description;
+                for (const { base64, url } of replacements) {
+                    if (url) {
+                        updatedDescription = updatedDescription.split(base64).join(url);
+                    }
+                }
+                return {
+                    ...section,
+                    description: updatedDescription
+                };
+            })
+        );
+        return processedDescriptions;
+    };
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        let isValid = true;
-        const basicFields = ['title', 'category', 'metaHeader', 'metaDescription', 'ownerName', 'ownerPosition'];
+        const requiredFields = ['title', 'category', 'metaHeader', 'metaDescription', 'ownerName', 'ownerPosition'];
         const newErrors = { ...validationErrors };
-        
-        basicFields.forEach(field => {
-            newErrors[field] = !formData[field].trim();
+        let isValid = true;
+        requiredFields.forEach(field => {
+            const value = String(formData[field] || '').trim();
+            newErrors[field] = !value;
             if (newErrors[field]) isValid = false;
         });
-        
         const descErrors = formData.mainDescription.map((section, index) => {
-            const titleError = !section.title.trim();
-            const descError = !section.description.trim();
+            const titleError = !String(section.title || '').trim();
+            const descError = !String(section.description || '').trim();
             if (titleError || descError) isValid = false;
             return { title: titleError, description: descError };
         });
-        
-        newErrors.mainDescription = descErrors;
-        setValidationErrors(newErrors);
-        
-        if (!isValid) return;
-
-        if (initialData) {
-            const updatedPosts = posts.map(post => 
-                post.id === initialData.id ? formData : post
-            );
-            setPosts(updatedPosts);
-            localStorage.setItem('posts', JSON.stringify(updatedPosts));
-        } else {
-            const postToSave = { ...formData, id: uuidv4() };
-            setPosts([...posts, postToSave]);
-            localStorage.setItem('posts', JSON.stringify([...posts, postToSave]));
+        setValidationErrors({
+            ...newErrors,
+            image: !formData.image,
+            ownerProfilePic: !formData.ownerProfilePic,
+            mainDescription: descErrors
+        });
+        if (!isValid) {
+            return;
         }
-        onClose();
+        try {
+            const processedDescriptions = await replaceBase64WithImgUrls(formData.mainDescription);
+            const variables = {
+                basic_info: formData.image || "",
+                meta_data: `${formData.metaHeader || ""}|||${formData.metaDescription || ""}`,
+                author_info: `${formData.ownerName || ""}|||${formData.ownerProfilePic || ""}|||${formData.ownerPosition || ""}`,
+                section_data: JSON.stringify(processedDescriptions || []),
+                blog_title: formData.title,
+                blog_slug: formData.slug,
+                category_id: parseInt(formData.category),
+                comment_data: "[]"
+            };
+            if (initialData) {
+                await updateBlogMutation({
+                    variables: {
+                        id: initialData.id,
+                        ...variables
+                    }
+                });
+            } else {
+                await createBlogMutation({
+                    variables: variables
+                });
+            }
+            await refetchCategories();
+            onSave();
+            onClose();
+        } catch (error) {
+            console.error("Failed to save blog:", error);
+        }
     };
-
+    
     const handleClose = () => {
         setFormData({
-            id: uuidv4(),
             title: '',
             slug: '',
             category: '',
@@ -263,19 +465,6 @@ const BlogModal = ({ isOpen, onClose, initialData }) => {
             mainDescription: [{ title: '', description: '' }]
         });
         onClose();
-    };
-
-    const handleImageUpload = (field, e) => {
-        const file = e.target.files[0];
-        if (!file) return;
-        const reader = new FileReader();
-        reader.onload = (event) => {
-            setFormData({ 
-                ...formData, 
-                [field]: event.target.result
-            });
-        };
-        reader.readAsDataURL(file);
     };
 
     const getInputClass = (field, index = null) => {
@@ -332,6 +521,7 @@ const BlogModal = ({ isOpen, onClose, initialData }) => {
                                 readOnly
                                 className={getInputClass('slug')}
                                 onBlur={() => validateField('title', formData.slug)}
+                                disabled
                             />
                         </div>
                         <div>
@@ -352,10 +542,14 @@ const BlogModal = ({ isOpen, onClose, initialData }) => {
                                         type="file"
                                         accept="image/*"
                                         onChange={(e) => handleImageUpload('image', e)}
+                                        disabled={isUploading}
                                         className="hidden"
                                     />
                                 </label>
                             </div>
+                            {validationErrors.image && (
+                                <p className="mt-1 text-xs text-red-500">Please upload a Blog Image</p>
+                            )}
                         </div>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                             <div>
@@ -373,24 +567,19 @@ const BlogModal = ({ isOpen, onClose, initialData }) => {
                                         />
                                     </button>
                                 </div>
-                                <select
-                                    value={formData.category}
-                                    onChange={(e) => {
-                                        setFormData({ ...formData, category: e.target.value });
-                                        validateField('category', e.target.value);
+                                <CategorySelect
+                                    categories={categoriesData?.categories || []}
+                                    selectedCategory={formData.category}
+                                    onSelect={(id) => {
+                                        setFormData(prev => ({ ...prev, category: id }));
+                                        validateField('category', id);
                                     }}
-                                    className={getInputClass('category')}
-                                    onBlur={() => validateField('category', formData.category)}
-                                >
-                                    <option value="">Select a category</option>
-                                    {Array.isArray(categories) && categories.map((cat, index) => {
-                                        const slug = cat?.slug || `cat-${index}`;
-                                        const name = cat?.name || 'Unnamed';
-                                        return (
-                                            <option key={slug} value={slug}>{name}</option>
-                                        );
-                                    })}
-                                </select>
+                                    onDelete={(id) => {
+                                        setCategoryToDelete(id);
+                                        setShowDeleteConfirm(true);
+                                    }}
+                                    hasError={validationErrors.category} 
+                                />
                             </div>
                             {showAddCategory && (
                                 <div className="flex items-end">
@@ -495,10 +684,14 @@ const BlogModal = ({ isOpen, onClose, initialData }) => {
                                         type="file"
                                         accept="image/*"
                                         onChange={(e) => handleImageUpload('ownerProfilePic', e)}
+                                        disabled={isUploading}
                                         className="hidden"
                                     />
                                 </label>
                             </div>
+                            {validationErrors.ownerProfilePic && (
+                                <p className="mt-1 text-xs text-red-500">Please upload a Profile Picture</p>
+                            )}
                         </div>
                     </div>
                 </div>
@@ -597,6 +790,46 @@ const BlogModal = ({ isOpen, onClose, initialData }) => {
                     </button>
                 </div>
             </form>
+            {showDeleteConfirm && (
+                <div className="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50">
+                    <div className="relative bg-white p-6 rounded shadow-lg max-w-sm w-full">
+                        <h2 className="text-lg font-semibold mb-4">Confirm Deletion</h2>
+                        <p className="text-sm mb-4">Are you sure you want to delete this category?</p>
+                        <button
+                            onClick={() => {
+                                setShowDeleteConfirm(false);
+                                setCategoryToDelete(null);
+                            }}
+                            className="absolute top-3 right-3 text-gray-500 hover:text-gray-700"
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </button>
+                        <div className="flex justify-end space-x-3">
+                            <button
+                                onClick={() => {
+                                    setShowDeleteConfirm(false);
+                                    setCategoryToDelete(null);
+                                }}
+                                className="px-4 py-2 text-gray-700 border border-gray-300 rounded hover:bg-gray-100 text-sm"
+                            >
+                                Cancel
+                            </button>
+                            <button
+                                onClick={async () => {
+                                    await handleDeleteCategory(categoryToDelete);
+                                    setShowDeleteConfirm(false);
+                                    setCategoryToDelete(null);
+                                }}
+                                className="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700 text-sm"
+                            >
+                                Delete
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
         </Modal>
     );
 };

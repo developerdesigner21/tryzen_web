@@ -9,6 +9,7 @@ import usePageMeta from '../../usePageMeta';
 import './BlogPost.css';
 import 'react-quill/dist/quill.snow.css';
 import mainLogo from '../../assets/mainTryzenLogo.png';
+import { useGetBlogBySlugQuery, useGetBlogsWithCategoryQuery } from '../../generated/Blogs.tsx';
 
 const decodeHTML = (html) => {
   const parser = new DOMParser();
@@ -74,41 +75,27 @@ const sanitizeHTML = (html) => {
 };
 
 const BlogPost = () => {
-    const [blog, setBlog] = useState(null);
-    usePageMeta(blog?.metaHeader, blog?.metaDescription,);
     const { slug } = useParams();
+    const { data, loading } = useGetBlogBySlugQuery({
+        variables: { blog_slug: slug }
+    });
+    const blog = data?.getBlogBySlug;
+    const mainDescription = blog?.section_data ? JSON.parse(blog.section_data) : [];
+    const [ownerName, ownerProfilePic, ownerPosition] = blog?.author_info?.split('|||') || ['', '', ''];
+    const [metaHeader, metaDescription] = blog?.meta_data?.split('|||') || ['', ''];
+    usePageMeta(metaHeader, metaDescription);
+
+    const {
+        data: relatedBlogsData,
+    } = useGetBlogsWithCategoryQuery({
+        variables: { category_id: blog?.category_id || '' },
+        skip: !blog?.category_id,
+    });
+
     const navigate = useNavigate();
     const [allBlogs, setAllBlogs] = useState([]);
-    const [error, setError] = useState(null);
-    const [loading, setLoading] = useState(true);
     const sectionRefs = useRef([]);
     const [activeSection, setActiveSection] = useState(0);
-
-    useEffect(() => {
-        const fetchBlogData = () => {
-            try {
-                const posts = JSON.parse(localStorage.getItem('posts')) || [];
-                const myBlogs = JSON.parse(localStorage.getItem('myBlogs')) || [];
-                const all = [...posts, ...myBlogs];
-                setAllBlogs(all);
-                let foundBlog = posts.find(p => p.slug === slug);
-                if (!foundBlog) {
-                    foundBlog = myBlogs.find(mb => mb.blogId === slug);
-                }
-                if (foundBlog) {
-                    setBlog(foundBlog);
-                } else {
-                    setError('Blog not found');
-                }
-            } catch (err) {
-                setError('Error fetching blog');
-            } finally {
-                setLoading(false);
-            }
-        };
-        fetchBlogData();
-    }, [slug]);
-
     useEffect(() => {
         const handleScroll = () => {
             const scrollPosition = window.scrollY + 100;
@@ -136,36 +123,32 @@ const BlogPost = () => {
         }
     };
 
-    if (loading) return <div><Header /><div className="p-10 text-center">Loading...</div><Footer /></div>;
-    if (error || !blog) return <div><Header /><div className="p-10 text-center">{error}</div><Footer /></div>;
+    if (loading) return <div className="flex items-center justify-center text-center min-h-screen">Loading...</div>;
+    if (!blog) return <div className="flex items-center justify-center text-center min-h-screen">Blog not found</div>;
 
-    const filteredBlogs = allBlogs
-        .filter(b => (b.slug !== slug && b.blogId !== slug))
-        .reduce((acc, curr) => {
-            if (!acc.find(b => b.category === curr.category)) acc.push(curr);
-            return acc;
-        }, [])
-        .slice(0, 5);
+    const filteredBlogs = relatedBlogsData?.getBlogsWithCategory
+        ?.filter(b => b.blog_slug !== slug && b.id !== slug)
+        ?.slice(0, 5) || [];
 
     return (
-        <div className="min-h-screen flex flex-col responsive-container">
+        <div className="min-h-screen flex flex-col">
             <Header />
-            <div className='bg-gray-100 p-4 md:p-10 xl:p-16'>
-                <div className="flex flex-col md:flex-row gap-5 xl:gap-10 pt-16 lg:pt-10 min-h-screen">
+            <div className='bg-gray-100 px-2 md:px-6 lg:px-10 xl:px-12 pb-10 pt-16 responsive-container'>
+                <div className="flex flex-col md:flex-row gap-5 xl:gap-10 pt-16 lg:pt-10">
                     <div className="w-full max-w-5xl mx-auto">
                         <div className='w-full bg-white p-4 shadow-md rounded-lg mb-5'>
-                            <h1 className="text-2xl font-bold mb-4 design-heading-content">{blog.title}</h1>
+                            <h1 className="text-2xl font-bold mb-4 design-heading-content">{blog?.blog_title}</h1>
                         </div>
                         <div className='p-4 md:p-8 bg-white shadow-md rounded-lg'>
                             <div className="space-y-6">
-                                {blog.mainDescription?.map((section, index) => (
+                                {mainDescription?.map((section, index) => (
                                     <div key={index} ref={el => sectionRefs.current[index] = el}>
                                         {section.title && <h1 className="text-2xl font-semibold mb-2">{section.title}</h1>}
                                         <div
                                             className="text-gray-800 editor-content ql-editor prose max-w-none [&>*]:m-0 !p-0"
                                             dangerouslySetInnerHTML={{ __html:  sanitizeHTML(section.description) }}
                                         />
-                                        {index !== blog.mainDescription.length - 1 && (
+                                        {index !== mainDescription.length - 1 && (
                                             <hr className="mt-8 border-gray-300" />
                                         )}
                                     </div>
@@ -252,19 +235,19 @@ const BlogPost = () => {
                             <div className='border-b border-b-2 mb-3'>
                                 <div className="flex items-center mb-3">
                                     <img
-                                        src={blog.ownerProfilePic || placeholder}
+                                        src={ownerProfilePic || placeholder}
                                         alt="Author"
                                         className="w-16 h-16 rounded-full mr-4 border"
                                     />
                                     <div>
-                                        <h3 className="font-bold text-lg design-content">{blog.ownerName}</h3>
-                                        <p className="text-gray-500 design-content">{blog.ownerPosition}</p>
+                                        <h3 className="font-bold text-lg design-content">{ownerName}</h3>
+                                        <p className="text-gray-500 design-content">{ownerPosition}</p>
                                     </div>
                                 </div>
                             </div>
                             <h3 className="font-bold mb-3 design-content">In This Article</h3>
                             <ul className="space-y-2">
-                                {blog.mainDescription?.map((section, index) => (
+                                {mainDescription?.map((section, index) => (
                                     <li
                                         key={index}
                                         onClick={() => {
@@ -346,17 +329,17 @@ const BlogPost = () => {
                                 {filteredBlogs.map((b, idx) => (
                                     <li
                                         key={idx}
-                                        onClick={() => navigate(`/blog/${b.slug || b.blogId}`)}
+                                        onClick={() => navigate(`/blog/${b.blog_slug || b.id}`)}
                                         className="flex items-center gap-3 cursor-pointer hover:bg-gray-100 p-2 rounded design-content"
                                     >
                                         <img
-                                            src={b.image || placeholder}
-                                            alt={b.title}
+                                            src={b.basic_info || placeholder}
+                                            alt={b.blog_title}
                                             className="w-12 h-12 object-contain rounded border"
                                         />
                                         <div>
-                                            <p className="font-medium text-sm">{b.title}</p>
-                                            <p className="text-xs text-gray-500">{b.category}</p>
+                                            <p className="font-medium text-sm">{b.blog_title}</p>
+                                            {/* <p className="text-xs text-gray-500">{b.category}</p> */}
                                         </div>
                                     </li>
                                 ))}

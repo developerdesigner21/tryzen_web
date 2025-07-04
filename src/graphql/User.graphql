@@ -1,0 +1,3 @@
+query Gettoken ($email: String!, $password: String!) {
+    gettoken(email: $email, password: $password)
+}
