@@ -63,8 +63,8 @@ export default function EcomPlans() {
     return (
         <div className="plans-section">
             <div className='mb-8 md:mb-10'>
-                <h2 className='plan font-bold text-md md:text-2xl xl:text-3xl mb-1 md:mb-2'>FIND THE PERFECT PLAN</h2>
-                <h3 className='business-need font-semibold text-2xl md:text-4xl lg:text-6xl'>For Your Buisness Needs</h3>
+                <h1 className='plan font-bold text-md md:text-2xl xl:text-3xl mb-1 md:mb-2'>FIND THE PERFECT PLAN</h1>
+                <h1 className='business-need font-semibold text-2xl md:text-4xl lg:text-6xl'>For Your Business Needs</h1>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 xl:gap-12">
                 {plans.map((plan) => (

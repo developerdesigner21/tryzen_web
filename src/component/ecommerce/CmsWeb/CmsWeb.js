@@ -36,11 +36,11 @@ export default function CmsWeb() {
                 <h1 className="main-sub-title text-2xl md:text-4xl lg:text-5xl pt-[20px] md:pt-[30px] lg:pt-[40px] xl:pt-[45px] ml-1 lg:ml-2"> THEME</h1>
             </div>
             <div className='mt-2'>
-                <p className="ecom-description-text md:text-2xl lg:text-3xl mb-2 md:mb-3">
+                <h1 className="ecom-description-text md:text-2xl lg:text-3xl mb-2 md:mb-3">
                     CHOOSE CUSTOM CODED SOLUTION
                     <br />{" "}
                     TO <span className='text-[#0F54FF]'>SKYROCKET YOUR SALES!</span>
-                </p>
+                </h1>
             </div>
             <div>
                 <button onClick={handleScrollToBento} className="bold-title bg-[#0F54FF] text-white rounded-md px-6 py-2.5 text-sm md:text-md lg:text-xl font-semibold">

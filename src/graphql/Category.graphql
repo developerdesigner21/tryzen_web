@@ -18,6 +18,16 @@ mutation CreateCategory ($category_name: String!) {
     }
 }
 
+mutation UpdateCategory ($id: Int!, $category_name: String!) {
+    updateCategory(id: $id, category_name: $category_name) {
+        id
+        category_name
+        created_at
+        updated_at
+        deleted_at
+    }
+}
+
 mutation DeleteCategory($id: Int!) {
     deleteCategory(id: $id)
 }

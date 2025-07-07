@@ -154,8 +154,8 @@ export default function FreeDesignPopup({ onClose ,isPopupOpen = false}) {
                 },
                 business_information: {
                     business_name: "", // formData.businessName,
-                    have_website: "", //formData.hasWebsite === 'Yes',
-                    website: "", //formData.website || "",
+                    have_website: formData.hasWebsite === 'Yes',
+                    website: formData.website || "",
                     like_website: "", //formData.likesWebsite === 'Yes',
                     website_wish: "", //formData.websiteWish || "",
                 },

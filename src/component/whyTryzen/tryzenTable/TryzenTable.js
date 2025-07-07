@@ -69,8 +69,8 @@ export default function TryzenTable() {
 
     return (
         <div className="comparison-table-container bg-[#112747] py-5 md:p-6 rounded-lg">
-            <h2 className="tryzen-title font-extrabold text-md md:text-2xl xl:text-3xl mb-1 md:mb-2">WHY TRYZEN SOLUTION</h2>
-            <h3 className="subtitle text-2xl md:text-4xl lg:text-6xl mb-10">Is Better Choice To Grow</h3>
+            <h1 className="tryzen-title font-extrabold text-md md:text-2xl xl:text-3xl mb-1 md:mb-2">WHY TRYZEN SOLUTION</h1>
+            <h1 className="subtitle text-2xl md:text-4xl lg:text-6xl mb-10">Is Better Choice To Grow</h1>
             <div>
                 <table className="comparison-table">
                     <thead>

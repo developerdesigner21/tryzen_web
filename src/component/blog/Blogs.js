@@ -17,6 +17,8 @@ import DeleteIcon from '../../assets/deleteIcon.png';
 import Modal from 'react-modal';
 import { useDeleteBlogMutation, useGetAllBlogsQuery } from '../../generated/Blogs.tsx';
 import { useCategoriesQuery } from '../../generated/Category.tsx';
+import LoadingIcon from '../../LoadingIcon.js';
+import usePageMeta from '../../usePageMeta.js';
 Modal.setAppElement('#root');
 
 const ArrowNextIcon = (props) => (
@@ -49,7 +51,35 @@ const ArrowPrevIcon = (props) => (
   </svg>
 );
 
+function LoadingScreen() {
+    const calcWidth =() =>{
+        if (window.innerWidth < 640) {
+            return window.innerWidth
+        } else if (window.innerWidth < 1024) {
+            return window.innerWidth * 0.5
+        } else {
+            return window.innerWidth * 0.25
+        }
+    }
+  
+    return (
+        <div className="loading-screen">
+            <div className="img-dots-container h-auto" style={{width:calcWidth()+'px', padding:"32px", marginBottom:"64px"}} >
+                <LoadingIcon />
+                <div className="loading-dots">
+                    <span className="dot"></span>
+                    <span className="dot"></span>
+                    <span className="dot"></span>
+                    <span className="dot"></span>
+                    <span className="dot"></span>
+                </div>
+            </div>
+        </div>
+    );
+}
+
 export default function Blogs() {
+    usePageMeta('Grow with Smart Ordering', 'Discover expert insights, tips, and trends on maximizing restaurant revenue through custom online ordering systems, personalized customer experiences, and digital growth strategies.');
     const [isEditorOpen, setIsEditorOpen] = useState(false);
     const [selectedCategory, setSelectedCategory] = useState(null);
     const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -140,7 +170,7 @@ export default function Blogs() {
         refetchBlogs(); 
     };
 
-    if (blogsLoading || categoriesLoading) return <div className="flex items-center justify-center text-center min-h-screen">Loading...</div>;
+    if (blogsLoading || categoriesLoading) return <div><LoadingScreen /></div>;
 
     return (
         <div>
@@ -150,7 +180,7 @@ export default function Blogs() {
                     {isAuthenticated && (
                         <div className='flex items-center justify-between mb-6'>
                             <div>
-                                <h2 className="text-2xl font-bold blog-heading-content">Categories</h2>
+                                <h1 className="text-2xl font-bold blog-heading-content">Categories</h1>
                             </div>
                             <div className="px-3 py-2 bg-[#FF6802] text-white rounded blog-content">
                                 <button onClick={() => setIsEditorOpen(true)}>
@@ -216,7 +246,7 @@ export default function Blogs() {
                                 id={`category-${category.id}`}
                                 className="pt-4"
                             >
-                                <h2 className="text-lg sm:text-2xl font-semibold mb-2 blog-heading-content">{category.category_name}</h2>
+                                <h1 className="text-lg sm:text-2xl font-semibold mb-2 blog-heading-content">{category.category_name}</h1>
                                 <div className="relative">
                                     <Swiper
                                         onSwiper={(swiper) => {
@@ -266,6 +296,7 @@ export default function Blogs() {
                                                                         setEditBlog(blog); 
                                                                         setIsEditorOpen(true); 
                                                                     }}
+                                                                    title='Edit'
                                                                 >
                                                                     <img
                                                                         src={EditIcon}
@@ -278,6 +309,7 @@ export default function Blogs() {
                                                                         e.stopPropagation(); 
                                                                         setBlogToDelete(blog); 
                                                                     }}
+                                                                    title='Delete'
                                                                 >
                                                                     <img
                                                                         src={DeleteIcon}

@@ -10,6 +10,7 @@ import './BlogPost.css';
 import 'react-quill/dist/quill.snow.css';
 import mainLogo from '../../assets/mainTryzenLogo.png';
 import { useGetBlogBySlugQuery, useGetBlogsWithCategoryQuery } from '../../generated/Blogs.tsx';
+import LoadingIcon from '../../LoadingIcon.js';
 
 const decodeHTML = (html) => {
   const parser = new DOMParser();
@@ -74,6 +75,33 @@ const sanitizeHTML = (html) => {
   return updatedHTML;
 };
 
+function LoadingScreen() {
+    const calcWidth =() =>{
+        if (window.innerWidth < 640) {
+            return window.innerWidth
+        } else if (window.innerWidth < 1024) {
+            return window.innerWidth * 0.5
+        } else {
+            return window.innerWidth * 0.25
+        }
+    }
+  
+    return (
+        <div className="loading-screen">
+            <div className="img-dots-container h-auto" style={{width:calcWidth()+'px', padding:"32px", marginBottom:"64px"}} >
+                <LoadingIcon />
+                <div className="loading-dots">
+                    <span className="dot"></span>
+                    <span className="dot"></span>
+                    <span className="dot"></span>
+                    <span className="dot"></span>
+                    <span className="dot"></span>
+                </div>
+            </div>
+        </div>
+    );
+}
+
 const BlogPost = () => {
     const { slug } = useParams();
     const { data, loading } = useGetBlogBySlugQuery({
@@ -123,7 +151,7 @@ const BlogPost = () => {
         }
     };
 
-    if (loading) return <div className="flex items-center justify-center text-center min-h-screen">Loading...</div>;
+    if (loading) return <div className="flex items-center justify-center text-center min-h-screen"><LoadingScreen /></div>;
     if (!blog) return <div className="flex items-center justify-center text-center min-h-screen">Blog not found</div>;
 
     const filteredBlogs = relatedBlogsData?.getBlogsWithCategory
@@ -143,9 +171,9 @@ const BlogPost = () => {
                             <div className="space-y-6">
                                 {mainDescription?.map((section, index) => (
                                     <div key={index} ref={el => sectionRefs.current[index] = el}>
-                                        {section.title && <h1 className="text-2xl font-semibold mb-2">{section.title}</h1>}
+                                        {section.title && <h1 className="text-2xl font-semibold mb-2 design-content">{section.title}</h1>}
                                         <div
-                                            className="text-gray-800 editor-content ql-editor prose max-w-none [&>*]:m-0 !p-0"
+                                            className="text-gray-800 editor-content ql-editor prose max-w-none [&>*]:m-0 !p-0 design-content"
                                             dangerouslySetInnerHTML={{ __html:  sanitizeHTML(section.description) }}
                                         />
                                         {index !== mainDescription.length - 1 && (
@@ -329,7 +357,7 @@ const BlogPost = () => {
                                 {filteredBlogs.map((b, idx) => (
                                     <li
                                         key={idx}
-                                        onClick={() => navigate(`/blog/${b.blog_slug || b.id}`)}
+                                        onClick={() => navigate(`/blogs/${b.blog_slug || b.id}`)}
                                         className="flex items-center gap-3 cursor-pointer hover:bg-gray-100 p-2 rounded design-content"
                                     >
                                         <img
@@ -338,7 +366,7 @@ const BlogPost = () => {
                                             className="w-12 h-12 object-contain rounded border"
                                         />
                                         <div>
-                                            <p className="font-medium text-sm">{b.blog_title}</p>
+                                            <p className="font-medium text-sm line-clamp-2">{b.blog_title}</p>
                                             {/* <p className="text-xs text-gray-500">{b.category}</p> */}
                                         </div>
                                     </li>

@@ -18,9 +18,9 @@ export default function ImageScroller() {
     return (
         <>
             <div className="text-center mb-8 md:mb-10">
-                <p className="our-food font-bold text-center text-md md:text-2xl xl:text-3xl mb-1 md:mb-2">
+                <h1 className="our-food font-bold text-center text-md md:text-2xl xl:text-3xl mb-1 md:mb-2">
                     OUR FOOD
-                </p>
+                </h1>
                 <h1 className="website-design text-2xl md:text-4xl lg:text-6xl">
                     Website Designs
                 </h1>

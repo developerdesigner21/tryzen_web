@@ -8,11 +8,11 @@ export default function IntroSection() {
         <div className="intro-container pt-8 lg:pt-16">
             <div className="flex flex-row gap-2 md:gap-3 items-center justify-center">
                 <h1 className="achieve-title text-2xl md:text-4xl lg:text-5xl">UNLOCK</h1>
-                <h2 className="profit-title text-2xl md:text-4xl lg:text-5xl">30% GROWTH</h2>
+                <h1 className="profit-title text-2xl md:text-4xl lg:text-5xl">30% GROWTH</h1>
             </div>
-            <p className="home-description-text md:mt-2 lg:mt-3 md:text-2xl lg:text-3xl">
+            <h1 className="home-description-text md:mt-2 lg:mt-3 md:text-2xl lg:text-3xl">
                 BY CREATING OWN CUSTOM WEBSITE<br /> <span className="text-[#0F54FF]">E-COMMERCE</span> OR <span className="text-[#FF6802]">RESTAURANT</span>
-            </p>
+            </h1>
             <div className="info-sections flex flex-col sm:flex-row gap-2 md:gap-3 xl:gap-5 mt-5 md:mt-12">
                 <div className="info-box relative">
                     <div className="info-content">

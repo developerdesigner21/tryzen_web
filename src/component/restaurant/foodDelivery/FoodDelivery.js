@@ -21,14 +21,14 @@ export default function FoodDelivery() {
         <div className="intro-container pt-8 lg:pt-16">
             <div className="flex flex-row gap-2 md:gap-3 items-center justify-center">
                 <h1 className="food-delivery-title text-2xl md:text-4xl lg:text-5xl">FOOD DELIVERY</h1>
-                <h2 className="simplified text-2xl md:text-4xl lg:text-5xl">SIMPLIFIED</h2>
+                <h1 className="simplified text-2xl md:text-4xl lg:text-5xl">SIMPLIFIED</h1>
             </div>
             <div className='mt-2 lg:mt-3'>
-                <p className="rest-description-text t md:text-2xl lg:text-4xl mb-2 md:mb-3">
+                <h1 className="rest-description-text t md:text-2xl lg:text-4xl mb-2 md:mb-3">
                     WITHOUT HIRING PEOPLE AND
                     <br /> WITH
                     <span className="text-[#FF6802]"> <span style={{fontWeight:900}}>0%</span> <span>PLATEFORM FEES</span> </span>
-                </p>
+                </h1>
             </div>
             <div>
                 <button onClick={handleScrollToUberDirect} className="save-fees-button bg-[#FF6802] text-white rounded-md px-6 py-2.5 text-sm md:text-md lg:text-xl font-semibold">

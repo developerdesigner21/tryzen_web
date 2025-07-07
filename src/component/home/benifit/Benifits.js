@@ -5,7 +5,7 @@ export default function Benifits() {
         <div id="benefits" class="rounded-xl">
             <div class="relative">
                 <div class="text-center mb-8 md:mb-10">
-                    <p class="sub-title text-[#0F54FF] font-bold text-md md:text-2xl xl:text-3xl mb-1 md:mb-2">GROW <span className='font-extrabold'>30%</span> PROFIT BY</p>
+                    <h1 class="sub-title text-[#0F54FF] font-bold text-md md:text-2xl xl:text-3xl mb-1 md:mb-2">GROW <span className='font-extrabold'>30%</span> PROFIT BY</h1>
                     <h1 class="header-title text-2xl md:text-4xl lg:text-6xl">
                         Reduce 3rd Party Commission
                     </h1>

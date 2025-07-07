@@ -3,13 +3,14 @@ import Modal from 'react-modal';
 import axios from 'axios';
 import plusIcon from '../../assets/plusIcon.png';
 import 'react-quill/dist/quill.snow.css';
-import { useCategoriesQuery, useCreateCategoryMutation, useDeleteCategoryMutation } from '../../generated/Category.tsx';
+import { useCategoriesQuery, useCreateCategoryMutation, useDeleteCategoryMutation, useUpdateCategoryMutation } from '../../generated/Category.tsx';
 import DeleteIcon from '../../assets/deleteIcon.png';
+import EditIcon from '../../assets/editIcon.png';
 import { useCreateBlogMutation, useGetBlogBySlugQuery, useUpdateBlogMutation } from '../../generated/Blogs.tsx';
 const ReactQuill = React.lazy(() => import('react-quill'));
 Modal.setAppElement('#root');
 
-const CategorySelect = ({ categories, selectedCategory, onSelect, onDelete, hasError }) => {
+const CategorySelect = ({ categories, selectedCategory, onSelect, onDelete, onEdit, hasError }) => {
     const [showDropdown, setShowDropdown] = useState(false);
     const dropdownRef = useRef(null);
     useEffect(() => {
@@ -30,7 +31,6 @@ const CategorySelect = ({ categories, selectedCategory, onSelect, onDelete, hasE
         <div className="relative" ref={dropdownRef}>
             <button
                 type="button"
-                // className="w-full border border-gray-300 p-2 rounded bg-white text-left flex justify-between items-center text-sm"
                 className={`w-full border p-2 rounded bg-white text-left flex justify-between items-center text-sm ${getBorderClass()}`}
                 onClick={() => setShowDropdown(prev => !prev)}
             >
@@ -64,13 +64,23 @@ const CategorySelect = ({ categories, selectedCategory, onSelect, onDelete, hasE
                             >
                                 {cat.category_name}
                             </span>
-                            <button
-                                type="button"
-                                onClick={() => onDelete(cat.id)}
-                                className="text-red-500 hover:text-red-700 ml-2 text-sm"
-                            >
-                                <img src={DeleteIcon} alt={''} className="object-contain w-4 h-4 rounded-t" />
-                            </button>
+                            <div>
+                                <button
+                                    type="button"
+                                    onClick={() => onEdit(cat.id)}
+                                    title='Edit'
+                                >
+                                    <img src={EditIcon} alt={''} className="object-contain w-4 h-4 rounded-t" />
+                                </button>
+                                <button
+                                    type="button"
+                                    onClick={() => onDelete(cat.id)}
+                                    className="text-red-500 hover:text-red-700 ml-2 text-sm"
+                                    title='Delete'
+                                >
+                                    <img src={DeleteIcon} alt={''} className="object-contain w-4 h-4 rounded-t" />
+                                </button>
+                            </div>
                         </div>
                     ))}
                 </div>
@@ -109,6 +119,7 @@ const BlogModal = ({ isOpen, onClose, initialData, onSave, refetchCategories }) 
     const [categoryToDelete, setCategoryToDelete] = useState(null);
     const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
     const [isUploading, setIsUploading] = useState(false);
+    const [editingCategoryId, setEditingCategoryId] = useState(null);
 
     const [validationErrors, setValidationErrors] = useState({
         title: false,
@@ -124,6 +135,7 @@ const BlogModal = ({ isOpen, onClose, initialData, onSave, refetchCategories }) 
 
     const [createCategoryMutation] = useCreateCategoryMutation();
     const [deleteCategoryMutation] = useDeleteCategoryMutation();
+    const [updateCategoryMutation] = useUpdateCategoryMutation();
 
     useEffect(() => {
         setValidationErrors(prev => ({
@@ -271,20 +283,37 @@ const BlogModal = ({ isOpen, onClose, initialData, onSave, refetchCategories }) 
         }
     };
 
-    const addCategory = async () => {
+    const handleEditCategory = (categoryId) => {
+        const category = categoriesData?.categories.find(c => c.id === categoryId);
+        if (category) {
+            setEditingCategoryId(categoryId);
+            setNewCategory(category.category_name);
+            setShowAddCategory(true);
+        }
+    };
+
+    const handleAddOrUpdateCategory = async () => {
         const trimmed = newCategory.trim();
         if (!trimmed) return;
         try {
-            const { data } = await createCategoryMutation({
-                variables: { category_name: trimmed }
-            });
-            if (data?.createCategory) {
-                setNewCategory('');
-                setShowAddCategory(false);
-                await refetchCategories();
+            if (editingCategoryId) {
+                await updateCategoryMutation({
+                    variables: {
+                        id: editingCategoryId,
+                        category_name: trimmed
+                    }
+                });
+            } else {
+                await createCategoryMutation({
+                    variables: { category_name: trimmed }
+                });
             }
+            setNewCategory('');
+            setEditingCategoryId(null);
+            setShowAddCategory(false);
+            await refetchCategories();
         } catch (err) {
-            console.error('Error creating category:', err);
+            console.error('Error saving category:', err);
         }
     };
 
@@ -446,7 +475,7 @@ const BlogModal = ({ isOpen, onClose, initialData, onSave, refetchCategories }) 
             }
             await refetchCategories();
             onSave();
-            onClose();
+            handleClose();
         } catch (error) {
             console.error("Failed to save blog:", error);
         }
@@ -578,13 +607,16 @@ const BlogModal = ({ isOpen, onClose, initialData, onSave, refetchCategories }) 
                                         setCategoryToDelete(id);
                                         setShowDeleteConfirm(true);
                                     }}
+                                    onEdit={handleEditCategory}
                                     hasError={validationErrors.category} 
                                 />
                             </div>
                             {showAddCategory && (
                                 <div className="flex items-end">
                                     <div className="flex-1 mr-2">
-                                        <label className="block text-sm font-medium text-gray-700 mb-1">Add New Category</label>
+                                        <label className="block text-sm font-medium text-gray-700 mb-1">
+                                            {editingCategoryId ? 'Edit Category' : 'Add New Category'}
+                                        </label>
                                         <input
                                             type="text"
                                             value={newCategory}
@@ -594,10 +626,22 @@ const BlogModal = ({ isOpen, onClose, initialData, onSave, refetchCategories }) 
                                     </div>
                                     <button
                                         type="button"
-                                        onClick={addCategory}
+                                        onClick={handleAddOrUpdateCategory}
                                         className="px-3 py-2 bg-[#0F54FF] text-white rounded hover:bg-blue-600 text-sm"
                                     >
-                                        Add
+                                       {editingCategoryId ? 'Update' : 'Add'}
+                                    </button>
+                                    <button
+                                        type="button"  
+                                        onClick={() => {
+                                            setNewCategory(null);
+                                            setEditingCategoryId(null);
+                                            setNewCategory('');
+                                            setShowAddCategory(false);
+                                        }}  
+                                        className="px-3 py-2 ml-2 bg-gray-200 rounded hover:bg-gray-300 text-sm"   
+                                    >
+                                        Cancel
                                     </button>
                                 </div>
                             )}

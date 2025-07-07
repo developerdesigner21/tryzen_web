@@ -9,9 +9,9 @@ export default function Pricing() {
                 <h1 class="sub-title text-[#FF6802] font-bold text-md md:text-2xl xl:text-3xl mb-1 md:mb-2">
                     STOP USING <span className='font-extrabold'>3</span>RD PARTY APPS
                 </h1>
-                <p class="header-title text-center text-2xl md:text-4xl lg:text-6xl">
+                <h1 class="header-title text-center text-2xl md:text-4xl lg:text-6xl">
                     Like Uber, Door Dash & Rappi
-                </p>
+                </h1>
             </div>
             <div className="flex flex-col lg:flex-row gap-10">
                 <div className="bg-white border border-gray-300 rounded-lg p-4 md:p-8 lg:p-2 xl:p-4 w-full lg:w-1/2">

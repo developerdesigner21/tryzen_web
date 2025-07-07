@@ -29,7 +29,7 @@ export default function Header() {
                 <button className="p-2 lg:hidden" onClick={toggleSidebar}>
                     <i className={`fa-solid ${sidebarOpen ? 'fa-times' : 'fa-bars'} text-gray-600`}></i>
                 </button>
-                <Link to='/' id="brand" className="gap-2 items-center flex-1">
+                <Link to='/' id="brand" className="gap-2 items-center flex-1 lg:flex-none">
                     <img
                         className="object-cover"
                         src={mainLogo}
@@ -38,15 +38,17 @@ export default function Header() {
                     />
                 </Link>
 
-                <div id="nav-menu" className="flex hidden lg:flex lg:gap-6 xl:gap-12">
+                <div id="nav-menu" className="flex hidden lg:flex lg:gap-4 xl:gap-8">
                     <Link to='/' className={`headers-title font-semibold hover:text-[#FF6802] xl:text-lg cursor-pointer ${isActive('/')}`}>Home</Link>
                     <Link to='/restaurant' className={`headers-title font-semibold hover:text-[#FF6802] xl:text-lg cursor-pointer ${isActive('/restaurant')}`}>Restaurant</Link>
                     <Link to='/e-commerce' className={`headers-title font-semibold hover:text-[#FF6802] xl:text-lg cursor-pointer ${isActive('/e-commerce')}`}>E-Commerce</Link>
                     <Link to='/whyTryzen' className={`headers-title font-semibold hover:text-[#FF6802] xl:text-lg cursor-pointer ${isActive('/whyTryzen')}`}>Why Tryzen Solution?</Link>
                     <Link to='/blogs' className={`headers-title font-semibold hover:text-[#FF6802] xl:text-lg cursor-pointer ${isActive('/blogs')}`}>Blogs</Link>
+                    <Link to='/contact-us' className={`headers-title font-semibold hover:text-[#FF6802] xl:text-lg cursor-pointer ${isActive('/contact-us')}`}>Contact Us</Link>
+                    <Link to='/services' className={`headers-title font-semibold hover:text-[#FF6802] xl:text-lg cursor-pointer ${isActive('/services')}`}>Services</Link>
                 </div>
 
-                <div className="flex flex-1 justify-end">
+                <div className="flex justify-end">
                     <button onClick={handleButtonClick} className="flex gap-2 items-center bg-black text-white font-bold border border-2 border-black px-2 sm:px-4 py-1 sm:py-2 rounded-md free-design-btn">
                         <img
                             src={require('../../assets/freeDesign.png')}
@@ -99,6 +101,12 @@ export default function Header() {
                             </Link>
                             <Link to='/blogs' className={`headers-title font-semibold xl:text-lg cursor-pointer ${isActive('/blogs')}`} onClick={toggleSidebar}>
                                Blogs
+                            </Link>
+                            <Link to='/contact-us' className={`headers-title font-semibold xl:text-lg cursor-pointer ${isActive('/contact-us')}`} onClick={toggleSidebar}>
+                               Contact Us
+                            </Link>
+                            <Link to='/services' className={`headers-title font-semibold xl:text-lg cursor-pointer ${isActive('/services')}`} onClick={toggleSidebar}>
+                               Services
                             </Link>
                         </nav>
                     </div>

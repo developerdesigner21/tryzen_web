@@ -79,8 +79,8 @@ export default function SuccessStory() {
     return (
         <div id="uberDirect">
             <div className='text-center'>
-                <h2 className='uber-service text-md md:text-2xl xl:text-3xl mb-1 md:mb-2'>SUCCESS STORIES OF</h2>
-                <h3 className='success-story text-2xl md:text-4xl lg:text-6xl mb-8 md:mb-10'>Uber Direct Service</h3>
+                <h1 className='uber-service text-md md:text-2xl xl:text-3xl mb-1 md:mb-2'>SUCCESS STORIES OF</h1>
+                <h1 className='success-story text-2xl md:text-4xl lg:text-6xl mb-8 md:mb-10'>Uber Direct Service</h1>
             </div>
             <div className="story-container gap-5 rounded-xl">
                 <div className="left-section p-3 xl:p-16">
