@@ -44,8 +44,8 @@ export default function Header() {
                     <Link to='/e-commerce' className={`headers-title font-semibold hover:text-[#FF6802] xl:text-lg cursor-pointer ${isActive('/e-commerce')}`}>E-Commerce</Link>
                     <Link to='/whyTryzen' className={`headers-title font-semibold hover:text-[#FF6802] xl:text-lg cursor-pointer ${isActive('/whyTryzen')}`}>Why Tryzen Solution?</Link>
                     <Link to='/blogs' className={`headers-title font-semibold hover:text-[#FF6802] xl:text-lg cursor-pointer ${isActive('/blogs')}`}>Blogs</Link>
-                    <Link to='/contact-us' className={`headers-title font-semibold hover:text-[#FF6802] xl:text-lg cursor-pointer ${isActive('/contact-us')}`}>Contact Us</Link>
-                    <Link to='/services' className={`headers-title font-semibold hover:text-[#FF6802] xl:text-lg cursor-pointer ${isActive('/services')}`}>Services</Link>
+                    {/* <Link to='/contact-us' className={`headers-title font-semibold hover:text-[#FF6802] xl:text-lg cursor-pointer ${isActive('/contact-us')}`}>Contact Us</Link>
+                    <Link to='/services' className={`headers-title font-semibold hover:text-[#FF6802] xl:text-lg cursor-pointer ${isActive('/services')}`}>Services</Link> */}
                 </div>
 
                 <div className="flex justify-end">
@@ -102,12 +102,12 @@ export default function Header() {
                             <Link to='/blogs' className={`headers-title font-semibold xl:text-lg cursor-pointer ${isActive('/blogs')}`} onClick={toggleSidebar}>
                                Blogs
                             </Link>
-                            <Link to='/contact-us' className={`headers-title font-semibold xl:text-lg cursor-pointer ${isActive('/contact-us')}`} onClick={toggleSidebar}>
+                            {/* <Link to='/contact-us' className={`headers-title font-semibold xl:text-lg cursor-pointer ${isActive('/contact-us')}`} onClick={toggleSidebar}>
                                Contact Us
                             </Link>
                             <Link to='/services' className={`headers-title font-semibold xl:text-lg cursor-pointer ${isActive('/services')}`} onClick={toggleSidebar}>
                                Services
-                            </Link>
+                            </Link> */}
                         </nav>
                     </div>
                 )}
