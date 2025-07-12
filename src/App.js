@@ -1,9 +1,15 @@
-import React, { useEffect, useState, Suspense } from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from "react-router-dom";
 import "./App.css";
 import LoadingIcon from "./LoadingIcon";
 import Header from "./component/header/Header";
 import Footer from "./component/footer/Footer";
+import Home from "./component/home/Home";
+import Restaurant from "./component/restaurant/Restaurant";
+import Ecommerce from "./component/ecommerce/Ecommerce";
+import WhyTryzen from "./component/whyTryzen/WhyTryzen";
+import Blogs from "./component/blog/Blogs";
+import BlogPost from "./component/blog/BlogPost";
 
 // ScrollToTop Component to reset scroll position on route change
 function ScrollToTop() {
@@ -43,7 +49,7 @@ function LoadingScreen() {
   );
 }
 
-const Home = React.lazy(() => import("./component/home/Home"));
+// const Home = React.lazy(() => import("./component/home/Home"));
 // const OrderBlog = React.lazy(() => import("./component/blog/OrderBlog"));
 // const IncreaseSales = React.lazy(() => import("./component/blog/IncreaseSales"));
 // const EnhanceOrder = React.lazy(() => import("./component/blog/EnhanceOrder"));
@@ -59,11 +65,11 @@ const Home = React.lazy(() => import("./component/home/Home"));
 // const OnlineReputation = React.lazy(() => import("./component/blog/OnlineReputation"));
 // const RestaurantRank = React.lazy(() => import("./component/blog/RestaurantRank"));
 // const SeoMistakes = React.lazy(() => import("./component/blog/SeoMistakes"));
-const Restaurant = React.lazy(() => import("./component/restaurant/Restaurant"));
-const Ecommerce = React.lazy(() => import("./component/ecommerce/Ecommerce"));
-const WhyTryzen = React.lazy(() => import("./component/whyTryzen/WhyTryzen"));
-const Blogs = React.lazy(() => import("./component/blog/Blogs"));
-const BlogPost  = React.lazy(() => import("./component/blog/BlogPost"));
+// const Restaurant = React.lazy(() => import("./component/restaurant/Restaurant"));
+// const Ecommerce = React.lazy(() => import("./component/ecommerce/Ecommerce"));
+// const WhyTryzen = React.lazy(() => import("./component/whyTryzen/WhyTryzen"));
+// const Blogs = React.lazy(() => import("./component/blog/Blogs"));
+// const BlogPost  = React.lazy(() => import("./component/blog/BlogPost"));
 const Admin = React.lazy(() => import("./component/admin/Admin"));
 // const ContactUs = React.lazy(() => import("./component/contact-us/ContactUs"));
 // const Services = React.lazy(() => import("./component/services/Services"));
@@ -180,37 +186,35 @@ function App() {
       <div style={{display:!isPageLoaded?'none':'block'}}>
         <Router>
           <ScrollToTop />
-          <Suspense fallback={<LoadingScreen />}>
-            <Header />
-            <Routes>
-              <Route path="/" element={<Home />} />
-              {/* <Route path="/order-blog" element={<OrderBlog />} />
-              <Route path="/increase-sales" element={<IncreaseSales />} />
-              <Route path="/enhance-order" element={<EnhanceOrder />} />
-              <Route path="/grow-offline" element={<GrowOffline />} />
-              <Route path="/online-ordering" element={<OnlineOrdering />} />
-              <Route path="/plateform" element={<Plateform />} />
-              <Route path="/optimize-operation" element={<OptimizeOperation />} />
-              <Route path="/ensure-consistency" element={<EnsureConsistency />} />
-              <Route path="/brand-experience" element={<BrandExperience />} />
-              <Route path="/brand-journey" element={<BrandJourney />} />
-              <Route path="/future-shaping" element={<FutureShaping />} />
-              <Route path="/online-shift" element={<OnlineShift />} />
-              <Route path="/online-reputation" element={<OnlineReputation />} />
-              <Route path="/restaurant-rank" element={<RestaurantRank />} />
-              <Route path="/seo-mistakes" element={<SeoMistakes />} /> */}
-              <Route path="/restaurant" element={<Restaurant />} />
-              <Route path="/e-commerce" element={<Ecommerce />} />
-              <Route path="/whyTryzen" element={<WhyTryzen />} />
-              <Route path="/blogs" element={<Blogs />} />
-              <Route path="/blogs/:slug" element={<BlogPost />} />
-              <Route path="/ts-admin" element={<Admin />} />
-              {/* <Route path="/contact-us" element={<ContactUs />} />
-              <Route path="/services" element={<Services />} /> */}
-              <Route path="*" element={<Navigate to="/" replace />} />
-            </Routes>
-            <Footer />
-          </Suspense>
+          <Header />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            {/* <Route path="/order-blog" element={<OrderBlog />} />
+            <Route path="/increase-sales" element={<IncreaseSales />} />
+            <Route path="/enhance-order" element={<EnhanceOrder />} />
+            <Route path="/grow-offline" element={<GrowOffline />} />
+            <Route path="/online-ordering" element={<OnlineOrdering />} />
+            <Route path="/plateform" element={<Plateform />} />
+            <Route path="/optimize-operation" element={<OptimizeOperation />} />
+            <Route path="/ensure-consistency" element={<EnsureConsistency />} />
+            <Route path="/brand-experience" element={<BrandExperience />} />
+            <Route path="/brand-journey" element={<BrandJourney />} />
+            <Route path="/future-shaping" element={<FutureShaping />} />
+            <Route path="/online-shift" element={<OnlineShift />} />
+            <Route path="/online-reputation" element={<OnlineReputation />} />
+            <Route path="/restaurant-rank" element={<RestaurantRank />} />
+            <Route path="/seo-mistakes" element={<SeoMistakes />} /> */}
+            <Route path="/restaurant" element={<Restaurant />} />
+            <Route path="/e-commerce" element={<Ecommerce />} />
+            <Route path="/whyTryzen" element={<WhyTryzen />} />
+            <Route path="/blogs" element={<Blogs />} />
+            <Route path="/blogs/:slug" element={<BlogPost />} />
+            <Route path="/ts-admin" element={<Admin />} />
+            {/* <Route path="/contact-us" element={<ContactUs />} />
+            <Route path="/services" element={<Services />} /> */}
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
+          <Footer />
         </Router>
       </div>
     </>
