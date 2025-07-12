@@ -70,35 +70,75 @@ const Admin = React.lazy(() => import("./component/admin/Admin"));
 
 function App() {
   const [isPageLoaded, setIsPageLoaded] = useState(false);
-
-  // useEffect(() => {
-  //   const loadPage = async () => {
-  //     await new Promise((resolve) => setTimeout(resolve, 3000)); // Simulate loading delay
-  //     setIsPageLoaded(true);
-  //   };
-
-  //   loadPage();
-  // }, []);
-
-  const imagePaths = [
-    require('./assets/ecommerce.webp'),
-    require('./assets/restaurent.webp'),
-    require('./assets/ecomFashion.webp'),
-    require('./assets/ecomAppliances.webp'),
-    require('./assets/ecomHomedecore.webp'),
-    require('./assets/ecomSmartDeice.webp'),
-    require('./assets/why1.webp'),
-    require('./assets/why2.webp'),
-    require('./assets/why3.webp'),
-    require('./assets/why4.webp'),
-    require('./assets/redesignBGStroke.webp'),
-    require('./assets/resStep-1.gif'),
-    require('./assets/resStep-2.gif'),
-    require('./assets/resStep-3.gif'),
-    require('./assets/resStep-4.gif'),
-  ];
+  const [fontsLoaded, setFontsLoaded] = useState(false);
+  const [imagesLoaded, setImagesLoaded] = useState(false);
 
   useEffect(() => {
+    let timeoutId;
+    let retryCount = 0;
+    const maxRetries = 50; // 5 seconds max (50 * 100ms)
+
+    const checkFontsLoaded = () => {
+      const testElement = document.createElement('div');
+      testElement.style.fontFamily = '"LarkenDEMO-Black", "DupincelSmallTest-SemiBoldItalic", "CraftRounded-Regular", monospace';
+      testElement.style.position = 'absolute';
+      testElement.style.visibility = 'hidden';
+      testElement.style.fontSize = '72px';
+      testElement.textContent = 'Test';
+      document.body.appendChild(testElement);
+
+      const computedFont = window.getComputedStyle(testElement).fontFamily;
+      document.body.removeChild(testElement);
+      const isLoaded = computedFont.includes('LarkenDEMO') || computedFont.includes('Dupincel') || computedFont.includes('CraftRounded');
+      
+      if (isLoaded || retryCount >= maxRetries) {
+        setFontsLoaded(true);
+        if (timeoutId) clearTimeout(timeoutId);
+      } else {
+        retryCount++;
+        timeoutId = setTimeout(checkFontsLoaded, 100);
+      }
+    };
+    checkFontsLoaded();
+
+    if ('fonts' in document) {
+      Promise.all([
+        document.fonts.load('1em "LarkenDEMO-Black"'),
+        document.fonts.load('1em "DupincelSmallTest-SemiBoldItalic"'),
+        document.fonts.load('1em "CraftRounded-Regular"')
+      ]).then(() => {
+        setFontsLoaded(true);
+        if (timeoutId) clearTimeout(timeoutId);
+      }).catch(() => {
+        checkFontsLoaded();
+      });
+    }
+
+    return () => {
+      if (timeoutId) clearTimeout(timeoutId);
+    };
+  }, []);
+
+  // Image loading detection
+  useEffect(() => {
+    const imagePaths = [
+      require('./assets/ecommerce.webp'),
+      require('./assets/restaurent.webp'),
+      require('./assets/ecomFashion.webp'),
+      require('./assets/ecomAppliances.webp'),
+      require('./assets/ecomHomedecore.webp'),
+      require('./assets/ecomSmartDeice.webp'),
+      require('./assets/why1.webp'),
+      require('./assets/why2.webp'),
+      require('./assets/why3.webp'),
+      require('./assets/why4.webp'),
+      require('./assets/redesignBGStroke.webp'),
+      require('./assets/resStep-1.gif'),
+      require('./assets/resStep-2.gif'),
+      require('./assets/resStep-3.gif'),
+      require('./assets/resStep-4.gif'),
+    ];
+
     let loadedImages = 0;
 
     const loadImage = (src) => {
@@ -108,15 +148,29 @@ function App() {
         img.onload = () => {
           loadedImages++;
           if (loadedImages === imagePaths.length) {
-            setIsPageLoaded(true);
+            setImagesLoaded(true);
+          }
+          resolve();
+        };
+        img.onerror = () => {
+          loadedImages++;
+          if (loadedImages === imagePaths.length) {
+            setImagesLoaded(true);
           }
           resolve();
         };
       });
     };
 
-    Promise.all(imagePaths.map(loadImage)).then(() => setIsPageLoaded(true));
+    Promise.all(imagePaths.map(loadImage)).then(() => setImagesLoaded(true));
   }, []);
+
+  // Set page as loaded when both fonts and images are loaded
+  useEffect(() => {
+    if (fontsLoaded && imagesLoaded) {
+      setIsPageLoaded(true);
+    }
+  }, [fontsLoaded, imagesLoaded]);
 
   return (
     <>

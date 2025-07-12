@@ -7,20 +7,24 @@
     text-transform: uppercase;
     margin: 0;
     color: #000;
+    font-display: swap;
 }
 
 .profit-title {
     font-family: "DupincelSmallTest-SemiBoldItalic";
     margin: 0;
     color: #00A963;
+    font-display: swap;
 }
 
 .home-description-text {
     font-family: "LarkenDEMO-Black";
+    font-display: swap;
 }
 
 .ecom-Restaurant {
     font-family: "EcomRestaurant";
+    font-display: swap;
 }
 
 .info-sections {
