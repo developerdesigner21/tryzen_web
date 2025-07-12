@@ -31,7 +31,7 @@ export default function FoodDelivery() {
                 </h1>
             </div>
             <div>
-                <button onClick={handleScrollToUberDirect} className="save-fees-button bg-[#FF6802] text-white rounded-md px-6 py-2.5 text-sm md:text-md lg:text-xl font-semibold">
+                <button onClick={handleScrollToUberDirect} className="save-fees-button bg-[#FF6802] text-white rounded-md px-6 py-2.5 text-sm md:text-md lg:text-xl">
                     SAVE PLATEFORM FEES
                 </button>
             </div>

@@ -43,7 +43,7 @@ export default function CmsWeb() {
                 </h1>
             </div>
             <div>
-                <button onClick={handleScrollToBento} className="bold-title bg-[#0F54FF] text-white rounded-md px-6 py-2.5 text-sm md:text-md lg:text-xl font-semibold">
+                <button onClick={handleScrollToBento} className="bold-title bg-[#0F54FF] text-white rounded-md px-6 py-2.5 text-sm md:text-md lg:text-xl">
                     WITH EASY TO CHECKOUT
                 </button>
             </div>
