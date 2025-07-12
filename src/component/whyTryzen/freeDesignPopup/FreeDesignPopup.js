@@ -497,8 +497,11 @@ export default function FreeDesignPopup({ onClose ,isPopupOpen = false}) {
                         >
                             BOOK FREE WEBSITE CONSULTATION!
                         </button>
-                        <div className='mt-4'>
-                            <p className="text-left note-title font-bold"><span className='text-white'>NOTE: </span><span className='text-[#F9ED32]'>WE NEVER SHARE YOUR INFORMATION</span></p>
+                        <div className="mt-4">
+                            <p className="text-left note-title font-bold text-sm sm:text-base md:text-lg lg:text-xl">
+                                <span className="text-white">NOTE: </span>
+                                <span className="text-[#F9ED32]">WE NEVER SHARE YOUR INFORMATION</span>
+                            </p>
                         </div>
                     </div>
                     {/* <div className='text-white popup-content'>
