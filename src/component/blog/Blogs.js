@@ -174,13 +174,12 @@ export default function Blogs() {
 
     return (
         <div>
-            <Header />
             <div className={`px-2 md:px-6 lg:px-10 xl:px-12 pb-10 pt-16 responsive-container`}>
                 <div className="bg-white py-4">
                     {isAuthenticated && (
                         <div className='flex items-center justify-between mb-6'>
                             <div>
-                                <h1 className="text-2xl font-bold blog-heading-content">Categories</h1>
+                                <h1 className="text-2xl blog-heading-content">Categories</h1>
                             </div>
                             <div className="px-3 py-2 bg-[#FF6802] text-white rounded blog-content">
                                 <button onClick={() => setIsEditorOpen(true)}>
@@ -246,7 +245,7 @@ export default function Blogs() {
                                 id={`category-${category.id}`}
                                 className="pt-4"
                             >
-                                <h1 className="text-lg sm:text-2xl font-semibold mb-2 blog-heading-content">{category.category_name}</h1>
+                                <h1 className="text-lg sm:text-2xl mb-2 blog-heading-content">{category.category_name}</h1>
                                 <div className="relative">
                                     <Swiper
                                         onSwiper={(swiper) => {
@@ -404,7 +403,6 @@ export default function Blogs() {
                     </div>
                 </Modal>
             )}
-            <Footer />
         </div>
     )
 }

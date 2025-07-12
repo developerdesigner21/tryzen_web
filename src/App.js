@@ -2,6 +2,8 @@ import React, { useEffect, useState, Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from "react-router-dom";
 import "./App.css";
 import LoadingIcon from "./LoadingIcon";
+import Header from "./component/header/Header";
+import Footer from "./component/footer/Footer";
 
 // ScrollToTop Component to reset scroll position on route change
 function ScrollToTop() {
@@ -63,6 +65,8 @@ const WhyTryzen = React.lazy(() => import("./component/whyTryzen/WhyTryzen"));
 const Blogs = React.lazy(() => import("./component/blog/Blogs"));
 const BlogPost  = React.lazy(() => import("./component/blog/BlogPost"));
 const Admin = React.lazy(() => import("./component/admin/Admin"));
+// const ContactUs = React.lazy(() => import("./component/contact-us/ContactUs"));
+// const Services = React.lazy(() => import("./component/services/Services"));
 
 function App() {
   const [isPageLoaded, setIsPageLoaded] = useState(false);
@@ -123,6 +127,7 @@ function App() {
         <Router>
           <ScrollToTop />
           <Suspense fallback={<LoadingScreen />}>
+            <Header />
             <Routes>
               <Route path="/" element={<Home />} />
               {/* <Route path="/order-blog" element={<OrderBlog />} />
@@ -146,8 +151,11 @@ function App() {
               <Route path="/blogs" element={<Blogs />} />
               <Route path="/blogs/:slug" element={<BlogPost />} />
               <Route path="/ts-admin" element={<Admin />} />
+              {/* <Route path="/contact-us" element={<ContactUs />} />
+              <Route path="/services" element={<Services />} /> */}
               <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
+            <Footer />
           </Suspense>
         </Router>
       </div>

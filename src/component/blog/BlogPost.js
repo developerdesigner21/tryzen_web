@@ -160,7 +160,6 @@ const BlogPost = () => {
 
     return (
         <div className="min-h-screen flex flex-col">
-            <Header />
             <div className='bg-gray-100 px-2 md:px-6 lg:px-10 xl:px-12 pb-10 pt-16 responsive-container'>
                 <div className="flex flex-col md:flex-row gap-5 xl:gap-10 pt-16 lg:pt-10">
                     <div className="w-full max-w-5xl mx-auto">
@@ -382,7 +381,6 @@ const BlogPost = () => {
                     </div>
                 </div>
             </div>
-            <Footer />
         </div>
     );
 };

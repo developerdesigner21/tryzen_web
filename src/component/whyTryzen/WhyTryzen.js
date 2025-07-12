@@ -17,7 +17,6 @@ export default function WhyTryzen() {
 
     return (
         <div>
-            <Header />
             <div className={`px-2 md:px-6 lg:px-10 xl:px-12 pt-16 responsive-container`}>
                 <div className="mb-8 md:mb-12 lg:mb-16 xl:mb-20"><DesignMySite /></div>
                 <div className="mb-8 md:mb-12 lg:mb-16 xl:mb-20"><BeforeAfter /></div>
@@ -26,7 +25,6 @@ export default function WhyTryzen() {
                 <div className="mb-8 md:mb-12 lg:mb-16 xl:mb-20"><WhyTryzenSection /></div>
                 <div className="mb-8 md:mb-12 lg:mb-16 xl:mb-20"><BoostSales /></div>
             </div>
-            <Footer />
         </div>
     )
 }
